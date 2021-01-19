@@ -1137,6 +1137,16 @@ devtools-protocol@0.0.818844:
   resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.818844.tgz#d1947278ec85b53e4c8ca598f607a28fa785ba9e"
   integrity sha512-AD1hi7iVJ8OD0aMLQU5VK0XH9LDlA1+BcPIgrAxPfaibx2DbWucuyOhc4oyQCbnvDDO68nN6/LcKfqTP343Jjg==
 
+dexie-react-hooks@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dexie-react-hooks/-/dexie-react-hooks-1.0.2.tgz#17f596b3d4d105b906b2afdee47e2bf8f4a4bf44"
+  integrity sha512-Omue1blFsPza0z+qBwib8MZPqcJ1tN9ogw2P3lOr2HOivnFDxd5TJPAVrq3wZZfRFly+fG3Vb4wNS/izNmgcjA==
+
+dexie@^3.1.0-alpha.6:
+  version "3.1.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/dexie/-/dexie-3.1.0-alpha.6.tgz#855384b5928f28df609dd55fe059b8b6dabd38b3"
+  integrity sha512-xOTJSI9U8wOBCjBt8W6mHZBL55m1R5fQAfk3q3Cr9VW9q4DbZuJzgJpEaiEzpMF+AzTHW/z++2L/FkhHBHZOGA==
+
 diff@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-5.0.0.tgz#7ed6ad76d859d030787ec35855f5b1daf31d852b"
