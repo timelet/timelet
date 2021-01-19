@@ -1,4 +1,6 @@
 {
+  "name": "timelet",
+  "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
