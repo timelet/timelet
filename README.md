@@ -1,25 +1,15 @@
-# New Project
+# timelet
+Minimalistic portable time tracking ⏱.
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+ - Progressive web application
+ - Privacy concerned
+ - Open source and free
 
-## Available Scripts
+## Getting started
 
-### npm start
+As a **user** you can install the app via our [website](https://timelet.org).
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
-
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+For **developers** the easiest way to get started is:
+ - Make sure you have [Docker](https://docs.docker.com/get-docker/) up and running
+ - Get [Visual Studio Code](https://code.visualstudio.com/) with [Remote Containers](https://code.visualstudio.com/docs/remote/containers) ready
+ - Open the project in the Remote Container and run `yarn start`
