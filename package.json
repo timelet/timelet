@@ -6,7 +6,8 @@
     "build": "snowpack build",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
+    "check:types": "tsc --noEmit",
+    "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "dexie": "^3.1.0-alpha.6",
