@@ -17,5 +17,6 @@
   },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "cSpell.language": "en"
+  "cSpell.language": "en",
+  "cSpell.words": ["timelet", "indexeddb", "rxdb"]
 }
