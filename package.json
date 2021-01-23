@@ -37,5 +37,8 @@
     "snowpack": "^3.0.1",
     "typescript": "^4.0.0",
     "workbox-cli": "^6.0.2"
+  },
+  "resolutions": {
+    "broadcast-channel": "https://github.com/openscript/broadcast-channel"
   }
 }
