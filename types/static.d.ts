@@ -56,4 +56,4 @@ declare module '*.png' {
   export default ref;
 }
 
-/* CUSTOM: ADD YOUR OWN HERE */
+declare module 'pouchdb-adapter-indexeddb';
