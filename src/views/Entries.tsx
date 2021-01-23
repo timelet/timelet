@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function Entries() {
-    return <div>Entries</div>;
+export default function Entries() {
+  return <div>Entries</div>;
 }
