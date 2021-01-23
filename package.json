@@ -12,6 +12,10 @@
     "cli:workbox": "workbox"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "@types/uuid": "^8.3.0",
     "pouchdb-adapter-indexeddb": "^7.2.2",
     "react": "^17.0.0",
