@@ -1,3 +1,5 @@
+<img src='assets/images/timelet-128.png' align='right' alt='Timelet logo'>
+
 # timelet
 
 Minimalistic portable time tracking ⏱.
