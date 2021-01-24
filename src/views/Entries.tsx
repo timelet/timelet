@@ -1,5 +1,11 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
+import EntryForm from '../components/entries/EntryForm';
 
 export default function Entries() {
-  return <div>Entries</div>;
+  return (
+    <Container>
+      <EntryForm />
+    </Container>
+  );
 }

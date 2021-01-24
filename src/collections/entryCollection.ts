@@ -2,10 +2,10 @@ import type { RxCollection, RxDocument, RxJsonSchema } from 'rxdb';
 import { v4 } from 'uuid';
 
 export type EntryDocumentType = {
-  entryId: string;
+  entryId?: string;
   description: string;
   startedAt: number;
-  endedAt: number;
+  endedAt?: number;
 };
 
 export type EntryDocument = RxDocument<EntryDocumentType>;
@@ -32,7 +32,7 @@ export const entrySchema: RxJsonSchema<EntryDocumentType> = {
       type: 'number'
     }
   },
-  required: ['description', 'startedAt', 'endedAt']
+  required: ['description', 'startedAt']
 };
 
 export function configureEntryCollection(collection: EntryCollection) {
