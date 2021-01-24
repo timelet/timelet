@@ -2,11 +2,17 @@
 
 # timelet
 
-Minimalistic portable time tracking ⏱.
+Minimal portable time tracking ⏱
 
-- Progressive web application
+- Offline first progressive web application (PWA)
 - Privacy concerned
 - Open source and free
+
+## Contribute
+
+1. Checkout the [open issues](https://github.com/timelet/timelet/issues), if you don't know what to improve
+1. Create a fork, change some code and make sure it works and is properly formatted
+1. Send a pull request
 
 ## Getting started
 
