@@ -1,18 +1,14 @@
-import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import MenuIcon from '@material-ui/icons/Menu';
-import styled from '@emotion/styled';
-import { FormattedMessage, IntlProvider } from 'react-intl';
+import 'date-fns';
+import { IntlProvider } from 'react-intl';
+import { StylesProvider } from '@material-ui/core';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import { DatabaseProvider } from '../contexts/DatabaseContext';
-import type { TimeletDatabase } from '../database';
-import { initializeDatabase } from '../database';
+import { TimeletDatabase, initializeDatabase } from '../database';
 import Entries from './Entries';
 import enMessages from '../i18n/en.json';
-
-const Title = styled(Typography)`
-  margin-left: 1rem;
-  flex-grow: 1;
-`;
+import DefaultLayout from '../layout/default/DefaultLayout';
 
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();
@@ -29,17 +25,13 @@ export default function App() {
   return (
     <DatabaseProvider database={database}>
       <IntlProvider locale="en" messages={enMessages}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Title variant="h6">
-              <FormattedMessage id="app.title" defaultMessage="Timelet" description="Application name" />
-            </Title>
-          </Toolbar>
-        </AppBar>
-        <Entries />
+        <StylesProvider injectFirst>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DefaultLayout>
+              <Entries />
+            </DefaultLayout>
+          </MuiPickersUtilsProvider>
+        </StylesProvider>
       </IntlProvider>
     </DatabaseProvider>
   );
