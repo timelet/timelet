@@ -3,13 +3,16 @@
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build && workbox generateSW workbox-config.js",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "build": "snowpack build && workbox generateSW workbox-config.js",
+    "build:format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "i18n:extract": "formatjs extract 'src/**/*.{js,jsx,ts,tsx}'",
+    "i18n:compile": "formatjs compile",
     "check:types": "tsc --noEmit",
     "check:lint": "eslint . --max-warnings=0 --ext .ts,.tsx,.js,.jsx",
     "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "cli:workbox": "workbox"
+    "cli:workbox": "workbox",
+    "cli:formatjs": "formatjs"
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
@@ -20,11 +23,13 @@
     "pouchdb-adapter-indexeddb": "^7.2.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-intl": "^5.10.16",
     "rxdb": "^9.12.0",
     "rxdb-hooks": "^2.1.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@formatjs/cli": "^3.0.2",
     "@snowpack/plugin-dotenv": "^2.0.5",
     "@snowpack/plugin-react-refresh": "^2.4.0",
     "@snowpack/plugin-typescript": "^1.2.0",

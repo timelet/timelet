@@ -16,6 +16,13 @@ For **developers** the easiest way to get started is:
 - Get [Visual Studio Code](https://code.visualstudio.com/) with [Remote Containers](https://code.visualstudio.com/docs/remote/containers) ready
 - Open the project in the Remote Container and run `yarn start`
 
+### Internationalization
+
+Messages can be extracted for translation and compiled again for usage.
+
+1. Extract messages with `yarn i18n:extract --out-file assets/i18n/en.json`.
+1. Compile messages with `yarn i18n:compile assets/i18n/en.json --ast --out-file src/i18n/en.json`.
+
 ## Resources
 
 A list of articles and tutorials, which helped to develop this application.
