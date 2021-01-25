@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Container } from '@material-ui/core';
+import { Container, withTheme } from '@material-ui/core';
 import React from 'react';
 import Header from './Header';
 
@@ -10,9 +10,12 @@ const LayoutContainer = styled(Container)`
   padding: 0;
 `;
 
-const NativeMain = styled.main`
-  flex-grow: 1;
-`;
+const NativeMain = withTheme(
+  styled.main`
+    flex-grow: 1;
+    margin: ${({ theme }) => theme.spacing(4)}px 0;
+  `
+);
 
 type DefaultLayoutProps = React.PropsWithChildren<{}>;
 

@@ -2,6 +2,10 @@
 /* Use this folder to also add/extend a package d.ts file, if needed. */
 
 /* CSS MODULES */
+// You are also able to use a 3rd party theme this way:
+import '@emotion/react'
+import { Theme as MaterialTheme } from '@material-ui/core'
+
 declare module '*.module.css' {
   const classes: { [key: string]: string };
   export default classes;
@@ -56,4 +60,7 @@ declare module '*.png' {
   export default ref;
 }
 
-declare module 'pouchdb-adapter-indexeddb';
+declare module '@emotion/react' {
+  export interface Theme extends MaterialTheme {}
+}
+

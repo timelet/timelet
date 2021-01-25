@@ -1,8 +1,21 @@
-import { IconButton, TextField } from '@material-ui/core';
+import styled from '@emotion/styled';
+import { IconButton, TextField, withTheme } from '@material-ui/core';
 import { PlayCircleFilled } from '@material-ui/icons';
 import { KeyboardDateTimePicker } from '@material-ui/pickers';
 import React from 'react';
 import { useIntl } from 'react-intl';
+
+const StyledForm = withTheme(
+  styled.form`
+    display: flex;
+    justify-content: space-around;
+
+    & > *:not(:last-child) {
+      flex-grow: 1;
+      margin-right: ${({ theme }) => theme.spacing(2)}px;
+    }
+  `
+);
 
 export default function EntryForm() {
   const intl = useIntl();
@@ -10,9 +23,13 @@ export default function EntryForm() {
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
 
   return (
-    <form>
+    <StyledForm>
       <TextField
-        label={intl.formatMessage({ id: 'label.description', defaultMessage: 'Description', description: 'Label for a multiline description' })}
+        label={intl.formatMessage({
+          id: 'label.description',
+          defaultMessage: 'Description',
+          description: 'Label for a multiline description'
+        })}
         multiline
       />
       <KeyboardDateTimePicker
@@ -49,6 +66,6 @@ export default function EntryForm() {
       <IconButton type="submit">
         <PlayCircleFilled />
       </IconButton>
-    </form>
+    </StyledForm>
   );
 }
