@@ -12,6 +12,8 @@ const LayoutContainer = styled(Container)`
 
 const NativeMain = withTheme(
   styled.main`
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     margin: ${({ theme }) => theme.spacing(4)}px 0;
   `
