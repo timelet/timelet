@@ -15,7 +15,7 @@ export type EntryCollection = RxCollection<EntryDocumentType>;
 export const entrySchema: RxJsonSchema<EntryDocumentType> = {
   title: 'entry schema',
   description: 'describes time entries',
-  version: 0,
+  version: 1,
   type: 'object',
   properties: {
     entryId: {

@@ -1,6 +1,6 @@
 import { addRxPlugin, createRxDatabase, RxDatabase } from 'rxdb';
 import indexeddb from 'pouchdb-adapter-indexeddb';
-import { EntryCollection, entrySchema, configureEntryCollection } from './collections/entryCollection';
+import { EntryCollection, entrySchema, configureEntryCollection, EntryDocumentType } from './collections/entryCollection';
 
 addRxPlugin(indexeddb);
 
@@ -18,7 +18,12 @@ export async function initializeDatabase() {
 
   await database.addCollections({
     entries: {
-      schema: entrySchema
+      schema: entrySchema,
+      migrationStrategies: {
+        1(previous: EntryDocumentType){
+          return previous;
+        }
+      }
     }
   });
 
