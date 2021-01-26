@@ -28,3 +28,6 @@ module.exports = {
     /* ... */
   },
 };
+
+const package = require('./package.json');
+process.env.SNOWPACK_PUBLIC_PACKAGE_VERSION = package.version;
