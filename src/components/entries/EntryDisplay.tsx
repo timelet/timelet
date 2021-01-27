@@ -38,7 +38,9 @@ export default function EntryDisplay() {
             entryId: doc.entryId,
             description: doc.description,
             startedAt: `${intl.formatDate(doc.startedAt)} ${intl.formatTime(doc.startedAt)}`,
-            endedAt: doc.endedAt ?? `${intl.formatDate(doc.endedAt)} ${intl.formatTime(doc.endedAt)}`
+            endedAt: doc.endedAt
+              ? `${intl.formatDate(doc.endedAt)} ${intl.formatTime(doc.endedAt)}`
+              : intl.formatMessage({ id: 'label.undefined', defaultMessage: 'Undefined', description: 'An undefined value' })
           }))
         );
       });

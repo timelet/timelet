@@ -9,3 +9,7 @@ This document contains the lessons learned. The following icons categorize the o
 ## Material UI
 
 - Custom styles from emotion styled are not applied due to the lower specificity. <br> ✅ It's possible to control the inject order to fix this issue: https://material-ui.com/guides/interoperability/#controlling-priority-3
+
+## Snowpack
+
+- Environment variables don't work like they do in Webpack. <br> ✅ It's possible to define your own environment variables in the config `snowpack.config.js`: https://www.snowpack.dev/#environment-variables
