@@ -20,7 +20,7 @@ export async function initializeDatabase() {
     entries: {
       schema: entrySchema,
       migrationStrategies: {
-        1(previous: EntryDocumentType){
+        1(previous: EntryDocumentType) {
           return previous;
         }
       }
