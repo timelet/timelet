@@ -6,6 +6,8 @@ import CategoryIcon from '@material-ui/icons/Category';
 import SettingsIcon from '@material-ui/icons/Settings';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
+import { Link, useLocation } from 'react-router-dom';
+import { RoutePaths } from './Router';
 
 const DrawerContainer = styled.nav`
   display: flex;
@@ -24,6 +26,11 @@ type MenuDrawerProps = {
 
 export default function MenuDrawer({ title }: MenuDrawerProps) {
   const [open, setOpen] = React.useState(false);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    setOpen(false);
+  }, [location]);
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -44,13 +51,13 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
           </Toolbar>
           <Divider />
           <StyledMenuList>
-            <MenuItem>
+            <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
               <ListItemIcon>
                 <CategoryIcon />
               </ListItemIcon>
               <FormattedMessage id="label.categories" defaultMessage="Categories" description="Label for entry categories" />
             </MenuItem>
-            <MenuItem>
+            <MenuItem component={Link} to={RoutePaths.SETTINGS}>
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>

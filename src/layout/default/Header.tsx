@@ -1,27 +1,37 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Link, Toolbar, Typography } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
 import MenuDrawer from './MenuDrawer';
+import { RoutePaths } from './Router';
 
 const Title = styled(Typography)`
   margin-left: 0.5rem;
   flex-grow: 1;
 `;
 
+const CustomToolbar = styled(Toolbar)`
+  & > h6 > a {
+    color: inherit;
+  }
+`;
+
 export default function Header() {
   const titleElement = (
     <Title variant="h6">
-      <FormattedMessage id="app.title" defaultMessage="Timelet" description="Application name" />
+      <Link component={RouterLink} to={RoutePaths.DASHBOARD}>
+        <FormattedMessage id="app.title" defaultMessage="Timelet" description="Application name" />
+      </Link>
     </Title>
   );
 
   return (
     <AppBar position="static">
-      <Toolbar>
+      <CustomToolbar>
         <MenuDrawer title={titleElement} />
         {titleElement}
-      </Toolbar>
+      </CustomToolbar>
     </AppBar>
   );
 }
