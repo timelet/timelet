@@ -2,15 +2,12 @@ import { ColDef, DataGrid, RowsProp } from '@material-ui/data-grid';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { useDatabase } from '../../contexts/DatabaseContext';
+import Duration from '../Duration';
 
 export default function EntryDisplay() {
   const database = useDatabase();
   const intl = useIntl();
   const columns: ColDef[] = [
-    {
-      field: 'entryId',
-      headerName: intl.formatMessage({ id: 'label.id', defaultMessage: 'Id', description: 'Label which describes the id column' })
-    },
     {
       field: 'description',
       headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
@@ -19,12 +16,25 @@ export default function EntryDisplay() {
     {
       field: 'startedAt',
       headerName: intl.formatMessage({ id: 'label.startedAt', defaultMessage: 'Started at' }),
-      width: 200
+      width: 180
     },
     {
       field: 'endedAt',
       headerName: intl.formatMessage({ id: 'label.endedAt', defaultMessage: 'Ended at' }),
-      width: 200
+      width: 180,
+      renderCell: (params) => (
+        <span>
+          {params.value
+            ? params.value
+            : intl.formatMessage({ id: 'label.undefined', defaultMessage: 'Undefined', description: 'An undefined value' })}
+        </span>
+      )
+    },
+    {
+      field: 'duration',
+      headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
+      width: 120,
+      renderCell: (params) => <Duration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
     }
   ];
   const [rows, setRows] = React.useState<RowsProp>([]);
@@ -35,12 +45,9 @@ export default function EntryDisplay() {
         setRows(
           docs.map((doc, i) => ({
             id: i,
-            entryId: doc.entryId,
             description: doc.description,
             startedAt: `${intl.formatDate(doc.startedAt)} ${intl.formatTime(doc.startedAt)}`,
-            endedAt: doc.endedAt
-              ? `${intl.formatDate(doc.endedAt)} ${intl.formatTime(doc.endedAt)}`
-              : intl.formatMessage({ id: 'label.undefined', defaultMessage: 'Undefined', description: 'An undefined value' })
+            endedAt: doc.endedAt ? `${intl.formatDate(doc.endedAt)} ${intl.formatTime(doc.endedAt)}` : undefined
           }))
         );
       });

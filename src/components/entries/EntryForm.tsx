@@ -36,8 +36,8 @@ export default function EntryForm() {
   const onSubmit = (data: Inputs) => {
     const entry: EntryDocumentType = {
       description: data.description,
-      startedAt: new Date(data.startedAt).getTime(),
-      endedAt: data.endedAt ? new Date(data.endedAt).getTime() : undefined
+      startedAt: new Date(data.startedAt).toISOString(),
+      endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
     };
     database?.entries.insert(entry);
   };

@@ -12,4 +12,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint'
   ],
+  rules: {
+    "react/require-default-props": 0
+  }
 };
