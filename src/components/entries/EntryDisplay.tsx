@@ -1,34 +1,41 @@
 import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
-import { PauseCircleFilled } from '@material-ui/icons';
+import { Stop as StopIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
+import { EntryDocumentType } from '../../collections/entryCollection';
 import { EntryDisplayViewModel } from '../../models/entryDisplayViewModel';
 import Duration from '../Duration';
+import EntryForm from './EntryForm';
 
 type EntryDisplayProps = {
   entries: EntryDisplayViewModel[];
   stop?: (entryId: string) => void;
+  update: (entry: EntryDocumentType) => void;
   loading?: boolean;
 };
 
-export default function EntryDisplay({ entries, loading, stop }: EntryDisplayProps) {
+export default function EntryDisplay({ entries, loading, update, stop }: EntryDisplayProps) {
   const intl = useIntl();
 
-  const renderStopButton = (params: CellParams) => {
-    if (!params.getValue('endedAt')) {
-      return (
-        <IconButton
-          onClick={() => {
-            const entryId = params.getValue('entryId')?.toString();
-            if (entryId && stop) {
-              stop(entryId);
-            }
-          }}
-        >
-          <PauseCircleFilled />
-        </IconButton>
-      );
+  const renderStopButton = (params: CellParams) => (
+    <IconButton
+      disabled={!!params.getValue('endedAt')}
+      onClick={() => {
+        const entryId = params.getValue('entryId')?.toString();
+        if (entryId && stop) {
+          stop(entryId);
+        }
+      }}
+    >
+      <StopIcon />
+    </IconButton>
+  );
+
+  const renderEditButton = (params: CellParams) => {
+    const currentEntry = entries.find((e) => e.entryId === params.getValue('entryId'));
+    if (currentEntry) {
+      return <EntryForm entry={currentEntry} update={update} />;
     }
     return null;
   };
@@ -71,10 +78,15 @@ export default function EntryDisplay({ entries, loading, stop }: EntryDisplayPro
     {
       field: 'actions',
       headerName: intl.formatMessage({ id: 'label.actions', defaultMessage: 'Actions' }),
-      width: 120,
+      width: 150,
       align: 'center',
       headerAlign: 'center',
-      renderCell: (params) => <>{renderStopButton(params)}</>
+      renderCell: (params) => (
+        <>
+          {renderStopButton(params)}
+          {renderEditButton(params)}
+        </>
+      )
     }
   ];
 

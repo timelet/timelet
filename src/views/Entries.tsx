@@ -4,7 +4,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
-import EntryForm from '../components/entries/EntryForm';
+import EntryInlineForm from '../components/entries/EntryInlineForm';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { EntryDisplayViewModel } from '../models/entryDisplayViewModel';
 
@@ -40,6 +40,11 @@ export default function Entries() {
     database?.entries.insert(entry);
   };
 
+  const updateEntry = async (entry: EntryDocumentType) => {
+    const query = database?.entries.findOne({ selector: { entryId: entry.entryId } });
+    await query?.update({ $set: entry });
+  };
+
   const stopEntry = async (entryId: string) => {
     const query = database?.entries.findOne({ selector: { entryId } });
     await query?.update({ $set: { endedAt: new Date().toISOString() } });
@@ -65,10 +70,10 @@ export default function Entries() {
   return (
     <EntryContainer>
       <EntryFormContainer>
-        <EntryForm create={createEntry} />
+        <EntryInlineForm create={createEntry} />
       </EntryFormContainer>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} />
+        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} />
       </EntryDisplayContainer>
     </EntryContainer>
   );
