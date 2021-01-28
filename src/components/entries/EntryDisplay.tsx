@@ -1,13 +1,23 @@
-import { ColDef, DataGrid, RowsProp } from '@material-ui/data-grid';
+import { ColDef, DataGrid } from '@material-ui/data-grid';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { useDatabase } from '../../contexts/DatabaseContext';
+import { EntryDisplayViewModel } from '../../models/entryDisplayViewModel';
 import Duration from '../Duration';
 
-export default function EntryDisplay() {
-  const database = useDatabase();
+type EntryDisplayProps = {
+  entries: EntryDisplayViewModel[];
+  loading?: boolean;
+};
+
+export default function EntryDisplay({ entries, loading }: EntryDisplayProps) {
   const intl = useIntl();
   const columns: ColDef[] = [
+    {
+      field: 'entryId',
+      headerName: intl.formatMessage({ id: 'label.id', defaultMessage: 'Id' }),
+      width: 150,
+      hide: true
+    },
     {
       field: 'description',
       headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
@@ -33,26 +43,10 @@ export default function EntryDisplay() {
     {
       field: 'duration',
       headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
-      width: 120,
+      width: 130,
       renderCell: (params) => <Duration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
     }
   ];
-  const [rows, setRows] = React.useState<RowsProp>([]);
 
-  React.useEffect(() => {
-    if (database) {
-      database.entries.find().$.subscribe((docs) => {
-        setRows(
-          docs.map((doc, i) => ({
-            id: i,
-            description: doc.description,
-            startedAt: `${intl.formatDate(doc.startedAt)} ${intl.formatTime(doc.startedAt)}`,
-            endedAt: doc.endedAt ? `${intl.formatDate(doc.endedAt)} ${intl.formatTime(doc.endedAt)}` : undefined
-          }))
-        );
-      });
-    }
-  }, [database]);
-
-  return <DataGrid columns={columns} rows={rows} />;
+  return <DataGrid columns={columns} rows={entries} loading={loading} />;
 }

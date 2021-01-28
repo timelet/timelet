@@ -6,7 +6,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../collections/entryCollection';
-import { useDatabase } from '../../contexts/DatabaseContext';
 
 const StyledForm = withTheme(
   styled.form`
@@ -20,26 +19,23 @@ const StyledForm = withTheme(
   `
 );
 
-type Inputs = {
-  description: string;
-  startedAt: string;
-  endedAt?: string;
+type EntryFormProps = {
+  createEntry: (entry: EntryDocumentType) => void;
 };
 
-export default function EntryForm() {
+export default function EntryForm({ createEntry }: EntryFormProps) {
   const intl = useIntl();
-  const database = useDatabase();
   const [startedAt, setStartedAt] = React.useState<Date | null>(new Date());
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<EntryDocumentType>();
 
-  const onSubmit = (data: Inputs) => {
+  const onSubmit = (data: EntryDocumentType) => {
     const entry: EntryDocumentType = {
       description: data.description,
       startedAt: new Date(data.startedAt).toISOString(),
       endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
     };
-    database?.entries.insert(entry);
+    createEntry(entry);
   };
 
   return (
