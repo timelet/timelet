@@ -40,6 +40,11 @@ export default function Entries() {
     database?.entries.insert(entry);
   };
 
+  const stopEntry = async (entryId: string) => {
+    const query = database?.entries.findOne({ selector: { entryId } });
+    await query?.update({ $set: { endedAt: new Date().toISOString() } });
+  };
+
   React.useEffect(() => {
     if (database) {
       database.entries.find().$.subscribe((docs) => {
@@ -60,10 +65,10 @@ export default function Entries() {
   return (
     <EntryContainer>
       <EntryFormContainer>
-        <EntryForm createEntry={createEntry} />
+        <EntryForm create={createEntry} />
       </EntryFormContainer>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} loading={loading} />
+        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} />
       </EntryDisplayContainer>
     </EntryContainer>
   );

@@ -20,10 +20,10 @@ const StyledForm = withTheme(
 );
 
 type EntryFormProps = {
-  createEntry: (entry: EntryDocumentType) => void;
+  create: (entry: EntryDocumentType) => void;
 };
 
-export default function EntryForm({ createEntry }: EntryFormProps) {
+export default function EntryForm({ create }: EntryFormProps) {
   const intl = useIntl();
   const [startedAt, setStartedAt] = React.useState<Date | null>(new Date());
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
@@ -35,7 +35,7 @@ export default function EntryForm({ createEntry }: EntryFormProps) {
       startedAt: new Date(data.startedAt).toISOString(),
       endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
     };
-    createEntry(entry);
+    create(entry);
   };
 
   return (
