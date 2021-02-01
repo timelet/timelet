@@ -13,3 +13,7 @@ This document contains the lessons learned. The following icons categorize the o
 ## Snowpack
 
 - Environment variables don't work like they do in Webpack. <br> ✅ It's possible to define your own environment variables in the config `snowpack.config.js`: https://www.snowpack.dev/#environment-variables
+
+## Workbox
+
+- An error is thrown while running workbox: `node_modules/workbox-core/types.d.ts(14,12): error TS2304: Cannot find name 'ExtendableEvent'.` <br> ✅ For compilation the WebWorker library needs to be configured: https://github.com/GoogleChrome/workbox/issues/2172#issuecomment-518614955
