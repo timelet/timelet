@@ -11,6 +11,7 @@ import enMessages from '../i18n/en.json';
 import DefaultLayout from '../layout/default/DefaultLayout';
 import { theme } from '../style';
 import Router from '../layout/default/Router';
+import ServiceWorkerIntegration from '../components/ServiceWorkerIntegration';
 
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();
@@ -31,6 +32,7 @@ export default function App() {
           <ThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <BrowserRouter>
+                <ServiceWorkerIntegration />
                 <DefaultLayout>
                   <Router />
                 </DefaultLayout>

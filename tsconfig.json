@@ -4,6 +4,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
+    "lib": ["DOM", "ESNext", "WebWorker"],
     "jsx": "react-jsx",
     "sourceMap": true,
     /* paths - import rewriting/resolving */

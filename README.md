@@ -34,6 +34,8 @@ Messages can be extracted for translation and compiled again for usage.
 
 ## Resources
 
+- Check our [learning here](./docs/learning.md).
+
 A list of articles and tutorials, which helped to develop this application.
 
-- Check our [learning here](./docs/learning.md).
+- [Example: Workbox service worker with TypeScript](https://gist.github.com/dsebastien/12c47fdb6517cfdab9473297f4472d22)
