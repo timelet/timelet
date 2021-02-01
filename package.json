@@ -5,7 +5,7 @@
   "scripts": {
     "start": "snowpack dev",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
-    "build": "snowpack build && workbox injectManifest workbox-config.js",
+    "build": "snowpack build",
     "build:format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "i18n:extract": "formatjs extract 'src/**/*.{js,jsx,ts,tsx}'",
     "i18n:compile": "formatjs compile",
@@ -68,6 +68,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "glob": "^7.1.6",
     "prettier": "^2.0.5",
     "snowpack": "^3.0.1",
     "typescript": "^4.1.3",

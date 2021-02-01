@@ -9,7 +9,7 @@ declare const self: {
 };
 
 const SERVICE_WORKER_NAME = "Timelet Service Worker";
-const SERVICE_WORKER_VERSION = "1.0.0";
+const SERVICE_WORKER_VERSION = import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION;
 const DEBUG_MODE = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
 const DAY_IN_SECONDS = 24 * 60 * 60;
 const MONTH_IN_SECONDS = DAY_IN_SECONDS * 30;
