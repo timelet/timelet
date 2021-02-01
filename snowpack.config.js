@@ -15,6 +15,7 @@ module.exports = {
     [
       '@snowpack/plugin-webpack',
       {
+        sourceMap: true,
         extendConfig: (config) => {
           const { glob } = require("glob");
           const { InjectManifest } = require('workbox-webpack-plugin');
