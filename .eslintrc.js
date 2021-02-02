@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json']
+    project: ['./tsconfig.json', './tsconfig.sw.json']
   },
   plugins: [
     '@typescript-eslint',
@@ -12,4 +12,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint'
   ],
+  rules: {
+    "react/require-default-props": 0
+  }
 };
