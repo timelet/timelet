@@ -1,13 +1,13 @@
+/* eslint-disable no-console */
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute } from 'workbox-precaching';
 import { NavigationRoute, registerRoute } from 'workbox-routing';
 import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
-import { skipWaiting } from 'workbox-core';
 
 declare const self: {
-  __WB_MANIFEST: any;
-};
+  skipWaiting: () => void;
+} & ServiceWorkerGlobalScope;
 
 const SERVICE_WORKER_NAME = 'Timelet Service Worker';
 const SERVICE_WORKER_VERSION = import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION;
@@ -18,7 +18,7 @@ const MONTH_IN_SECONDS = DAY_IN_SECONDS * 30;
 const YEAR_IN_SECONDS = DAY_IN_SECONDS * 365;
 
 if (DEBUG_MODE) {
-  console.debug(`Service worker version ${SERVICE_WORKER_VERSION} loading...`);
+  console.debug(`${SERVICE_WORKER_NAME}:: Version ${SERVICE_WORKER_VERSION} loading...`);
 }
 
 // ------------------------------------------------------------------------------------------
@@ -31,8 +31,6 @@ cleanupOutdatedCaches();
 // This is done by workbox-build-inject.js for the production build
 // eslint-disable-next-line no-underscore-dangle
 const assetsToCache = self.__WB_MANIFEST;
-// To customize the assets afterwards:
-// assetsToCache = [...assetsToCache, ???];
 
 if (DEBUG_MODE) {
   console.trace(`${SERVICE_WORKER_NAME}:: Assets that will be cached: `, assetsToCache);
@@ -82,7 +80,7 @@ registerRoute(
 
 // Make JS/CSS fast by returning assets from the cache
 // But make sure they're updating in the background for next use
-registerRoute(/\.(?:js|css)$/, new StaleWhileRevalidate({ cacheName: 'style-script-cache' }));
+registerRoute(/\.(?:js|map|css)$/, new StaleWhileRevalidate({ cacheName: 'style-script-cache' }));
 
 // Cache images
 // But clean up after a while
@@ -103,6 +101,9 @@ registerRoute(
 // eslint-disable-next-line no-restricted-globals
 addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    skipWaiting();
+    if (DEBUG_MODE) {
+      console.trace(`${SERVICE_WORKER_NAME}:: New version became active`, assetsToCache);
+    }
+    self.skipWaiting();
   }
 });

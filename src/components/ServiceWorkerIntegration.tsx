@@ -7,35 +7,34 @@ export default function ServiceWorkerIntegration() {
   const intl = useIntl();
   const workbox = new Workbox(import.meta.env.SNOWPACK_PUBLIC_SERVICE_WORKER);
   const [updateNotificationOpen, setUpdateNotificationOpen] = React.useState(false);
-  let registration: ServiceWorkerRegistration | undefined;
+  const [registration, setRegistration] = React.useState<ServiceWorkerRegistration>();
 
   const showSkipWaitingPrompt = () => {
     setUpdateNotificationOpen(true);
   };
 
-  const updateApplication = () => {
-    workbox.addEventListener('controlling', () => {
+  const updateApplication = (currentRegistration?: ServiceWorkerRegistration) => () => {
+    // skip waiting until all service workers are closed to force update
+    if (currentRegistration && currentRegistration.waiting) {
+      messageSW(currentRegistration.waiting, { type: 'SKIP_WAITING' });
+      setUpdateNotificationOpen(false);
       window.location.reload();
-    });
-
-    // skip waiting until all service workers are closed
-    if (registration?.waiting) {
-      messageSW(registration.waiting, { type: 'SKIP_WAITING' });
     }
   };
 
   // register service worker on first load if the browser supports it
   React.useEffect(() => {
     if ('serviceWorker' in navigator) {
+      // Open update prompt because there is an update waiting
       workbox.addEventListener('waiting', showSkipWaitingPrompt);
       workbox.register().then((r) => {
-        registration = r;
+        setRegistration(r);
       });
     }
   }, []);
 
   const reloadButton = (
-    <Button onClick={updateApplication}>
+    <Button onClick={updateApplication(registration)} color="primary">
       <FormattedMessage id="action.reload" defaultMessage="Reload" description="Action to reload something" />
     </Button>
   );
