@@ -30,9 +30,13 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
   const intl = useIntl();
   const [startedAt, setStartedAt] = React.useState<Date | null>(new Date(entry.startedAt));
   const [endedAt, setEndedAt] = React.useState<Date | null>(entry.endedAt ? new Date(entry.endedAt) : null);
-  const { register, handleSubmit } = useForm<EntryDocumentType>({ defaultValues: entry });
+  const { reset, register, handleSubmit } = useForm<EntryDocumentType>({ defaultValues: entry });
 
   const toggleDialog = () => setOpen(!open);
+
+  React.useEffect(() => {
+    reset(entry);
+  }, [entry]);
 
   const onSubmit = (data: EntryDocumentType) => {
     const updatedEntry: EntryDocumentType = {

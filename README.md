@@ -34,7 +34,7 @@ Messages can be extracted for translation and compiled again for usage.
 
 ## Resources
 
-- Check our [learning here](./docs/learning.md).
+- Check our [learning here](./docs/learnings.md).
 
 A list of articles and tutorials, which helped to develop this application.
 

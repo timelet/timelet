@@ -19,12 +19,12 @@ module.exports = {
           const { glob } = require("glob");
           const { InjectManifest } = require('workbox-webpack-plugin');
           const additionalManifestEntries = [
-            ...glob.sync("*.*", {cwd: './build'}),
-            ...glob.sync("icons/*", {cwd: './build'})
+            ...glob.sync("*.{png,html,json,txt}", {cwd: './build'})
           ].map((e) => ({ url: e, revision: process.env.SNOWPACK_PUBLIC_PACKAGE_VERSION}));
 
           config.plugins.push(
             new InjectManifest({
+              "mode": "development",
               "additionalManifestEntries": additionalManifestEntries,
               "swSrc": "./dist/serviceWorker.js",
               "swDest": process.env.SNOWPACK_PUBLIC_SERVICE_WORKER
@@ -50,6 +50,6 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
-    /* ... */
+    sourcemap: false
   },
 };
