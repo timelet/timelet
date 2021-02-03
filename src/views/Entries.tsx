@@ -1,34 +1,18 @@
 import styled from '@emotion/styled';
-import { Container, Paper, withTheme } from '@material-ui/core';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { EntryDocumentType } from '../collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
 import EntryInlineForm from '../components/entries/EntryInlineForm';
 import { useDatabase } from '../contexts/DatabaseContext';
+import ContentContainer from '../layout/default/ContentContainer';
+import ContentElement from '../layout/default/ContentElement';
+import ContentTitle from '../layout/default/ContentTitle';
 import { EntryDisplayViewModel } from '../models/entryDisplayViewModel';
 
-const EntryContainer = withTheme(
-  styled(Container)`
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  `
-);
-
-const EntryFormContainer = withTheme(
-  styled(Paper)`
-    padding: ${({ theme }) => theme.spacing(2)}px;
-    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-  `
-);
-
-const EntryDisplayContainer = withTheme(
-  styled(Paper)`
-    padding: ${({ theme }) => theme.spacing(2)}px;
-    flex-grow: 1;
-  `
-);
+const EntryDisplayContainer = styled(ContentElement)`
+  flex-grow: 1;
+`;
 
 export default function Entries() {
   const intl = useIntl();
@@ -68,13 +52,16 @@ export default function Entries() {
   }, [database]);
 
   return (
-    <EntryContainer>
-      <EntryFormContainer>
+    <ContentContainer>
+      <ContentTitle>
+        <FormattedMessage id="title.entries" defaultMessage="Entries" />
+      </ContentTitle>
+      <ContentElement>
         <EntryInlineForm create={createEntry} />
-      </EntryFormContainer>
+      </ContentElement>
       <EntryDisplayContainer>
         <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} />
       </EntryDisplayContainer>
-    </EntryContainer>
+    </ContentContainer>
   );
 }
