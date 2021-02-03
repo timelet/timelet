@@ -36,6 +36,8 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
 
   React.useEffect(() => {
     reset(entry);
+    setStartedAt(new Date(entry.startedAt));
+    setEndedAt(entry.endedAt ? new Date(entry.endedAt) : null);
   }, [entry]);
 
   const onSubmit = (data: EntryDocumentType) => {
