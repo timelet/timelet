@@ -5,7 +5,7 @@ import { KeyboardDateTimePicker } from '@material-ui/pickers';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
-import { EntryDocumentType } from '../../collections/entryCollection';
+import { EntryDocumentType } from '../../domain/collections/entryCollection';
 
 const StyledForm = withTheme(
   styled.form`

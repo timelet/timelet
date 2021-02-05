@@ -3,8 +3,8 @@ import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
 import { Stop as StopIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { EntryDocumentType } from '../../collections/entryCollection';
-import { EntryDisplayViewModel } from '../../models/entryDisplayViewModel';
+import { EntryDocumentType } from '../../domain/collections/entryCollection';
+import { EntryDisplayViewModel } from '../../domain/viewModels/entryDisplayViewModel';
 import Duration from '../Duration';
 import EntryForm from './EntryForm';
 

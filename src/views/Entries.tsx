@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { EntryDocumentType } from '../collections/entryCollection';
+import { EntryDocumentType } from '../domain/collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
 import EntryInlineForm from '../components/entries/EntryInlineForm';
-import { useDatabase } from '../contexts/DatabaseContext';
+import { useDatabase } from '../domain/contexts/DatabaseContext';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import ContentTitle from '../layout/default/ContentTitle';
-import { EntryDisplayViewModel } from '../models/entryDisplayViewModel';
+import { EntryDisplayViewModel } from '../domain/viewModels/entryDisplayViewModel';
 
 const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;

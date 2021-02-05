@@ -15,6 +15,12 @@ export default function SharedSettingsForm() {
           </MenuItem>
         </Select>
       </FormControl>
+      <FormControl fullWidth>
+        <InputLabel>
+          <FormattedMessage id="label.language" defaultMessage="Language" />
+        </InputLabel>
+        <Select name="language" displayEmpty />
+      </FormControl>
     </form>
   );
 }

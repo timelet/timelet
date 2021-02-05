@@ -5,7 +5,7 @@ import { StylesProvider, ThemeProvider } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { BrowserRouter } from 'react-router-dom';
-import { DatabaseProvider } from '../contexts/DatabaseContext';
+import { DatabaseProvider } from '../domain/contexts/DatabaseContext';
 import { TimeletDatabase, initializeDatabase } from '../database';
 import enMessages from '../i18n/en.json';
 import DefaultLayout from '../layout/default/DefaultLayout';
