@@ -1,1 +1,2 @@
-export type UserInterfaceLanguages = 'en' | 'de';
+export const userInterfaceLanguages = ['de', 'en'];
+export const defaultUserInterfaceLanguage = 'de';
