@@ -1,5 +1,5 @@
 import React, { createContext, PropsWithChildren, useContext } from 'react';
-import type { TimeletDatabase } from '../database';
+import type { TimeletDatabase } from '../../database';
 
 const DatabaseContext = createContext<TimeletDatabase | undefined>(undefined);
 export function useDatabase() {
