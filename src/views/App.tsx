@@ -12,6 +12,7 @@ import DefaultLayout from '../layout/default/DefaultLayout';
 import { theme } from '../style';
 import Router from '../layout/default/Router';
 import ServiceWorkerIntegration from '../components/ServiceWorkerIntegration';
+import '../polyfills';
 
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();

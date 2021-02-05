@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
-import { FormattedMessage } from 'react-intl';
+import { FormattedDisplayName, FormattedMessage } from 'react-intl';
+import { userInterfaceLanguages } from '../../domain/models/languageModel';
 
 type ProfileFormProps = {
   profiles: string[];
@@ -9,8 +10,12 @@ type ProfileFormProps = {
 };
 
 export default function ProfileForm({ profiles, currentProfile, selectProfile }: ProfileFormProps) {
+  const [profile, setProfile] = React.useState(currentProfile);
+
   const handleProfileSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
-    selectProfile(event.target.value as string);
+    const newProfile = event.target.value as string;
+    setProfile(newProfile);
+    selectProfile(newProfile);
   };
 
   return (
@@ -19,10 +24,10 @@ export default function ProfileForm({ profiles, currentProfile, selectProfile }:
         <InputLabel>
           <FormattedMessage id="label.profile" defaultMessage="Profile" />
         </InputLabel>
-        <Select name="profile" defaultValue={currentProfile} onChange={handleProfileSelect}>
-          {profiles.map((profile) => (
-            <MenuItem value={profile} key={profile}>
-              {profile}
+        <Select name="profile" value={profile} onChange={handleProfileSelect}>
+          {profiles.map((p) => (
+            <MenuItem value={p} key={p}>
+              {p}
             </MenuItem>
           ))}
         </Select>
@@ -32,7 +37,13 @@ export default function ProfileForm({ profiles, currentProfile, selectProfile }:
           <InputLabel>
             <FormattedMessage id="label.language" defaultMessage="Language" />
           </InputLabel>
-          <Select name="language" displayEmpty />
+          <Select name="language">
+            {userInterfaceLanguages.map((l) => (
+              <MenuItem value={l} key={l}>
+                <FormattedDisplayName type="language" value={l} />
+              </MenuItem>
+            ))}
+          </Select>
         </FormControl>
       </form>
     </>
