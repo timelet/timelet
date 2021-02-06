@@ -1,18 +1,18 @@
 {
   "action.cancel": {
-    "defaultMessage": "Cancel",
+    "defaultMessage": "Abbrechen",
     "description": "Cancel an action"
   },
   "action.reload": {
-    "defaultMessage": "Reload",
+    "defaultMessage": "Aktualisieren",
     "description": "Action to reload something"
   },
   "action.submit": {
-    "defaultMessage": "Submit",
+    "defaultMessage": "Absenden",
     "description": "Submit a form"
   },
   "action.updateApplication": {
-    "defaultMessage": "Reload to update this application",
+    "defaultMessage": "Neue Version dieser Applikation verfügbar",
     "description": "Requests the user to update the application"
   },
   "app.title": {
@@ -20,57 +20,57 @@
     "description": "Application name"
   },
   "format.datetime": {
-    "defaultMessage": "yyyy/MM/dd HH:mm",
+    "defaultMessage": "dd.MM.yyyy HH:mm",
     "description": "Format which represents date time"
   },
   "heading.editEntry": {
-    "defaultMessage": "Edit entry",
+    "defaultMessage": "Eintrag bearbeiten",
     "description": "Heading of the entry edit form dialog"
   },
   "label.actions": {
-    "defaultMessage": "Actions"
+    "defaultMessage": "Aktionen"
   },
   "label.categories": {
-    "defaultMessage": "Categories",
+    "defaultMessage": "Kategorien",
     "description": "Label for entry categories"
   },
   "label.description": {
-    "defaultMessage": "Description"
+    "defaultMessage": "Beschreibung"
   },
   "label.duration": {
-    "defaultMessage": "Duration"
+    "defaultMessage": "Dauer"
   },
   "label.endedAt": {
-    "defaultMessage": "Ended at"
+    "defaultMessage": "Ende am"
   },
   "label.id": {
     "defaultMessage": "Id"
   },
   "label.language": {
-    "defaultMessage": "Language"
+    "defaultMessage": "Sprache"
   },
   "label.profile": {
-    "defaultMessage": "Profile"
+    "defaultMessage": "Profil"
   },
   "label.settings": {
-    "defaultMessage": "Settings",
+    "defaultMessage": "Einstellungen",
     "description": "Label for system settings"
   },
   "label.startedAt": {
-    "defaultMessage": "Started at"
+    "defaultMessage": "Start am"
   },
   "label.undefined": {
-    "defaultMessage": "Undefined",
+    "defaultMessage": "Undefiniert",
     "description": "An undefined value"
   },
   "title.categories": {
-    "defaultMessage": "Categories"
+    "defaultMessage": "Kategorien"
   },
   "title.entries": {
-    "defaultMessage": "Entries"
+    "defaultMessage": "Einträge"
   },
   "title.settings": {
-    "defaultMessage": "Settings"
+    "defaultMessage": "Einstellungen"
   },
   "version": {
     "defaultMessage": "Version {version}",
