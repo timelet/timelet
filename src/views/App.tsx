@@ -8,14 +8,21 @@ import { BrowserRouter } from 'react-router-dom';
 import { DatabaseProvider } from '../domain/contexts/DatabaseContext';
 import { TimeletDatabase, initializeDatabase } from '../database';
 import enMessages from '../i18n/en.json';
+import deMessages from '../i18n/de.json';
 import DefaultLayout from '../layout/default/DefaultLayout';
 import { theme } from '../style';
 import Router from '../layout/default/Router';
 import ServiceWorkerIntegration from '../components/ServiceWorkerIntegration';
 import '../polyfills';
 
+const messages = {
+  de: deMessages,
+  en: enMessages
+};
+
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();
+  const currentLocale = 'en';
 
   useEffect(() => {
     async function initialize() {
@@ -28,7 +35,7 @@ export default function App() {
 
   return (
     <DatabaseProvider database={database}>
-      <IntlProvider locale="en" messages={enMessages}>
+      <IntlProvider locale={currentLocale} messages={messages[currentLocale]}>
         <StylesProvider injectFirst>
           <ThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
