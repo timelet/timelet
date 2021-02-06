@@ -67,8 +67,7 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
               inputRef={register}
               label={intl.formatMessage({
                 id: 'label.description',
-                defaultMessage: 'Description',
-                description: 'Label for a multiline description'
+                defaultMessage: 'Description'
               })}
               multiline
               required
@@ -86,8 +85,7 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
               })}
               label={intl.formatMessage({
                 id: 'label.startedAt',
-                defaultMessage: 'Started at',
-                description: 'Label which indicates the starting date and time of an activity'
+                defaultMessage: 'Started at'
               })}
               required
             />
@@ -105,8 +103,7 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
               })}
               label={intl.formatMessage({
                 id: 'label.endedAt',
-                defaultMessage: 'Ended at',
-                description: 'Label which indicates the ending date and time of an activity'
+                defaultMessage: 'Ended at'
               })}
             />
           </CustomDialogContent>
