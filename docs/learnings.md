@@ -9,6 +9,7 @@ This document contains the lessons learned. The following icons categorize the o
 ## Material UI
 
 - Custom styles from emotion styled are not applied due to the lower specificity. <br> ✅ It's possible to control the inject order to fix this issue: https://material-ui.com/guides/interoperability/#controlling-priority-3
+- Select component doesn't work together with `react-hook-form` <br> ✅ There are different solutions for this problem: https://dev.to/raduan/4-ways-to-use-material-ui-select-with-react-hook-form-41b2
 
 ## Snowpack
 

@@ -5,6 +5,7 @@ import { StylesProvider, ThemeProvider } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { BrowserRouter } from 'react-router-dom';
+import { getUserLocale } from 'get-user-locale';
 import { DatabaseProvider } from '../domain/contexts/DatabaseContext';
 import { TimeletDatabase, initializeDatabase } from '../database';
 import enMessages from '../i18n/en.json';
@@ -16,7 +17,8 @@ import ServiceWorkerIntegration from '../components/ServiceWorkerIntegration';
 import '../polyfills';
 import { createSubscriptionEffect } from '../utils/rxdb';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
-import { defaultUserInterfaceLanguage, IntlMessages, Language } from '../domain/models/languageModel';
+import { defaultUserInterfaceLanguage, IntlMessages, Language, userInterfaceLanguages } from '../domain/models/languageModel';
+import { matchLanguage } from '../utils/i18n';
 
 const messages: IntlMessages = {
   de: deMessages,
@@ -25,7 +27,7 @@ const messages: IntlMessages = {
 
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();
-  const [userInterfaceLanguage, setUserInterfaceLanguage] = useState<Language>('en');
+  const [userInterfaceLanguage, setUserInterfaceLanguage] = useState<Language>(matchLanguage(getUserLocale(), userInterfaceLanguages));
   const [settings, setSettings] = useState<SettingsDocumentType>();
 
   useEffect(() => {
@@ -48,6 +50,8 @@ export default function App() {
       database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
         if (doc?.userInterfaceLanguage) {
           setUserInterfaceLanguage(doc.userInterfaceLanguage as Language);
+        } else {
+          setUserInterfaceLanguage(matchLanguage(getUserLocale(), userInterfaceLanguages));
         }
       })
     ),

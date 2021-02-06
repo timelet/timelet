@@ -2,7 +2,7 @@ import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
 import { Stop as StopIcon } from '@material-ui/icons';
 import React from 'react';
-import { FormattedDate, FormattedTime, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { EntryDisplayViewModel } from '../../domain/viewModels/entryDisplayViewModel';
 import Duration from '../Duration';
