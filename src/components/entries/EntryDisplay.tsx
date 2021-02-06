@@ -2,7 +2,7 @@ import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
 import { Stop as StopIcon } from '@material-ui/icons';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedDate, FormattedTime, useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { EntryDisplayViewModel } from '../../domain/viewModels/entryDisplayViewModel';
 import Duration from '../Duration';
@@ -40,6 +40,14 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
     return null;
   };
 
+  const renderDateTime = (params: CellParams) => (
+    <span>
+      {params.value
+        ? `${intl.formatDate(params.value as string)} ${intl.formatTime(params.value as string)}`
+        : intl.formatMessage({ id: 'label.undefined', defaultMessage: 'Undefined', description: 'An undefined value' })}
+    </span>
+  );
+
   const columns: ColDef[] = [
     {
       field: 'entryId',
@@ -55,19 +63,14 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
     {
       field: 'startedAt',
       headerName: intl.formatMessage({ id: 'label.startedAt', defaultMessage: 'Started at' }),
-      width: 180
+      width: 180,
+      renderCell: renderDateTime
     },
     {
       field: 'endedAt',
       headerName: intl.formatMessage({ id: 'label.endedAt', defaultMessage: 'Ended at' }),
       width: 180,
-      renderCell: (params) => (
-        <span>
-          {params.value
-            ? params.value
-            : intl.formatMessage({ id: 'label.undefined', defaultMessage: 'Undefined', description: 'An undefined value' })}
-        </span>
-      )
+      renderCell: renderDateTime
     },
     {
       field: 'duration',
