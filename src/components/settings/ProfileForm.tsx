@@ -85,7 +85,7 @@ export default function ProfileForm({ profiles, currentProfile, saveProfile, sel
           </FormHelperText>
         </FormControl>
         <Button type="submit" color="primary" disabled={!formState.isDirty}>
-          <FormattedMessage id="action.submit" defaultMessage="Submit" />
+          <FormattedMessage id="action.submit" defaultMessage="Submit" description="Submit a form" />
         </Button>
       </StyledForm>
     </>

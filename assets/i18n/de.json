@@ -27,6 +27,9 @@
     "defaultMessage": "Eintrag bearbeiten",
     "description": "Heading of the entry edit form dialog"
   },
+  "help.browserLanguageWhenEmpty": {
+    "defaultMessage": "Browsersprache wird verwendet, wenn leer gelassen"
+  },
   "label.actions": {
     "defaultMessage": "Aktionen"
   },

@@ -27,6 +27,9 @@
     "defaultMessage": "Edit entry",
     "description": "Heading of the entry edit form dialog"
   },
+  "help.browserLanguageWhenEmpty": {
+    "defaultMessage": "Browser language is used, when left empty"
+  },
   "label.actions": {
     "defaultMessage": "Actions"
   },
@@ -39,6 +42,10 @@
   },
   "label.duration": {
     "defaultMessage": "Duration"
+  },
+  "label.emptyAndDependingOnBrowser": {
+    "defaultMessage": "Empty (depending on browser language)",
+    "description": "An entry in a select input, which clears the input."
   },
   "label.endedAt": {
     "defaultMessage": "Ended at"
