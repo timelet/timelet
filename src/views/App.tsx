@@ -14,15 +14,19 @@ import { theme } from '../style';
 import Router from '../layout/default/Router';
 import ServiceWorkerIntegration from '../components/ServiceWorkerIntegration';
 import '../polyfills';
+import { createSubscriptionEffect } from '../utils/rxdb';
+import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
+import { defaultUserInterfaceLanguage, IntlMessages, Language } from '../domain/models/languageModel';
 
-const messages = {
+const messages: IntlMessages = {
   de: deMessages,
   en: enMessages
 };
 
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();
-  const currentLocale = 'en';
+  const [userInterfaceLanguage, setUserInterfaceLanguage] = useState<Language>('en');
+  const [settings, setSettings] = useState<SettingsDocumentType>();
 
   useEffect(() => {
     async function initialize() {
@@ -33,9 +37,26 @@ export default function App() {
     initialize();
   }, []);
 
+  useEffect(() => {
+    database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID).then((doc) => {
+      setSettings(doc);
+    });
+  }, [database]);
+
+  useEffect(
+    createSubscriptionEffect(() =>
+      database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+        if (doc?.userInterfaceLanguage) {
+          setUserInterfaceLanguage(doc.userInterfaceLanguage as Language);
+        }
+      })
+    ),
+    [settings]
+  );
+
   return (
     <DatabaseProvider database={database}>
-      <IntlProvider locale={currentLocale} messages={messages[currentLocale]}>
+      <IntlProvider locale={userInterfaceLanguage} messages={messages[userInterfaceLanguage]} defaultLocale={defaultUserInterfaceLanguage}>
         <StylesProvider injectFirst>
           <ThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
