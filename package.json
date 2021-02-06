@@ -26,6 +26,7 @@
     "@material-ui/pickers": "^3.2.10",
     "@types/uuid": "^8.3.0",
     "date-fns": "^2.16.1",
+    "get-user-locale": "^1.4.0",
     "history": "^5.0.0",
     "pouchdb-adapter-indexeddb": "^7.2.2",
     "react": "^17.0.0",
