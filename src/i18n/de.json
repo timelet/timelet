@@ -2,25 +2,25 @@
   "action.cancel": [
     {
       "type": 0,
-      "value": "Cancel"
+      "value": "Abbrechen"
     }
   ],
   "action.reload": [
     {
       "type": 0,
-      "value": "Reload"
+      "value": "Aktualisieren"
     }
   ],
   "action.submit": [
     {
       "type": 0,
-      "value": "Submit"
+      "value": "Absenden"
     }
   ],
   "action.updateApplication": [
     {
       "type": 0,
-      "value": "Reload to update this application"
+      "value": "Neue Version dieser Applikation verfügbar"
     }
   ],
   "app.title": [
@@ -32,43 +32,43 @@
   "format.datetime": [
     {
       "type": 0,
-      "value": "yyyy/MM/dd HH:mm"
+      "value": "dd.MM.yyyy HH:mm"
     }
   ],
   "heading.editEntry": [
     {
       "type": 0,
-      "value": "Edit entry"
+      "value": "Eintrag bearbeiten"
     }
   ],
   "label.actions": [
     {
       "type": 0,
-      "value": "Actions"
+      "value": "Aktionen"
     }
   ],
   "label.categories": [
     {
       "type": 0,
-      "value": "Categories"
+      "value": "Kategorien"
     }
   ],
   "label.description": [
     {
       "type": 0,
-      "value": "Description"
+      "value": "Beschreibung"
     }
   ],
   "label.duration": [
     {
       "type": 0,
-      "value": "Duration"
+      "value": "Dauer"
     }
   ],
   "label.endedAt": [
     {
       "type": 0,
-      "value": "Ended at"
+      "value": "Ende am"
     }
   ],
   "label.id": [
@@ -80,49 +80,49 @@
   "label.language": [
     {
       "type": 0,
-      "value": "Language"
+      "value": "Sprache"
     }
   ],
   "label.profile": [
     {
       "type": 0,
-      "value": "Profile"
+      "value": "Profil"
     }
   ],
   "label.settings": [
     {
       "type": 0,
-      "value": "Settings"
+      "value": "Einstellungen"
     }
   ],
   "label.startedAt": [
     {
       "type": 0,
-      "value": "Started at"
+      "value": "Start am"
     }
   ],
   "label.undefined": [
     {
       "type": 0,
-      "value": "Undefined"
+      "value": "Undefiniert"
     }
   ],
   "title.categories": [
     {
       "type": 0,
-      "value": "Categories"
+      "value": "Kategorien"
     }
   ],
   "title.entries": [
     {
       "type": 0,
-      "value": "Entries"
+      "value": "Einträge"
     }
   ],
   "title.settings": [
     {
       "type": 0,
-      "value": "Settings"
+      "value": "Einstellungen"
     }
   ],
   "version": [
