@@ -15,6 +15,7 @@ const DrawerContainer = styled.nav`
   flex-direction: column;
   height: 100%;
   width: 15rem;
+  line-height: 2;
 `;
 
 const StyledMenuList = styled(MenuList)`
