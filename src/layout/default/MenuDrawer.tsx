@@ -4,6 +4,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import CategoryIcon from '@material-ui/icons/Category';
 import SettingsIcon from '@material-ui/icons/Settings';
+import TagsIcon from '@material-ui/icons/LocalOffer';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
@@ -58,6 +59,12 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
                 <CategoryIcon />
               </ListItemIcon>
               <FormattedMessage id="label.categories" defaultMessage="Categories" description="Label for entry categories" />
+            </MenuItem>
+            <MenuItem component={Link} to={RoutePaths.TAGS}>
+              <ListItemIcon>
+                <TagsIcon />
+              </ListItemIcon>
+              <FormattedMessage id="label.tags" defaultMessage="Tags" description="Label for tags" />
             </MenuItem>
             <MenuItem component={Link} to={RoutePaths.SETTINGS}>
               <ListItemIcon>
