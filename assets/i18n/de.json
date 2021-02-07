@@ -63,7 +63,7 @@
     "defaultMessage": "Start am"
   },
   "label.undefined": {
-    "defaultMessage": "Undefiniert",
+    "defaultMessage": "-",
     "description": "An undefined value"
   },
   "title.categories": {
