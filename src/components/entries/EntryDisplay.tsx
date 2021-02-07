@@ -1,5 +1,5 @@
 import { IconButton } from '@material-ui/core';
-import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
+import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
 import { Stop as StopIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
@@ -14,6 +14,13 @@ type EntryDisplayProps = {
   update: (entry: EntryDocumentType) => void;
   loading?: boolean;
 };
+
+const defaultSortModel: SortModel = [
+  {
+    field: 'startedAt',
+    sort: 'desc'
+  }
+];
 
 export default function EntryDisplay({ entries, loading, update, stop }: EntryDisplayProps) {
   const intl = useIntl();
@@ -93,5 +100,5 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
     }
   ];
 
-  return <DataGrid columns={columns} rows={entries} loading={loading} />;
+  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} />;
 }
