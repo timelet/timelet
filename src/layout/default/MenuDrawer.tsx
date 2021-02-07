@@ -15,7 +15,10 @@ const DrawerContainer = styled.nav`
   flex-direction: column;
   height: 100%;
   width: 15rem;
-  line-height: 2;
+
+  a {
+    line-height: 2;
+  }
 `;
 
 const StyledMenuList = styled(MenuList)`
@@ -55,24 +58,30 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
           </Toolbar>
           <Divider />
           <StyledMenuList>
-            <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
-              <ListItemIcon>
-                <CategoryIcon />
-              </ListItemIcon>
-              <FormattedMessage id="label.categories" defaultMessage="Categories" description="Label for entry categories" />
-            </MenuItem>
-            <MenuItem component={Link} to={RoutePaths.TAGS}>
-              <ListItemIcon>
-                <TagsIcon />
-              </ListItemIcon>
-              <FormattedMessage id="label.tags" defaultMessage="Tags" description="Label for tags" />
-            </MenuItem>
-            <MenuItem component={Link} to={RoutePaths.SETTINGS}>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <FormattedMessage id="label.settings" defaultMessage="Settings" description="Label for system settings" />
-            </MenuItem>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
+                <ListItemIcon>
+                  <CategoryIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.categories" defaultMessage="Categories" description="Label for entry categories" />
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.TAGS}>
+                <ListItemIcon>
+                  <TagsIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.tags" defaultMessage="Tags" description="Label for tags" />
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.SETTINGS}>
+                <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.settings" defaultMessage="Settings" description="Label for system settings" />
+              </MenuItem>
+            </li>
           </StyledMenuList>
           <Divider />
           <Toolbar>
