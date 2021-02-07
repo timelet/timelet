@@ -11,6 +11,10 @@ export const theme = createMuiTheme({
     h2: {
       fontSize: '1.6rem',
       marginBottom: '0.5rem'
+    },
+    h3: {
+      fontSize: '1.2rem',
+      marginBottom: '1rem'
     }
   }
 });
