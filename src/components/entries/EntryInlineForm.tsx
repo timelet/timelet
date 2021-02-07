@@ -25,14 +25,14 @@ type EntryFormProps = {
 
 export default function EntryInlineForm({ create }: EntryFormProps) {
   const intl = useIntl();
-  const [startedAt, setStartedAt] = React.useState<Date | null>(new Date());
+  const [startedAt, setStartedAt] = React.useState<Date | null>(null);
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
   const { register, handleSubmit } = useForm<EntryDocumentType>();
 
   const onSubmit = (data: EntryDocumentType) => {
     const entry: EntryDocumentType = {
       description: data.description,
-      startedAt: new Date(data.startedAt).toISOString(),
+      startedAt: (data.startedAt ? new Date(data.startedAt) : new Date()).toISOString(),
       endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
     };
     create(entry);
@@ -65,7 +65,6 @@ export default function EntryInlineForm({ create }: EntryFormProps) {
           id: 'label.startedAt',
           defaultMessage: 'Started at'
         })}
-        required
       />
       <KeyboardDateTimePicker
         name="endedAt"
