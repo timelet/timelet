@@ -1,23 +1,16 @@
-import { formatDistanceStrict } from 'date-fns';
 import React from 'react';
-import Stopwatch from './Stopwatch';
+import { FormattedMessage } from 'react-intl';
 
 type DurationProps = {
-  from: string;
-  to?: string;
+  seconds: number;
 };
 
-export default function Duration({ from, to }: DurationProps) {
-  const fromDateTime = new Date(from);
-  const toDateTime = to ? new Date(to) : undefined;
-
-  if (toDateTime) {
-    return <span>{formatDistanceStrict(fromDateTime, toDateTime, { unit: 'minute' })}</span>;
-  }
-
+export default function Duration({ seconds }: DurationProps) {
   return (
-    <div>
-      <Stopwatch from={from} />
-    </div>
+    <FormattedMessage
+      id="format.duration"
+      defaultMessage="{minutes}min {seconds}s"
+      values={{ minutes: Math.floor(seconds / 60), seconds: seconds % 60 }}
+    />
   );
 }

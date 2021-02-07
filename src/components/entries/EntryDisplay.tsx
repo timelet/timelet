@@ -5,7 +5,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { EntryDisplayViewModel } from '../../domain/viewModels/entryDisplayViewModel';
-import Duration from '../Duration';
+import InteractiveDuration from '../InteractiveDuration';
 import EntryForm from './EntryForm';
 
 type EntryDisplayProps = {
@@ -83,7 +83,9 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
       field: 'duration',
       headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
       width: 130,
-      renderCell: (params) => <Duration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+      renderCell: (params) => (
+        <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+      )
     },
     {
       field: 'actions',

@@ -1,19 +1,20 @@
-import { formatDistanceToNowStrict } from 'date-fns';
+import { differenceInSeconds } from 'date-fns';
 import React from 'react';
 import { useInterval } from 'react-use';
+import Duration from './Duration';
 
 type StopwatchProps = {
   from: string;
 };
 
 export default function Stopwatch({ from }: StopwatchProps) {
-  const fromDate = new Date(from);
-  const formatDuration = (_fromDate: Date) => `${formatDistanceToNowStrict(_fromDate, { unit: 'minute' })}`;
-  const [duration, setDuration] = React.useState(formatDuration(fromDate));
+  const fromDateTime = new Date(from);
+  const formatDuration = (_fromDateTime: Date) => differenceInSeconds(new Date(), _fromDateTime);
+  const [duration, setDuration] = React.useState(formatDuration(fromDateTime));
 
   useInterval(() => {
-    setDuration(formatDuration(fromDate));
+    setDuration(formatDuration(fromDateTime));
   }, 1000);
 
-  return <span>{duration}</span>;
+  return <Duration seconds={duration} />;
 }
