@@ -67,7 +67,7 @@
     "defaultMessage": "Started at"
   },
   "label.undefined": {
-    "defaultMessage": "Undefined",
+    "defaultMessage": "-",
     "description": "An undefined value"
   },
   "title.categories": {
