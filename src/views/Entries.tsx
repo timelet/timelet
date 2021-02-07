@@ -12,6 +12,8 @@ import { EntryDisplayViewModel } from '../domain/viewModels/entryDisplayViewMode
 
 const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default function Entries() {
