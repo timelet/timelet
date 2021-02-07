@@ -27,7 +27,7 @@ export default function EntryInlineForm({ create }: EntryFormProps) {
   const intl = useIntl();
   const [startedAt, setStartedAt] = React.useState<Date | null>(null);
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
-  const { register, handleSubmit } = useForm<EntryDocumentType>();
+  const { reset, register, handleSubmit } = useForm<EntryDocumentType>();
 
   const onSubmit = (data: EntryDocumentType) => {
     const entry: EntryDocumentType = {
@@ -36,6 +36,7 @@ export default function EntryInlineForm({ create }: EntryFormProps) {
       endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
     };
     create(entry);
+    reset();
   };
 
   return (
