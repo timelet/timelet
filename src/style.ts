@@ -6,5 +6,11 @@ export const theme = createMuiTheme({
   palette: {
     primary: deepOrange,
     secondary: red
+  },
+  typography: {
+    h2: {
+      fontSize: '1.6rem',
+      marginBottom: '0.5rem'
+    }
   }
 });

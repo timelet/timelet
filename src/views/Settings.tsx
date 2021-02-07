@@ -1,13 +1,13 @@
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import DataManagement from '../components/settings/DataManagement';
 import ProfileForm from '../components/settings/ProfileForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../domain/contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
-import ContentTitle from '../layout/default/ContentTitle';
 import { createSubscriptionEffect } from '../utils/rxdb';
 
 export default function Settings() {
@@ -45,15 +45,18 @@ export default function Settings() {
 
   return (
     <ContentContainer>
-      <ContentTitle>
+      <Typography variant="h2">
         <FormattedMessage id="title.settings" defaultMessage="Settings" />
-      </ContentTitle>
+      </Typography>
       <ContentElement>
         {currentProfile ? (
           <ProfileForm profiles={profiles} currentProfile={currentProfile} selectProfile={selectProfile} saveProfile={saveProfile} />
         ) : (
           <CircularProgress />
         )}
+      </ContentElement>
+      <ContentElement>
+        <DataManagement />
       </ContentElement>
     </ContentContainer>
   );

@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Typography } from '@material-ui/core';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
 import EntryInlineForm from '../components/entries/EntryInlineForm';
 import { useDatabase } from '../domain/contexts/DatabaseContext';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
-import ContentTitle from '../layout/default/ContentTitle';
 import { EntryDisplayViewModel } from '../domain/viewModels/entryDisplayViewModel';
 
 const EntryDisplayContainer = styled(ContentElement)`
@@ -46,9 +46,9 @@ export default function Entries() {
 
   return (
     <ContentContainer>
-      <ContentTitle>
+      <Typography variant="h2">
         <FormattedMessage id="title.entries" defaultMessage="Entries" />
-      </ContentTitle>
+      </Typography>
       <ContentElement>
         <EntryInlineForm create={createEntry} />
       </ContentElement>
