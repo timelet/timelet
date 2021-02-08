@@ -20,7 +20,12 @@ export default function CategoryDisplay({ categories, loading }: CategoryDisplay
     {
       field: 'name',
       headerName: intl.formatMessage({ id: 'label.name', defaultMessage: 'Name' }),
-      flex: 1
+      flex: 0.25
+    },
+    {
+      field: 'description',
+      headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
+      flex: 0.75
     },
     {
       field: 'actions',

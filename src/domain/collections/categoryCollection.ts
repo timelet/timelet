@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 export type CategoryDocumentType = {
   categoryId?: string;
   name: string;
-  description: string;
+  description?: string;
 };
 
 export type CategoryDocument = RxDocument<CategoryDocumentType>;
