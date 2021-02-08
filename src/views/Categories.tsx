@@ -1,16 +1,43 @@
+import styled from '@emotion/styled';
 import { Typography } from '@material-ui/core';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import CategoryDisplay from '../components/categories/CategoryDisplay';
+import { useDatabase } from '../domain/contexts/DatabaseContext';
+import { CategoryDisplayViewModel } from '../domain/viewModels/categoryDisplayViewModel';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
+import { createSubscriptionEffect } from '../utils/rxdb';
+
+const CategoryDisplayContainer = styled(ContentElement)`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+`;
 
 export default function Categories() {
+  const database = useDatabase();
+  const [categories, setCategories] = React.useState<CategoryDisplayViewModel[]>([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(
+    createSubscriptionEffect(() =>
+      database?.categories.find().$.subscribe((docs) => {
+        setCategories(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
+        setLoading(false);
+      })
+    ),
+    [database]
+  );
+
   return (
     <ContentContainer>
       <Typography variant="h2">
         <FormattedMessage id="title.categories" defaultMessage="Categories" />
       </Typography>
-      <ContentElement>Categories</ContentElement>
+      <CategoryDisplayContainer>
+        <CategoryDisplay categories={categories} loading={loading} />
+      </CategoryDisplayContainer>
     </ContentContainer>
   );
 }

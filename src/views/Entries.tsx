@@ -9,6 +9,7 @@ import { useDatabase } from '../domain/contexts/DatabaseContext';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { EntryDisplayViewModel } from '../domain/viewModels/entryDisplayViewModel';
+import { createSubscriptionEffect } from '../utils/rxdb';
 
 const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
@@ -35,14 +36,15 @@ export default function Entries() {
     await query?.update({ $set: { endedAt: new Date().toISOString() } });
   };
 
-  React.useEffect(() => {
-    if (database) {
-      database.entries.find().$.subscribe((docs) => {
+  React.useEffect(
+    createSubscriptionEffect(() =>
+      database?.entries.find().$.subscribe((docs) => {
         setEntries(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
         setLoading(false);
-      });
-    }
-  }, [database]);
+      })
+    ),
+    [database]
+  );
 
   return (
     <ContentContainer>
