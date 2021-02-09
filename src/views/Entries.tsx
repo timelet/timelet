@@ -10,6 +10,7 @@ import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { EntryDisplayViewModel } from '../domain/viewModels/entryDisplayViewModel';
 import { createSubscriptionEffect } from '../utils/rxdb';
+import { CategoryDisplayViewModel } from '../domain/viewModels/categoryDisplayViewModel';
 
 const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
@@ -19,6 +20,7 @@ const EntryDisplayContainer = styled(ContentElement)`
 
 export default function Entries() {
   const database = useDatabase();
+  const [categories, setCategories] = React.useState<CategoryDisplayViewModel[]>([]);
   const [entries, setEntries] = React.useState<EntryDisplayViewModel[]>([]);
   const [loading, setLoading] = React.useState(true);
 
@@ -46,16 +48,25 @@ export default function Entries() {
     [database]
   );
 
+  React.useEffect(
+    createSubscriptionEffect(() =>
+      database?.categories.find().$.subscribe((docs) => {
+        setCategories(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
+      })
+    ),
+    [database]
+  );
+
   return (
     <ContentContainer>
       <Typography variant="h2">
         <FormattedMessage id="title.entries" defaultMessage="Entries" />
       </Typography>
       <ContentElement>
-        <EntryInlineForm create={createEntry} />
+        <EntryInlineForm categories={categories} create={createEntry} />
       </ContentElement>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} />
+        <EntryDisplay entries={entries} categories={categories} loading={loading} stop={stopEntry} update={updateEntry} />
       </EntryDisplayContainer>
     </ContentContainer>
   );

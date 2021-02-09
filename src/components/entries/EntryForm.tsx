@@ -50,7 +50,7 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
       entryId: entry.entryId,
       description: data.description,
       startedAt: startedAt.toISOString(),
-      endedAt: endedAt ? endedAt.toISOString() : undefined
+      endedAt: endedAt?.toISOString() ?? undefined
     };
     update(updatedEntry);
     toggleDialog();

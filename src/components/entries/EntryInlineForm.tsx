@@ -1,16 +1,28 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import styled from '@emotion/styled';
 import { IconButton, TextField, withTheme } from '@material-ui/core';
 import { PlayArrow as PlayIcon } from '@material-ui/icons';
 import { KeyboardDateTimePicker } from '@material-ui/pickers';
+import { Autocomplete } from '@material-ui/lab';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
+import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
 
 const StyledForm = withTheme(
   styled.form`
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-areas:
+      'category description submit'
+      'startedAt endedAt submit';
+    grid-template-columns: 1fr 1fr 60px;
+
+    & > *:last-child {
+      grid-area: submit;
+      display: flex;
+      align-items: center;
+    }
 
     & > *:not(:last-child) {
       flex-grow: 1;
@@ -20,27 +32,49 @@ const StyledForm = withTheme(
 );
 
 type EntryFormProps = {
+  categories: CategoryDocumentType[];
   create: (entry: EntryDocumentType) => void;
 };
 
-export default function EntryInlineForm({ create }: EntryFormProps) {
+export default function EntryInlineForm({ categories, create }: EntryFormProps) {
   const intl = useIntl();
   const [startedAt, setStartedAt] = React.useState<Date | null>(null);
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
-  const { reset, register, handleSubmit } = useForm<EntryDocumentType>();
+  const [formId, setFormId] = React.useState(0);
+  const { register, handleSubmit } = useForm<EntryDocumentType>();
 
   const onSubmit = (data: EntryDocumentType) => {
     const entry: EntryDocumentType = {
+      category: categories.find((c) => c.name === data.category)?.categoryId,
       description: data.description,
-      startedAt: (data.startedAt ? new Date(data.startedAt) : new Date()).toISOString(),
-      endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
+      startedAt: startedAt?.toISOString() ?? new Date().toISOString(),
+      endedAt: endedAt?.toISOString() ?? undefined
     };
     create(entry);
-    reset();
+    setFormId(formId + 1);
   };
 
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)} key={formId}>
+      <Autocomplete
+        autoComplete
+        options={[...categories]}
+        getOptionLabel={(option) => option.name}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            name="category"
+            inputRef={register}
+            label={intl.formatMessage({
+              id: 'label.category',
+              defaultMessage: 'Category'
+            })}
+            required
+          />
+        )}
+      />
+
       <TextField
         name="description"
         inputRef={register}
@@ -84,9 +118,11 @@ export default function EntryInlineForm({ create }: EntryFormProps) {
           defaultMessage: 'Ended at'
         })}
       />
-      <IconButton type="submit">
-        <PlayIcon />
-      </IconButton>
+      <div>
+        <IconButton type="submit">
+          <PlayIcon />
+        </IconButton>
+      </div>
     </StyledForm>
   );
 }

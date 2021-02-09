@@ -3,6 +3,7 @@ import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid'
 import { Stop as StopIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
+import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { EntryDisplayViewModel } from '../../domain/viewModels/entryDisplayViewModel';
 import InteractiveDuration from '../InteractiveDuration';
@@ -10,6 +11,7 @@ import EntryForm from './EntryForm';
 
 type EntryDisplayProps = {
   entries: EntryDisplayViewModel[];
+  categories: CategoryDocumentType[];
   stop?: (entryId: string) => void;
   update: (entry: EntryDocumentType) => void;
   loading?: boolean;
@@ -22,7 +24,7 @@ const defaultSortModel: SortModel = [
   }
 ];
 
-export default function EntryDisplay({ entries, loading, update, stop }: EntryDisplayProps) {
+export default function EntryDisplay({ entries, categories, loading, update, stop }: EntryDisplayProps) {
   const intl = useIntl();
 
   const renderStopButton = (params: CellParams) => (
@@ -66,6 +68,12 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
       field: 'description',
       headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
       flex: 0.5
+    },
+    {
+      field: 'category',
+      headerName: intl.formatMessage({ id: 'label.category', defaultMessage: 'Category' }),
+      flex: 0.2,
+      renderCell: (params) => <>{categories.find((c) => c.categoryId === params.value?.toString())?.name}</>
     },
     {
       field: 'startedAt',

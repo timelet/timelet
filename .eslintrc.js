@@ -16,6 +16,7 @@ module.exports = {
     'prettier/@typescript-eslint'
   ],
   rules: {
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "react/prop-types": 0
   }
 };
