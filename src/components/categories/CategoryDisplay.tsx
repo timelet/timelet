@@ -1,15 +1,27 @@
-import { ColDef, DataGrid } from '@material-ui/data-grid';
+import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
 import React from 'react';
 import { useIntl } from 'react-intl';
+import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
 import { CategoryDisplayViewModel } from '../../domain/viewModels/categoryDisplayViewModel';
+import CategoryForm from './CategoryForm';
 
 type CategoryDisplayProps = {
   categories: CategoryDisplayViewModel[];
+  update: (category: CategoryDocumentType) => void;
   loading?: boolean;
 };
 
-export default function CategoryDisplay({ categories, loading }: CategoryDisplayProps) {
+export default function CategoryDisplay({ categories, update, loading }: CategoryDisplayProps) {
   const intl = useIntl();
+
+  const renderEditButton = (params: CellParams) => {
+    const currentEntry = categories.find((e) => e.categoryId === params.getValue('categoryId'));
+    if (currentEntry) {
+      return <CategoryForm category={currentEntry} update={update} />;
+    }
+    return null;
+  };
+
   const columns: ColDef[] = [
     {
       field: 'categoryId',
@@ -33,7 +45,7 @@ export default function CategoryDisplay({ categories, loading }: CategoryDisplay
       width: 150,
       align: 'center',
       headerAlign: 'center',
-      renderCell: (params) => <>No actions</>
+      renderCell: (params) => <>{renderEditButton(params)}</>
     }
   ];
 

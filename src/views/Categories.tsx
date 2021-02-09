@@ -26,6 +26,11 @@ export default function Categories() {
     database?.categories.insert(category);
   };
 
+  const updateCategory = async (category: CategoryDocumentType) => {
+    const query = database?.categories.findOne({ selector: { categoryId: category.categoryId } });
+    await query?.update({ $set: category });
+  };
+
   React.useEffect(
     createSubscriptionEffect(() =>
       database?.categories.find().$.subscribe((docs) => {
@@ -45,7 +50,7 @@ export default function Categories() {
         <CategoryInlineForm create={createCategory} />
       </ContentElement>
       <CategoryDisplayContainer>
-        <CategoryDisplay categories={categories} loading={loading} />
+        <CategoryDisplay categories={categories} update={updateCategory} loading={loading} />
       </CategoryDisplayContainer>
     </ContentContainer>
   );

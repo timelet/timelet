@@ -51,7 +51,6 @@ export default function CategoryInlineForm({ create }: CategoryInlineFormProps) 
         })}
         multiline
       />
-
       <IconButton type="submit">
         <AddIcon />
       </IconButton>
