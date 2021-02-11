@@ -29,8 +29,12 @@ export default function Categories() {
     profile?.update({ $push: { categories: category } });
   };
 
-  const updateCategory = async (previous: CategoryViewModel, next: CategoryViewModel) => {
+  const updateCategory = (previous: CategoryViewModel, next: CategoryViewModel) => {
     profile?.update({ $set: { categories: categories.map((c) => (c.name === previous.name ? next : c)) } });
+  };
+
+  const removeCategory = (category: CategoryViewModel) => {
+    profile?.update({ $pullAll: { categories: [category] } });
   };
 
   React.useEffect(
@@ -58,7 +62,7 @@ export default function Categories() {
         <CategoryInlineForm create={createCategory} />
       </ContentElement>
       <CategoryDisplayContainer>
-        <CategoryDisplay categories={categories} update={updateCategory} loading={loading} />
+        <CategoryDisplay categories={categories} update={updateCategory} remove={removeCategory} loading={loading} />
       </CategoryDisplayContainer>
     </ContentContainer>
   );

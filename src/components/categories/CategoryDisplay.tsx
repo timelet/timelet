@@ -1,5 +1,7 @@
+import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
 import React from 'react';
+import { Delete as DeleteIcon } from '@material-ui/icons';
 import { useIntl } from 'react-intl';
 import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 import CategoryForm from './CategoryForm';
@@ -7,18 +9,25 @@ import CategoryForm from './CategoryForm';
 type CategoryDisplayProps = {
   categories: CategoryViewModel[];
   update: (previous: CategoryViewModel, next: CategoryViewModel) => void;
+  remove: (category: CategoryViewModel) => void;
   loading?: boolean;
 };
 
-export default function CategoryDisplay({ categories, update, loading }: CategoryDisplayProps) {
+export default function CategoryDisplay({ categories, update, remove, loading }: CategoryDisplayProps) {
   const intl = useIntl();
 
   const renderEditButton = (params: CellParams) => {
-    const currentEntry = categories.find((c) => c.name === params.getValue('name'));
-    if (currentEntry) {
-      return <CategoryForm category={currentEntry} update={update} />;
-    }
-    return null;
+    const currentCategory = categories.find((c) => c.name === params.getValue('name'));
+    return currentCategory ? <CategoryForm category={currentCategory} update={update} /> : null;
+  };
+
+  const renderDeleteButton = (params: CellParams) => {
+    const currentCategory = categories.find((c) => c.name === params.getValue('name'));
+    return currentCategory ? (
+      <IconButton onClick={() => remove(currentCategory)}>
+        <DeleteIcon />
+      </IconButton>
+    ) : null;
   };
 
   const columns: ColDef[] = [
@@ -38,7 +47,12 @@ export default function CategoryDisplay({ categories, update, loading }: Categor
       width: 150,
       align: 'center',
       headerAlign: 'center',
-      renderCell: (params) => <>{renderEditButton(params)}</>
+      renderCell: (params) => (
+        <>
+          {renderEditButton(params)}
+          {renderDeleteButton(params)}
+        </>
+      )
     }
   ];
   const rows = categories.map((c, id) => ({ ...c, id }));
