@@ -1,13 +1,12 @@
 import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
-import { CategoryDisplayViewModel } from '../../domain/viewModels/categoryDisplayViewModel';
+import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 import CategoryForm from './CategoryForm';
 
 type CategoryDisplayProps = {
-  categories: CategoryDisplayViewModel[];
-  update: (category: CategoryDocumentType) => void;
+  categories: CategoryViewModel[];
+  update: (previous: CategoryViewModel, next: CategoryViewModel) => void;
   loading?: boolean;
 };
 
@@ -15,7 +14,7 @@ export default function CategoryDisplay({ categories, update, loading }: Categor
   const intl = useIntl();
 
   const renderEditButton = (params: CellParams) => {
-    const currentEntry = categories.find((e) => e.categoryId === params.getValue('categoryId'));
+    const currentEntry = categories.find((c) => c.name === params.getValue('name'));
     if (currentEntry) {
       return <CategoryForm category={currentEntry} update={update} />;
     }
@@ -23,12 +22,6 @@ export default function CategoryDisplay({ categories, update, loading }: Categor
   };
 
   const columns: ColDef[] = [
-    {
-      field: 'categoryId',
-      headerName: intl.formatMessage({ id: 'label.id', defaultMessage: 'Id' }),
-      width: 150,
-      hide: true
-    },
     {
       field: 'name',
       headerName: intl.formatMessage({ id: 'label.name', defaultMessage: 'Name' }),
@@ -48,6 +41,7 @@ export default function CategoryDisplay({ categories, update, loading }: Categor
       renderCell: (params) => <>{renderEditButton(params)}</>
     }
   ];
+  const rows = categories.map((c, id) => ({ ...c, id }));
 
-  return <DataGrid columns={columns} rows={categories} loading={loading} />;
+  return <DataGrid columns={columns} rows={rows} loading={loading} />;
 }

@@ -8,9 +8,10 @@ import EntryInlineForm from '../components/entries/EntryInlineForm';
 import { useDatabase } from '../domain/contexts/DatabaseContext';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
-import { EntryDisplayViewModel } from '../domain/viewModels/entryDisplayViewModel';
-import { createSubscriptionEffect } from '../utils/rxdb';
-import { CategoryDisplayViewModel } from '../domain/viewModels/categoryDisplayViewModel';
+import { EntryViewModel } from '../domain/viewModels/entryViewModel';
+import { createAsyncSubscriptionEffect, createSubscriptionEffect } from '../utils/rxdb';
+import { CategoryViewModel } from '../domain/viewModels/categoryViewModel';
+import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 
 const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
@@ -20,8 +21,8 @@ const EntryDisplayContainer = styled(ContentElement)`
 
 export default function Entries() {
   const database = useDatabase();
-  const [categories, setCategories] = React.useState<CategoryDisplayViewModel[]>([]);
-  const [entries, setEntries] = React.useState<EntryDisplayViewModel[]>([]);
+  const [categories, setCategories] = React.useState<CategoryViewModel[]>([]);
+  const [entries, setEntries] = React.useState<EntryViewModel[]>([]);
   const [loading, setLoading] = React.useState(true);
 
   const createEntry = (entry: EntryDocumentType) => {
@@ -49,11 +50,15 @@ export default function Entries() {
   );
 
   React.useEffect(
-    createSubscriptionEffect(() =>
-      database?.categories.find().$.subscribe((docs) => {
-        setCategories(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
-      })
-    ),
+    createAsyncSubscriptionEffect(async () => {
+      // Wait for local settings
+      const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
+      // Find currently set profile in the database
+      return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+        setCategories(doc?.categories || []);
+        setLoading(false);
+      });
+    }),
     [database]
   );
 
@@ -66,7 +71,7 @@ export default function Entries() {
         <EntryInlineForm categories={categories} create={createEntry} />
       </ContentElement>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} categories={categories} loading={loading} stop={stopEntry} update={updateEntry} />
+        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} />
       </EntryDisplayContainer>
     </ContentContainer>
   );

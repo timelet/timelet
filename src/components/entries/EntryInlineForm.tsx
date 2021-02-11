@@ -8,7 +8,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
-import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
+import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 
 const StyledForm = withTheme(
   styled.form`
@@ -32,7 +32,7 @@ const StyledForm = withTheme(
 );
 
 type EntryFormProps = {
-  categories: CategoryDocumentType[];
+  categories: CategoryViewModel[];
   create: (entry: EntryDocumentType) => void;
 };
 
@@ -45,7 +45,7 @@ export default function EntryInlineForm({ categories, create }: EntryFormProps) 
 
   const onSubmit = (data: EntryDocumentType) => {
     const entry: EntryDocumentType = {
-      category: categories.find((c) => c.name === data.category)?.categoryId,
+      category: data.category,
       description: data.description,
       startedAt: startedAt?.toISOString() ?? new Date().toISOString(),
       endedAt: endedAt?.toISOString() ?? undefined

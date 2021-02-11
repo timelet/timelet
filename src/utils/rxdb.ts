@@ -8,3 +8,11 @@ export const createSubscriptionEffect = (subscribe: () => Subscription | undefin
     subscription?.unsubscribe();
   };
 };
+
+export const createAsyncSubscriptionEffect = (subscribe: () => Promise<Subscription | undefined>) => () => {
+  const subscription = subscribe();
+
+  return function cleanUp() {
+    subscription.then((sub) => sub?.unsubscribe());
+  };
+};

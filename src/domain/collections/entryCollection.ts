@@ -16,7 +16,7 @@ export type EntryCollection = RxCollection<EntryDocumentType>;
 export const entrySchema: RxJsonSchema<EntryDocumentType> = {
   title: 'entry schema',
   description: 'describes time entries',
-  version: 4,
+  version: 5,
   type: 'object',
   properties: {
     entryId: {
@@ -35,8 +35,8 @@ export const entrySchema: RxJsonSchema<EntryDocumentType> = {
       description: 'ISO date string of an activities ending point'
     },
     category: {
-      ref: 'category',
-      type: 'string'
+      type: 'string',
+      description: 'Category of this entry'
     }
   },
   required: ['description', 'startedAt']
@@ -71,6 +71,11 @@ export const entryCreatorBase: RxCollectionCreator = {
       };
     },
     4(previous: EntryDocumentType) {
+      return {
+        ...previous
+      };
+    },
+    5(previous: EntryDocumentType) {
       return {
         ...previous
       };

@@ -3,14 +3,12 @@ import indexeddb from 'pouchdb-adapter-indexeddb';
 import { EntryCollection, configureEntryCollection, entryCreatorBase } from './domain/collections/entryCollection';
 import { ProfileCollection, configureProfileCollection, profileCreatorBase } from './domain/collections/profileCollection';
 import { defaultSettings, SettingsDocumentType, SETTINGS_DOCUMENT_ID } from './domain/documents/settingsDocument';
-import { CategoryCollection, categoryCreatorBase, configureCategoryCollection } from './domain/collections/categoryCollection';
 
 export const DATABASE_NAME = 'timelet';
 
 addRxPlugin(indexeddb);
 
 type DatabaseCollections = {
-  categories: CategoryCollection;
   entries: EntryCollection;
   profiles: ProfileCollection;
 };
@@ -26,12 +24,10 @@ export async function initializeDatabase() {
 
   // Configure collections
   await database.addCollections({
-    categories: categoryCreatorBase,
     entries: entryCreatorBase,
     profiles: profileCreatorBase
   });
 
-  configureCategoryCollection(database.categories);
   configureEntryCollection(database.entries);
   configureProfileCollection(database.profiles);
 

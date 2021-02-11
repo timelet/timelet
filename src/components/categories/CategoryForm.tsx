@@ -4,7 +4,7 @@ import { Edit as EditIcon } from '@material-ui/icons';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
+import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 
 const CustomDialogContent = withTheme(
   styled(DialogContent)`
@@ -20,27 +20,22 @@ const CustomDialogContent = withTheme(
 );
 
 type CategoryFormProps = {
-  category: CategoryDocumentType;
-  update: (category: CategoryDocumentType) => void;
+  category: CategoryViewModel;
+  update: (previous: CategoryViewModel, next: CategoryViewModel) => void;
 };
 
 export default function CategoryForm({ category, update }: CategoryFormProps) {
   const [open, setOpen] = React.useState(false);
   const intl = useIntl();
-  const { reset, register, handleSubmit } = useForm<CategoryDocumentType>({ defaultValues: category });
+  const { reset, register, handleSubmit } = useForm<CategoryViewModel>({ defaultValues: category });
   const toggleDialog = () => setOpen(!open);
 
   React.useEffect(() => {
     reset(category);
   }, [category]);
 
-  const onSubmit = (data: CategoryDocumentType) => {
-    const updatedCategory: CategoryDocumentType = {
-      categoryId: category.categoryId,
-      name: data.name,
-      description: data.description
-    };
-    update(updatedCategory);
+  const onSubmit = (data: CategoryViewModel) => {
+    update(category, data);
     toggleDialog();
   };
 

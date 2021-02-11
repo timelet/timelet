@@ -2,14 +2,16 @@ import styled from '@emotion/styled';
 import { Typography } from '@material-ui/core';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { RxDocument } from 'rxdb';
 import CategoryDisplay from '../components/categories/CategoryDisplay';
 import CategoryInlineForm from '../components/categories/CategoryInlineForm';
-import { CategoryDocumentType } from '../domain/collections/categoryCollection';
+import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../domain/contexts/DatabaseContext';
-import { CategoryDisplayViewModel } from '../domain/viewModels/categoryDisplayViewModel';
+import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
+import { CategoryViewModel } from '../domain/viewModels/categoryViewModel';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
-import { createSubscriptionEffect } from '../utils/rxdb';
+import { createAsyncSubscriptionEffect } from '../utils/rxdb';
 
 const CategoryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
@@ -19,25 +21,31 @@ const CategoryDisplayContainer = styled(ContentElement)`
 
 export default function Categories() {
   const database = useDatabase();
-  const [categories, setCategories] = React.useState<CategoryDisplayViewModel[]>([]);
+  const [profile, setProfile] = React.useState<RxDocument<ProfileDocumentType>>();
+  const [categories, setCategories] = React.useState<CategoryViewModel[]>([]);
   const [loading, setLoading] = React.useState(true);
 
-  const createCategory = (category: CategoryDocumentType) => {
-    database?.categories.insert(category);
+  const createCategory = (category: CategoryViewModel) => {
+    profile?.update({ $push: { categories: category } });
   };
 
-  const updateCategory = async (category: CategoryDocumentType) => {
-    const query = database?.categories.findOne({ selector: { categoryId: category.categoryId } });
-    await query?.update({ $set: category });
+  const updateCategory = async (previous: CategoryViewModel, next: CategoryViewModel) => {
+    profile?.update({ $set: { categories: categories.map((c) => (c.name === previous.name ? next : c)) } });
   };
 
   React.useEffect(
-    createSubscriptionEffect(() =>
-      database?.categories.find().$.subscribe((docs) => {
-        setCategories(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
+    createAsyncSubscriptionEffect(async () => {
+      // Wait for local settings
+      const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
+      // Find currently set profile in the database
+      return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+        if (doc) {
+          setProfile(doc);
+          setCategories(doc.categories);
+        }
         setLoading(false);
-      })
-    ),
+      });
+    }),
     [database]
   );
 

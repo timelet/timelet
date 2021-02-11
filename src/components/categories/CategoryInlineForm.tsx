@@ -4,7 +4,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { Add as AddIcon } from '@material-ui/icons';
-import { CategoryDocumentType } from '../../domain/collections/categoryCollection';
+import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 
 const StyledForm = withTheme(
   styled.form`
@@ -19,14 +19,14 @@ const StyledForm = withTheme(
 );
 
 type CategoryInlineFormProps = {
-  create: (category: CategoryDocumentType) => void;
+  create: (category: CategoryViewModel) => void;
 };
 
 export default function CategoryInlineForm({ create }: CategoryInlineFormProps) {
   const intl = useIntl();
-  const { reset, register, handleSubmit } = useForm<CategoryDocumentType>();
+  const { reset, register, handleSubmit } = useForm<CategoryViewModel>();
 
-  const onSubmit = (data: CategoryDocumentType) => {
+  const onSubmit = (data: CategoryViewModel) => {
     create(data);
     reset();
   };
