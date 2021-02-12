@@ -39,6 +39,13 @@ export default function Entries() {
     await query?.update({ $set: { endedAt: new Date().toISOString() } });
   };
 
+  const copyEntry = async (entryId: string) => {
+    const entry = await database?.entries.findOne({ selector: { entryId } }).exec();
+    if (entry) {
+      await database?.entries.insert({ ...entry.toJSON(), entryId: undefined, startedAt: new Date().toISOString(), endedAt: undefined });
+    }
+  };
+
   const removeEntry = async (entryId: string) => {
     const query = database?.entries.findOne({ selector: { entryId } });
     await query?.remove();
@@ -76,7 +83,15 @@ export default function Entries() {
         <EntryInlineForm categories={categories} create={createEntry} />
       </ContentElement>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} categories={categories} loading={loading} stop={stopEntry} update={updateEntry} remove={removeEntry} />
+        <EntryDisplay
+          entries={entries}
+          categories={categories}
+          loading={loading}
+          stop={stopEntry}
+          update={updateEntry}
+          remove={removeEntry}
+          copy={copyEntry}
+        />
       </EntryDisplayContainer>
     </ContentContainer>
   );

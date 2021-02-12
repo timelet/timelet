@@ -1,6 +1,6 @@
 import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
-import { Stop as StopIcon, Delete as DeleteIcon } from '@material-ui/icons';
+import { Stop as StopIcon, Delete as DeleteIcon, PlayArrow as PlayIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
@@ -13,7 +13,8 @@ import EntryForm from './EntryForm';
 type EntryDisplayProps = {
   entries: EntryViewModel[];
   categories: CategoryViewModel[];
-  stop?: (entryId: string) => void;
+  stop: (entryId: string) => void;
+  copy: (entryId: string) => void;
   update: (entry: EntryDocumentType) => void;
   remove: (entryId: string) => void;
   loading?: boolean;
@@ -26,20 +27,23 @@ const defaultSortModel: SortModel = [
   }
 ];
 
-export default function EntryDisplay({ entries, categories, loading, update, remove, stop }: EntryDisplayProps) {
+export default function EntryDisplay({ entries, categories, loading, update, remove, stop, copy }: EntryDisplayProps) {
   const intl = useIntl();
 
   const renderStopButton = (params: CellParams) => (
     <IconButton
-      disabled={!!params.getValue('endedAt')}
       onClick={() => {
         const entryId = params.getValue('entryId')?.toString();
-        if (entryId && stop) {
-          stop(entryId);
+        if (entryId) {
+          if (params.getValue('endedAt')) {
+            copy(entryId);
+          } else {
+            stop(entryId);
+          }
         }
       }}
     >
-      <StopIcon />
+      {params.getValue('endedAt') ? <PlayIcon /> : <StopIcon />}
     </IconButton>
   );
 
