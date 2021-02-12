@@ -1,15 +1,19 @@
 {
   "action.cancel": {
-    "defaultMessage": "Abbrechen",
-    "description": "Cancel an action"
+    "defaultMessage": "Abbrechen"
+  },
+  "action.confirm": {
+    "defaultMessage": "Bestätigen"
+  },
+  "action.exportDump": {
+    "defaultMessage": "Daten exportieren"
   },
   "action.reload": {
     "defaultMessage": "Aktualisieren",
     "description": "Action to reload something"
   },
   "action.submit": {
-    "defaultMessage": "Absenden",
-    "description": "Submit a form"
+    "defaultMessage": "Absenden"
   },
   "action.updateApplication": {
     "defaultMessage": "Neue Version dieser Applikation verfügbar",
@@ -19,9 +23,19 @@
     "defaultMessage": "Timelet",
     "description": "Application name"
   },
+  "dialog.confirmRemove": {
+    "defaultMessage": "Löschung des ausgewählten Eintrags bestätigen."
+  },
   "format.datetime": {
     "defaultMessage": "dd.MM.yyyy HH:mm",
     "description": "Format which represents date time"
+  },
+  "format.duration": {
+    "defaultMessage": "{minutes}min {seconds}s"
+  },
+  "heading.editCategory": {
+    "defaultMessage": "Kategorie bearbeiten",
+    "description": "Heading of the category edit form dialog"
   },
   "heading.editEntry": {
     "defaultMessage": "Eintrag bearbeiten",
@@ -36,6 +50,12 @@
   "label.categories": {
     "defaultMessage": "Kategorien",
     "description": "Label for entry categories"
+  },
+  "label.category": {
+    "defaultMessage": "Kategorie"
+  },
+  "label.confirmation": {
+    "defaultMessage": "Bestätigung"
   },
   "label.description": {
     "defaultMessage": "Beschreibung"

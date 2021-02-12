@@ -1,27 +1,40 @@
 {
   "action.cancel": {
-    "defaultMessage": "Cancel",
-    "description": "Cancel an action"
+    "defaultMessage": "Cancel"
+  },
+  "action.confirm": {
+    "defaultMessage": "Confirm"
+  },
+  "action.exportDump": {
+    "defaultMessage": "Export dump"
   },
   "action.reload": {
     "defaultMessage": "Reload",
     "description": "Action to reload something"
   },
   "action.submit": {
-    "defaultMessage": "Submit",
-    "description": "Submit a form"
+    "defaultMessage": "Submit"
   },
   "action.updateApplication": {
     "defaultMessage": "Reload to update this application",
     "description": "Requests the user to update the application"
   },
   "app.title": {
-    "defaultMessage": "Timelet",
-    "description": "Application name"
+    "defaultMessage": "Timelet"
+  },
+  "dialog.confirmRemove": {
+    "defaultMessage": "Confirm the removal of the selected entry."
   },
   "format.datetime": {
     "defaultMessage": "yyyy/MM/dd HH:mm",
     "description": "Format which represents date time"
+  },
+  "format.duration": {
+    "defaultMessage": "{minutes}min {seconds}s"
+  },
+  "heading.editCategory": {
+    "defaultMessage": "Edit category",
+    "description": "Heading of the category edit form dialog"
   },
   "heading.editEntry": {
     "defaultMessage": "Edit entry",
@@ -36,6 +49,12 @@
   "label.categories": {
     "defaultMessage": "Categories",
     "description": "Label for entry categories"
+  },
+  "label.category": {
+    "defaultMessage": "Category"
+  },
+  "label.confirmation": {
+    "defaultMessage": "Confirmation"
   },
   "label.description": {
     "defaultMessage": "Description"
@@ -56,6 +75,9 @@
   "label.language": {
     "defaultMessage": "Language"
   },
+  "label.name": {
+    "defaultMessage": "Name"
+  },
   "label.profile": {
     "defaultMessage": "Profile"
   },
@@ -66,8 +88,12 @@
   "label.startedAt": {
     "defaultMessage": "Started at"
   },
+  "label.tags": {
+    "defaultMessage": "Tags",
+    "description": "Label for tags"
+  },
   "label.undefined": {
-    "defaultMessage": "-",
+    "defaultMessage": "Undefined",
     "description": "An undefined value"
   },
   "title.categories": {
@@ -76,8 +102,17 @@
   "title.entries": {
     "defaultMessage": "Entries"
   },
+  "title.profiles": {
+    "defaultMessage": "Profiles"
+  },
   "title.settings": {
     "defaultMessage": "Settings"
+  },
+  "title.storage": {
+    "defaultMessage": "Storage"
+  },
+  "title.tags": {
+    "defaultMessage": "Tags"
   },
   "version": {
     "defaultMessage": "Version {version}",

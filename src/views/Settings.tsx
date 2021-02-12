@@ -49,7 +49,10 @@ export default function Settings() {
   const exportDump = async () => {
     const dump = await database?.dump();
     if (dump) {
-      const filename = `${intl.formatMessage({ id: 'app.title' })}-${format(new Date(), 'yyyy-MM-dd_HH-mm')}.json`.toLowerCase();
+      const filename = `${intl.formatMessage({ id: 'app.title', defaultMessage: 'Timelet' })}-${format(
+        new Date(),
+        'yyyy-MM-dd_HH-mm'
+      )}.json`.toLowerCase();
       const type = 'text/plain;charset=utf-8';
       const file = new Blob([JSON.stringify(dump)], { type });
       saveFile(file, filename);

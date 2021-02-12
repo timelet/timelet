@@ -5,6 +5,18 @@
       "value": "Abbrechen"
     }
   ],
+  "action.confirm": [
+    {
+      "type": 0,
+      "value": "Bestätigen"
+    }
+  ],
+  "action.exportDump": [
+    {
+      "type": 0,
+      "value": "Daten exportieren"
+    }
+  ],
   "action.reload": [
     {
       "type": 0,
@@ -29,16 +41,52 @@
       "value": "Timelet"
     }
   ],
+  "dialog.confirmRemove": [
+    {
+      "type": 0,
+      "value": "Löschung des ausgewählten Eintrags bestätigen."
+    }
+  ],
   "format.datetime": [
     {
       "type": 0,
       "value": "dd.MM.yyyy HH:mm"
     }
   ],
+  "format.duration": [
+    {
+      "type": 1,
+      "value": "minutes"
+    },
+    {
+      "type": 0,
+      "value": "min "
+    },
+    {
+      "type": 1,
+      "value": "seconds"
+    },
+    {
+      "type": 0,
+      "value": "s"
+    }
+  ],
+  "heading.editCategory": [
+    {
+      "type": 0,
+      "value": "Kategorie bearbeiten"
+    }
+  ],
   "heading.editEntry": [
     {
       "type": 0,
       "value": "Eintrag bearbeiten"
+    }
+  ],
+  "help.browserLanguageWhenEmpty": [
+    {
+      "type": 0,
+      "value": "Browsersprache wird verwendet, wenn leer gelassen"
     }
   ],
   "label.actions": [
@@ -51,6 +99,18 @@
     {
       "type": 0,
       "value": "Kategorien"
+    }
+  ],
+  "label.category": [
+    {
+      "type": 0,
+      "value": "Kategorie"
+    }
+  ],
+  "label.confirmation": [
+    {
+      "type": 0,
+      "value": "Bestätigung"
     }
   ],
   "label.description": [

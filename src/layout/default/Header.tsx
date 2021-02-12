@@ -21,7 +21,7 @@ export default function Header() {
   const titleElement = (
     <Title variant="h6">
       <Link component={RouterLink} to={RoutePaths.DASHBOARD}>
-        <FormattedMessage id="app.title" defaultMessage="Timelet" description="Application name" />
+        <FormattedMessage id="app.title" defaultMessage="Timelet" />
       </Link>
     </Title>
   );

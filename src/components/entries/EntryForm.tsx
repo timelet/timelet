@@ -104,10 +104,10 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
           </CustomDialogContent>
           <DialogActions>
             <Button color="secondary" onClick={toggleDialog}>
-              <FormattedMessage id="action.cancel" defaultMessage="Cancel" description="Cancel an action" />
+              <FormattedMessage id="action.cancel" defaultMessage="Cancel" />
             </Button>
             <Button color="primary" type="submit">
-              <FormattedMessage id="action.submit" defaultMessage="Submit" description="Submit a form" />
+              <FormattedMessage id="action.submit" defaultMessage="Submit" />
             </Button>
           </DialogActions>
         </form>

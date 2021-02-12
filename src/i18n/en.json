@@ -5,6 +5,18 @@
       "value": "Cancel"
     }
   ],
+  "action.confirm": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "action.exportDump": [
+    {
+      "type": 0,
+      "value": "Export dump"
+    }
+  ],
   "action.reload": [
     {
       "type": 0,
@@ -29,16 +41,52 @@
       "value": "Timelet"
     }
   ],
+  "dialog.confirmRemove": [
+    {
+      "type": 0,
+      "value": "Confirm the removal of the selected entry."
+    }
+  ],
   "format.datetime": [
     {
       "type": 0,
       "value": "yyyy/MM/dd HH:mm"
     }
   ],
+  "format.duration": [
+    {
+      "type": 1,
+      "value": "minutes"
+    },
+    {
+      "type": 0,
+      "value": "min "
+    },
+    {
+      "type": 1,
+      "value": "seconds"
+    },
+    {
+      "type": 0,
+      "value": "s"
+    }
+  ],
+  "heading.editCategory": [
+    {
+      "type": 0,
+      "value": "Edit category"
+    }
+  ],
   "heading.editEntry": [
     {
       "type": 0,
       "value": "Edit entry"
+    }
+  ],
+  "help.browserLanguageWhenEmpty": [
+    {
+      "type": 0,
+      "value": "Browser language is used, when left empty"
     }
   ],
   "label.actions": [
@@ -53,6 +101,18 @@
       "value": "Categories"
     }
   ],
+  "label.category": [
+    {
+      "type": 0,
+      "value": "Category"
+    }
+  ],
+  "label.confirmation": [
+    {
+      "type": 0,
+      "value": "Confirmation"
+    }
+  ],
   "label.description": [
     {
       "type": 0,
@@ -63,6 +123,12 @@
     {
       "type": 0,
       "value": "Duration"
+    }
+  ],
+  "label.emptyAndDependingOnBrowser": [
+    {
+      "type": 0,
+      "value": "Empty (depending on browser language)"
     }
   ],
   "label.endedAt": [
@@ -83,6 +149,12 @@
       "value": "Language"
     }
   ],
+  "label.name": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
   "label.profile": [
     {
       "type": 0,
@@ -101,10 +173,16 @@
       "value": "Started at"
     }
   ],
+  "label.tags": [
+    {
+      "type": 0,
+      "value": "Tags"
+    }
+  ],
   "label.undefined": [
     {
       "type": 0,
-      "value": "-"
+      "value": "Undefined"
     }
   ],
   "title.categories": [
@@ -119,10 +197,28 @@
       "value": "Entries"
     }
   ],
+  "title.profiles": [
+    {
+      "type": 0,
+      "value": "Profiles"
+    }
+  ],
   "title.settings": [
     {
       "type": 0,
       "value": "Settings"
+    }
+  ],
+  "title.storage": [
+    {
+      "type": 0,
+      "value": "Storage"
+    }
+  ],
+  "title.tags": [
+    {
+      "type": 0,
+      "value": "Tags"
     }
   ],
   "version": [
