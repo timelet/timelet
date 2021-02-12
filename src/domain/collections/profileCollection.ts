@@ -9,6 +9,10 @@ export type ProfileDocumentType = {
     name: string;
     description?: string;
   }[];
+  tags: {
+    name: string;
+    description?: string;
+  }[];
 };
 
 export type ProfileDocument = RxDocument<ProfileDocumentType>;
@@ -18,7 +22,7 @@ export type ProfileCollection = RxCollection<ProfileDocumentType>;
 export const profileSchema: RxJsonSchema<ProfileDocumentType> = {
   title: 'profile schema',
   description: 'describes profiles',
-  version: 3,
+  version: 4,
   type: 'object',
   properties: {
     profileId: {
@@ -46,6 +50,24 @@ export const profileSchema: RxJsonSchema<ProfileDocumentType> = {
         },
         required: ['name']
       }
+    },
+    tags: {
+      type: 'array',
+      uniqueItems: true,
+      description: 'Tags in this profile',
+      default: [],
+      items: {
+        type: 'object',
+        properties: {
+          name: {
+            type: 'string'
+          },
+          description: {
+            type: 'string'
+          }
+        },
+        required: ['name']
+      }
     }
   },
   required: []
@@ -58,7 +80,7 @@ export function configureProfileCollection(collection: ProfileCollection) {
     .exec()
     .then((doc) => {
       if (!doc) {
-        collection.insert({ profileId: DEFAULT_PROFILE, categories: [] });
+        collection.insert({ profileId: DEFAULT_PROFILE, categories: [], tags: [] });
       }
     });
 }
@@ -78,6 +100,12 @@ export const profileCreatorBase: RxCollectionCreator = {
       return {
         ...previous,
         categories: previous.categories ?? []
+      };
+    },
+    4(previous: ProfileDocumentType) {
+      return {
+        ...previous,
+        tags: previous.tags ?? []
       };
     }
   }
