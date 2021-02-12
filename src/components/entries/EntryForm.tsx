@@ -34,7 +34,7 @@ export default function EntryForm({ entry, categories, update }: EntryFormProps)
   const intl = useIntl();
   const [startedAt, setStartedAt] = React.useState<Date>(new Date(entry.startedAt));
   const [endedAt, setEndedAt] = React.useState<Date | null>(entry.endedAt ? new Date(entry.endedAt) : null);
-  const [category, setCategory] = React.useState<CategoryViewModel>();
+  const [category, setCategory] = React.useState<CategoryViewModel | undefined>(categories.find((c) => c.name === entry.category));
   const { reset, register, handleSubmit } = useForm<EntryDocumentType>({ defaultValues: entry });
 
   const dateTimeFormat = intl.formatMessage({
@@ -77,7 +77,7 @@ export default function EntryForm({ entry, categories, update }: EntryFormProps)
               autoComplete
               options={[...categories]}
               getOptionLabel={(option) => option.name}
-              defaultValue={categories.find((c) => c.name === entry.category)}
+              defaultValue={category}
               onChange={(_, value) => {
                 if (value) {
                   setCategory(value);
