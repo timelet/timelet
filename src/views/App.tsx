@@ -6,7 +6,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { BrowserRouter } from 'react-router-dom';
 import { getUserLocale } from 'get-user-locale';
-import { DatabaseProvider } from '../domain/contexts/DatabaseContext';
+import { DatabaseProvider } from '../contexts/DatabaseContext';
 import { TimeletDatabase, initializeDatabase } from '../database';
 import enMessages from '../i18n/en.json';
 import deMessages from '../i18n/de.json';

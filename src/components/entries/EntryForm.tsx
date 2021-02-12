@@ -28,10 +28,15 @@ type EntryFormProps = {
 export default function EntryForm({ entry, update }: EntryFormProps) {
   const [open, setOpen] = React.useState(false);
   const intl = useIntl();
-  const [startedAt, setStartedAt] = React.useState<Date | null>(new Date(entry.startedAt));
+  const [startedAt, setStartedAt] = React.useState<Date>(new Date(entry.startedAt));
   const [endedAt, setEndedAt] = React.useState<Date | null>(entry.endedAt ? new Date(entry.endedAt) : null);
   const { reset, register, handleSubmit } = useForm<EntryDocumentType>({ defaultValues: entry });
 
+  const dateTimeFormat = intl.formatMessage({
+    id: 'format.datetime',
+    defaultMessage: 'yyyy/MM/dd HH:mm',
+    description: 'Format which represents date time'
+  });
   const toggleDialog = () => setOpen(!open);
 
   React.useEffect(() => {
@@ -44,8 +49,8 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
     const updatedEntry: EntryDocumentType = {
       entryId: entry.entryId,
       description: data.description,
-      startedAt: new Date(data.startedAt).toISOString(),
-      endedAt: data.endedAt ? new Date(data.endedAt).toISOString() : undefined
+      startedAt: startedAt.toISOString(),
+      endedAt: endedAt?.toISOString() ?? undefined
     };
     update(updatedEntry);
     toggleDialog();
@@ -74,15 +79,10 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
             />
             <KeyboardDateTimePicker
               name="startedAt"
-              inputRef={register}
-              onChange={(date) => setStartedAt(date)}
+              onChange={(date) => (date ? setStartedAt(date) : null)}
               value={startedAt}
               ampm={false}
-              format={intl.formatMessage({
-                id: 'format.datetime',
-                defaultMessage: 'yyyy/MM/dd HH:mm',
-                description: 'Format which represents date time'
-              })}
+              format={dateTimeFormat}
               label={intl.formatMessage({
                 id: 'label.startedAt',
                 defaultMessage: 'Started at'
@@ -91,16 +91,11 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
             />
             <KeyboardDateTimePicker
               name="endedAt"
-              inputRef={register}
               clearable
               onChange={(date) => setEndedAt(date)}
               value={endedAt}
               ampm={false}
-              format={intl.formatMessage({
-                id: 'format.datetime',
-                defaultMessage: 'yyyy/MM/dd HH:mm',
-                description: 'Format which represents date time'
-              })}
+              format={dateTimeFormat}
               label={intl.formatMessage({
                 id: 'label.endedAt',
                 defaultMessage: 'Ended at'
@@ -109,10 +104,10 @@ export default function EntryForm({ entry, update }: EntryFormProps) {
           </CustomDialogContent>
           <DialogActions>
             <Button color="secondary" onClick={toggleDialog}>
-              <FormattedMessage id="action.cancel" defaultMessage="Cancel" description="Cancel an action" />
+              <FormattedMessage id="action.cancel" defaultMessage="Cancel" />
             </Button>
             <Button color="primary" type="submit">
-              <FormattedMessage id="action.submit" defaultMessage="Submit" description="Submit a form" />
+              <FormattedMessage id="action.submit" defaultMessage="Submit" />
             </Button>
           </DialogActions>
         </form>

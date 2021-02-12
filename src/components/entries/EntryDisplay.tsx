@@ -1,21 +1,30 @@
 import { IconButton } from '@material-ui/core';
-import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
-import { Stop as StopIcon } from '@material-ui/icons';
+import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
+import { Stop as StopIcon, Delete as DeleteIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
-import { EntryDisplayViewModel } from '../../domain/viewModels/entryDisplayViewModel';
-import Duration from '../Duration';
+import { EntryViewModel } from '../../domain/viewModels/entryViewModel';
+import ConfirmDialog from '../ConfirmDialog';
+import InteractiveDuration from '../InteractiveDuration';
 import EntryForm from './EntryForm';
 
 type EntryDisplayProps = {
-  entries: EntryDisplayViewModel[];
+  entries: EntryViewModel[];
   stop?: (entryId: string) => void;
   update: (entry: EntryDocumentType) => void;
+  remove: (entryId: string) => void;
   loading?: boolean;
 };
 
-export default function EntryDisplay({ entries, loading, update, stop }: EntryDisplayProps) {
+const defaultSortModel: SortModel = [
+  {
+    field: 'startedAt',
+    sort: 'desc'
+  }
+];
+
+export default function EntryDisplay({ entries, loading, update, remove, stop }: EntryDisplayProps) {
   const intl = useIntl();
 
   const renderStopButton = (params: CellParams) => (
@@ -34,10 +43,22 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
 
   const renderEditButton = (params: CellParams) => {
     const currentEntry = entries.find((e) => e.entryId === params.getValue('entryId'));
-    if (currentEntry) {
-      return <EntryForm entry={currentEntry} update={update} />;
-    }
-    return null;
+    return currentEntry ? <EntryForm entry={currentEntry} update={update} /> : null;
+  };
+
+  const renderRemoveButton = (params: CellParams) => {
+    const currentEntryId = params.getValue('entryId')?.toString();
+    return currentEntryId ? (
+      <ConfirmDialog
+        title={intl.formatMessage({ id: 'label.confirmation', defaultMessage: 'Confirmation' })}
+        description={intl.formatMessage({ id: 'dialog.confirmRemove', defaultMessage: 'Confirm the removal of the selected entry.' })}
+        onConfirm={() => remove(currentEntryId)}
+      >
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </ConfirmDialog>
+    ) : null;
   };
 
   const renderDateTime = (params: CellParams) => (
@@ -61,6 +82,11 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
       flex: 0.5
     },
     {
+      field: 'category',
+      headerName: intl.formatMessage({ id: 'label.category', defaultMessage: 'Category' }),
+      flex: 0.2
+    },
+    {
       field: 'startedAt',
       headerName: intl.formatMessage({ id: 'label.startedAt', defaultMessage: 'Started at' }),
       width: 180,
@@ -76,22 +102,25 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
       field: 'duration',
       headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
       width: 130,
-      renderCell: (params) => <Duration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+      renderCell: (params) => (
+        <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+      )
     },
     {
       field: 'actions',
       headerName: intl.formatMessage({ id: 'label.actions', defaultMessage: 'Actions' }),
-      width: 150,
+      width: 180,
       align: 'center',
       headerAlign: 'center',
       renderCell: (params) => (
         <>
           {renderStopButton(params)}
           {renderEditButton(params)}
+          {renderRemoveButton(params)}
         </>
       )
     }
   ];
 
-  return <DataGrid columns={columns} rows={entries} loading={loading} />;
+  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} />;
 }

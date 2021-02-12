@@ -6,6 +6,7 @@ export type EntryDocumentType = {
   description: string;
   startedAt: string;
   endedAt?: string;
+  category?: string;
 };
 
 export type EntryDocument = RxDocument<EntryDocumentType>;
@@ -15,7 +16,7 @@ export type EntryCollection = RxCollection<EntryDocumentType>;
 export const entrySchema: RxJsonSchema<EntryDocumentType> = {
   title: 'entry schema',
   description: 'describes time entries',
-  version: 3,
+  version: 5,
   type: 'object',
   properties: {
     entryId: {
@@ -32,6 +33,10 @@ export const entrySchema: RxJsonSchema<EntryDocumentType> = {
     endedAt: {
       type: 'string',
       description: 'ISO date string of an activities ending point'
+    },
+    category: {
+      type: 'string',
+      description: 'Category of this entry'
     }
   },
   required: ['description', 'startedAt']
@@ -63,6 +68,16 @@ export const entryCreatorBase: RxCollectionCreator = {
         ...previous,
         startedAt: new Date(previous.startedAt).toISOString(),
         endedAt: previous.endedAt === 'Undefined' ? undefined : previous.endedAt
+      };
+    },
+    4(previous: EntryDocumentType) {
+      return {
+        ...previous
+      };
+    },
+    5(previous: EntryDocumentType) {
+      return {
+        ...previous
       };
     }
   }

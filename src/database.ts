@@ -16,17 +16,13 @@ type DatabaseCollections = {
 export type TimeletDatabase = RxDatabase<DatabaseCollections>;
 
 export async function initializeDatabase() {
+  // Set up database
   const database: TimeletDatabase = await createRxDatabase<DatabaseCollections>({
     name: DATABASE_NAME,
     adapter: 'indexeddb'
   });
 
-  try {
-    await database.insertLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID, defaultSettings);
-  } catch (e) {
-    // Settings already initialized
-  }
-
+  // Configure collections
   await database.addCollections({
     entries: entryCreatorBase,
     profiles: profileCreatorBase
@@ -34,6 +30,13 @@ export async function initializeDatabase() {
 
   configureEntryCollection(database.entries);
   configureProfileCollection(database.profiles);
+
+  // Seed default settings
+  try {
+    await database.insertLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID, defaultSettings);
+  } catch (e) {
+    // Settings already initialized
+  }
 
   return database;
 }

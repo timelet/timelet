@@ -4,6 +4,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import CategoryIcon from '@material-ui/icons/Category';
 import SettingsIcon from '@material-ui/icons/Settings';
+import TagsIcon from '@material-ui/icons/LocalOffer';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
@@ -14,6 +15,10 @@ const DrawerContainer = styled.nav`
   flex-direction: column;
   height: 100%;
   width: 15rem;
+
+  a {
+    line-height: 2;
+  }
 `;
 
 const StyledMenuList = styled(MenuList)`
@@ -53,18 +58,30 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
           </Toolbar>
           <Divider />
           <StyledMenuList>
-            <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
-              <ListItemIcon>
-                <CategoryIcon />
-              </ListItemIcon>
-              <FormattedMessage id="label.categories" defaultMessage="Categories" description="Label for entry categories" />
-            </MenuItem>
-            <MenuItem component={Link} to={RoutePaths.SETTINGS}>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <FormattedMessage id="label.settings" defaultMessage="Settings" description="Label for system settings" />
-            </MenuItem>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
+                <ListItemIcon>
+                  <CategoryIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.categories" defaultMessage="Categories" description="Label for entry categories" />
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.TAGS}>
+                <ListItemIcon>
+                  <TagsIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.tags" defaultMessage="Tags" description="Label for tags" />
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.SETTINGS}>
+                <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.settings" defaultMessage="Settings" description="Label for system settings" />
+              </MenuItem>
+            </li>
           </StyledMenuList>
           <Divider />
           <Toolbar>
