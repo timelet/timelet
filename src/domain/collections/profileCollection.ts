@@ -18,7 +18,7 @@ export type ProfileCollection = RxCollection<ProfileDocumentType>;
 export const profileSchema: RxJsonSchema<ProfileDocumentType> = {
   title: 'profile schema',
   description: 'describes profiles',
-  version: 2,
+  version: 3,
   type: 'object',
   properties: {
     profileId: {
@@ -73,6 +73,12 @@ export const profileCreatorBase: RxCollectionCreator = {
     },
     2(previous: ProfileDocumentType) {
       return previous;
+    },
+    3(previous: ProfileDocumentType) {
+      return {
+        ...previous,
+        categories: previous.categories ?? []
+      };
     }
   }
 };
