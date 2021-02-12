@@ -22,7 +22,7 @@ export default function CategoryDisplay({ categories, update, remove, loading }:
     return currentCategory ? <CategoryForm category={currentCategory} update={update} /> : null;
   };
 
-  const renderDeleteButton = (params: CellParams) => {
+  const renderRemoveButton = (params: CellParams) => {
     const currentCategory = categories.find((c) => c.name === params.getValue('name'));
     return currentCategory ? (
       <ConfirmDialog
@@ -57,7 +57,7 @@ export default function CategoryDisplay({ categories, update, remove, loading }:
       renderCell: (params) => (
         <>
           {renderEditButton(params)}
-          {renderDeleteButton(params)}
+          {renderRemoveButton(params)}
         </>
       )
     }

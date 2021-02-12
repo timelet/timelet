@@ -39,6 +39,11 @@ export default function Entries() {
     await query?.update({ $set: { endedAt: new Date().toISOString() } });
   };
 
+  const removeEntry = async (entryId: string) => {
+    const query = database?.entries.findOne({ selector: { entryId } });
+    await query?.remove();
+  };
+
   React.useEffect(
     createSubscriptionEffect(() =>
       database?.entries.find().$.subscribe((docs) => {
@@ -71,7 +76,7 @@ export default function Entries() {
         <EntryInlineForm categories={categories} create={createEntry} />
       </ContentElement>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} />
+        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} remove={removeEntry} />
       </EntryDisplayContainer>
     </ContentContainer>
   );

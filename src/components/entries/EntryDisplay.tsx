@@ -1,10 +1,11 @@
 import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
-import { Stop as StopIcon } from '@material-ui/icons';
+import { Stop as StopIcon, Delete as DeleteIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { EntryViewModel } from '../../domain/viewModels/entryViewModel';
+import ConfirmDialog from '../ConfirmDialog';
 import InteractiveDuration from '../InteractiveDuration';
 import EntryForm from './EntryForm';
 
@@ -12,6 +13,7 @@ type EntryDisplayProps = {
   entries: EntryViewModel[];
   stop?: (entryId: string) => void;
   update: (entry: EntryDocumentType) => void;
+  remove: (entryId: string) => void;
   loading?: boolean;
 };
 
@@ -22,7 +24,7 @@ const defaultSortModel: SortModel = [
   }
 ];
 
-export default function EntryDisplay({ entries, loading, update, stop }: EntryDisplayProps) {
+export default function EntryDisplay({ entries, loading, update, remove, stop }: EntryDisplayProps) {
   const intl = useIntl();
 
   const renderStopButton = (params: CellParams) => (
@@ -41,10 +43,22 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
 
   const renderEditButton = (params: CellParams) => {
     const currentEntry = entries.find((e) => e.entryId === params.getValue('entryId'));
-    if (currentEntry) {
-      return <EntryForm entry={currentEntry} update={update} />;
-    }
-    return null;
+    return currentEntry ? <EntryForm entry={currentEntry} update={update} /> : null;
+  };
+
+  const renderRemoveButton = (params: CellParams) => {
+    const currentEntryId = params.getValue('entryId')?.toString();
+    return currentEntryId ? (
+      <ConfirmDialog
+        title={intl.formatMessage({ id: 'label.confirmation', defaultMessage: 'Confirmation' })}
+        description={intl.formatMessage({ id: 'dialog.confirmRemove', defaultMessage: 'Confirm the removal of the selected entry.' })}
+        onConfirm={() => remove(currentEntryId)}
+      >
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </ConfirmDialog>
+    ) : null;
   };
 
   const renderDateTime = (params: CellParams) => (
@@ -95,13 +109,14 @@ export default function EntryDisplay({ entries, loading, update, stop }: EntryDi
     {
       field: 'actions',
       headerName: intl.formatMessage({ id: 'label.actions', defaultMessage: 'Actions' }),
-      width: 150,
+      width: 180,
       align: 'center',
       headerAlign: 'center',
       renderCell: (params) => (
         <>
           {renderStopButton(params)}
           {renderEditButton(params)}
+          {renderRemoveButton(params)}
         </>
       )
     }
