@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
 import EntryInlineForm from '../components/entries/EntryInlineForm';
-import { useDatabase } from '../domain/contexts/DatabaseContext';
+import { useDatabase } from '../contexts/DatabaseContext';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { EntryViewModel } from '../domain/viewModels/entryViewModel';

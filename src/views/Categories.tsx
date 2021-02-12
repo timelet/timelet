@@ -6,7 +6,7 @@ import { RxDocument } from 'rxdb';
 import CategoryDisplay from '../components/categories/CategoryDisplay';
 import CategoryInlineForm from '../components/categories/CategoryInlineForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
-import { useDatabase } from '../domain/contexts/DatabaseContext';
+import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import { CategoryViewModel } from '../domain/viewModels/categoryViewModel';
 import ContentContainer from '../layout/default/ContentContainer';

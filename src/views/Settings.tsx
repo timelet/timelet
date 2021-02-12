@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import StorageManagement from '../components/settings/StorageManagement';
 import ProfileForm from '../components/settings/ProfileForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
-import { useDatabase } from '../domain/contexts/DatabaseContext';
+import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';

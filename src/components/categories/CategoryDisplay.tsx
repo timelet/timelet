@@ -5,6 +5,7 @@ import { Delete as DeleteIcon } from '@material-ui/icons';
 import { useIntl } from 'react-intl';
 import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 import CategoryForm from './CategoryForm';
+import ConfirmDialog from '../ConfirmDialog';
 
 type CategoryDisplayProps = {
   categories: CategoryViewModel[];
@@ -24,9 +25,15 @@ export default function CategoryDisplay({ categories, update, remove, loading }:
   const renderDeleteButton = (params: CellParams) => {
     const currentCategory = categories.find((c) => c.name === params.getValue('name'));
     return currentCategory ? (
-      <IconButton onClick={() => remove(currentCategory)}>
-        <DeleteIcon />
-      </IconButton>
+      <ConfirmDialog
+        title={intl.formatMessage({ id: 'label.confirmation', defaultMessage: 'Confirmation' })}
+        description={intl.formatMessage({ id: 'dialog.confirmRemove', defaultMessage: 'Confirm the removal of the selected entry.' })}
+        onConfirm={() => remove(currentCategory)}
+      >
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </ConfirmDialog>
     ) : null;
   };
 
