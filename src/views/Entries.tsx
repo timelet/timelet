@@ -76,7 +76,7 @@ export default function Entries() {
         <EntryInlineForm categories={categories} create={createEntry} />
       </ContentElement>
       <EntryDisplayContainer>
-        <EntryDisplay entries={entries} loading={loading} stop={stopEntry} update={updateEntry} remove={removeEntry} />
+        <EntryDisplay entries={entries} categories={categories} loading={loading} stop={stopEntry} update={updateEntry} remove={removeEntry} />
       </EntryDisplayContainer>
     </ContentContainer>
   );
