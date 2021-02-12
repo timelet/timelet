@@ -12,6 +12,7 @@ import { EntryViewModel } from '../domain/viewModels/entryViewModel';
 import { createAsyncSubscriptionEffect, createSubscriptionEffect } from '../utils/rxdb';
 import { CategoryViewModel } from '../domain/viewModels/categoryViewModel';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
+import { TagViewModel } from '../domain/viewModels/tagViewModel';
 
 const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
@@ -22,6 +23,7 @@ const EntryDisplayContainer = styled(ContentElement)`
 export default function Entries() {
   const database = useDatabase();
   const [categories, setCategories] = React.useState<CategoryViewModel[]>([]);
+  const [tags, setTags] = React.useState<TagViewModel[]>([]);
   const [entries, setEntries] = React.useState<EntryViewModel[]>([]);
   const [loading, setLoading] = React.useState(true);
 
@@ -68,6 +70,7 @@ export default function Entries() {
       // Find currently set profile in the database
       return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
         setCategories(doc?.categories || []);
+        setTags(doc?.tags || []);
         setLoading(false);
       });
     }),
@@ -80,12 +83,13 @@ export default function Entries() {
         <FormattedMessage id="title.entries" defaultMessage="Entries" />
       </Typography>
       <ContentElement>
-        <EntryInlineForm categories={categories} create={createEntry} />
+        <EntryInlineForm categories={categories} tags={tags} create={createEntry} />
       </ContentElement>
       <EntryDisplayContainer>
         <EntryDisplay
           entries={entries}
           categories={categories}
+          tags={tags}
           loading={loading}
           stop={stopEntry}
           update={updateEntry}

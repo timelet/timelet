@@ -6,6 +6,7 @@ import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 import { EntryViewModel } from '../../domain/viewModels/entryViewModel';
+import { TagViewModel } from '../../domain/viewModels/tagViewModel';
 import ConfirmDialog from '../ConfirmDialog';
 import InteractiveDuration from '../InteractiveDuration';
 import EntryForm from './EntryForm';
@@ -13,6 +14,7 @@ import EntryForm from './EntryForm';
 type EntryDisplayProps = {
   entries: EntryViewModel[];
   categories: CategoryViewModel[];
+  tags: TagViewModel[];
   stop: (entryId: string) => void;
   copy: (entryId: string) => void;
   update: (entry: EntryDocumentType) => void;
@@ -27,7 +29,7 @@ const defaultSortModel: SortModel = [
   }
 ];
 
-export default function EntryDisplay({ entries, categories, loading, update, remove, stop, copy }: EntryDisplayProps) {
+export default function EntryDisplay({ entries, categories, tags, loading, update, remove, stop, copy }: EntryDisplayProps) {
   const intl = useIntl();
 
   const renderStopButton = (params: CellParams) => (
@@ -49,7 +51,7 @@ export default function EntryDisplay({ entries, categories, loading, update, rem
 
   const renderEditButton = (params: CellParams) => {
     const currentEntry = entries.find((e) => e.entryId === params.getValue('entryId'));
-    return currentEntry ? <EntryForm entry={currentEntry} categories={categories} update={update} /> : null;
+    return currentEntry ? <EntryForm entry={currentEntry} categories={categories} tags={tags} update={update} /> : null;
   };
 
   const renderRemoveButton = (params: CellParams) => {
@@ -90,6 +92,11 @@ export default function EntryDisplay({ entries, categories, loading, update, rem
     {
       field: 'category',
       headerName: intl.formatMessage({ id: 'label.category', defaultMessage: 'Category' }),
+      flex: 0.2
+    },
+    {
+      field: 'tag',
+      headerName: intl.formatMessage({ id: 'label.tag', defaultMessage: 'Tag' }),
       flex: 0.2
     },
     {
