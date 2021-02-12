@@ -1,6 +1,7 @@
+import styled from '@emotion/styled';
 import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
-import { Stop as StopIcon, Delete as DeleteIcon, PlayArrow as PlayIcon } from '@material-ui/icons';
+import { Stop as StopIcon, Delete as DeleteIcon, PlayArrow as PlayIcon, Timer as RecordIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
@@ -10,6 +11,10 @@ import { TagViewModel } from '../../domain/viewModels/tagViewModel';
 import ConfirmDialog from '../ConfirmDialog';
 import InteractiveDuration from '../InteractiveDuration';
 import EntryForm from './EntryForm';
+
+const StyledRecordIcon = styled(RecordIcon)`
+  margin-right: 0.2rem;
+`;
 
 type EntryDisplayProps = {
   entries: EntryViewModel[];
@@ -85,11 +90,6 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
       hide: true
     },
     {
-      field: 'description',
-      headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
-      flex: 0.5
-    },
-    {
       field: 'category',
       headerName: intl.formatMessage({ id: 'label.category', defaultMessage: 'Category' }),
       flex: 0.2
@@ -98,6 +98,11 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
       field: 'tag',
       headerName: intl.formatMessage({ id: 'label.tag', defaultMessage: 'Tag' }),
       flex: 0.2
+    },
+    {
+      field: 'description',
+      headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
+      flex: 0.5
     },
     {
       field: 'startedAt',
@@ -109,14 +114,18 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
       field: 'endedAt',
       headerName: intl.formatMessage({ id: 'label.endedAt', defaultMessage: 'Ended at' }),
       width: 180,
-      renderCell: renderDateTime
+      renderCell: renderDateTime,
+      hide: true
     },
     {
       field: 'duration',
       headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
       width: 130,
       renderCell: (params) => (
-        <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+        <>
+          {params.getValue('endedAt')?.toString() ? null : <StyledRecordIcon color="primary" fontSize="small" />}
+          <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+        </>
       )
     },
     {
@@ -135,5 +144,5 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
     }
   ];
 
-  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} />;
+  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} density="compact" />;
 }
