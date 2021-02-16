@@ -3,10 +3,11 @@ import { v4 } from 'uuid';
 
 export type EntryDocumentType = {
   entryId?: string;
-  description: string;
+  description?: string;
   startedAt: string;
   endedAt?: string;
-  category?: string;
+  category: string;
+  tag?: string;
 };
 
 export type EntryDocument = RxDocument<EntryDocumentType>;
@@ -16,7 +17,7 @@ export type EntryCollection = RxCollection<EntryDocumentType>;
 export const entrySchema: RxJsonSchema<EntryDocumentType> = {
   title: 'entry schema',
   description: 'describes time entries',
-  version: 5,
+  version: 7,
   type: 'object',
   properties: {
     entryId: {
@@ -37,9 +38,13 @@ export const entrySchema: RxJsonSchema<EntryDocumentType> = {
     category: {
       type: 'string',
       description: 'Category of this entry'
+    },
+    tag: {
+      type: 'string',
+      description: 'Tags of this entry'
     }
   },
-  required: ['description', 'startedAt']
+  required: ['category', 'startedAt']
 };
 
 export function configureEntryCollection(collection: EntryCollection) {
@@ -76,6 +81,16 @@ export const entryCreatorBase: RxCollectionCreator = {
       };
     },
     5(previous: EntryDocumentType) {
+      return {
+        ...previous
+      };
+    },
+    6(previous: EntryDocumentType) {
+      return {
+        ...previous
+      };
+    },
+    7(previous: EntryDocumentType) {
       return {
         ...previous
       };

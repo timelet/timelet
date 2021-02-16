@@ -9,12 +9,14 @@ import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
 import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
+import { TagViewModel } from '../../domain/viewModels/tagViewModel';
 
 const StyledForm = withTheme(
   styled.form`
     display: grid;
     grid-template-areas:
-      'category description submit'
+      'category tags submit'
+      'description description submit'
       'startedAt endedAt submit';
     grid-template-columns: 1fr 1fr 60px;
 
@@ -31,12 +33,17 @@ const StyledForm = withTheme(
   `
 );
 
+const DescriptionTextField = styled(TextField)`
+  grid-area: description;
+`;
+
 type EntryFormProps = {
   categories: CategoryViewModel[];
+  tags: TagViewModel[];
   create: (entry: EntryDocumentType) => void;
 };
 
-export default function EntryInlineForm({ categories, create }: EntryFormProps) {
+export default function EntryInlineForm({ categories, tags, create }: EntryFormProps) {
   const intl = useIntl();
   const [startedAt, setStartedAt] = React.useState<Date | null>(null);
   const [endedAt, setEndedAt] = React.useState<Date | null>(null);
@@ -46,6 +53,7 @@ export default function EntryInlineForm({ categories, create }: EntryFormProps) 
   const onSubmit = (data: EntryDocumentType) => {
     const entry: EntryDocumentType = {
       category: data.category,
+      tag: data.tag,
       description: data.description,
       startedAt: startedAt?.toISOString() ?? new Date().toISOString(),
       endedAt: endedAt?.toISOString() ?? undefined
@@ -74,8 +82,23 @@ export default function EntryInlineForm({ categories, create }: EntryFormProps) 
           />
         )}
       />
-
-      <TextField
+      <Autocomplete
+        autoComplete
+        options={[...tags]}
+        getOptionLabel={(option) => option.name}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            name="tag"
+            inputRef={register}
+            label={intl.formatMessage({
+              id: 'label.tag',
+              defaultMessage: 'Tag'
+            })}
+          />
+        )}
+      />
+      <DescriptionTextField
         name="description"
         inputRef={register}
         label={intl.formatMessage({
@@ -83,7 +106,6 @@ export default function EntryInlineForm({ categories, create }: EntryFormProps) 
           defaultMessage: 'Description'
         })}
         multiline
-        required
       />
       <KeyboardDateTimePicker
         name="startedAt"

@@ -1,17 +1,27 @@
+import styled from '@emotion/styled';
 import { IconButton } from '@material-ui/core';
 import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
-import { Stop as StopIcon, Delete as DeleteIcon } from '@material-ui/icons';
+import { Stop as StopIcon, Delete as DeleteIcon, PlayArrow as PlayIcon, Timer as RecordIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { EntryDocumentType } from '../../domain/collections/entryCollection';
+import { CategoryViewModel } from '../../domain/viewModels/categoryViewModel';
 import { EntryViewModel } from '../../domain/viewModels/entryViewModel';
+import { TagViewModel } from '../../domain/viewModels/tagViewModel';
 import ConfirmDialog from '../ConfirmDialog';
 import InteractiveDuration from '../InteractiveDuration';
 import EntryForm from './EntryForm';
 
+const StyledRecordIcon = styled(RecordIcon)`
+  margin-right: 0.2rem;
+`;
+
 type EntryDisplayProps = {
   entries: EntryViewModel[];
-  stop?: (entryId: string) => void;
+  categories: CategoryViewModel[];
+  tags: TagViewModel[];
+  stop: (entryId: string) => void;
+  copy: (entryId: string) => void;
   update: (entry: EntryDocumentType) => void;
   remove: (entryId: string) => void;
   loading?: boolean;
@@ -24,26 +34,29 @@ const defaultSortModel: SortModel = [
   }
 ];
 
-export default function EntryDisplay({ entries, loading, update, remove, stop }: EntryDisplayProps) {
+export default function EntryDisplay({ entries, categories, tags, loading, update, remove, stop, copy }: EntryDisplayProps) {
   const intl = useIntl();
 
   const renderStopButton = (params: CellParams) => (
     <IconButton
-      disabled={!!params.getValue('endedAt')}
       onClick={() => {
         const entryId = params.getValue('entryId')?.toString();
-        if (entryId && stop) {
-          stop(entryId);
+        if (entryId) {
+          if (params.getValue('endedAt')) {
+            copy(entryId);
+          } else {
+            stop(entryId);
+          }
         }
       }}
     >
-      <StopIcon />
+      {params.getValue('endedAt') ? <PlayIcon /> : <StopIcon />}
     </IconButton>
   );
 
   const renderEditButton = (params: CellParams) => {
     const currentEntry = entries.find((e) => e.entryId === params.getValue('entryId'));
-    return currentEntry ? <EntryForm entry={currentEntry} update={update} /> : null;
+    return currentEntry ? <EntryForm entry={currentEntry} categories={categories} tags={tags} update={update} /> : null;
   };
 
   const renderRemoveButton = (params: CellParams) => {
@@ -77,14 +90,19 @@ export default function EntryDisplay({ entries, loading, update, remove, stop }:
       hide: true
     },
     {
-      field: 'description',
-      headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
-      flex: 0.5
-    },
-    {
       field: 'category',
       headerName: intl.formatMessage({ id: 'label.category', defaultMessage: 'Category' }),
       flex: 0.2
+    },
+    {
+      field: 'tag',
+      headerName: intl.formatMessage({ id: 'label.tag', defaultMessage: 'Tag' }),
+      flex: 0.2
+    },
+    {
+      field: 'description',
+      headerName: intl.formatMessage({ id: 'label.description', defaultMessage: 'Description' }),
+      flex: 0.5
     },
     {
       field: 'startedAt',
@@ -96,14 +114,18 @@ export default function EntryDisplay({ entries, loading, update, remove, stop }:
       field: 'endedAt',
       headerName: intl.formatMessage({ id: 'label.endedAt', defaultMessage: 'Ended at' }),
       width: 180,
-      renderCell: renderDateTime
+      renderCell: renderDateTime,
+      hide: true
     },
     {
       field: 'duration',
       headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
       width: 130,
       renderCell: (params) => (
-        <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+        <>
+          {params.getValue('endedAt')?.toString() ? null : <StyledRecordIcon color="primary" fontSize="small" />}
+          <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+        </>
       )
     },
     {
@@ -122,5 +144,5 @@ export default function EntryDisplay({ entries, loading, update, remove, stop }:
     }
   ];
 
-  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} />;
+  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} density="compact" />;
 }
