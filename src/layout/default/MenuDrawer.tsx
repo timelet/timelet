@@ -1,10 +1,13 @@
 import { Divider, IconButton, ListItemIcon, MenuItem, MenuList, SwipeableDrawer, Toolbar } from '@material-ui/core';
 import React from 'react';
-import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
-import CategoryIcon from '@material-ui/icons/Category';
-import SettingsIcon from '@material-ui/icons/Settings';
-import TagsIcon from '@material-ui/icons/LocalOffer';
+import {
+  Menu as MenuIcon,
+  Close as CloseIcon,
+  Category as CategoryIcon,
+  Settings as SettingsIcon,
+  LocalOffer as TagsIcon,
+  PlaylistPlay as EntryIcon
+} from '@material-ui/icons';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
@@ -58,6 +61,14 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
           </Toolbar>
           <Divider />
           <StyledMenuList>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.ENTRIES}>
+                <ListItemIcon>
+                  <EntryIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.entries" defaultMessage="Entries" />
+              </MenuItem>
+            </li>
             <li>
               <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
                 <ListItemIcon>

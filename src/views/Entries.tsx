@@ -18,11 +18,16 @@ const EntryDisplayContainer = styled(ContentElement)`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  min-height: 20vh;
 `;
 
-export default function Entries() {
+type EntriesProps = {
+  categories?: CategoryViewModel[];
+};
+
+export default function Entries({ categories: externalCategories = [] }: EntriesProps) {
   const database = useDatabase();
-  const [categories, setCategories] = React.useState<CategoryViewModel[]>([]);
+  const [categories, setCategories] = React.useState<CategoryViewModel[]>(externalCategories);
   const [tags, setTags] = React.useState<TagViewModel[]>([]);
   const [entries, setEntries] = React.useState<EntryViewModel[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -53,15 +58,17 @@ export default function Entries() {
     await query?.remove();
   };
 
-  React.useEffect(
-    createSubscriptionEffect(() =>
-      database?.entries.find().$.subscribe((docs) => {
-        setEntries(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
-        setLoading(false);
-      })
-    ),
-    [database]
-  );
+  if (externalCategories.length <= 0) {
+    React.useEffect(
+      createSubscriptionEffect(() =>
+        database?.entries.find().$.subscribe((docs) => {
+          setEntries(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
+          setLoading(false);
+        })
+      ),
+      [database]
+    );
+  }
 
   React.useEffect(
     createAsyncSubscriptionEffect(async () => {
