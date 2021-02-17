@@ -125,10 +125,22 @@
       "value": "Dauer"
     }
   ],
+  "label.emptyAndDependingOnBrowser": [
+    {
+      "type": 0,
+      "value": "Leer (Sprache des Browsers wird verwendet)"
+    }
+  ],
   "label.endedAt": [
     {
       "type": 0,
       "value": "Ende am"
+    }
+  ],
+  "label.entries": [
+    {
+      "type": 0,
+      "value": "Einträge"
     }
   ],
   "label.id": [
@@ -143,6 +155,12 @@
       "value": "Sprache"
     }
   ],
+  "label.name": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
   "label.profile": [
     {
       "type": 0,
@@ -152,7 +170,7 @@
   "label.settings": [
     {
       "type": 0,
-      "value": "Einstellungen"
+      "value": "Settings"
     }
   ],
   "label.startedAt": [
@@ -161,16 +179,56 @@
       "value": "Start am"
     }
   ],
+  "label.tag": [
+    {
+      "type": 0,
+      "value": "Tag"
+    }
+  ],
+  "label.tags": [
+    {
+      "type": 0,
+      "value": "Tags"
+    }
+  ],
   "label.undefined": [
     {
       "type": 0,
       "value": "-"
     }
   ],
+  "title.profiles": [
+    {
+      "type": 0,
+      "value": "Profile"
+    }
+  ],
+  "title.storage": [
+    {
+      "type": 0,
+      "value": "Speicher"
+    }
+  ],
+  "version": [
+    {
+      "type": 0,
+      "value": "Version "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    }
+  ],
   "title.categories": [
     {
       "type": 0,
       "value": "Kategorien"
+    }
+  ],
+  "title.dashboard": [
+    {
+      "type": 0,
+      "value": "Übersicht"
     }
   ],
   "title.entries": [
@@ -185,14 +243,10 @@
       "value": "Einstellungen"
     }
   ],
-  "version": [
+  "title.tags": [
     {
       "type": 0,
-      "value": "Version "
-    },
-    {
-      "type": 1,
-      "value": "version"
+      "value": "Tags"
     }
   ]
 }

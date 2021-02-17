@@ -8,7 +8,6 @@ import ProfileForm from '../components/settings/ProfileForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
-import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { createSubscriptionEffect } from '../utils/rxdb';
 
@@ -60,10 +59,7 @@ export default function Settings() {
   };
 
   return (
-    <ContentContainer>
-      <Typography variant="h2">
-        <FormattedMessage id="title.settings" defaultMessage="Settings" />
-      </Typography>
+    <>
       <ContentElement>
         <Typography variant="h3">
           <FormattedMessage id="title.profiles" defaultMessage="Profiles" />
@@ -80,6 +76,6 @@ export default function Settings() {
         </Typography>
         <StorageManagement exportDump={exportDump} />
       </ContentElement>
-    </ContentContainer>
+    </>
   );
 }

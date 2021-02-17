@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
-import { Typography } from '@material-ui/core';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { RxDocument } from 'rxdb';
 import CategoryDisplay from '../components/categories/CategoryDisplay';
 import CategoryInlineForm from '../components/categories/CategoryInlineForm';
@@ -9,7 +7,6 @@ import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import { CategoryViewModel } from '../domain/viewModels/categoryViewModel';
-import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { createAsyncSubscriptionEffect } from '../utils/rxdb';
 
@@ -54,16 +51,13 @@ export default function Categories() {
   );
 
   return (
-    <ContentContainer>
-      <Typography variant="h2">
-        <FormattedMessage id="title.categories" defaultMessage="Categories" />
-      </Typography>
+    <>
       <ContentElement>
         <CategoryInlineForm create={createCategory} />
       </ContentElement>
       <CategoryDisplayContainer>
         <CategoryDisplay categories={categories} update={updateCategory} remove={removeCategory} loading={loading} />
       </CategoryDisplayContainer>
-    </ContentContainer>
+    </>
   );
 }

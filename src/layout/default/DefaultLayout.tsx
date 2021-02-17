@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { Container, withTheme } from '@material-ui/core';
 import React from 'react';
+import { useIntl } from 'react-intl';
+import { useLocation } from 'react-use';
+import ContentContainer from './ContentContainer';
 import Header from './Header';
 
 const LayoutContainer = styled(Container)`
@@ -22,12 +25,21 @@ const NativeMain = withTheme(
 type DefaultLayoutProps = React.PropsWithChildren<{}>;
 
 export default function DefaultLayout({ children }: DefaultLayoutProps) {
+  const location = useLocation();
+  let titleKey = location.pathname || '/';
+  titleKey = titleKey.substring(1).replaceAll('/', '.') || 'dashboard';
+
+  const intl = useIntl();
+  const title = intl.formatMessage({ id: `title.${titleKey}` });
+
   return (
     <LayoutContainer maxWidth={false}>
       <header>
         <Header />
       </header>
-      <NativeMain>{children}</NativeMain>
+      <NativeMain>
+        <ContentContainer title={title}>{children}</ContentContainer>
+      </NativeMain>
       <footer />
     </LayoutContainer>
   );

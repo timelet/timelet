@@ -1,14 +1,11 @@
 import styled from '@emotion/styled';
-import { Typography } from '@material-ui/core';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { RxDocument } from 'rxdb';
 import CategoryDisplay from '../components/categories/CategoryDisplay';
 import CategoryInlineForm from '../components/categories/CategoryInlineForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
-import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { createAsyncSubscriptionEffect } from '../utils/rxdb';
 import { TagViewModel } from '../domain/viewModels/tagViewModel';
@@ -54,16 +51,13 @@ export default function Tags() {
   );
 
   return (
-    <ContentContainer>
-      <Typography variant="h2">
-        <FormattedMessage id="title.tags" defaultMessage="Tags" />
-      </Typography>
+    <>
       <ContentElement>
         <CategoryInlineForm create={createTag} />
       </ContentElement>
       <TagDisplayContainer>
         <CategoryDisplay categories={tags} update={updateTag} remove={removeTag} loading={loading} />
       </TagDisplayContainer>
-    </ContentContainer>
+    </>
   );
 }

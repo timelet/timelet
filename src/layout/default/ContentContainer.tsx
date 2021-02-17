@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { Container, withTheme } from '@material-ui/core';
+import { Container, Typography, withTheme } from '@material-ui/core';
+import React, { PropsWithChildren } from 'react';
 
-const ContentContainer = withTheme(
+const StyledContentContainer = withTheme(
   styled(Container)`
     display: flex;
     flex-direction: column;
@@ -9,4 +10,15 @@ const ContentContainer = withTheme(
   `
 );
 
-export default ContentContainer;
+type ContentContainerProps = PropsWithChildren<{
+  title: string;
+}>;
+
+export default function ContentContainer({ children, title }: ContentContainerProps) {
+  return (
+    <StyledContentContainer>
+      <Typography variant="h2">{title}</Typography>
+      {children}
+    </StyledContentContainer>
+  );
+}

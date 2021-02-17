@@ -20,8 +20,7 @@
     "description": "Requests the user to update the application"
   },
   "app.title": {
-    "defaultMessage": "Timelet",
-    "description": "Application name"
+    "defaultMessage": "Timelet"
   },
   "dialog.confirmRemove": {
     "defaultMessage": "Löschung des ausgewählten Eintrags bestätigen."
@@ -63,8 +62,15 @@
   "label.duration": {
     "defaultMessage": "Dauer"
   },
+  "label.emptyAndDependingOnBrowser": {
+    "defaultMessage": "Leer (Sprache des Browsers wird verwendet)",
+    "description": "An entry in a select input, which clears the input."
+  },
   "label.endedAt": {
     "defaultMessage": "Ende am"
+  },
+  "label.entries": {
+    "defaultMessage": "Einträge"
   },
   "label.id": {
     "defaultMessage": "Id"
@@ -72,28 +78,35 @@
   "label.language": {
     "defaultMessage": "Sprache"
   },
+  "label.name": {
+    "defaultMessage": "Name"
+  },
   "label.profile": {
     "defaultMessage": "Profil"
   },
   "label.settings": {
-    "defaultMessage": "Einstellungen",
+    "defaultMessage": "Settings",
     "description": "Label for system settings"
   },
   "label.startedAt": {
     "defaultMessage": "Start am"
   },
+  "label.tag": {
+    "defaultMessage": "Tag"
+  },
+  "label.tags": {
+    "defaultMessage": "Tags",
+    "description": "Label for tags"
+  },
   "label.undefined": {
     "defaultMessage": "-",
     "description": "An undefined value"
   },
-  "title.categories": {
-    "defaultMessage": "Kategorien"
+  "title.profiles": {
+    "defaultMessage": "Profile"
   },
-  "title.entries": {
-    "defaultMessage": "Einträge"
-  },
-  "title.settings": {
-    "defaultMessage": "Einstellungen"
+  "title.storage": {
+    "defaultMessage": "Speicher"
   },
   "version": {
     "defaultMessage": "Version {version}",

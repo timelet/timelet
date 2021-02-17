@@ -1,12 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Typography } from '@material-ui/core';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
 import EntryInlineForm from '../components/entries/EntryInlineForm';
 import { useDatabase } from '../contexts/DatabaseContext';
-import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
 import { EntryViewModel } from '../domain/viewModels/entryViewModel';
 import { createAsyncSubscriptionEffect, createSubscriptionEffect } from '../utils/rxdb';
@@ -85,10 +82,7 @@ export default function Entries({ categories: externalCategories = [] }: Entries
   );
 
   return (
-    <ContentContainer>
-      <Typography variant="h2">
-        <FormattedMessage id="title.entries" defaultMessage="Entries" />
-      </Typography>
+    <>
       <ContentElement>
         <EntryInlineForm categories={categories} tags={tags} create={createEntry} />
       </ContentElement>
@@ -104,6 +98,6 @@ export default function Entries({ categories: externalCategories = [] }: Entries
           copy={copyEntry}
         />
       </EntryDisplayContainer>
-    </ContentContainer>
+    </>
   );
 }
