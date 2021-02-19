@@ -1,11 +1,12 @@
 import type { RxCollection, RxDocument, RxJsonSchema, RxCollectionCreator } from 'rxdb';
 import { v4 } from 'uuid';
+import { Overwrite } from '../../utils/utilityTypes';
 
 export type EntryDocumentType = {
   entryId?: string;
   description?: string;
-  startedAt: string;
-  endedAt?: string;
+  startedAt: number;
+  endedAt?: number;
   category: string;
   tag?: string;
 };
@@ -17,7 +18,7 @@ export type EntryCollection = RxCollection<EntryDocumentType>;
 export const entrySchema: RxJsonSchema<EntryDocumentType> = {
   title: 'entry schema',
   description: 'describes time entries',
-  version: 7,
+  version: 8,
   type: 'object',
   properties: {
     entryId: {
@@ -28,12 +29,12 @@ export const entrySchema: RxJsonSchema<EntryDocumentType> = {
       type: 'string'
     },
     startedAt: {
-      type: 'string',
-      description: 'ISO date string of an activities starting point'
+      type: 'number',
+      description: 'UNIX timestamp of an activities starting point'
     },
     endedAt: {
-      type: 'string',
-      description: 'ISO date string of an activities ending point'
+      type: 'number',
+      description: 'UNIX timestamp of an activities ending point'
     },
     category: {
       type: 'string',
@@ -68,7 +69,7 @@ export const entryCreatorBase: RxCollectionCreator = {
         endedAt: previous.endedAt ? new Date(previous.endedAt).toISOString() : undefined
       };
     },
-    3(previous: EntryDocumentType) {
+    3(previous: Overwrite<EntryDocumentType, { endedAt?: string; startedAt: string }>) {
       return {
         ...previous,
         startedAt: new Date(previous.startedAt).toISOString(),
@@ -93,6 +94,13 @@ export const entryCreatorBase: RxCollectionCreator = {
     7(previous: EntryDocumentType) {
       return {
         ...previous
+      };
+    },
+    8(previous: Overwrite<EntryDocumentType, { endedAt?: string; startedAt: string }>) {
+      return {
+        ...previous,
+        startedAt: new Date(previous.startedAt).getTime(),
+        endedAt: previous.endedAt ? new Date(previous.endedAt).getTime() : undefined
       };
     }
   }

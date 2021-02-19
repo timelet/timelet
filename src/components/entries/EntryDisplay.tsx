@@ -124,7 +124,7 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
       renderCell: (params) => (
         <>
           {params.getValue('endedAt')?.toString() ? null : <StyledRecordIcon color="primary" fontSize="small" />}
-          <InteractiveDuration from={params.getValue('startedAt')?.toString() || ''} to={params.getValue('endedAt')?.toString()} />
+          <InteractiveDuration from={params.getValue('startedAt')?.valueOf() as number} to={params.getValue('endedAt')?.valueOf() as number} />
         </>
       )
     },

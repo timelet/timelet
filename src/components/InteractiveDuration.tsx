@@ -4,8 +4,8 @@ import Duration from './Duration';
 import Stopwatch from './Stopwatch';
 
 type DurationProps = {
-  from: string;
-  to?: string;
+  from: number;
+  to?: number;
 };
 
 export default function InteractiveDuration({ from, to }: DurationProps) {

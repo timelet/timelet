@@ -40,13 +40,13 @@ export default function Entries({ categories: externalCategories = [] }: Entries
 
   const stopEntry = async (entryId: string) => {
     const query = database?.entries.findOne({ selector: { entryId } });
-    await query?.update({ $set: { endedAt: new Date().toISOString() } });
+    await query?.update({ $set: { endedAt: new Date().getTime() } });
   };
 
   const copyEntry = async (entryId: string) => {
     const entry = await database?.entries.findOne({ selector: { entryId } }).exec();
     if (entry) {
-      await database?.entries.insert({ ...entry.toJSON(), entryId: undefined, startedAt: new Date().toISOString(), endedAt: undefined });
+      await database?.entries.insert({ ...entry.toJSON(), entryId: undefined, startedAt: new Date().getTime(), endedAt: undefined });
     }
   };
 

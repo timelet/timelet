@@ -55,8 +55,8 @@ export default function EntryInlineForm({ categories, tags, create }: EntryFormP
       category: data.category,
       tag: data.tag,
       description: data.description,
-      startedAt: startedAt?.toISOString() ?? new Date().toISOString(),
-      endedAt: endedAt?.toISOString() ?? undefined
+      startedAt: startedAt?.getTime() ?? new Date().getTime(),
+      endedAt: endedAt?.getTime() ?? undefined
     };
     create(entry);
     setFormId(formId + 1);
