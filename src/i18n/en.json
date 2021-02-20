@@ -248,5 +248,65 @@
       "type": 0,
       "value": "Tags"
     }
+  ],
+  "title.report": [
+    {
+      "type": 0,
+      "value": "Report"
+    }
+  ],
+  "label.noSelection": [
+    {
+      "type": 0,
+      "value": "No selection"
+    }
+  ],
+  "label.thisWeek": [
+    {
+      "type": 0,
+      "value": "This week"
+    }
+  ],
+  "label.lastWeek": [
+    {
+      "type": 0,
+      "value": "Next week"
+    }
+  ],
+  "label.thisMonth": [
+    {
+      "type": 0,
+      "value": "This month"
+    }
+  ],
+  "label.lastMonth": [
+    {
+      "type": 0,
+      "value": "Next month"
+    }
+  ],
+  "label.predefinedTimeRanges": [
+    {
+      "type": 0,
+      "value": "Vordefinierte Zeiträume"
+    }
+  ],
+  "label.from": [
+    {
+      "type": 0,
+      "value": "Von"
+    }
+  ],
+  "label.to": [
+    {
+      "type": 0,
+      "value": "Bis"
+    }
+  ],
+  "format.date": [
+    {
+      "type": 0,
+      "value": "yyyy/MM/dd"
+    }
   ]
 }

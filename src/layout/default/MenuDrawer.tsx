@@ -6,7 +6,8 @@ import {
   Category as CategoryIcon,
   Settings as SettingsIcon,
   LocalOffer as TagsIcon,
-  PlaylistPlay as EntryIcon
+  PlaylistPlay as EntryIcon,
+  Poll as ReportIcon
 } from '@material-ui/icons';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
@@ -67,6 +68,14 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
                   <EntryIcon />
                 </ListItemIcon>
                 <FormattedMessage id="label.entries" defaultMessage="Entries" />
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.REPORT}>
+                <ListItemIcon>
+                  <ReportIcon />
+                </ListItemIcon>
+                <FormattedMessage id="title.report" defaultMessage="Report" />
               </MenuItem>
             </li>
             <li>

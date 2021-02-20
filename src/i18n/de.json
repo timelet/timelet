@@ -170,7 +170,7 @@
   "label.settings": [
     {
       "type": 0,
-      "value": "Settings"
+      "value": "Einstellungen"
     }
   ],
   "label.startedAt": [
@@ -247,6 +247,66 @@
     {
       "type": 0,
       "value": "Tags"
+    }
+  ],
+  "title.report": [
+    {
+      "type": 0,
+      "value": "Auswertung"
+    }
+  ],
+  "label.noSelection": [
+    {
+      "type": 0,
+      "value": "Keine Auswahl"
+    }
+  ],
+  "label.thisWeek": [
+    {
+      "type": 0,
+      "value": "Diese Woche"
+    }
+  ],
+  "label.lastWeek": [
+    {
+      "type": 0,
+      "value": "Letzte Woche"
+    }
+  ],
+  "label.thisMonth": [
+    {
+      "type": 0,
+      "value": "Diesen Monat"
+    }
+  ],
+  "label.lastMonth": [
+    {
+      "type": 0,
+      "value": "Letzten Monat"
+    }
+  ],
+  "label.predefinedTimeRanges": [
+    {
+      "type": 0,
+      "value": "Vordefinierte Zeiträume"
+    }
+  ],
+  "label.from": [
+    {
+      "type": 0,
+      "value": "Von"
+    }
+  ],
+  "label.to": [
+    {
+      "type": 0,
+      "value": "Bis"
+    }
+  ],
+  "format.date": [
+    {
+      "type": 0,
+      "value": "dd.MM.yyyy"
     }
   ]
 }
