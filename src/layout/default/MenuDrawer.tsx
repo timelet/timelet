@@ -7,7 +7,9 @@ import {
   Settings as SettingsIcon,
   LocalOffer as TagsIcon,
   PlaylistPlay as EntryIcon,
-  Poll as ReportIcon
+  Poll as ReportIcon,
+  GitHub as GitHubIcon,
+  Language as WebsiteIcon
 } from '@material-ui/icons';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
@@ -27,6 +29,11 @@ const DrawerContainer = styled.nav`
 
 const StyledMenuList = styled(MenuList)`
   flex-grow: 1;
+`;
+
+const BottomToolbar = styled(Toolbar)`
+  display: flex;
+  justify-content: space-between;
 `;
 
 type MenuDrawerProps = {
@@ -104,14 +111,20 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
             </li>
           </StyledMenuList>
           <Divider />
-          <Toolbar>
+          <BottomToolbar>
             <FormattedMessage
               id="version"
               defaultMessage="Version {version}"
               values={{ version: import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION }}
               description="Display the the current version"
             />
-          </Toolbar>
+            <IconButton href="https://timelet.org" target="blank">
+              <WebsiteIcon />
+            </IconButton>
+            <IconButton href="https://github.com/timelet/timelet" target="blank">
+              <GitHubIcon />
+            </IconButton>
+          </BottomToolbar>
         </DrawerContainer>
       </SwipeableDrawer>
     </>
