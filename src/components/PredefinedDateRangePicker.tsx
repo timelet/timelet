@@ -63,6 +63,16 @@ export default function PredefinedDateRangePicker({ onSelect }: RecentDateTimePi
     updateDateRange(newPredefinedDateRange);
   };
 
+  const handleFrom = (date: Date | null) => {
+    setFrom(date);
+    setPredefinedDateRange(undefined);
+  };
+
+  const handleTo = (date: Date | null) => {
+    setTo(date);
+    setPredefinedDateRange(undefined);
+  };
+
   return (
     <Container>
       <FormControl fullWidth>
@@ -85,7 +95,7 @@ export default function PredefinedDateRangePicker({ onSelect }: RecentDateTimePi
       <KeyboardDatePicker
         name="from"
         value={from}
-        onChange={(date) => setFrom(date)}
+        onChange={handleFrom}
         format={intl.formatMessage({
           id: 'format.date',
           defaultMessage: 'yyyy/MM/dd',
@@ -99,7 +109,7 @@ export default function PredefinedDateRangePicker({ onSelect }: RecentDateTimePi
       <KeyboardDatePicker
         name="to"
         value={to}
-        onChange={(date) => setTo(date)}
+        onChange={handleTo}
         format={intl.formatMessage({
           id: 'format.date',
           defaultMessage: 'yyyy/MM/dd',
