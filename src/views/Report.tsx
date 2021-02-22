@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import PredefinedDateRangePicker from '../components/PredefinedDateRangePicker';
 import CategoryTagPieChart from '../components/report/CategoryTagPieChart';
 import EntryTable from '../components/report/EntryTable';
+import ExportEntries from '../components/report/ExportEntries';
 import SummaryTable from '../components/report/SummaryTable';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
@@ -56,6 +57,12 @@ function RenderElements({ entries }: RenderElementsProps) {
           <FormattedMessage id="title.selectedEntries" defaultMessage="Selected entries" />
         </Typography>
         <EntryTable entries={entries} />
+      </ReportContentElement>
+      <ReportContentElement>
+        <Typography variant="h3">
+          <FormattedMessage id="title.dataExport" defaultMessage="Data export" />
+        </Typography>
+        <ExportEntries entries={entries} />
       </ReportContentElement>
     </>
   );
