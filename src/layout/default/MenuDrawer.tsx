@@ -1,10 +1,16 @@
 import { Divider, IconButton, ListItemIcon, MenuItem, MenuList, SwipeableDrawer, Toolbar } from '@material-ui/core';
 import React from 'react';
-import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
-import CategoryIcon from '@material-ui/icons/Category';
-import SettingsIcon from '@material-ui/icons/Settings';
-import TagsIcon from '@material-ui/icons/LocalOffer';
+import {
+  Menu as MenuIcon,
+  Close as CloseIcon,
+  Category as CategoryIcon,
+  Settings as SettingsIcon,
+  LocalOffer as TagsIcon,
+  PlaylistPlay as EntryIcon,
+  Poll as ReportIcon,
+  GitHub as GitHubIcon,
+  Language as WebsiteIcon
+} from '@material-ui/icons';
 import styled from '@emotion/styled';
 import { FormattedMessage } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
@@ -25,6 +31,11 @@ const StyledMenuList = styled(MenuList)`
   flex-grow: 1;
 `;
 
+const BottomToolbar = styled(Toolbar)`
+  display: flex;
+  justify-content: space-between;
+`;
+
 type MenuDrawerProps = {
   title: React.ReactNode;
 };
@@ -34,9 +45,7 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
   const location = useLocation();
 
   React.useEffect(() => {
-    if (open) {
-      setOpen(false);
-    }
+    setOpen(false);
   }, [location]);
 
   const toggleDrawer = () => {
@@ -58,6 +67,22 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
           </Toolbar>
           <Divider />
           <StyledMenuList>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.ENTRIES}>
+                <ListItemIcon>
+                  <EntryIcon />
+                </ListItemIcon>
+                <FormattedMessage id="label.entries" defaultMessage="Entries" />
+              </MenuItem>
+            </li>
+            <li>
+              <MenuItem component={Link} to={RoutePaths.REPORT}>
+                <ListItemIcon>
+                  <ReportIcon />
+                </ListItemIcon>
+                <FormattedMessage id="title.report" defaultMessage="Report" />
+              </MenuItem>
+            </li>
             <li>
               <MenuItem component={Link} to={RoutePaths.CATEGORIES}>
                 <ListItemIcon>
@@ -84,14 +109,20 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
             </li>
           </StyledMenuList>
           <Divider />
-          <Toolbar>
+          <BottomToolbar>
             <FormattedMessage
               id="version"
               defaultMessage="Version {version}"
-              values={{ version: import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION }}
+              values={{ version: import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION as string }}
               description="Display the the current version"
             />
-          </Toolbar>
+            <IconButton href="https://timelet.org" target="blank">
+              <WebsiteIcon />
+            </IconButton>
+            <IconButton href="https://github.com/timelet/timelet" target="blank">
+              <GitHubIcon />
+            </IconButton>
+          </BottomToolbar>
         </DrawerContainer>
       </SwipeableDrawer>
     </>

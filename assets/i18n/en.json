@@ -69,6 +69,9 @@
   "label.endedAt": {
     "defaultMessage": "Ended at"
   },
+  "label.entries": {
+    "defaultMessage": "Entries"
+  },
   "label.id": {
     "defaultMessage": "Id"
   },
@@ -88,6 +91,9 @@
   "label.startedAt": {
     "defaultMessage": "Started at"
   },
+  "label.tag": {
+    "defaultMessage": "Tag"
+  },
   "label.tags": {
     "defaultMessage": "Tags",
     "description": "Label for tags"
@@ -96,23 +102,11 @@
     "defaultMessage": "Undefined",
     "description": "An undefined value"
   },
-  "title.categories": {
-    "defaultMessage": "Categories"
-  },
-  "title.entries": {
-    "defaultMessage": "Entries"
-  },
   "title.profiles": {
     "defaultMessage": "Profiles"
   },
-  "title.settings": {
-    "defaultMessage": "Settings"
-  },
   "title.storage": {
     "defaultMessage": "Storage"
-  },
-  "title.tags": {
-    "defaultMessage": "Tags"
   },
   "version": {
     "defaultMessage": "Version {version}",

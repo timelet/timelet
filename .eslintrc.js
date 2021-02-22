@@ -2,21 +2,23 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json'],
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    project: './tsconfig.json'
   },
   plugins: [
     '@typescript-eslint',
   ],
   extends: [
     'airbnb-typescript',
-    'prettier',
-    'prettier/@typescript-eslint'
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier'
   ],
   rules: {
-    "react/require-default-props": 0,
-    "react/prop-types": 0
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-floating-promises": "off"
   }
 };

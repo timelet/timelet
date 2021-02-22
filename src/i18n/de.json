@@ -125,10 +125,22 @@
       "value": "Dauer"
     }
   ],
+  "label.emptyAndDependingOnBrowser": [
+    {
+      "type": 0,
+      "value": "Leer (Sprache des Browsers wird verwendet)"
+    }
+  ],
   "label.endedAt": [
     {
       "type": 0,
       "value": "Ende am"
+    }
+  ],
+  "label.entries": [
+    {
+      "type": 0,
+      "value": "Einträge"
     }
   ],
   "label.id": [
@@ -141,6 +153,12 @@
     {
       "type": 0,
       "value": "Sprache"
+    }
+  ],
+  "label.name": [
+    {
+      "type": 0,
+      "value": "Name"
     }
   ],
   "label.profile": [
@@ -161,16 +179,56 @@
       "value": "Start am"
     }
   ],
+  "label.tag": [
+    {
+      "type": 0,
+      "value": "Tag"
+    }
+  ],
+  "label.tags": [
+    {
+      "type": 0,
+      "value": "Tags"
+    }
+  ],
   "label.undefined": [
     {
       "type": 0,
       "value": "-"
     }
   ],
+  "title.profiles": [
+    {
+      "type": 0,
+      "value": "Profile"
+    }
+  ],
+  "title.storage": [
+    {
+      "type": 0,
+      "value": "Speicher"
+    }
+  ],
+  "version": [
+    {
+      "type": 0,
+      "value": "Version "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    }
+  ],
   "title.categories": [
     {
       "type": 0,
       "value": "Kategorien"
+    }
+  ],
+  "title.dashboard": [
+    {
+      "type": 0,
+      "value": "Übersicht"
     }
   ],
   "title.entries": [
@@ -185,14 +243,70 @@
       "value": "Einstellungen"
     }
   ],
-  "version": [
+  "title.tags": [
     {
       "type": 0,
-      "value": "Version "
-    },
+      "value": "Tags"
+    }
+  ],
+  "title.report": [
     {
-      "type": 1,
-      "value": "version"
+      "type": 0,
+      "value": "Auswertung"
+    }
+  ],
+  "label.noSelection": [
+    {
+      "type": 0,
+      "value": "Keine Auswahl"
+    }
+  ],
+  "label.thisWeek": [
+    {
+      "type": 0,
+      "value": "Diese Woche"
+    }
+  ],
+  "label.lastWeek": [
+    {
+      "type": 0,
+      "value": "Letzte Woche"
+    }
+  ],
+  "label.thisMonth": [
+    {
+      "type": 0,
+      "value": "Diesen Monat"
+    }
+  ],
+  "label.lastMonth": [
+    {
+      "type": 0,
+      "value": "Letzten Monat"
+    }
+  ],
+  "label.predefinedTimeRanges": [
+    {
+      "type": 0,
+      "value": "Vordefinierte Zeiträume"
+    }
+  ],
+  "label.from": [
+    {
+      "type": 0,
+      "value": "Von"
+    }
+  ],
+  "label.to": [
+    {
+      "type": 0,
+      "value": "Bis"
+    }
+  ],
+  "format.date": [
+    {
+      "type": 0,
+      "value": "dd.MM.yyyy"
     }
   ]
 }

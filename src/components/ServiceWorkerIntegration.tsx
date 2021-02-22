@@ -5,7 +5,6 @@ import { Workbox, messageSW } from 'workbox-window';
 
 export default function ServiceWorkerIntegration() {
   const intl = useIntl();
-  const workbox = new Workbox(import.meta.env.SNOWPACK_PUBLIC_SERVICE_WORKER);
   const [updateNotificationOpen, setUpdateNotificationOpen] = React.useState(false);
   const [registration, setRegistration] = React.useState<ServiceWorkerRegistration>();
 
@@ -25,6 +24,8 @@ export default function ServiceWorkerIntegration() {
   // register service worker on first load if the browser supports it
   React.useEffect(() => {
     if ('serviceWorker' in navigator) {
+      const workbox = new Workbox(import.meta.env.SNOWPACK_PUBLIC_SERVICE_WORKER);
+
       // Open update prompt because there is an update waiting
       workbox.addEventListener('waiting', showSkipWaitingPrompt);
       workbox.register().then((r) => {

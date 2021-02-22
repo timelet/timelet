@@ -4,7 +4,7 @@ import { useInterval } from 'react-use';
 import Duration from './Duration';
 
 type StopwatchProps = {
-  from: string;
+  from: number;
 };
 
 export default function Stopwatch({ from }: StopwatchProps) {

@@ -1,16 +1,13 @@
 import styled from '@emotion/styled';
-import { Typography } from '@material-ui/core';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { RxDocument } from 'rxdb';
 import CategoryDisplay from '../components/categories/CategoryDisplay';
 import CategoryInlineForm from '../components/categories/CategoryInlineForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
-import ContentContainer from '../layout/default/ContentContainer';
 import ContentElement from '../layout/default/ContentElement';
-import { createAsyncSubscriptionEffect } from '../utils/rxdb';
+import { createSubscriptionEffect } from '../utils/rxdb';
 import { TagViewModel } from '../domain/viewModels/tagViewModel';
 
 const TagDisplayContainer = styled(ContentElement)`
@@ -37,33 +34,33 @@ export default function Tags() {
     profile?.update({ $pullAll: { tags: [tag] } });
   };
 
-  React.useEffect(
-    createAsyncSubscriptionEffect(async () => {
-      // Wait for local settings
-      const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
-      // Find currently set profile in the database
-      return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
-        if (doc) {
-          setProfile(doc);
-          setTags(doc.tags);
-        }
-        setLoading(false);
-      });
-    }),
+  const getTags = React.useCallback(
+    () =>
+      createSubscriptionEffect(async () => {
+        // Wait for local settings
+        const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
+        // Find currently set profile in the database
+        return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+          if (doc) {
+            setProfile(doc);
+            setTags(doc.tags);
+          }
+          setLoading(false);
+        });
+      }),
     [database]
   );
 
+  React.useEffect(() => getTags(), [getTags]);
+
   return (
-    <ContentContainer>
-      <Typography variant="h2">
-        <FormattedMessage id="title.tags" defaultMessage="Tags" />
-      </Typography>
+    <>
       <ContentElement>
         <CategoryInlineForm create={createTag} />
       </ContentElement>
       <TagDisplayContainer>
         <CategoryDisplay categories={tags} update={updateTag} remove={removeTag} loading={loading} />
       </TagDisplayContainer>
-    </ContentContainer>
+    </>
   );
 }

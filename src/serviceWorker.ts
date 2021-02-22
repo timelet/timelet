@@ -10,7 +10,7 @@ declare const self: {
 } & ServiceWorkerGlobalScope;
 
 const SERVICE_WORKER_NAME = 'Timelet Service Worker';
-const SERVICE_WORKER_VERSION = import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION;
+const SERVICE_WORKER_VERSION = import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION as string;
 // eslint-disable-next-line no-restricted-globals
 const DEBUG_MODE = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
 const DAY_IN_SECONDS = 24 * 60 * 60;
@@ -99,7 +99,7 @@ registerRoute(
 );
 
 // eslint-disable-next-line no-restricted-globals
-addEventListener('message', (event) => {
+addEventListener('message', (event: MessageEvent<{ type: string } | undefined>) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     if (DEBUG_MODE) {
       console.trace(`${SERVICE_WORKER_NAME}:: New version became active`, assetsToCache);
