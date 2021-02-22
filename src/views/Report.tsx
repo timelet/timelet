@@ -3,6 +3,7 @@ import { CircularProgress, Typography, withTheme } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PredefinedDateRangePicker from '../components/PredefinedDateRangePicker';
+import CategoryTagPieChart from '../components/report/CategoryTagPieChart';
 import SummaryTable from '../components/report/SummaryTable';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
@@ -43,6 +44,13 @@ function RenderElements({ entries }: RenderElementsProps) {
         </Typography>
         <SummaryTable entries={entries} />
       </ReportContentElement>
+
+      <ReportContentElement>
+        <Typography variant="h3">
+          <FormattedMessage id="title.overviewOfCategoriesAndTags" defaultMessage="Overview of categories and tags" />
+        </Typography>
+        <CategoryTagPieChart entries={entries} />
+      </ReportContentElement>
     </>
   );
 }
@@ -52,16 +60,18 @@ export default function Report() {
   const [dateRange, setDateRange] = useState<{ from: number; to: number }>();
   const [entries, setEntries] = useState<EntryDocumentType[]>([]);
   const [loading, setLoading] = useState(false);
-
-  useEffect(
-    createSubscriptionEffect(() =>
-      database?.entries.find({ selector: { startedAt: { $gte: dateRange?.from }, endedAt: { $lte: dateRange?.to } } }).$.subscribe((docs) => {
-        setEntries(docs);
-        setLoading(false);
-      })
-    ),
-    [dateRange]
+  const getEntries = React.useCallback(
+    () =>
+      createSubscriptionEffect(() =>
+        database?.entries.find({ selector: { startedAt: { $gte: dateRange?.from }, endedAt: { $lte: dateRange?.to } } }).$.subscribe((docs) => {
+          setEntries(docs);
+          setLoading(false);
+        })
+      ),
+    [database, dateRange]
   );
+
+  useEffect(() => getEntries(), [getEntries]);
 
   const handlePredefinedDateRangeSelect = (from: number, to: number) => {
     setLoading(true);

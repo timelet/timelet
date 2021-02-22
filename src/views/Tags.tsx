@@ -7,7 +7,7 @@ import { ProfileDocumentType } from '../domain/collections/profileCollection';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import ContentElement from '../layout/default/ContentElement';
-import { createAsyncSubscriptionEffect } from '../utils/rxdb';
+import { createSubscriptionEffect } from '../utils/rxdb';
 import { TagViewModel } from '../domain/viewModels/tagViewModel';
 
 const TagDisplayContainer = styled(ContentElement)`
@@ -34,21 +34,24 @@ export default function Tags() {
     profile?.update({ $pullAll: { tags: [tag] } });
   };
 
-  React.useEffect(
-    createAsyncSubscriptionEffect(async () => {
-      // Wait for local settings
-      const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
-      // Find currently set profile in the database
-      return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
-        if (doc) {
-          setProfile(doc);
-          setTags(doc.tags);
-        }
-        setLoading(false);
-      });
-    }),
+  const getTags = React.useCallback(
+    () =>
+      createSubscriptionEffect(async () => {
+        // Wait for local settings
+        const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
+        // Find currently set profile in the database
+        return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+          if (doc) {
+            setProfile(doc);
+            setTags(doc.tags);
+          }
+          setLoading(false);
+        });
+      }),
     [database]
   );
+
+  React.useEffect(() => getTags(), [getTags]);
 
   return (
     <>

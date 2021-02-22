@@ -16,24 +16,29 @@ export default function Settings() {
   const database = useDatabase();
   const [profiles, setProfiles] = React.useState<ProfileDocumentType[]>([]);
   const [currentProfile, setCurrentProfile] = React.useState<ProfileDocumentType>();
-
-  React.useEffect(
-    createSubscriptionEffect(() =>
-      database?.profiles.find().$.subscribe((docs) => {
-        setProfiles(docs);
-      })
-    ),
+  const getProfiles = React.useCallback(
+    () =>
+      createSubscriptionEffect(() =>
+        database?.profiles.find().$.subscribe((docs) => {
+          setProfiles(docs);
+        })
+      ),
     [database]
   );
-
-  React.useEffect(
-    createSubscriptionEffect(() =>
-      database
-        ?.getLocal$<SettingsDocumentType>(SETTINGS_DOCUMENT_ID)
-        .subscribe((doc) => setCurrentProfile(profiles.find((p) => p.profileId === doc?.get('profile'))))
-    ),
-    [profiles]
+  const getCurrentProfile = React.useCallback(
+    () =>
+      createSubscriptionEffect(() =>
+        profiles
+          ? database
+              ?.getLocal$<SettingsDocumentType>(SETTINGS_DOCUMENT_ID)
+              .subscribe((doc) => setCurrentProfile(profiles.find((p) => p.profileId === doc?.get('profile'))))
+          : undefined
+      ),
+    [database, profiles]
   );
+
+  React.useEffect(() => getProfiles(), [getProfiles]);
+  React.useEffect(() => getCurrentProfile(), [getCurrentProfile]);
 
   const selectProfile = async (profile: ProfileDocumentType) => {
     const currentSettings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);

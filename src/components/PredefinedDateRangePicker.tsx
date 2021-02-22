@@ -15,6 +15,7 @@ const Container = withTheme(
   `
 );
 
+type Range = 'from' | 'to';
 const predefinedRanges = ['thisWeek', 'lastWeek', 'thisMonth', 'lastMonth'] as const;
 type PredefinedRanges = typeof predefinedRanges[number];
 
@@ -25,52 +26,42 @@ type RecentDateTimePickerProps = {
 export default function PredefinedDateRangePicker({ onSelect }: RecentDateTimePickerProps) {
   const intl = useIntl();
   const [predefinedDateRange, setPredefinedDateRange] = React.useState<PredefinedRanges>();
-  const [from, setFrom] = React.useState<Date | null>(null);
-  const [to, setTo] = React.useState<Date | null>(null);
+  const [range, setRange] = React.useState<Record<Range, Date | null>>({ from: null, to: null });
 
-  React.useEffect(() => {
-    if (from && to) {
-      onSelect(from.getTime(), to.getTime());
-    }
-  }, [from, to]);
-
-  const updateDateRange = (predefined: PredefinedRanges) => {
+  const getPredefinedRange = (predefined: PredefinedRanges) => {
     switch (predefined) {
       case 'thisWeek':
-        setFrom(startOfWeek(new Date()));
-        setTo(endOfWeek(new Date()));
-        break;
+        return { from: startOfWeek(new Date()), to: endOfWeek(new Date()) };
       case 'lastWeek':
-        setFrom(startOfWeek(subDays(new Date(), 7)));
-        setTo(endOfWeek(subDays(new Date(), 7)));
-        break;
+        return { from: startOfWeek(subDays(new Date(), 7)), to: endOfWeek(subDays(new Date(), 7)) };
       case 'thisMonth':
-        setFrom(startOfMonth(new Date()));
-        setTo(endOfMonth(new Date()));
-        break;
+        return { from: startOfMonth(new Date()), to: endOfMonth(new Date()) };
       case 'lastMonth':
-        setFrom(startOfMonth(subMonths(new Date(), 1)));
-        setTo(endOfMonth(subMonths(new Date(), 1)));
-        break;
+        return { from: startOfMonth(subMonths(new Date(), 7)), to: endOfMonth(subMonths(new Date(), 7)) };
       default:
-        break;
+        return { from: null, to: null };
+    }
+  };
+
+  const handleOnSelect = (selectedRange: Record<Range, Date | null>) => {
+    if (selectedRange.from && selectedRange.to) {
+      onSelect(selectedRange.from.getTime(), selectedRange.to.getTime());
     }
   };
 
   const handlePredefinedTimeRange = (e: React.ChangeEvent<{ value: unknown }>) => {
     const newPredefinedDateRange = e.target.value as PredefinedRanges;
+    const newRange = getPredefinedRange(newPredefinedDateRange);
     setPredefinedDateRange(newPredefinedDateRange);
-    updateDateRange(newPredefinedDateRange);
+    setRange(newRange);
+    handleOnSelect(newRange);
   };
 
-  const handleFrom = (date: Date | null) => {
-    setFrom(date);
+  const handleRangeChange = (name: Range) => (date: Date | null) => {
+    const newRange = { ...range, [name]: date };
+    setRange(newRange);
     setPredefinedDateRange(undefined);
-  };
-
-  const handleTo = (date: Date | null) => {
-    setTo(date);
-    setPredefinedDateRange(undefined);
+    handleOnSelect(newRange);
   };
 
   return (
@@ -94,8 +85,8 @@ export default function PredefinedDateRangePicker({ onSelect }: RecentDateTimePi
       </FormControl>
       <KeyboardDatePicker
         name="from"
-        value={from}
-        onChange={handleFrom}
+        value={range.from}
+        onChange={handleRangeChange('from')}
         format={intl.formatMessage({
           id: 'format.date',
           defaultMessage: 'yyyy/MM/dd',
@@ -108,8 +99,8 @@ export default function PredefinedDateRangePicker({ onSelect }: RecentDateTimePi
       />
       <KeyboardDatePicker
         name="to"
-        value={to}
-        onChange={handleTo}
+        value={range.to}
+        onChange={handleRangeChange('to')}
         format={intl.formatMessage({
           id: 'format.date',
           defaultMessage: 'yyyy/MM/dd',

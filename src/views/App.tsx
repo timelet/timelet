@@ -28,7 +28,20 @@ const messages: IntlMessages = {
 export default function App() {
   const [database, setDatabase] = useState<TimeletDatabase>();
   const [userInterfaceLanguage, setUserInterfaceLanguage] = useState<Language>(matchLanguage(getUserLocale(), userInterfaceLanguages));
-  const [settings, setSettings] = useState<SettingsDocumentType>();
+  const getLanguage = React.useCallback(
+    () =>
+      createSubscriptionEffect(async () => {
+        const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
+        return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+          if (doc?.userInterfaceLanguage) {
+            setUserInterfaceLanguage(doc.userInterfaceLanguage as Language);
+          } else {
+            setUserInterfaceLanguage(matchLanguage(getUserLocale(), userInterfaceLanguages));
+          }
+        });
+      }),
+    [database]
+  );
 
   useEffect(() => {
     async function initialize() {
@@ -39,24 +52,7 @@ export default function App() {
     initialize();
   }, []);
 
-  useEffect(() => {
-    database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID).then((doc) => {
-      setSettings(doc);
-    });
-  }, [database]);
-
-  useEffect(
-    createSubscriptionEffect(() =>
-      database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
-        if (doc?.userInterfaceLanguage) {
-          setUserInterfaceLanguage(doc.userInterfaceLanguage as Language);
-        } else {
-          setUserInterfaceLanguage(matchLanguage(getUserLocale(), userInterfaceLanguages));
-        }
-      })
-    ),
-    [settings]
-  );
+  useEffect(() => getLanguage(), [getLanguage]);
 
   return (
     <DatabaseProvider database={database}>

@@ -1,18 +1,15 @@
+import React from 'react';
 import { Subscription } from 'rxjs';
 
 /* eslint-disable import/prefer-default-export */
-export const createSubscriptionEffect = (subscribe: () => Subscription | undefined) => () => {
-  const subscription = subscribe();
+export const createSubscriptionEffect = (subscribe: () => Promise<Subscription | undefined> | Subscription | undefined) => {
+  let subscription: Subscription | undefined;
+
+  Promise.resolve(subscribe()).then((sub) => {
+    subscription = sub;
+  });
 
   return function cleanUp() {
     subscription?.unsubscribe();
-  };
-};
-
-export const createAsyncSubscriptionEffect = (subscribe: () => Promise<Subscription | undefined>) => () => {
-  const subscription = subscribe();
-
-  return function cleanUp() {
-    subscription.then((sub) => sub?.unsubscribe());
   };
 };

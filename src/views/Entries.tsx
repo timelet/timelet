@@ -6,7 +6,7 @@ import EntryInlineForm from '../components/entries/EntryInlineForm';
 import { useDatabase } from '../contexts/DatabaseContext';
 import ContentElement from '../layout/default/ContentElement';
 import { EntryViewModel } from '../domain/viewModels/entryViewModel';
-import { createAsyncSubscriptionEffect, createSubscriptionEffect } from '../utils/rxdb';
+import { createSubscriptionEffect } from '../utils/rxdb';
 import { CategoryViewModel } from '../domain/viewModels/categoryViewModel';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import { TagViewModel } from '../domain/viewModels/tagViewModel';
@@ -19,14 +19,14 @@ const EntryDisplayContainer = styled(ContentElement)`
 `;
 
 type EntriesProps = {
-  categories?: CategoryViewModel[];
+  entries?: EntryViewModel[];
 };
 
-export default function Entries({ categories: externalCategories = [] }: EntriesProps) {
+export default function Entries({ entries: externalEntries }: EntriesProps) {
   const database = useDatabase();
-  const [categories, setCategories] = React.useState<CategoryViewModel[]>(externalCategories);
+  const [categories, setCategories] = React.useState<CategoryViewModel[]>([]);
   const [tags, setTags] = React.useState<TagViewModel[]>([]);
-  const [entries, setEntries] = React.useState<EntryViewModel[]>([]);
+  const [entries, setEntries] = React.useState<EntryViewModel[]>(externalEntries || []);
   const [loading, setLoading] = React.useState(true);
 
   const createEntry = (entry: EntryDocumentType) => {
@@ -55,31 +55,35 @@ export default function Entries({ categories: externalCategories = [] }: Entries
     await query?.remove();
   };
 
-  if (externalCategories.length <= 0) {
-    React.useEffect(
+  const getEntries = React.useCallback(
+    () =>
       createSubscriptionEffect(() =>
-        database?.entries.find().$.subscribe((docs) => {
-          setEntries(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
-          setLoading(false);
-        })
+        externalEntries
+          ? undefined
+          : database?.entries.find().$.subscribe((docs) => {
+              setEntries(docs.map((doc, i) => ({ ...doc.toJSON(), id: i })));
+              setLoading(false);
+            })
       ),
-      [database]
-    );
-  }
+    [database, externalEntries]
+  );
 
-  React.useEffect(
-    createAsyncSubscriptionEffect(async () => {
-      // Wait for local settings
-      const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
-      // Find currently set profile in the database
-      return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
-        setCategories(doc?.categories || []);
-        setTags(doc?.tags || []);
-        setLoading(false);
-      });
-    }),
+  const getProfile = React.useCallback(
+    () =>
+      createSubscriptionEffect(async () => {
+        // Wait for local settings
+        const settings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
+        // Find currently set profile in the database
+        return database?.profiles.findOne({ selector: { profileId: settings?.profile } }).$.subscribe((doc) => {
+          setCategories(doc?.categories || []);
+          setTags(doc?.tags || []);
+        });
+      }),
     [database]
   );
+
+  React.useEffect(() => getEntries(), [getEntries]);
+  React.useEffect(() => getProfile(), [getProfile]);
 
   return (
     <>

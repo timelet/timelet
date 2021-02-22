@@ -22,7 +22,7 @@ const NativeMain = withTheme(
   `
 );
 
-type DefaultLayoutProps = React.PropsWithChildren<{}>;
+type DefaultLayoutProps = React.PropsWithChildren<unknown>;
 
 export default function DefaultLayout({ children }: DefaultLayoutProps) {
   const location = useLocation();

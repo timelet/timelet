@@ -51,7 +51,7 @@ export default function EntryForm({ entry, categories, tags, update }: EntryForm
     reset(entry);
     setStartedAt(new Date(entry.startedAt));
     setEndedAt(entry.endedAt ? new Date(entry.endedAt) : null);
-  }, [entry]);
+  }, [reset, entry]);
 
   const onSubmit = (data: EntryDocumentType) => {
     const updatedEntry: EntryDocumentType = {

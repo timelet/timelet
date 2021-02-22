@@ -32,7 +32,7 @@ export default function CategoryForm({ category, update }: CategoryFormProps) {
 
   React.useEffect(() => {
     reset(category);
-  }, [category]);
+  }, [reset, category]);
 
   const onSubmit = (data: CategoryViewModel) => {
     update(category, data);

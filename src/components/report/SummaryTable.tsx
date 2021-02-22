@@ -19,12 +19,14 @@ export default function SummaryTable({ entries }: SummaryTableProps) {
   return (
     <Table>
       <TableHead>
-        <TableCell>
-          <FormattedMessage id="label.key" defaultMessage="Key" />
-        </TableCell>
-        <TableCell>
-          <FormattedMessage id="label.value" defaultMessage="Value" />
-        </TableCell>
+        <TableRow>
+          <TableCell>
+            <FormattedMessage id="label.key" defaultMessage="Key" />
+          </TableCell>
+          <TableCell>
+            <FormattedMessage id="label.value" defaultMessage="Value" />
+          </TableCell>
+        </TableRow>
       </TableHead>
       <TableBody>
         <TableRow>

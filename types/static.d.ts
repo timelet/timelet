@@ -3,8 +3,8 @@
 
 /* CSS MODULES */
 // You are also able to use a 3rd party theme this way:
-import '@emotion/react'
-import { Theme as MaterialTheme } from '@material-ui/core'
+import '@emotion/react';
+import { Theme as MaterialTheme } from '@material-ui/core';
 
 declare module '*.module.css' {
   const classes: { [key: string]: string };
@@ -61,6 +61,7 @@ declare module '*.png' {
 }
 
 declare module '@emotion/react' {
+  // Remove eslint disable when theme was customized
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Theme extends MaterialTheme {}
 }
-

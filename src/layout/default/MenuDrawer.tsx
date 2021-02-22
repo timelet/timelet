@@ -45,9 +45,7 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
   const location = useLocation();
 
   React.useEffect(() => {
-    if (open) {
-      setOpen(false);
-    }
+    setOpen(false);
   }, [location]);
 
   const toggleDrawer = () => {
@@ -115,7 +113,7 @@ export default function MenuDrawer({ title }: MenuDrawerProps) {
             <FormattedMessage
               id="version"
               defaultMessage="Version {version}"
-              values={{ version: import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION }}
+              values={{ version: import.meta.env.SNOWPACK_PUBLIC_PACKAGE_VERSION as string }}
               description="Display the the current version"
             />
             <IconButton href="https://timelet.org" target="blank">
