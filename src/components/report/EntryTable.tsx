@@ -35,7 +35,7 @@ export default function EntryTable({ entries }: EntryTableProps) {
       </TableHead>
       <TableBody>
         {entries.map((e) => (
-          <TableRow>
+          <TableRow key={e.entryId}>
             <TableCell>{e.category}</TableCell>
             <TableCell>{e.tag}</TableCell>
             <TableCell>{e.description}</TableCell>

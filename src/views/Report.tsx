@@ -3,6 +3,7 @@ import { CircularProgress, Typography, withTheme } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PredefinedDateRangePicker from '../components/PredefinedDateRangePicker';
+import CategoryTagFilter from '../components/CategoryTagFilter';
 import CategoryTagPieChart from '../components/report/CategoryTagPieChart';
 import EntryTable from '../components/report/EntryTable';
 import ExportEntries from '../components/report/ExportEntries';
@@ -18,7 +19,7 @@ const ReportContentContainer = withTheme(
     display: flex;
     flex-direction: column;
 
-    & > *:first-of-type {
+    & > *:nth-of-type(2) {
       margin-bottom: ${({ theme }) => theme.spacing(2)}px;
     }
   `
@@ -72,12 +73,14 @@ export default function Report() {
   const database = useDatabase();
   const [dateRange, setDateRange] = useState<{ from: number; to: number }>();
   const [entries, setEntries] = useState<EntryDocumentType[]>([]);
+  const [filteredEntries, setFilteredEntries] = useState<EntryDocumentType[]>([]);
   const [loading, setLoading] = useState(false);
   const getEntries = React.useCallback(
     () =>
       createSubscriptionEffect(() =>
         database?.entries.find({ selector: { startedAt: { $gte: dateRange?.from }, endedAt: { $lte: dateRange?.to } } }).$.subscribe((docs) => {
           setEntries(docs);
+          setFilteredEntries(docs);
           setLoading(false);
         })
       ),
@@ -95,7 +98,10 @@ export default function Report() {
     <>
       <ReportContentContainer>
         <PredefinedDateRangePicker onSelect={handlePredefinedDateRangeSelect} />
-        {loading ? <CircularProgress /> : <RenderElements entries={entries} />}
+        {entries.length > 0 ? (
+          <CategoryTagFilter entries={entries} onSelect={(newFilteredEntries) => setFilteredEntries(newFilteredEntries)} />
+        ) : null}
+        {loading ? <CircularProgress /> : <RenderElements entries={filteredEntries} />}
       </ReportContentContainer>
     </>
   );
