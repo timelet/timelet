@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PredefinedDateRangePicker from '../components/PredefinedDateRangePicker';
 import CategoryTagPieChart from '../components/report/CategoryTagPieChart';
+import EntryTable from '../components/report/EntryTable';
 import SummaryTable from '../components/report/SummaryTable';
 import { useDatabase } from '../contexts/DatabaseContext';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
@@ -40,16 +41,21 @@ function RenderElements({ entries }: RenderElementsProps) {
     <>
       <ReportContentElement>
         <Typography variant="h3">
+          <FormattedMessage id="title.overviewOfCategoriesAndTags" defaultMessage="Overview of categories and tags" />
+        </Typography>
+        <CategoryTagPieChart entries={entries} />
+      </ReportContentElement>
+      <ReportContentElement>
+        <Typography variant="h3">
           <FormattedMessage id="title.summary" defaultMessage="Summary" />
         </Typography>
         <SummaryTable entries={entries} />
       </ReportContentElement>
-
       <ReportContentElement>
         <Typography variant="h3">
-          <FormattedMessage id="title.overviewOfCategoriesAndTags" defaultMessage="Overview of categories and tags" />
+          <FormattedMessage id="title.selectedEntries" defaultMessage="Selected entries" />
         </Typography>
-        <CategoryTagPieChart entries={entries} />
+        <EntryTable entries={entries} />
       </ReportContentElement>
     </>
   );

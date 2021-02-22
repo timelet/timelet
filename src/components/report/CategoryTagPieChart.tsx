@@ -75,9 +75,6 @@ export default function CategoryTagPieChart({ entries }: CategoryTagPieChartProp
   };
 
   const options: EChartsOption = {
-    title: {
-      text: 'Time distribution over categories and tags'
-    },
     series: [
       {
         ...commonSeriesOptions,
