@@ -63,6 +63,11 @@ export default function Settings() {
     }
   };
 
+  const deleteAllLocalData = async () => {
+    await database?.remove();
+    window.location.reload();
+  };
+
   return (
     <>
       <ContentElement>
@@ -79,7 +84,7 @@ export default function Settings() {
         <Typography variant="h3">
           <FormattedMessage id="title.storage" defaultMessage="Storage" />
         </Typography>
-        <StorageManagement exportDump={exportDump} />
+        <StorageManagement exportDump={exportDump} deleteAllLocalData={deleteAllLocalData} />
       </ContentElement>
     </>
   );

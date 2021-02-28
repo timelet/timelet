@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { IconButton } from '@material-ui/core';
-import { ValueGetterParams, GridColDef, DataGrid, GridSortModel } from '@material-ui/data-grid';
+import { ValueGetterParams, GridColDef, DataGrid } from '@material-ui/data-grid';
 import { Stop as StopIcon, Delete as DeleteIcon, PlayArrow as PlayIcon, Timer as RecordIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
