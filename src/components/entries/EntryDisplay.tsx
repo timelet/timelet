@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { IconButton } from '@material-ui/core';
-import { CellParams, ColDef, DataGrid, SortModel } from '@material-ui/data-grid';
+import { ValueGetterParams, GridColDef, DataGrid, GridSortModel } from '@material-ui/data-grid';
 import { Stop as StopIcon, Delete as DeleteIcon, PlayArrow as PlayIcon, Timer as RecordIcon } from '@material-ui/icons';
 import React from 'react';
 import { useIntl } from 'react-intl';
@@ -27,17 +27,10 @@ type EntryDisplayProps = {
   loading?: boolean;
 };
 
-const defaultSortModel: SortModel = [
-  {
-    field: 'startedAt',
-    sort: 'desc'
-  }
-];
-
 export default function EntryDisplay({ entries, categories, tags, loading, update, remove, stop, copy }: EntryDisplayProps) {
   const intl = useIntl();
 
-  const renderStopButton = (params: CellParams) => (
+  const renderStopButton = (params: ValueGetterParams) => (
     <IconButton
       onClick={() => {
         const entryId = params.getValue('entryId')?.toString();
@@ -54,12 +47,12 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
     </IconButton>
   );
 
-  const renderEditButton = (params: CellParams) => {
+  const renderEditButton = (params: ValueGetterParams) => {
     const currentEntry = entries.find((e) => e.entryId === params.getValue('entryId'));
     return currentEntry ? <EntryForm entry={currentEntry} categories={categories} tags={tags} update={update} /> : null;
   };
 
-  const renderRemoveButton = (params: CellParams) => {
+  const renderRemoveButton = (params: ValueGetterParams) => {
     const currentEntryId = params.getValue('entryId')?.toString();
     return currentEntryId ? (
       <ConfirmDialog
@@ -74,7 +67,7 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
     ) : null;
   };
 
-  const renderDateTime = (params: CellParams) => (
+  const renderDateTime = (params: ValueGetterParams) => (
     <span>
       {params.value
         ? `${intl.formatDate(params.value as string)} ${intl.formatTime(params.value as string)}`
@@ -82,7 +75,7 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
     </span>
   );
 
-  const columns: ColDef[] = [
+  const columns: GridColDef[] = [
     {
       field: 'entryId',
       headerName: intl.formatMessage({ id: 'label.id', defaultMessage: 'Id' }),
@@ -121,7 +114,7 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
       field: 'duration',
       headerName: intl.formatMessage({ id: 'label.duration', defaultMessage: 'Duration' }),
       width: 130,
-      renderCell: (params) => (
+      renderCell: (params: ValueGetterParams) => (
         <>
           {params.getValue('endedAt')?.toString() ? null : <StyledRecordIcon color="primary" fontSize="small" />}
           <InteractiveDuration from={params.getValue('startedAt')?.valueOf() as number} to={params.getValue('endedAt')?.valueOf() as number} />
@@ -144,5 +137,18 @@ export default function EntryDisplay({ entries, categories, tags, loading, updat
     }
   ];
 
-  return <DataGrid columns={columns} rows={entries} loading={loading} sortModel={defaultSortModel} density="compact" />;
+  return (
+    <DataGrid
+      columns={columns}
+      rows={entries}
+      loading={loading}
+      sortModel={[
+        {
+          field: 'startedAt',
+          sort: 'desc'
+        }
+      ]}
+      density="compact"
+    />
+  );
 }

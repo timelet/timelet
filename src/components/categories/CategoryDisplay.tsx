@@ -1,5 +1,5 @@
 import { IconButton } from '@material-ui/core';
-import { CellParams, ColDef, DataGrid } from '@material-ui/data-grid';
+import { GridColDef, DataGrid, ValueGetterParams } from '@material-ui/data-grid';
 import React from 'react';
 import { Delete as DeleteIcon } from '@material-ui/icons';
 import { useIntl } from 'react-intl';
@@ -17,12 +17,12 @@ type CategoryDisplayProps = {
 export default function CategoryDisplay({ categories, update, remove, loading }: CategoryDisplayProps) {
   const intl = useIntl();
 
-  const renderEditButton = (params: CellParams) => {
+  const renderEditButton = (params: ValueGetterParams) => {
     const currentCategory = categories.find((c) => c.name === params.getValue('name'));
     return currentCategory ? <CategoryForm category={currentCategory} update={update} /> : null;
   };
 
-  const renderRemoveButton = (params: CellParams) => {
+  const renderRemoveButton = (params: ValueGetterParams) => {
     const currentCategory = categories.find((c) => c.name === params.getValue('name'));
     return currentCategory ? (
       <ConfirmDialog
@@ -37,7 +37,7 @@ export default function CategoryDisplay({ categories, update, remove, loading }:
     ) : null;
   };
 
-  const columns: ColDef[] = [
+  const columns: GridColDef[] = [
     {
       field: 'name',
       headerName: intl.formatMessage({ id: 'label.name', defaultMessage: 'Name' }),
