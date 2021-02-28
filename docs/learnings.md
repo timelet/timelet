@@ -14,6 +14,7 @@ This document contains the lessons learned. The following icons categorize the o
 ## Snowpack
 
 - Environment variables don't work like they do in Webpack. <br> ✅ It's possible to define your own environment variables in the config `snowpack.config.js`: https://www.snowpack.dev/#environment-variables
+- File references in NPM packages are not followed. <br> ⚠ The files can be mounted to the public directory: https://github.com/snowpackjs/snowpack/discussions/1573#discussioncomment-295818
 
 ## Workbox
 
