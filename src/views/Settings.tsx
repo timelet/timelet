@@ -3,6 +3,7 @@ import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import saveFile from 'save-as-file';
 import { format } from 'date-fns';
+import { RxDumpDatabaseAny } from 'rxdb';
 import StorageManagement from '../components/settings/StorageManagement';
 import ProfileForm from '../components/settings/ProfileForm';
 import { ProfileDocumentType } from '../domain/collections/profileCollection';
@@ -10,6 +11,7 @@ import { useDatabase } from '../contexts/DatabaseContext';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import ContentElement from '../layout/default/ContentElement';
 import { createSubscriptionEffect } from '../utils/rxdb';
+import { DatabaseCollections } from '../database';
 
 export default function Settings() {
   const intl = useIntl();
@@ -63,6 +65,11 @@ export default function Settings() {
     }
   };
 
+  const importDump = async (fileContent: string) => {
+    const dump = JSON.parse(fileContent) as RxDumpDatabaseAny<DatabaseCollections>;
+    await database?.importDump(dump);
+  };
+
   const deleteAllLocalData = async () => {
     await database?.remove();
     window.location.reload();
@@ -84,7 +91,7 @@ export default function Settings() {
         <Typography variant="h3">
           <FormattedMessage id="title.storage" defaultMessage="Storage" />
         </Typography>
-        <StorageManagement exportDump={exportDump} deleteAllLocalData={deleteAllLocalData} />
+        <StorageManagement exportDump={exportDump} importDump={importDump} deleteAllLocalData={deleteAllLocalData} />
       </ContentElement>
     </>
   );

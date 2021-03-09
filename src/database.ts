@@ -8,7 +8,7 @@ export const DATABASE_NAME = 'timelet';
 
 addRxPlugin(indexeddb);
 
-type DatabaseCollections = {
+export type DatabaseCollections = {
   entries: EntryCollection;
   profiles: ProfileCollection;
 };
