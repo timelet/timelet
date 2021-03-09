@@ -1,6 +1,6 @@
 {
-  "include": ["src/**/*", "types/**/*", "testUtils.tsx"],
-  "exclude": ["node_modules"],
+  "include": ["src", "types", "testUtils.tsx"],
+  "exclude": ["node_modules", "build"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",

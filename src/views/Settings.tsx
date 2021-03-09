@@ -12,6 +12,7 @@ import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/
 import ContentElement from '../layout/default/ContentElement';
 import { createSubscriptionEffect } from '../utils/rxdb';
 import { DatabaseCollections } from '../database';
+import ReplicationForm from '../components/settings/ReplicationForm';
 
 export default function Settings() {
   const intl = useIntl();
@@ -52,6 +53,8 @@ export default function Settings() {
     await query?.update({ $set: profile });
   };
 
+  const saveUrl = async (url: string) => {};
+
   const exportDump = async () => {
     const dump = await database?.dump();
     if (dump) {
@@ -86,6 +89,12 @@ export default function Settings() {
         ) : (
           <CircularProgress />
         )}
+      </ContentElement>
+      <ContentElement>
+        <Typography variant="h3">
+          <FormattedMessage id="title.replication" defaultMessage="Replication" />
+        </Typography>
+        <ReplicationForm saveUrl={saveUrl} />
       </ContentElement>
       <ContentElement>
         <Typography variant="h3">

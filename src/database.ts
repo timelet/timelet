@@ -1,5 +1,6 @@
 import { addRxPlugin, createRxDatabase, RxDatabase } from 'rxdb';
 import indexeddb from 'pouchdb-adapter-indexeddb';
+import http from 'pouchdb-adapter-http';
 import { EntryCollection, configureEntryCollection, entryCreatorBase } from './domain/collections/entryCollection';
 import { ProfileCollection, configureProfileCollection, profileCreatorBase } from './domain/collections/profileCollection';
 import { defaultSettings, SettingsDocumentType, SETTINGS_DOCUMENT_ID } from './domain/documents/settingsDocument';
@@ -7,6 +8,7 @@ import { defaultSettings, SettingsDocumentType, SETTINGS_DOCUMENT_ID } from './d
 export const DATABASE_NAME = 'timelet';
 
 addRxPlugin(indexeddb);
+addRxPlugin(http);
 
 export type DatabaseCollections = {
   entries: EntryCollection;
