@@ -11,28 +11,40 @@
       "value": "Bestätigen"
     }
   ],
+  "action.deleteAllLocalData": [
+    {
+      "type": 0,
+      "value": "Alle lokalen Daten löschen"
+    }
+  ],
   "action.exportDump": [
     {
       "type": 0,
-      "value": "Daten exportieren"
+      "value": "Lokale Daten exportieren"
+    }
+  ],
+  "action.importDump": [
+    {
+      "type": 0,
+      "value": "Lokale Daten importieren"
     }
   ],
   "action.reload": [
     {
       "type": 0,
-      "value": "Aktualisieren"
+      "value": "Neu laden"
     }
   ],
   "action.submit": [
     {
       "type": 0,
-      "value": "Absenden"
+      "value": "Abschicken"
     }
   ],
   "action.updateApplication": [
     {
       "type": 0,
-      "value": "Neue Version dieser Applikation verfügbar"
+      "value": "Neu laden um Applikation zu aktualisieren"
     }
   ],
   "app.title": [
@@ -41,10 +53,22 @@
       "value": "Timelet"
     }
   ],
+  "dialog.confirmDeleteAllLocalData": [
+    {
+      "type": 0,
+      "value": "Mit dieser Aktion werden alle lokalen Daten gelöscht. Bestätigen um damit fortzufahren."
+    }
+  ],
   "dialog.confirmRemove": [
     {
       "type": 0,
-      "value": "Löschung des ausgewählten Eintrags bestätigen."
+      "value": "Bestätigen, um den Eintrag zu löschen."
+    }
+  ],
+  "format.date": [
+    {
+      "type": 0,
+      "value": "dd.MM.yyyy"
     }
   ],
   "format.datetime": [
@@ -95,6 +119,12 @@
       "value": "Aktionen"
     }
   ],
+  "label.amountOfEntries": [
+    {
+      "type": 0,
+      "value": "Anzahl von Einträgen"
+    }
+  ],
   "label.categories": [
     {
       "type": 0,
@@ -111,6 +141,12 @@
     {
       "type": 0,
       "value": "Bestätigung"
+    }
+  ],
+  "label.database": [
+    {
+      "type": 0,
+      "value": "Datenbank"
     }
   ],
   "label.description": [
@@ -143,10 +179,46 @@
       "value": "Einträge"
     }
   ],
+  "label.exportAsCSV": [
+    {
+      "type": 0,
+      "value": "Als CSV exportieren"
+    }
+  ],
+  "label.filterByCategories": [
+    {
+      "type": 0,
+      "value": "Kategorien filtern"
+    }
+  ],
+  "label.filterByTags": [
+    {
+      "type": 0,
+      "value": "Tags filtern"
+    }
+  ],
+  "label.from": [
+    {
+      "type": 0,
+      "value": "Von"
+    }
+  ],
+  "label.hostname": [
+    {
+      "type": 0,
+      "value": "Hostname"
+    }
+  ],
   "label.id": [
     {
       "type": 0,
       "value": "Id"
+    }
+  ],
+  "label.key": [
+    {
+      "type": 0,
+      "value": "Schlüssel"
     }
   ],
   "label.language": [
@@ -159,6 +231,30 @@
     {
       "type": 0,
       "value": "Name"
+    }
+  ],
+  "label.noEntriesFound": [
+    {
+      "type": 0,
+      "value": "Keine Einträge gefunden"
+    }
+  ],
+  "label.noSelection": [
+    {
+      "type": 0,
+      "value": "Keine Auswahl"
+    }
+  ],
+  "label.password": [
+    {
+      "type": 0,
+      "value": "Passwort"
+    }
+  ],
+  "label.predefinedTimeRanges": [
+    {
+      "type": 0,
+      "value": "Vordefinierte Zeitbereiche"
     }
   ],
   "label.profile": [
@@ -191,32 +287,34 @@
       "value": "Tags"
     }
   ],
+  "label.to": [
+    {
+      "type": 0,
+      "value": "Bis"
+    }
+  ],
+  "label.totalTimeSpent": [
+    {
+      "type": 0,
+      "value": "Totale Dauer"
+    }
+  ],
   "label.undefined": [
     {
       "type": 0,
       "value": "-"
     }
   ],
-  "title.profiles": [
+  "label.username": [
     {
       "type": 0,
-      "value": "Profile"
+      "value": "Benutzername"
     }
   ],
-  "title.storage": [
+  "label.value": [
     {
       "type": 0,
-      "value": "Speicher"
-    }
-  ],
-  "version": [
-    {
-      "type": 0,
-      "value": "Version "
-    },
-    {
-      "type": 1,
-      "value": "version"
+      "value": "Wert"
     }
   ],
   "title.categories": [
@@ -231,10 +329,52 @@
       "value": "Übersicht"
     }
   ],
+  "title.dataExport": [
+    {
+      "type": 0,
+      "value": "Datenexport"
+    }
+  ],
   "title.entries": [
     {
       "type": 0,
       "value": "Einträge"
+    }
+  ],
+  "title.overviewOfCategoriesAndTags": [
+    {
+      "type": 0,
+      "value": "Kategorien und Tags Überblick"
+    }
+  ],
+  "title.profiles": [
+    {
+      "type": 0,
+      "value": "Profile"
+    }
+  ],
+  "title.recentEntries": [
+    {
+      "type": 0,
+      "value": "Letzte Einträge"
+    }
+  ],
+  "title.replication": [
+    {
+      "type": 0,
+      "value": "Replikation"
+    }
+  ],
+  "title.report": [
+    {
+      "type": 0,
+      "value": "Report"
+    }
+  ],
+  "title.selectedEntries": [
+    {
+      "type": 0,
+      "value": "Ausgewählte Einträge"
     }
   ],
   "title.settings": [
@@ -243,70 +383,32 @@
       "value": "Einstellungen"
     }
   ],
+  "title.storage": [
+    {
+      "type": 0,
+      "value": "Speicher"
+    }
+  ],
+  "title.summary": [
+    {
+      "type": 0,
+      "value": "Zusammenfassung"
+    }
+  ],
   "title.tags": [
     {
       "type": 0,
       "value": "Tags"
     }
   ],
-  "title.report": [
+  "version": [
     {
       "type": 0,
-      "value": "Auswertung"
-    }
-  ],
-  "label.noSelection": [
+      "value": "Version "
+    },
     {
-      "type": 0,
-      "value": "Keine Auswahl"
-    }
-  ],
-  "label.thisWeek": [
-    {
-      "type": 0,
-      "value": "Diese Woche"
-    }
-  ],
-  "label.lastWeek": [
-    {
-      "type": 0,
-      "value": "Letzte Woche"
-    }
-  ],
-  "label.thisMonth": [
-    {
-      "type": 0,
-      "value": "Diesen Monat"
-    }
-  ],
-  "label.lastMonth": [
-    {
-      "type": 0,
-      "value": "Letzten Monat"
-    }
-  ],
-  "label.predefinedTimeRanges": [
-    {
-      "type": 0,
-      "value": "Vordefinierte Zeiträume"
-    }
-  ],
-  "label.from": [
-    {
-      "type": 0,
-      "value": "Von"
-    }
-  ],
-  "label.to": [
-    {
-      "type": 0,
-      "value": "Bis"
-    }
-  ],
-  "format.date": [
-    {
-      "type": 0,
-      "value": "dd.MM.yyyy"
+      "type": 1,
+      "value": "version"
     }
   ]
 }

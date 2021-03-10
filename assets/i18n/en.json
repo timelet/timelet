@@ -5,8 +5,14 @@
   "action.confirm": {
     "defaultMessage": "Confirm"
   },
+  "action.deleteAllLocalData": {
+    "defaultMessage": "Delete all local data"
+  },
   "action.exportDump": {
     "defaultMessage": "Export dump"
+  },
+  "action.importDump": {
+    "defaultMessage": "Import dump"
   },
   "action.reload": {
     "defaultMessage": "Reload",
@@ -22,8 +28,15 @@
   "app.title": {
     "defaultMessage": "Timelet"
   },
+  "dialog.confirmDeleteAllLocalData": {
+    "defaultMessage": "You are about to delete all local data. Confirm to delete all local data."
+  },
   "dialog.confirmRemove": {
     "defaultMessage": "Confirm the removal of the selected entry."
+  },
+  "format.date": {
+    "defaultMessage": "yyyy/MM/dd",
+    "description": "Format which represents date"
   },
   "format.datetime": {
     "defaultMessage": "yyyy/MM/dd HH:mm",
@@ -46,6 +59,9 @@
   "label.actions": {
     "defaultMessage": "Actions"
   },
+  "label.amountOfEntries": {
+    "defaultMessage": "Amount of entries"
+  },
   "label.categories": {
     "defaultMessage": "Categories",
     "description": "Label for entry categories"
@@ -55,6 +71,9 @@
   },
   "label.confirmation": {
     "defaultMessage": "Confirmation"
+  },
+  "label.database": {
+    "defaultMessage": "Database"
   },
   "label.description": {
     "defaultMessage": "Description"
@@ -72,14 +91,44 @@
   "label.entries": {
     "defaultMessage": "Entries"
   },
+  "label.exportAsCSV": {
+    "defaultMessage": "Export as CSV"
+  },
+  "label.filterByCategories": {
+    "defaultMessage": "Filter by categories"
+  },
+  "label.filterByTags": {
+    "defaultMessage": "Filter by tags"
+  },
+  "label.from": {
+    "defaultMessage": "From"
+  },
+  "label.hostname": {
+    "defaultMessage": "Hostname"
+  },
   "label.id": {
     "defaultMessage": "Id"
+  },
+  "label.key": {
+    "defaultMessage": "Key"
   },
   "label.language": {
     "defaultMessage": "Language"
   },
   "label.name": {
     "defaultMessage": "Name"
+  },
+  "label.noEntriesFound": {
+    "defaultMessage": "Couldn't find any entries"
+  },
+  "label.noSelection": {
+    "defaultMessage": "No selection"
+  },
+  "label.password": {
+    "defaultMessage": "Password"
+  },
+  "label.predefinedTimeRanges": {
+    "defaultMessage": "Predefined time ranges"
   },
   "label.profile": {
     "defaultMessage": "Profile"
@@ -98,18 +147,66 @@
     "defaultMessage": "Tags",
     "description": "Label for tags"
   },
+  "label.to": {
+    "defaultMessage": "To"
+  },
+  "label.totalTimeSpent": {
+    "defaultMessage": "Total time spent"
+  },
   "label.undefined": {
     "defaultMessage": "Undefined",
     "description": "An undefined value"
   },
+  "label.username": {
+    "defaultMessage": "Username"
+  },
+  "label.value": {
+    "defaultMessage": "Value"
+  },
+  "title.dataExport": {
+    "defaultMessage": "Data export"
+  },
+  "title.overviewOfCategoriesAndTags": {
+    "defaultMessage": "Overview of categories and tags"
+  },
   "title.profiles": {
     "defaultMessage": "Profiles"
+  },
+  "title.recentEntries": {
+    "defaultMessage": "Recent entries"
+  },
+  "title.replication": {
+    "defaultMessage": "Replication"
+  },
+  "title.report": {
+    "defaultMessage": "Report"
+  },
+  "title.selectedEntries": {
+    "defaultMessage": "Selected entries"
   },
   "title.storage": {
     "defaultMessage": "Storage"
   },
+  "title.summary": {
+    "defaultMessage": "Summary"
+  },
   "version": {
     "defaultMessage": "Version {version}",
     "description": "Display the the current version"
+  },
+  "title.dashboard": {
+    "defaultMessage": "Dashboard"
+  },
+  "title.entries": {
+    "defaultMessage": "Entries"
+  },
+  "title.categories": {
+    "defaultMessage": "Categories"
+  },
+  "title.tags": {
+    "defaultMessage": "Tags"
+  },
+  "title.settings": {
+    "defaultMessage": "Settings"
   }
 }

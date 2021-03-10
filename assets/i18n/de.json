@@ -5,25 +5,38 @@
   "action.confirm": {
     "defaultMessage": "Bestätigen"
   },
+  "action.deleteAllLocalData": {
+    "defaultMessage": "Alle lokalen Daten löschen"
+  },
   "action.exportDump": {
-    "defaultMessage": "Daten exportieren"
+    "defaultMessage": "Lokale Daten exportieren"
+  },
+  "action.importDump": {
+    "defaultMessage": "Lokale Daten importieren"
   },
   "action.reload": {
-    "defaultMessage": "Aktualisieren",
+    "defaultMessage": "Neu laden",
     "description": "Action to reload something"
   },
   "action.submit": {
-    "defaultMessage": "Absenden"
+    "defaultMessage": "Abschicken"
   },
   "action.updateApplication": {
-    "defaultMessage": "Neue Version dieser Applikation verfügbar",
+    "defaultMessage": "Neu laden um Applikation zu aktualisieren",
     "description": "Requests the user to update the application"
   },
   "app.title": {
     "defaultMessage": "Timelet"
   },
+  "dialog.confirmDeleteAllLocalData": {
+    "defaultMessage": "Mit dieser Aktion werden alle lokalen Daten gelöscht. Bestätigen um damit fortzufahren."
+  },
   "dialog.confirmRemove": {
-    "defaultMessage": "Löschung des ausgewählten Eintrags bestätigen."
+    "defaultMessage": "Bestätigen, um den Eintrag zu löschen."
+  },
+  "format.date": {
+    "defaultMessage": "dd.MM.yyyy",
+    "description": "Format which represents date"
   },
   "format.datetime": {
     "defaultMessage": "dd.MM.yyyy HH:mm",
@@ -46,6 +59,9 @@
   "label.actions": {
     "defaultMessage": "Aktionen"
   },
+  "label.amountOfEntries": {
+    "defaultMessage": "Anzahl von Einträgen"
+  },
   "label.categories": {
     "defaultMessage": "Kategorien",
     "description": "Label for entry categories"
@@ -55,6 +71,9 @@
   },
   "label.confirmation": {
     "defaultMessage": "Bestätigung"
+  },
+  "label.database": {
+    "defaultMessage": "Datenbank"
   },
   "label.description": {
     "defaultMessage": "Beschreibung"
@@ -72,8 +91,26 @@
   "label.entries": {
     "defaultMessage": "Einträge"
   },
+  "label.exportAsCSV": {
+    "defaultMessage": "Als CSV exportieren"
+  },
+  "label.filterByCategories": {
+    "defaultMessage": "Kategorien filtern"
+  },
+  "label.filterByTags": {
+    "defaultMessage": "Tags filtern"
+  },
+  "label.from": {
+    "defaultMessage": "Von"
+  },
+  "label.hostname": {
+    "defaultMessage": "Hostname"
+  },
   "label.id": {
     "defaultMessage": "Id"
+  },
+  "label.key": {
+    "defaultMessage": "Schlüssel"
   },
   "label.language": {
     "defaultMessage": "Sprache"
@@ -81,11 +118,23 @@
   "label.name": {
     "defaultMessage": "Name"
   },
+  "label.noEntriesFound": {
+    "defaultMessage": "Keine Einträge gefunden"
+  },
+  "label.noSelection": {
+    "defaultMessage": "Keine Auswahl"
+  },
+  "label.password": {
+    "defaultMessage": "Passwort"
+  },
+  "label.predefinedTimeRanges": {
+    "defaultMessage": "Vordefinierte Zeitbereiche"
+  },
   "label.profile": {
     "defaultMessage": "Profil"
   },
   "label.settings": {
-    "defaultMessage": "Settings",
+    "defaultMessage": "Einstellungen",
     "description": "Label for system settings"
   },
   "label.startedAt": {
@@ -98,18 +147,66 @@
     "defaultMessage": "Tags",
     "description": "Label for tags"
   },
+  "label.to": {
+    "defaultMessage": "Bis"
+  },
+  "label.totalTimeSpent": {
+    "defaultMessage": "Totale Dauer"
+  },
   "label.undefined": {
     "defaultMessage": "-",
     "description": "An undefined value"
   },
+  "label.username": {
+    "defaultMessage": "Benutzername"
+  },
+  "label.value": {
+    "defaultMessage": "Wert"
+  },
+  "title.dataExport": {
+    "defaultMessage": "Datenexport"
+  },
+  "title.overviewOfCategoriesAndTags": {
+    "defaultMessage": "Kategorien und Tags Überblick"
+  },
   "title.profiles": {
     "defaultMessage": "Profile"
+  },
+  "title.recentEntries": {
+    "defaultMessage": "Letzte Einträge"
+  },
+  "title.replication": {
+    "defaultMessage": "Replikation"
+  },
+  "title.report": {
+    "defaultMessage": "Report"
+  },
+  "title.selectedEntries": {
+    "defaultMessage": "Ausgewählte Einträge"
   },
   "title.storage": {
     "defaultMessage": "Speicher"
   },
+  "title.summary": {
+    "defaultMessage": "Zusammenfassung"
+  },
   "version": {
     "defaultMessage": "Version {version}",
     "description": "Display the the current version"
+  },
+  "title.dashboard": {
+    "defaultMessage": "Übersicht"
+  },
+  "title.entries": {
+    "defaultMessage": "Einträge"
+  },
+  "title.categories": {
+    "defaultMessage": "Kategorien"
+  },
+  "title.tags": {
+    "defaultMessage": "Tags"
+  },
+  "title.settings": {
+    "defaultMessage": "Einstellungen"
   }
 }
