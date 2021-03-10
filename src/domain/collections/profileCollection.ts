@@ -13,9 +13,6 @@ export type ProfileDocumentType = {
     name: string;
     description?: string;
   }[];
-  replication?: {
-    server: string;
-  };
 };
 
 export type ProfileDocument = RxDocument<ProfileDocumentType>;
@@ -25,7 +22,7 @@ export type ProfileCollection = RxCollection<ProfileDocumentType>;
 export const profileSchema: RxJsonSchema<ProfileDocumentType> = {
   title: 'profile schema',
   description: 'describes profiles',
-  version: 5,
+  version: 6,
   type: 'object',
   properties: {
     profileId: {
@@ -71,14 +68,6 @@ export const profileSchema: RxJsonSchema<ProfileDocumentType> = {
         },
         required: ['name']
       }
-    },
-    replication: {
-      type: 'object',
-      properties: {
-        server: {
-          type: 'string'
-        }
-      }
     }
   },
   required: []
@@ -120,6 +109,9 @@ export const profileCreatorBase: RxCollectionCreator = {
       };
     },
     5(previous: ProfileDocumentType) {
+      return previous;
+    },
+    6(previous: ProfileDocumentType) {
       return previous;
     }
   }

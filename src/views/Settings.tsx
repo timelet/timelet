@@ -13,12 +13,14 @@ import ContentElement from '../layout/default/ContentElement';
 import { createSubscriptionEffect } from '../utils/rxdb';
 import { DatabaseCollections } from '../database';
 import ReplicationForm from '../components/settings/ReplicationForm';
+import { REPLICATION_DOCUMENT_ID, ReplicationModel } from '../domain/models/replicationModel';
 
 export default function Settings() {
   const intl = useIntl();
   const database = useDatabase();
   const [profiles, setProfiles] = React.useState<ProfileDocumentType[]>([]);
   const [currentProfile, setCurrentProfile] = React.useState<ProfileDocumentType>();
+  const [replicationUrl, setReplicationUrl] = React.useState<string>();
   const getProfiles = React.useCallback(
     () =>
       createSubscriptionEffect(() =>
@@ -39,9 +41,19 @@ export default function Settings() {
       ),
     [database, profiles]
   );
+  const getReplicationUrl = React.useCallback(
+    () =>
+      createSubscriptionEffect(() =>
+        database?.getLocal$<ReplicationModel>(REPLICATION_DOCUMENT_ID).subscribe((doc) => {
+          setReplicationUrl(doc?.get('url'));
+        })
+      ),
+    [database]
+  );
 
   React.useEffect(() => getProfiles(), [getProfiles]);
   React.useEffect(() => getCurrentProfile(), [getCurrentProfile]);
+  React.useEffect(() => getReplicationUrl(), [getReplicationUrl]);
 
   const selectProfile = async (profile: ProfileDocumentType) => {
     const currentSettings = await database?.getLocal<SettingsDocumentType>(SETTINGS_DOCUMENT_ID);
@@ -53,7 +65,11 @@ export default function Settings() {
     await query?.update({ $set: profile });
   };
 
-  const saveUrl = async (url: string) => {};
+  const saveUrl = async (url: string) => {
+    await database?.upsertLocal<ReplicationModel>(REPLICATION_DOCUMENT_ID, {
+      url
+    });
+  };
 
   const exportDump = async () => {
     const dump = await database?.dump();
@@ -94,7 +110,7 @@ export default function Settings() {
         <Typography variant="h3">
           <FormattedMessage id="title.replication" defaultMessage="Replication" />
         </Typography>
-        <ReplicationForm saveUrl={saveUrl} />
+        <ReplicationForm saveUrl={saveUrl} url={replicationUrl} />
       </ContentElement>
       <ContentElement>
         <Typography variant="h3">

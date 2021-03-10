@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Button, TextField, withTheme } from '@material-ui/core';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 const StyledForm = withTheme(
@@ -38,15 +38,19 @@ export default function ReplicationForm({ url, saveUrl }: ReplicationFormProps) 
       database: pathname.replaceAll('/', '')
     };
   };
-  const defaultValues: FormModel = url
-    ? getDefaultValuesFromURL(url)
-    : {
-        origin: '',
-        database: '',
-        username: '',
-        password: ''
-      };
-  const { handleSubmit, formState, register } = useForm<FormModel>({ defaultValues });
+  const defaultValues: FormModel = React.useMemo(
+    () =>
+      url
+        ? getDefaultValuesFromURL(url)
+        : {
+            origin: '',
+            database: '',
+            username: '',
+            password: ''
+          },
+    [url]
+  );
+  const { handleSubmit, formState, reset, control } = useForm<FormModel>({ defaultValues });
 
   const onSubmit = (data: FormModel) => {
     const newUrl = new URL(data.origin);
@@ -57,39 +61,49 @@ export default function ReplicationForm({ url, saveUrl }: ReplicationFormProps) 
     saveUrl(newUrl.toString());
   };
 
+  React.useEffect(() => reset(defaultValues), [url, defaultValues, reset]);
+
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <TextField
+      <Controller
+        as={TextField}
+        control={control}
         id="replication-form-origin"
         name="origin"
-        inputRef={register}
         label={intl.formatMessage({ id: 'label.hostname', defaultMessage: 'Hostname' })}
         fullWidth
+        required
       />
-      <TextField
+      <Controller
+        as={TextField}
+        control={control}
         id="replication-form-database"
         name="database"
-        inputRef={register}
         label={intl.formatMessage({ id: 'label.database', defaultMessage: 'Database' })}
         fullWidth
+        required
       />
-      <TextField
+      <Controller
+        as={TextField}
+        control={control}
         id="replication-form-username"
         name="username"
-        inputRef={register}
         label={intl.formatMessage({ id: 'label.username', defaultMessage: 'Username' })}
         fullWidth
+        required
       />
-      <TextField
+      <Controller
+        as={TextField}
+        control={control}
         id="replication-form-password"
         name="password"
         type="password"
-        inputRef={register}
         label={intl.formatMessage({ id: 'label.password', defaultMessage: 'Password' })}
         fullWidth
+        required
       />
 
-      <Button type="submit" color="primary" disabled={formState.isDirty}>
+      <Button type="submit" color="primary" disabled={!formState.isDirty}>
         <FormattedMessage id="action.submit" defaultMessage="Submit" />
       </Button>
     </StyledForm>
