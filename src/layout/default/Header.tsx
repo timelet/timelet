@@ -17,20 +17,25 @@ const CustomToolbar = styled(Toolbar)`
   }
 `;
 
-export default function Header() {
-  const titleElement = (
-    <Title variant="h6">
-      <Link component={RouterLink} to={RoutePaths.DASHBOARD}>
-        <FormattedMessage id="app.title" defaultMessage="Timelet" />
-      </Link>
-    </Title>
-  );
+const titleElement = (
+  <Title variant="h6">
+    <Link component={RouterLink} to={RoutePaths.DASHBOARD}>
+      <FormattedMessage id="app.title" defaultMessage="Timelet" />
+    </Link>
+  </Title>
+);
 
+type HeaderProps = {
+  status?: React.ReactElement;
+};
+
+export default function Header({ status }: HeaderProps) {
   return (
     <AppBar position="static">
       <CustomToolbar>
         <MenuDrawer title={titleElement} />
         {titleElement}
+        {status}
       </CustomToolbar>
     </AppBar>
   );

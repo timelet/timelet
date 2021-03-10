@@ -19,6 +19,7 @@ import { createSubscriptionEffect } from '../utils/rxdb';
 import { SettingsDocumentType, SETTINGS_DOCUMENT_ID } from '../domain/documents/settingsDocument';
 import { defaultUserInterfaceLanguage, IntlMessages, Language, userInterfaceLanguages } from '../domain/models/languageModel';
 import { matchLanguage } from '../utils/i18n';
+import Status from './Status';
 
 const messages: IntlMessages = {
   de: deMessages,
@@ -62,7 +63,7 @@ export default function App() {
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <BrowserRouter>
                 <ServiceWorkerIntegration />
-                <DefaultLayout>
+                <DefaultLayout status={<Status />}>
                   <Router />
                 </DefaultLayout>
               </BrowserRouter>

@@ -22,9 +22,11 @@ const NativeMain = withTheme(
   `
 );
 
-type DefaultLayoutProps = React.PropsWithChildren<unknown>;
+type DefaultLayoutProps = React.PropsWithChildren<{
+  status?: React.ReactElement;
+}>;
 
-export default function DefaultLayout({ children }: DefaultLayoutProps) {
+export default function DefaultLayout({ children, status }: DefaultLayoutProps) {
   const location = useLocation();
   let titleKey = location.pathname || '/';
   titleKey = titleKey.substring(1).replaceAll('/', '.') || 'dashboard';
@@ -35,7 +37,7 @@ export default function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <LayoutContainer maxWidth={false}>
       <header>
-        <Header />
+        <Header status={status} />
       </header>
       <NativeMain>
         <ContentContainer title={title}>{children}</ContentContainer>
