@@ -24,6 +24,8 @@ For **developers** the easiest way to get started is:
 - Get [Visual Studio Code](https://code.visualstudio.com/) with [Remote Containers](https://code.visualstudio.com/docs/remote/containers) ready
 - Open the project in the Remote Container and run `yarn start`
 - A build can be created with `yarn build`. For testing purposes a local server can be started in the `build` directory with `python3 -m http.server`, if Python 3 is installed.
+- Lint the code with `yarn check:types`, `yarn check:format` and `yarn check:lint`.
+- Run tests with `yarn test`
 
 ### Internationalization
 

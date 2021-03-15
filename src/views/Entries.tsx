@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { Typography } from '@material-ui/core';
+import { FormattedMessage } from 'react-intl';
 import { EntryDocumentType } from '../domain/collections/entryCollection';
 import EntryDisplay from '../components/entries/EntryDisplay';
 import EntryInlineForm from '../components/entries/EntryInlineForm';
@@ -90,6 +92,9 @@ export default function Entries({ entries: externalEntries }: EntriesProps) {
       <ContentElement>
         <EntryInlineForm categories={categories} tags={tags} create={createEntry} />
       </ContentElement>
+      <Typography variant="h3">
+        <FormattedMessage id="title.recentEntries" defaultMessage="Recent entries" />
+      </Typography>
       <EntryDisplayContainer>
         <EntryDisplay
           entries={entries}

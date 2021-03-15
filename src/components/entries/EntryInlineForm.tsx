@@ -15,10 +15,9 @@ const StyledForm = withTheme(
   styled.form`
     display: grid;
     grid-template-areas:
-      'category tags submit'
-      'description description submit'
-      'startedAt endedAt submit';
-    grid-template-columns: 1fr 1fr 60px;
+      'description description description description submit'
+      'category tags startedAt endedAt submit';
+    grid-template-columns: 1fr 1fr 1fr 1fr 60px;
 
     & > *:last-child {
       grid-area: submit;
@@ -65,6 +64,15 @@ export default function EntryInlineForm({ categories, tags, create }: EntryFormP
   // eslint-disable-next-line react/jsx-props-no-spreading
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} key={formId}>
+      <DescriptionTextField
+        name="description"
+        inputRef={register}
+        label={intl.formatMessage({
+          id: 'label.description',
+          defaultMessage: 'Description'
+        })}
+        multiline
+      />
       <Autocomplete
         autoComplete
         options={[...categories]}
@@ -97,15 +105,6 @@ export default function EntryInlineForm({ categories, tags, create }: EntryFormP
             })}
           />
         )}
-      />
-      <DescriptionTextField
-        name="description"
-        inputRef={register}
-        label={intl.formatMessage({
-          id: 'label.description',
-          defaultMessage: 'Description'
-        })}
-        multiline
       />
       <KeyboardDateTimePicker
         name="startedAt"
