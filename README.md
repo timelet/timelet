@@ -1,4 +1,4 @@
-<img src='assets/images/timelet-128.png' align='right' alt='Timelet logo'>
+<img src='assets/brand/timelet-128.png' align='right' alt='Timelet logo'>
 
 # timelet
 
