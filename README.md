@@ -15,7 +15,7 @@ Distributed collaborative offline-first time tracking ⏱
 1. Create a fork, change some code and make sure it works, is properly formatted and tested
 1. Send a pull request
 
-## Getting started
+## Usage
 
 As a **user** you can install the app via our [website](https://timelet.org).
 
@@ -27,3 +27,15 @@ For **developers** the easiest way to get started is:
 - A build can be created with `yarn build`. For testing purposes a local server can be started in the `build` directory with `python3 -m http.server`, if Python 3 is installed.
 - Lint the code with `yarn check:types`, `yarn check:format` and `yarn check:lint`.
 - Run tests with `yarn test`
+
+## Structure
+
+All parts of the project live inside this monorepo.
+
+- Apps
+  - [`timelet`](./apps/timelet/): This is the projects core.
+  - [`web`](./apps/web/): This is the projects website.
+  - [`docs`](./apps/docs/): This is the projects documentation.
+- Packages
+  - [`config`](./packages/config/): All shared configurations are stored here.
+  - [`ui`](./packages/ui/):
