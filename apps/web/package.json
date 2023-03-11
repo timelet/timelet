@@ -7,7 +7,7 @@
     "dev": "PORT=3001 tsx ./server/index.ts",
     "prod": "npm run build && npm run server:prod",
     "build": "vite build",
-    "postbuild": "mkdir -p ../../dist/web && cp -r ./dist/client/* ../../dist"
+    "postbuild": "mkdir -p ../../dist && cp -r ./dist/client/* ../../dist"
   },
   "dependencies": {
     "@types/compression": "^1.7.2",
