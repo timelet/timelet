@@ -33,7 +33,7 @@ For **developers** the easiest way to get started is:
 All parts of the project live inside this monorepo.
 
 - Apps
-  - [`timelet`](./apps/timelet/): This is the projects core.
+  - [`app`](./apps/app/): This is the projects core.
   - [`web`](./apps/web/): This is the projects website.
   - [`docs`](./apps/docs/): This is the projects documentation.
 - Packages

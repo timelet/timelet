@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx ./server/index.ts",
     "prod": "npm run build && npm run server:prod",
-    "build": "vite build"
+    "build": "vite build",
+    "postbuild": "mkdir -p ../../dist/web && cp -r ./dist/client/* ../../dist"
   },
   "dependencies": {
     "@types/compression": "^1.7.2",
