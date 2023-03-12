@@ -1,16 +1,23 @@
 {
-  "name": "@timelet/app",
+  "name": "@timelet/ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/timelet-ui.umd.js",
+  "module": "./dist/timelet-ui.es.js",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/timelet-ui.es.js",
+      "require": "./dist/timelet-ui.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/app/",
-    "postbuild": "mkdir -p ../../dist/app && cp -r ./dist/* ../../dist/app",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "@timelet/ui": "*",
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
