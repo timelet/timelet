@@ -1,10 +1,10 @@
-import {TimeletBrand} from '@timelet/ui';
+import {Logo} from '@timelet/ui';
 
 function App() {
 
   return (
     <div className="App">
-      <TimeletBrand />
+      <Logo />
     </div>
   )
 }

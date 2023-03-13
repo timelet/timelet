@@ -1,1 +1,1 @@
-export { TimeletBrand } from './components/TimeletBrand';
+export { Logo } from './components/Logo';
