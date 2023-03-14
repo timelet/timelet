@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Logo } from '../components/Logo';
 
 const meta = {
-  title: 'Timelet/Logo',
+  title: 'Components/Logo',
   component: Logo,
   tags: ['autodocs'],
   argTypes: {},
