@@ -23,6 +23,6 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    svgr()
+    svgr({ svgrOptions: { ref: true } })
   ],
 })
