@@ -6,7 +6,8 @@ export function Logo() {
 
   useEffect(() => {
     if(logoRef.current) {
-      logoRef.current.getElementById("hands").remove();
+      const hoursHand = logoRef.current.getElementById("hours-hand");
+      const minutesHand = logoRef.current.getElementById("minutes-hand");
     }
 
   }, [logoRef]);

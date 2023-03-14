@@ -6,7 +6,7 @@
    <stop stop-color="#ffb348" offset="1"/>
   </linearGradient>
  </defs>
- <g transform="translate(-104.23 -69.912)">
+ <g id="timelet" transform="translate(-104.23 -69.912)">
   <path id="background" d="m171.97 76.194c-28.677 0-45.064 16.387-45.064 45.065 0 28.677 40.712 77.839 45.064 77.839 4.3528 0 45.065-49.161 45.065-77.839 0-28.677-16.387-45.065-45.065-45.065z" fill="url(#background-gradient)" stroke="#3b240f" stroke-linecap="round" stroke-width="4.0968"/>
   <g id="dial" transform="matrix(.55726 0 0 .55726 144.88 92.215)">
    <path id="dial-border" d="m0.0625 48.728c0 26.591 21.737 48.455 48.623 48.455 26.718 0 48.455-21.864 48.455-48.455 1e-3 -26.802-21.736-48.666-48.454-48.666-26.886 5e-4 -48.624 21.864-48.624 48.666z" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".042"/>
@@ -27,8 +27,8 @@
    </g>
   </g>
   <g id="hands" transform="matrix(.55726 0 0 .55726 144.88 92.215)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.6525">
-   <path id="minutes-hand" d="m49.313 48.147 6.8299-21.266" fill="none"/>
    <path id="hours-hand" d="m48.96 49.207-14.508 8.1612" fill-rule="evenodd"/>
+   <path id="minutes-hand" d="m49.313 48.147 6.8299-21.266" fill="none"/>
   </g>
  </g>
 </svg>
