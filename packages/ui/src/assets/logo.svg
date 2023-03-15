@@ -27,8 +27,8 @@
    </g>
   </g>
   <g id="hands" transform="matrix(.55726 0 0 .55726 144.88 92.215)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.6525">
-   <path id="hours-hand" d="m48.96 49.207-14.508 8.1612" fill-rule="evenodd"/>
-   <path id="minutes-hand" d="m49.313 48.147 6.8299-21.266" fill="none"/>
+   <path id="hours-hand" d="m48.96 49.207-14.508 8.1612" />
+   <path id="minutes-hand" d="m49.313 48.147 6.8299-21.266" />
   </g>
  </g>
 </svg>
