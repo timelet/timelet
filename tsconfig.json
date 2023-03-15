@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default",
+  "display": "Timelet",
   "compilerOptions": {
     "composite": false,
     "declaration": true,

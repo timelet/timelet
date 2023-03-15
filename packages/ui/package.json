@@ -16,6 +16,7 @@
     "dev": "storybook dev -p 6006 --ci",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint": "eslint . --max-warnings=0",
     "build-storybook": "storybook build"
   },
   "peerDependencies": {

@@ -1,3 +1,18 @@
 {
-  "extends": "config/tsconfig.ui.json"
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "UI",
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2015",
+      "DOM"
+    ],
+    "module": "ESNext",
+    "target": "ES6",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  }
 }
