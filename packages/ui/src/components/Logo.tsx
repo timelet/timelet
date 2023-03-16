@@ -12,7 +12,7 @@ export function Logo({ updateTime = true, displayTime }: LogoProps) {
   const [handsOrigin, setHandsOrigin] = useState<DOMPoint | undefined>(undefined);
   const [hoursHand, setHoursHand] = useState<SVGPathElement | undefined>(undefined);
   const [minutesHand, setMinutesHand] = useState<SVGPathElement | undefined>(undefined);
-  const [delay] = useState(60000);
+  const [delay] = useState(updateTime && !displayTime ? null : 60000);
   const [isRunning, toggleIsRunning] = useBoolean(false);
 
   const updateHandRotation = () => {
@@ -55,8 +55,6 @@ export function Logo({ updateTime = true, displayTime }: LogoProps) {
   }, [hoursHand, minutesHand, handsOrigin]);
 
   // update hands position
-  if (updateTime && !displayTime) {
-    useInterval(updateHandRotation, isRunning ? delay : null);
-  }
+  useInterval(updateHandRotation, isRunning ? delay : null);
   return <LogoSVG ref={logoRef} />;
 }

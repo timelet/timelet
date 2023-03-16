@@ -9,8 +9,7 @@
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.55.0",
