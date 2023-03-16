@@ -5,7 +5,7 @@ const meta = {
   title: "Components/Logo",
   component: Logo,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: { displayTime: { control: { type: "date" } } },
 } satisfies Meta<typeof Logo>;
 
 export default meta;

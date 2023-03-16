@@ -3,21 +3,20 @@ import { useBoolean, useInterval } from "react-use";
 import { ReactComponent as LogoSVG } from "../assets/logo.svg";
 
 export type LogoProps = {
-  updateTime?: boolean;
-  displayTime?: Date;
+  displayTime?: string;
 };
 
-export function Logo({ updateTime = true, displayTime }: LogoProps) {
+export function Logo({ displayTime }: LogoProps) {
   const logoRef = useRef<SVGSVGElement>(null);
   const [handsOrigin, setHandsOrigin] = useState<DOMPoint | undefined>(undefined);
   const [hoursHand, setHoursHand] = useState<SVGPathElement | undefined>(undefined);
   const [minutesHand, setMinutesHand] = useState<SVGPathElement | undefined>(undefined);
-  const [delay] = useState(updateTime && !displayTime ? null : 60000);
+  const [delay] = useState(displayTime ? null : 60000);
   const [isRunning, toggleIsRunning] = useBoolean(false);
 
   const updateHandRotation = () => {
     if (hoursHand && minutesHand && handsOrigin) {
-      const currentDate = displayTime ?? new Date();
+      const currentDate = displayTime ? new Date(parseInt(displayTime)) : new Date();
       const hours = currentDate.getHours();
       const minutes = currentDate.getMinutes();
 
@@ -53,6 +52,11 @@ export function Logo({ updateTime = true, displayTime }: LogoProps) {
       updateHandRotation();
     }
   }, [hoursHand, minutesHand, handsOrigin]);
+
+  // update hands when display time is changed
+  useEffect(() => {
+    updateHandRotation();
+  }, [displayTime]);
 
   // update hands position
   useInterval(updateHandRotation, isRunning ? delay : null);
