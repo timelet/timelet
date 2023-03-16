@@ -37,5 +37,4 @@ All parts of the project live inside this monorepo.
   - [`web`](./apps/web/): This is the projects website.
   - [`docs`](./apps/docs/): This is the projects documentation.
 - Packages
-  - [`config`](./packages/config/): All shared configurations are stored here.
   - [`ui`](./packages/ui/): Common UI components are represented inside this package.
