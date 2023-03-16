@@ -1,15 +1,15 @@
-import React from "react";
 import logo from "./logo.svg";
 import { PageContextProvider } from "./usePageContext";
 import type { PageContext } from "./types";
 import "./PageShell.css";
 import { Link } from "./Link";
+import { ReactNode, StrictMode } from "react";
 
 export { PageShell };
 
-function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
+function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
   return (
-    <React.StrictMode>
+    <StrictMode>
       <PageContextProvider pageContext={pageContext}>
         <Layout>
           <Sidebar>
@@ -24,11 +24,11 @@ function PageShell({ children, pageContext }: { children: React.ReactNode; pageC
           <Content>{children}</Content>
         </Layout>
       </PageContextProvider>
-    </React.StrictMode>
+    </StrictMode>
   );
 }
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
@@ -42,7 +42,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Sidebar({ children }: { children: React.ReactNode }) {
+function Sidebar({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
@@ -59,7 +59,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Content({ children }: { children: React.ReactNode }) {
+function Content({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
