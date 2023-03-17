@@ -11,6 +11,7 @@
     "lint": "eslint . --max-warnings=0"
   },
   "dependencies": {
+    "@timelet/ui": "*",
     "@types/compression": "^1.7.2",
     "@types/express": "^4.17.14",
     "@types/node": "^18.15.3",
