@@ -25,12 +25,18 @@ export function Logo({ displayTime }: LogoProps) {
     }
   };
 
-  // initialize the clocks hands
+  // initialize the clocks hands origin
   useEffect(() => {
-    if (logoRef.current) {
+    if (logoRef.current && !handsOrigin) {
       const originalHoursHand = logoRef.current.getElementById("hours-hand") as SVGPathElement;
       const handsOrigin = originalHoursHand.getPointAtLength(0);
       setHandsOrigin(handsOrigin);
+    }
+  }, [logoRef]);
+
+  // update hands position
+  useEffect(() => {
+    if (logoRef.current && handsOrigin) {
       const hands = logoRef.current.getElementById("hands");
       hands.innerHTML = "";
       const hoursHand = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -43,7 +49,7 @@ export function Logo({ displayTime }: LogoProps) {
       setMinutesHand(minutesHand);
       hands.appendChild(minutesHand);
     }
-  }, [logoRef]);
+  }, [handsOrigin]);
 
   // if the hands are appended, start running
   useEffect(() => {
@@ -60,5 +66,6 @@ export function Logo({ displayTime }: LogoProps) {
 
   // update hands position
   useInterval(updateHandRotation, isRunning ? delay : null);
+
   return <LogoSVG ref={logoRef} />;
 }
