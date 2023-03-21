@@ -1,11 +1,12 @@
 import { Button, Logo } from "@timelet/ui";
+import { DefaultLayout } from "./components/layouts/DefaultLayout";
 
 function App() {
   return (
-    <div className="App">
+    <DefaultLayout>
       <Logo />
       <Button>Joho</Button>
-    </div>
+    </DefaultLayout>
   );
 }
 

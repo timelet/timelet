@@ -5,4 +5,4 @@ export { Logo } from "./components/Logo";
 export { ThemeProvider } from "./providers/ThemeProvider";
 
 // external components
-export { Button } from "@mantine/core";
+export { AppShell, Header, Footer, Navbar, Button, Group } from "@mantine/core";
