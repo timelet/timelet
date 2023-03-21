@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "PORT=3001 tsx ./server/index.ts",
+    "dev": "vite",
     "prod": "npm run build && npm run server:prod",
     "build": "vite build",
     "postbuild": "mkdir -p ../../dist && cp -r ./dist/client/* ../../dist",

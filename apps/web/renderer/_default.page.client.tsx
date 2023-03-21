@@ -7,6 +7,7 @@ export { render };
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext;
   hydrateRoot(
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById("page-view")!,
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
@@ -14,6 +15,4 @@ async function render(pageContext: PageContextClient) {
   );
 }
 
-/* To enable Client-side Routing:
-export const clientRouting = true
-// !! WARNING !! Before doing so, read https://vite-plugin-ssr.com/clientRouting */
+export const clientRouting = true;
