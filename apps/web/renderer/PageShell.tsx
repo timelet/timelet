@@ -3,9 +3,7 @@ import type { PageContext } from "./types";
 import { Link } from "./Link";
 import { ReactNode, StrictMode } from "react";
 
-export { PageShell };
-
-function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
+export function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
   return (
     <StrictMode>
       <PageContextProvider pageContext={pageContext}>
