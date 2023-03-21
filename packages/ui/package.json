@@ -13,11 +13,13 @@
     }
   },
   "scripts": {
-    "dev": "storybook dev -p 6006 --ci",
-    "build": "tsc && vite build",
+    "dev": "vite build --watch --sourcemap",
+    "build": "vite build --minify",
+    "build:dev": "vite build --sourcemap",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings=0",
-    "build-storybook": "storybook build"
+    "storybook:dev": "storybook dev -p 6006 --ci",
+    "storybook:build": "storybook build"
   },
   "peerDependencies": {
     "react": "^18.2.0",
