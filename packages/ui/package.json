@@ -24,12 +24,12 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.0-rc.1",
-    "@storybook/addon-interactions": "^7.0.0-rc.1",
-    "@storybook/addon-links": "^7.0.0-rc.1",
-    "@storybook/blocks": "^7.0.0-rc.1",
-    "@storybook/react": "^7.0.0-rc.1",
-    "@storybook/react-vite": "^7.0.0-rc.1",
+    "@storybook/addon-essentials": "^7.0.0-rc.5",
+    "@storybook/addon-interactions": "^7.0.0-rc.5",
+    "@storybook/addon-links": "^7.0.0-rc.5",
+    "@storybook/blocks": "^7.0.0-rc.5",
+    "@storybook/react": "^7.0.0-rc.5",
+    "@storybook/react-vite": "^7.0.0-rc.5",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
@@ -38,14 +38,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
-    "storybook": "^7.0.0-rc.1",
-    "typescript": "^4.9.3",
-    "vite": "^4.2.0",
+    "storybook": "^7.0.0-rc.5",
+    "vite": "^4.2.1",
     "vite-plugin-svgr": "^2.4.0"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
-    "@mantine/core": "^6.0.2",
-    "@mantine/hooks": "^6.0.2"
+    "@mantine/core": "^6.0.4",
+    "@mantine/hooks": "^6.0.4"
   }
 }
