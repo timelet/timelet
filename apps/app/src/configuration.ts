@@ -1,6 +1,7 @@
 export const CONFIGURATION = {
+  BASENAME: import.meta.env.DEV ? "/" : "/app/",
   PATHS: {
-    HOME: "/",
+    DASHBOARD: "/",
   },
   STATE: {
     NAME: "vitrine-state",

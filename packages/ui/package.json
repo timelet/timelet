@@ -13,13 +13,13 @@
     }
   },
   "scripts": {
-    "dev": "vite build --watch --sourcemap",
+    "dev": "concurrently \"vite build --watch --sourcemap\" \"storybook dev -p 6006 --ci\"",
     "build": "vite build --minify",
     "build:dev": "vite build --sourcemap",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings=0",
-    "storybook:dev": "storybook dev -p 6006 --ci",
-    "storybook:build": "storybook build"
+    "storybook": "storybook build",
+    "storybook:dev": "storybook dev -p 6006 --ci"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -36,6 +36,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "concurrently": "^7.6.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -45,6 +46,7 @@
     "vite-plugin-svgr": "^2.4.0"
   },
   "dependencies": {
+    "@emotion/babel-plugin": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@mantine/core": "^6.0.4",
     "@mantine/hooks": "^6.0.4"

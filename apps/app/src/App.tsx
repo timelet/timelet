@@ -1,5 +1,5 @@
 import { Button, Logo } from "@timelet/ui";
-import { DefaultLayout } from "./components/layouts/DefaultLayout";
+import { DefaultLayout } from "./layouts/DefaultLayout";
 
 function App() {
   return (
