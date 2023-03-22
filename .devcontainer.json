@@ -8,7 +8,8 @@
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
 				"unifiedjs.vscode-mdx",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"styled-components.vscode-styled-components"
 			]
 		}
 	}
