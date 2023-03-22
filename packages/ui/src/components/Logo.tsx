@@ -3,10 +3,11 @@ import { useBoolean, useInterval } from "react-use";
 import { ReactComponent as LogoSVG } from "../assets/logo.svg";
 
 export type LogoProps = {
+  className?: string;
   displayTime?: string;
 };
 
-export function Logo({ displayTime }: LogoProps) {
+export function Logo({ className, displayTime }: LogoProps) {
   const logoRef = useRef<SVGSVGElement>(null);
   const [handsOrigin, setHandsOrigin] = useState<DOMPoint | undefined>(undefined);
   const [hoursHand, setHoursHand] = useState<SVGPathElement | undefined>(undefined);
@@ -67,5 +68,5 @@ export function Logo({ displayTime }: LogoProps) {
   // update hands position
   useInterval(updateHandRotation, isRunning ? delay : null);
 
-  return <LogoSVG ref={logoRef} />;
+  return <LogoSVG className={className} ref={logoRef} />;
 }
