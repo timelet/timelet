@@ -1,14 +1,14 @@
-import { css, Global } from "@emotion/react";
+import { Global } from "@timelet/ui";
 
 export function GlobalStyles() {
   return (
     <Global
-      styles={css`
-        header,
-        main {
-          padding: 10px 10%;
-        }
-      `}
+      styles={(theme) => ({
+        "header, section": {
+          paddingLeft: "20%",
+          paddingRight: "20%",
+        },
+      })}
     />
   );
 }

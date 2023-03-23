@@ -3,7 +3,7 @@ export { Logo } from "./components/Logo";
 export { Brand } from "./components/Brand";
 
 // providers
-export { ThemeProvider } from "./providers/ThemeProvider";
+export { TimeletUIProvider } from "./providers/TimeletUIProvider";
 
 // external components
-export { AppShell, Header, Footer, Navbar, Button, Group } from "@mantine/core";
+export { AppShell, Header, Footer, Navbar, Button, Group, Global } from "@mantine/core";

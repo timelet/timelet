@@ -5,5 +5,9 @@ import { DefaultHeader } from "./default/DefaultHeader";
 type DefaultLayoutProps = PropsWithChildren;
 
 export function DefaultLayout({ children }: DefaultLayoutProps) {
-  return <AppShell header={<DefaultHeader />}>{children}</AppShell>;
+  return (
+    <AppShell fixed={false} header={<DefaultHeader />}>
+      {children}
+    </AppShell>
+  );
 }

@@ -4,6 +4,7 @@ import { Brand, Button, Header } from "@timelet/ui";
 const DefaultHeaderStyles = css`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   nav {
     display: flex;

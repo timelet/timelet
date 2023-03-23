@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@timelet/ui";
+import { TimeletUIProvider } from "@timelet/ui";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
@@ -6,8 +6,8 @@ import { router } from "./Router";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider withGlobalStyles withNormalizeCSS>
+    <TimeletUIProvider withGlobalStyles withNormalizeCSS>
       <RouterProvider router={router} />
-    </ThemeProvider>
+    </TimeletUIProvider>
   </React.StrictMode>
 );

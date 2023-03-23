@@ -2,17 +2,23 @@ import { PageContextProvider } from "./usePageContext";
 import type { PageContext } from "./types";
 import { ReactNode, StrictMode } from "react";
 import { DefaultLayout } from "./layouts/DefaultLayout";
-import { ThemeProvider } from "@timelet/ui";
+import { TimeletUIProvider } from "@timelet/ui";
 import { GlobalStyles } from "./GlobalStyles";
+import { IntlProvider } from "react-intl";
+import deCHMessages from "./messages/de-CH.json";
+import enUSMessages from "./messages/en-US.json";
 
 export function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
+  const messages = pageContext.locale === "de-CH" ? deCHMessages : enUSMessages;
   return (
     <StrictMode>
       <PageContextProvider pageContext={pageContext}>
-        <ThemeProvider withGlobalStyles withNormalizeCSS>
-          <GlobalStyles />
-          <DefaultLayout>{children}</DefaultLayout>
-        </ThemeProvider>
+        <IntlProvider messages={messages} locale="en-US" defaultLocale="en-US">
+          <TimeletUIProvider withGlobalStyles withNormalizeCSS>
+            <GlobalStyles />
+            <DefaultLayout>{children}</DefaultLayout>
+          </TimeletUIProvider>
+        </IntlProvider>
       </PageContextProvider>
     </StrictMode>
   );
