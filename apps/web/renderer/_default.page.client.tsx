@@ -4,6 +4,8 @@ import type { PageContextClient } from "./types";
 
 export { render };
 
+export const hydrationCanBeAborted = true;
+
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext;
   hydrateRoot(
