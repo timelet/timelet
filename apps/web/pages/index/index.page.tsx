@@ -1,5 +1,7 @@
-export { Page };
-
-function Page() {
-  return <>Home</>;
+export function Page() {
+  return (
+    <>
+      <section>Eins</section>
+    </>
+  );
 }

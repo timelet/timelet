@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import { Brand, Button, Header } from "@timelet/ui";
+import { FormattedMessage } from "react-intl";
 
 const DefaultHeaderStyles = css`
   display: flex;
@@ -14,11 +15,13 @@ const DefaultHeaderStyles = css`
 
 export function DefaultHeader() {
   return (
-    <Header css={DefaultHeaderStyles} height={64}>
+    <Header css={DefaultHeaderStyles} py={6} height={64}>
       <Brand />
       <nav>
-        <Button variant="subtle">Joho</Button>
-        <Button variant="light">Joho</Button>
+        <Button variant="subtle">Docs</Button>
+        <Button variant="light">
+          <FormattedMessage id="openApp" />
+        </Button>
       </nav>
     </Header>
   );

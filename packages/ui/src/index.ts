@@ -6,4 +6,4 @@ export { Brand } from "./components/Brand";
 export { TimeletUIProvider } from "./providers/TimeletUIProvider";
 
 // external components
-export { AppShell, Header, Footer, Navbar, Button, Group, Global } from "@mantine/core";
+export { AppShell, Header, Footer, Navbar, Button, Group, Global, useMantineTheme } from "@mantine/core";
