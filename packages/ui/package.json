@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/timelet-ui.umd.js",
-  "module": "./dist/timelet-ui.es.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./src/index.ts",
   "exports": {
     ".": {
-      "import": "./dist/timelet-ui.es.js",
-      "require": "./dist/timelet-ui.umd.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
@@ -40,7 +40,6 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-use": "^17.4.0",
     "storybook": "^7.0.0-rc.5",
     "vite": "^4.2.1",
     "vite-plugin-svgr": "^2.4.0"

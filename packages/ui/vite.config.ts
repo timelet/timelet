@@ -5,11 +5,12 @@ import packageJson from "./package.json";
 
 export default defineConfig({
   build: {
+    ssr: true,
+    target: "esnext",
     lib: {
       entry: "src/index.ts",
       name: packageJson.name,
-      formats: ["es", "umd"],
-      fileName: (format) => `timelet-ui.${format}.js`,
+      fileName: "timelet.cjs.js",
     },
     rollupOptions: {
       external: ["react", "react-dom"],

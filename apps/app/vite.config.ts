@@ -10,7 +10,7 @@ export default defineConfig({
       manifest: {
         name: "Timelet",
         short_name: "Timelet",
-        description: "Distributed collaborative offline-first time tracking.",
+        description: "Distributed collaborative offline-first time tracking app.",
         theme_color: "#e6e6e6",
         background_color: "#e6e6e6",
         display: "standalone",

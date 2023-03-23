@@ -1,9 +1,12 @@
+import { useInterval } from "@mantine/hooks";
 import { useEffect, useRef, useState } from "react";
-import { useBoolean, useInterval } from "react-use";
 import { ReactComponent as LogoSVG } from "../assets/logo.svg";
 
 export type LogoProps = {
   className?: string;
+  /**
+   * Sets the clocks time
+   */
   displayTime?: string;
 };
 
@@ -12,8 +15,7 @@ export function Logo({ className, displayTime }: LogoProps) {
   const [handsOrigin, setHandsOrigin] = useState<DOMPoint | undefined>(undefined);
   const [hoursHand, setHoursHand] = useState<SVGPathElement | undefined>(undefined);
   const [minutesHand, setMinutesHand] = useState<SVGPathElement | undefined>(undefined);
-  const [delay] = useState(displayTime ? null : 60000);
-  const [isRunning, toggleIsRunning] = useBoolean(false);
+  const interval = useInterval(() => updateHandRotation(), 60000);
 
   const updateHandRotation = () => {
     if (hoursHand && minutesHand && handsOrigin) {
@@ -54,19 +56,17 @@ export function Logo({ className, displayTime }: LogoProps) {
 
   // if the hands are appended, start running
   useEffect(() => {
-    if (hoursHand && minutesHand && handsOrigin) {
-      toggleIsRunning();
+    if (hoursHand && minutesHand && handsOrigin && !displayTime) {
+      interval.start();
       updateHandRotation();
     }
   }, [hoursHand, minutesHand, handsOrigin]);
 
   // update hands when display time is changed
   useEffect(() => {
+    interval.stop();
     updateHandRotation();
   }, [displayTime]);
-
-  // update hands position
-  useInterval(updateHandRotation, isRunning ? delay : null);
 
   return <LogoSVG className={className} ref={logoRef} />;
 }

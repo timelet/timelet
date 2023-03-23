@@ -25,7 +25,7 @@
     "react-dom": "^18.1.0",
     "sirv": "^2.0.2",
     "vite": "^4.2.1",
-    "vite-plugin-ssr": "^0.4.99"
+    "vite-plugin-ssr": "^0.4.101"
   },
   "devDependencies": {
     "tsx": "^3.12.6"
