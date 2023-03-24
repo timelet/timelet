@@ -22,7 +22,7 @@ export function DefaultHeader() {
       <nav>
         <Button variant="subtle">Docs</Button>
         <Button variant="light" component={Link} href={CONFIGURATION.PATHS.APP}>
-          <FormattedMessage id="openApp" />
+          <FormattedMessage id="actions.recordTime" />
         </Button>
       </nav>
     </Header>
