@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 import { Brand, Button, Header } from "@timelet/ui";
 import { FormattedMessage } from "react-intl";
+import { CONFIGURATION } from "../../configuration";
+import { Link } from "../../Link";
 
 const DefaultHeaderStyles = css`
   display: flex;
@@ -19,7 +21,7 @@ export function DefaultHeader() {
       <Brand />
       <nav>
         <Button variant="subtle">Docs</Button>
-        <Button variant="light">
+        <Button variant="light" component={Link} href={CONFIGURATION.PATHS.APP}>
           <FormattedMessage id="openApp" />
         </Button>
       </nav>
