@@ -1,4 +1,6 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
+import { TimeletUIProvider } from "../src/providers/TimeletUIProvider";
 
 const preview: Preview = {
   parameters: {
@@ -14,6 +16,13 @@ const preview: Preview = {
       exclude: ["className"],
     },
   },
+  decorators: [
+    (Story) => (
+      <TimeletUIProvider withGlobalStyles withNormalizeCSS>
+        <Story />
+      </TimeletUIProvider>
+    ),
+  ],
 };
 
 export default preview;
