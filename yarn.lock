@@ -2845,6 +2845,19 @@
     "@swc/core-win32-ia32-msvc" "1.3.39"
     "@swc/core-win32-x64-msvc" "1.3.39"
 
+"@tabler/icons-react@^2.13.2":
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-2.13.2.tgz#21a463147087526ec68a6fb509edc9f90c959c74"
+  integrity sha512-orkRLOOA3jpHE5prNhBzKEBlVCc5sO5SuRBRk9mjNen2uqoIeBJTkJqquhWIIR2uHqmhP+PUls0MtEqW+qjbIA==
+  dependencies:
+    "@tabler/icons" "2.13.2"
+    prop-types "^15.7.2"
+
+"@tabler/icons@2.13.2":
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.13.2.tgz#caba1546f78deda5f2002912632dca66f106c745"
+  integrity sha512-sMqkSTAwkLIYIV+Uu/B7MdomR7tHPpwE9YzMtBJgqhK/seiUk5iPoQbTHdS7lbEHqNluAsx2velLCVtM7QilWw==
+
 "@testing-library/dom@^8.3.0":
   version "8.20.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.20.0.tgz#914aa862cef0f5e89b98cc48e3445c4c921010f6"

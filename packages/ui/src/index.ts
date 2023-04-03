@@ -7,4 +7,19 @@ export { Logo } from "./components/Logo";
 export { TimeletUIProvider } from "./providers/TimeletUIProvider";
 
 // external components
-export { AppShell, Center, Header, Footer, Navbar, Button, Group, Text, Anchor, Global, useMantineTheme } from "@mantine/core";
+export {
+  AppShell,
+  Center,
+  Header,
+  Footer,
+  Navbar,
+  Button,
+  Group,
+  Text,
+  Anchor,
+  NavLink,
+  Divider,
+  Global,
+  useMantineTheme,
+} from "@mantine/core";
+export * from "@tabler/icons-react";
