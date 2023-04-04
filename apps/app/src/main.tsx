@@ -3,17 +3,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { IntlProvider } from "react-intl";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./Router";
+import { router } from "./router";
 import enUSMessages from "../../../assets/localization/en-US.json";
+import { DatabaseProvider } from "./persistence/DatabaseProvider";
 
 const messages = enUSMessages;
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <IntlProvider messages={messages} locale="en-US" defaultLocale="en-US">
-      <TimeletUIProvider withGlobalStyles withNormalizeCSS>
-        <RouterProvider router={router} />
-      </TimeletUIProvider>
-    </IntlProvider>
+    <DatabaseProvider>
+      <IntlProvider messages={messages} locale="en-US" defaultLocale="en-US">
+        <TimeletUIProvider withGlobalStyles withNormalizeCSS>
+          <RouterProvider router={router} />
+        </TimeletUIProvider>
+      </IntlProvider>
+    </DatabaseProvider>
   </React.StrictMode>
 );
