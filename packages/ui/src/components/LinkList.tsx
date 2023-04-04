@@ -19,7 +19,7 @@ const linkListStyles = (props: LinkListProps, theme: Theme) => css`
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: ${theme.spacing[props.gap ? props.gap : "md"]};
+    gap: ${theme.spacing[props.gap ? props.gap : "xs"]};
   }
 `;
 

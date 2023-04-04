@@ -2,5 +2,6 @@
   "title": "Timelet",
   "layout.footer.version": "Version: {version}",
   "layout.footer.website": "Webseite",
+  "layout.footer.code": "Github",
   "actions.recordTime": "Zeit erfassen"
 }

@@ -6,6 +6,7 @@ export const CONFIGURATION = {
   PATHS: {
     DASHBOARD: "/",
     WEBSITE: import.meta.env.DEV ? "http://localhost:3002" : "/",
+    CODE: "https://github.com/timelet/timelet",
   },
   STATE: {
     NAME: "vitrine-state",

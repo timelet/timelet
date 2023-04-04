@@ -19,6 +19,7 @@ export {
   Anchor,
   NavLink,
   Divider,
+  Container,
   Global,
   useMantineTheme,
 } from "@mantine/core";
