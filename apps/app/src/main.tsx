@@ -10,13 +10,13 @@ import { DatabaseProvider } from "./persistence/DatabaseProvider";
 const messages = enUSMessages;
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <DatabaseProvider>
+  <DatabaseProvider>
+    <React.StrictMode>
       <IntlProvider messages={messages} locale="en-US" defaultLocale="en-US">
         <TimeletUIProvider withGlobalStyles withNormalizeCSS>
           <RouterProvider router={router} />
         </TimeletUIProvider>
       </IntlProvider>
-    </DatabaseProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </DatabaseProvider>
 );
