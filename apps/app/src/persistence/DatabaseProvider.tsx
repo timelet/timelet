@@ -1,14 +1,19 @@
-import { PropsWithChildren, useEffect, useState } from "react";
-import { Provider } from "rxdb-hooks";
+import { PropsWithChildren, createContext, useContext, useEffect, useState } from "react";
 import { TimeletDatabase, initialize } from "./database";
 
-type DatabaseProviderProps = PropsWithChildren;
+const DatabaseContext = createContext<TimeletDatabase | undefined>(undefined);
+export function useDatabase() {
+  return useContext(DatabaseContext);
+}
 
-export function DatabaseProvider({ children }: DatabaseProviderProps) {
+type DatabaseProviderType = PropsWithChildren;
+
+export function DatabaseProvider({ children }: DatabaseProviderType) {
   const [database, setDatabase] = useState<TimeletDatabase>();
 
   useEffect(() => {
     initialize().then((database) => setDatabase(database));
   }, []);
-  return <Provider db={database}>{children}</Provider>;
+
+  return <DatabaseContext.Provider value={database}>{children}</DatabaseContext.Provider>;
 }

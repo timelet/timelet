@@ -1,7 +1,7 @@
 import { Anchor, Footer, LinkList } from "@timelet/ui";
 import { FormattedMessage } from "react-intl";
 import { CONFIGURATION } from "../../configuration";
-import { Theme, css, useTheme } from "@emotion/react";
+import { Theme, css } from "@emotion/react";
 
 const defaultFooterStyle = (theme: Theme) => css`
   display: flex;
@@ -10,7 +10,6 @@ const defaultFooterStyle = (theme: Theme) => css`
 `;
 
 export function DefaultFooter() {
-  const theme = useTheme();
   return (
     <Footer height={48} p="xs" css={defaultFooterStyle}>
       <FormattedMessage id="layout.footer.version" values={{ version: CONFIGURATION.VERSION }} />

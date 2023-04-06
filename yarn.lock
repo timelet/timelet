@@ -2163,6 +2163,14 @@
     react-remove-scroll "^2.5.5"
     react-textarea-autosize "8.3.4"
 
+"@mantine/form@^6.0.6":
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/@mantine/form/-/form-6.0.6.tgz#82e4e71ae6d4810eded8faecea9531bb24e210bf"
+  integrity sha512-ZTudX5bW5i0dlNWqngd6B0HcV2hWNFf+IpRO4Pz+MYYUrp90lLftgIdr6cISEOsjM7v3tCKFNCjGhl7rck9p0w==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    klona "^2.0.5"
+
 "@mantine/hooks@^6.0.6":
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-6.0.6.tgz#d571eaaa13f5f191740381c101aab3ac45c703fb"
@@ -6734,6 +6742,11 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
+klona@^2.0.5:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.6.tgz#85bffbf819c03b2f53270412420a4555ef882e22"
+  integrity sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==
+
 lazy-universal-dotenv@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/lazy-universal-dotenv/-/lazy-universal-dotenv-4.0.0.tgz#0b220c264e89a042a37181a4928cdd298af73422"
@@ -8218,11 +8231,6 @@ run-parallel@^1.1.9:
   integrity sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==
   dependencies:
     queue-microtask "^1.2.2"
-
-rxdb-hooks@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/rxdb-hooks/-/rxdb-hooks-5.0.2.tgz#aef646a2b3215497e697257e4e5e9412a87ed686"
-  integrity sha512-ID+moqoAYCc7u0zQwPLRZKeaKK3G+WVhRMTHddbvOBWSTuIA+7q22Xma40TPi5asrPyJiiwd2TZ8qxwdlHXNmw==
 
 rxdb@^14.6.1:
   version "14.6.1"

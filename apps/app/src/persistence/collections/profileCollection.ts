@@ -20,7 +20,7 @@ export type ProfileDocument = RxDocument<ProfileDocumentType>;
 export type ProfileCollection = RxCollection<ProfileDocumentType>;
 
 export const profileSchema: RxJsonSchema<ProfileDocumentType> = {
-  title: "profile schema",
+  title: "profiles",
   description: "describes profiles",
   version: 6,
   type: "object",

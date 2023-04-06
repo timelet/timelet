@@ -16,7 +16,6 @@ const brandContainerStyles = (theme: Theme) => css`
 `;
 
 export default function DefaultHeader() {
-  const theme = useTheme();
   return (
     <Header height={64} p="xs">
       <Container css={brandContainerStyles}>
