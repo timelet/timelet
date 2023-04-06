@@ -1,5 +1,6 @@
-import { RxDatabase, createRxDatabase } from "rxdb";
+import { RxDatabase, addRxPlugin, createRxDatabase } from "rxdb";
 import { getRxStorageDexie } from "rxdb/plugins/storage-dexie";
+import { RxDBMigrationPlugin } from "rxdb/plugins/migration";
 import { EntryCollection, configureEntryCollection, entryCreatorBase } from "./collections/entryCollection";
 import { ProfileCollection, configureProfileCollection, profileCreatorBase } from "./collections/profileCollection";
 
@@ -17,12 +18,13 @@ export async function initialize() {
     storage: getRxStorageDexie(),
   });
 
+  addRxPlugin(RxDBMigrationPlugin);
+
   // Configure collections
   await database.addCollections({
     entries: entryCreatorBase,
     profiles: profileCreatorBase,
   });
-
 
   configureEntryCollection(database.entries);
   configureProfileCollection(database.profiles);

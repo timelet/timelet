@@ -1,18 +1,28 @@
-import { css } from "@emotion/react";
+import { Theme, css, useTheme } from "@emotion/react";
 import { Container, Brand, Header } from "@timelet/ui";
+import { NavLink } from "react-router-dom";
+import { CONFIGURATION } from "../../configuration";
 
-const brandContainerStyles = css`
+const brandContainerStyles = (theme: Theme) => css`
   height: 100%;
   margin: 0;
   width: 300px;
   padding: 0;
+
+  a {
+    text-decoration: none;
+    color: ${theme.black};
+  }
 `;
 
 export default function DefaultHeader() {
+  const theme = useTheme();
   return (
     <Header height={64} p="xs">
       <Container css={brandContainerStyles}>
-        <Brand />
+        <NavLink to={CONFIGURATION.PATHS.DASHBOARD}>
+          <Brand />
+        </NavLink>
       </Container>
     </Header>
   );

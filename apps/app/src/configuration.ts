@@ -5,6 +5,10 @@ export const CONFIGURATION = {
   BASENAME: import.meta.env.DEV ? "/" : "/app/",
   PATHS: {
     DASHBOARD: "/",
+    ENTRIES: "/entries",
+    CATEGORIES: "/categories",
+    TAGS: "/tags",
+    SETTINGS: "/settings",
     WEBSITE: import.meta.env.DEV ? "http://localhost:3002" : "/",
     CODE: "https://github.com/timelet/timelet",
   },
