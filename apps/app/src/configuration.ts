@@ -13,6 +13,6 @@ export const CONFIGURATION = {
     CODE: "https://github.com/timelet/timelet",
   },
   STATE: {
-    NAME: "vitrine-state",
+    NAME: "timelet-state",
   },
 };

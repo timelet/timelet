@@ -24,3 +24,5 @@ export {
   useMantineTheme,
 } from "@mantine/core";
 export * from "@tabler/icons-react";
+
+export type { TimeletTheme } from "./emotion";
