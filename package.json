@@ -10,8 +10,8 @@
     "build": "turbo run build --cache-dir=.turbo",
     "dev": "turbo run dev --no-daemon",
     "lint": "turbo run lint",
-    "publish": "",
-    "version": "node ./scripts/version.js"
+    "version": "changeset version",
+    "publish": "changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
