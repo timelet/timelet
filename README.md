@@ -1,20 +1,21 @@
-<img src='assets/images/timelet-128.png' align='right' alt='Timelet logo'>
+<img src='assets/brand/timelet-128.png' align='right' alt='Timelet logo'>
 
 # timelet
 
-Minimal portable time tracking ⏱
+Distributed collaborative offline-first time tracking ⏱
 
 - Offline first progressive web application (PWA)
+- Optional collabration
 - Privacy concerned
 - Open source and free
 
 ## Contribute
 
 1. Checkout the [open issues](https://github.com/timelet/timelet/issues), if you don't know what to improve
-1. Create a fork, change some code and make sure it works and is properly formatted
+1. Create a fork, change some code and make sure it works, is properly formatted and tested
 1. Send a pull request
 
-## Getting started
+## Usage
 
 As a **user** you can install the app via our [website](https://timelet.org).
 
@@ -27,17 +28,13 @@ For **developers** the easiest way to get started is:
 - Lint the code with `yarn check:types`, `yarn check:format` and `yarn check:lint`.
 - Run tests with `yarn test`
 
-### Internationalization
+## Structure
 
-Messages can be extracted for translation and compiled again for usage.
+All parts of the project live inside this monorepo.
 
-1. Extract messages with `yarn i18n:extract --out-file assets/i18n/en.json`.
-1. Compile messages with `yarn i18n:compile assets/i18n/*.en.json --ast --out-file src/i18n/en.json`.
-
-## Resources
-
-- Check our [learning here](./docs/learnings.md).
-
-A list of articles and tutorials, which helped to develop this application.
-
-- [Example: Workbox service worker with TypeScript](https://gist.github.com/dsebastien/12c47fdb6517cfdab9473297f4472d22)
+- Apps
+  - [`app`](./apps/app/): This is the projects core.
+  - [`web`](./apps/web/): This is the projects website.
+  - [`docs`](./apps/docs/): This is the projects documentation.
+- Packages
+  - [`ui`](./packages/ui/): Common UI components are represented inside this package.

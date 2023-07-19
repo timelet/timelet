@@ -1,0 +1,16 @@
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "timelet-dev",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:0-20-bullseye",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"unifiedjs.vscode-mdx",
+				"eamodio.gitlens",
+				"styled-components.vscode-styled-components"
+			]
+		}
+	}
+}
