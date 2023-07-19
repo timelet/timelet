@@ -1,4 +1,4 @@
-name: Deploy to pages
+name: Deploy to static file host
 
 on:
   push:
@@ -25,6 +25,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Cache
         uses: actions/cache@v3
         with:
@@ -32,17 +33,26 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "timelet"
+          cache: "node"
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build project
+        run: yarn build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './dist'
+          path: "./dist"
 
   deploy:
     environment:
