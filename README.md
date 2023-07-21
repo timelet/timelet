@@ -2,7 +2,7 @@
 
 # timelet
 
-Distributed collaborative offline-first time tracking ⏱
+Distributed collaborative offline-first time tracking tool
 
 - Offline first progressive web application (PWA)
 - Optional collabration
