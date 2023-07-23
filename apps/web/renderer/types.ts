@@ -14,7 +14,7 @@ export type PageContextCustom = {
   Page: Page;
   pageProps?: PageProps;
   urlPathname: string;
-  locale: string,
+  locale: string;
   exports: {
     documentProps?: {
       title?: string;
