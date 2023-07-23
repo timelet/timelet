@@ -23,7 +23,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: yarn add @changesets/cli@2.26.2
+        run: yarn add -W @changesets/cli@2.26.2
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
