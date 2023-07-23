@@ -1,8 +1,8 @@
 {
   "name": "@timelet/web",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
-  "private": true,
   "scripts": {
     "dev": "vite",
     "prod": "npm run build && npm run server:prod",
