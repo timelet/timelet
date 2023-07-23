@@ -9,7 +9,7 @@ on:
 
 jobs:
   publish:
-    if: github.event.pull_request.merged == true && github.ref_name == "changeset-release/main"
+    if: github.event.pull_request.merged == true && github.head_ref == 'changeset-release/main'
     name: Publish
     runs-on: ubuntu-latest
     steps:
