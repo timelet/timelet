@@ -48,7 +48,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build project
+      - name: Build
         run: yarn build
 
       - name: Upload artifact
