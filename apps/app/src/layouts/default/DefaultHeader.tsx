@@ -1,4 +1,4 @@
-import { Theme, css, useTheme } from "@emotion/react";
+import { Theme, css } from "@emotion/react";
 import { Container, Brand, Header } from "@timelet/ui";
 import { NavLink } from "react-router-dom";
 import { CONFIGURATION } from "../../configuration";
