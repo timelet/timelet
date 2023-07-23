@@ -1,5 +1,13 @@
 # @timelet/app
 
+## 0.0.2
+
+### Patch Changes
+
+- 294fe8e: Upgrade changeset config
+- Updated dependencies [294fe8e]
+  - @timelet/ui@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
