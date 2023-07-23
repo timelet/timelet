@@ -21,9 +21,10 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
+          cache: yarn
 
-      - name: Install @changesets/cli
-        run: npm install --no-package-lock --no-save @changesets/cli@2.26.2
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
