@@ -8,21 +8,23 @@ export { TimeletUIProvider } from "./providers/TimeletUIProvider";
 
 // external components
 export {
-  AppShell,
-  Center,
-  Header,
-  Footer,
-  Navbar,
-  Button,
-  Group,
-  Text,
   Anchor,
-  NavLink,
-  Divider,
+  AppShell,
+  Button,
+  Center,
   Container,
+  Divider,
+  Footer,
   Global,
+  Group,
+  Header,
+  NavLink,
+  Navbar,
+  Text,
   useMantineTheme,
+  Dialog,
 } from "@mantine/core";
+export { useDisclosure } from "@mantine/hooks";
 export * from "@tabler/icons-react";
 
 export type { TimeletTheme } from "./emotion";
