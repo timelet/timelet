@@ -16,6 +16,10 @@
       "dependsOn": ["^build:dev"],
       "cache": false,
       "persistent": true
+    },
+    "prepare:web": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     }
   }
 }
