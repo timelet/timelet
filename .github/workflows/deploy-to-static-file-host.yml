@@ -51,6 +51,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Prepare for publishing
+        run: yarn prepare:web
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
