@@ -1,5 +1,11 @@
 # @timelet/app
 
+## 0.0.5
+
+### Patch Changes
+
+- cb41513: Add prepare web script
+
 ## 0.0.4
 
 ### Patch Changes
