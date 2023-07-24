@@ -7,7 +7,7 @@
     "dev": "vite",
     "prod": "npm run build && npm run server:prod",
     "build": "vite build",
-    "postbuild": "mkdir -p ../../dist && cp -r ./dist/client/* ../../dist",
+    "prepare:web": "mkdir -p ../../dist && cp -r ./dist/client/* ../../dist",
     "lint": "eslint . --max-warnings=0"
   },
   "dependencies": {

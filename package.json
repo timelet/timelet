@@ -7,9 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build --cache-dir=.turbo",
+    "build": "turbo run build --cache-dir=.turbo --no-daemon",
     "dev": "turbo run dev --no-daemon",
     "lint": "turbo run lint --no-daemon",
+    "prepare:web": "turbo run prepare:web --no-daemon",
     "version": "changeset version",
     "release": "changeset publish"
   },
