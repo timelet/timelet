@@ -1,5 +1,11 @@
 # @timelet/ui
 
+## 0.0.3
+
+### Patch Changes
+
+- 7afe1ed: Show reload page on app update
+
 ## 0.0.2
 
 ### Patch Changes
