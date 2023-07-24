@@ -1,5 +1,11 @@
 # @timelet/app
 
+## 0.0.4
+
+### Patch Changes
+
+- ed96e7f: Fix error in reload prompt component
+
 ## 0.0.3
 
 ### Patch Changes
