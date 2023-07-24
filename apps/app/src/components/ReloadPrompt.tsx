@@ -24,7 +24,7 @@ export function ReloadPrompt() {
   };
 
   useEffect(() => {
-    if (!needRefresh) {
+    if (needRefresh) {
       openDialog();
     }
   }, [needRefresh]);
