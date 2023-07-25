@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { Brand, Button, Header } from "@timelet/ui";
 import { FormattedMessage } from "react-intl";
 import { CONFIGURATION } from "../../configuration";
-import { Link } from "../../Link";
+import { Link } from "../../components/Link";
 
 const DefaultHeaderStyles = css`
   display: flex;
