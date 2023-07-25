@@ -1,16 +1,28 @@
-import { css, Global } from "@emotion/react";
+import { css, Global, Theme } from "@emotion/react";
+
+const globalStyles = (theme: Theme) => css`
+  header,
+  section,
+  footer {
+    --horizontal-padding: 20%;
+
+    @media (max-width: ${theme.breakpoints.xl}) {
+      --horizontal-padding: 15%;
+    }
+
+    @media (max-width: ${theme.breakpoints.lg}) {
+      --horizontal-padding: 10%;
+    }
+
+    @media (max-width: ${theme.breakpoints.xs}) {
+      --horizontal-padding: 1rem;
+    }
+
+    padding-right: var(--horizontal-padding);
+    padding-left: var(--horizontal-padding);
+  }
+`;
 
 export function GlobalStyles() {
-  return (
-    <Global
-      styles={css`
-        header,
-        section,
-        footer {
-          padding-right: 20%;
-          padding-left: 20%;
-        }
-      `}
-    />
-  );
+  return <Global styles={globalStyles} />;
 }
