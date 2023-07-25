@@ -8,6 +8,8 @@ const DefaultHeaderStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #ffffffdd;
+  backdrop-filter: blur(2px);
 
   nav {
     display: flex;

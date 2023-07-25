@@ -16,6 +16,7 @@ export type PageContextCustom = {
   locale: string;
   exports: {
     documentProps?: {
+      slug?: string;
       title?: string;
       description?: string;
     };

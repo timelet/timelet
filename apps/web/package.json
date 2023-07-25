@@ -7,6 +7,7 @@
     "dev": "vite",
     "prod": "npm run build && npm run server:prod",
     "build": "vite build",
+    "server": "node --loader ts-node/esm ./server/index.ts",
     "prepare:web": "mkdir -p ../../dist && cp -r ./dist/client/* ../../dist",
     "lint": "eslint . --max-warnings=0"
   },
@@ -26,6 +27,7 @@
     "react-dom": "^18.1.0",
     "react-intl": "^6.4.4",
     "sirv": "^2.0.3",
+    "ts-node": "^10.9.1",
     "vite": "^4.4.6",
     "vite-plugin-ssr": "^0.4.133"
   },

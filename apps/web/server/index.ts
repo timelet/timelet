@@ -2,7 +2,7 @@
 
 import express from "express";
 import compression from "compression";
-import { renderPage } from "vite-plugin-ssr";
+import { renderPage } from "vite-plugin-ssr/server";
 import { root } from "./root.js";
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -39,7 +39,7 @@ async function startServer() {
     res.status(statusCode).type(contentType).send(body);
   });
 
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 3002;
   app.listen(port);
   console.log(`Server running at http://localhost:${port}`);
 }
