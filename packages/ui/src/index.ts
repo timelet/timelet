@@ -13,6 +13,7 @@ export {
   Button,
   Center,
   Container,
+  Dialog,
   Divider,
   Footer,
   Global,
@@ -21,8 +22,8 @@ export {
   NavLink,
   Navbar,
   Text,
+  Title,
   useMantineTheme,
-  Dialog,
 } from "@mantine/core";
 export { useDisclosure } from "@mantine/hooks";
 export * from "@tabler/icons-react";

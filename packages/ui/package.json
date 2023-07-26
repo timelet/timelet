@@ -47,6 +47,8 @@
   "dependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/react": "^11.11.1",
+    "@fontsource-variable/eczar": "^5.0.5",
+    "@fontsource-variable/raleway": "^5.0.6",
     "@mantine/core": "^6.0.17",
     "@mantine/hooks": "^6.0.17",
     "@tabler/icons-react": "^2.27.0"
