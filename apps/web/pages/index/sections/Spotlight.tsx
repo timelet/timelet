@@ -9,7 +9,12 @@ const spotlightStyles = (theme: Theme) => css`
   overflow: auto;
   min-height: 45rem;
   background-size: 100% 100%;
-  background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  background-position:
+    0px 0px,
+    0px 0px,
+    0px 0px,
+    0px 0px,
+    0px 0px;
   background-image: radial-gradient(60% 38% at 50% 55%, #ffffff59 0%, #073aff00 100%),
     radial-gradient(49% 81% at 45% 47%, #ffe20345 0%, #073aff00 100%), radial-gradient(113% 91% at -17% 5%, #ff5722 1%, #ff000000 99%),
     radial-gradient(142% 91% at 83% 7%, #ffdb00ff 1%, #ff000000 99%), radial-gradient(142% 91% at 111% 84%, #ffd7cc 0%, #cc441b 100%);
