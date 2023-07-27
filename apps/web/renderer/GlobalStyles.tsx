@@ -21,9 +21,6 @@ const globalStyles = (theme: Theme) => css`
     padding-right: var(--horizontal-padding);
     padding-left: var(--horizontal-padding);
   }
-
-  .start {
-  }
 `;
 
 export function GlobalStyles() {
