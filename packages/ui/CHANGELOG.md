@@ -1,5 +1,11 @@
 # @timelet/ui
 
+## 0.0.4
+
+### Patch Changes
+
+- afd6607: Add spotlight section
+
 ## 0.0.3
 
 ### Patch Changes
