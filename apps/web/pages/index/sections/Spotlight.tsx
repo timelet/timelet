@@ -1,5 +1,5 @@
 import { Theme, css } from "@emotion/react";
-import { Button, Group, IconArrowRight, IconDirection, IconDirections, Logo, Title } from "@timelet/ui";
+import { Button, Group, IconArrowRight, Logo, Title } from "@timelet/ui";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "../../../renderer/components/Link";
 import { CONFIGURATION } from "../../../renderer/configuration";
