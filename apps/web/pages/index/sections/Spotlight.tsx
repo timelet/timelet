@@ -19,10 +19,31 @@ const spotlightStyles = (theme: Theme) => css`
     radial-gradient(49% 81% at 45% 47%, #ffe20345 0%, #073aff00 100%), radial-gradient(113% 91% at -17% 5%, #ff5722 1%, #ff000000 99%),
     radial-gradient(142% 91% at 83% 7%, #ffdb00ff 1%, #ff000000 99%), radial-gradient(142% 91% at 111% 84%, #ffd7cc 0%, #cc441b 100%);
   color: ${theme.white};
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 4rem;
   text-shadow: 0 2px 5px #0003;
+
+  @media (max-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: minmax(0, 1fr);
+
+    min-height: 35rem;
+
+    #spotlight-show {
+      display: none;
+    }
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #spotlight-show svg {
+    height: 50%;
+    width: 100%;
+  }
 
   h1 {
     font-size: 2.4rem;
@@ -58,7 +79,7 @@ export function Spotlight() {
           </Button>
         </Group>
       </div>
-      <div>
+      <div id="spotlight-show">
         <Logo />
       </div>
     </section>
