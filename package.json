@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo --no-daemon",
+    "clean": "git clean -fdx",
     "dev": "turbo run dev --no-daemon",
     "lint": "turbo run lint --no-daemon",
     "prepare:web": "turbo run prepare:web --no-daemon",
