@@ -36,6 +36,5 @@ All parts of the project live inside this monorepo.
 - Apps
   - [`app`](./apps/app/): This is the projects core.
   - [`web`](./apps/web/): This is the projects website.
-  - [`docs`](./apps/docs/): This is the projects documentation.
 - Packages
   - [`ui`](./packages/ui/): Common UI components are represented inside this package.
