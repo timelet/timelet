@@ -6,11 +6,10 @@ import createCache from "@emotion/cache";
 import createEmotionCache from "@emotion/server/create-instance";
 import { CacheProvider } from "@emotion/react";
 
-export { render };
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = ["pageProps", "locale"];
 
-async function render(pageContext: PageContextServer) {
+export async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext;
   const key = "timelet";
   const cache = createCache({ key });

@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../apps/web/public/features.schema.json",
+  "features": [
+    { "id": "abcd" },
+  ]
+}

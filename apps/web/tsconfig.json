@@ -22,6 +22,8 @@
     "transpileOnly": true,
     "esm": true,
     "compilerOptions": {
+      "module": "ESNext",
+      "target": "ESNext",
       "moduleResolution": "Node16"
     }
   }
