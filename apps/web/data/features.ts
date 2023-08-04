@@ -1,12 +1,37 @@
-import { Type } from '@sinclair/typebox';
+import { Static, Type } from "@sinclair/typebox";
+import { TypeCompiler } from "@sinclair/typebox/compiler";
+import { createSchemaDefinition } from "./schemaDefaults";
 
-export const featuresSchema = Type.Object({
-  features: Type.Array(Type.Object({
-    id: Type.String()
-  }))
-}, {
-  title: "features",
-  description: "Describes features of time tracking software solutions.",
-  $schema: "https://json-schema.org/draft/2020-12/schema",
-  $id: "https://timelet.org/features.schema.json"
-})
+export enum FeatureKinds {
+  boolean = "boolean",
+  string = "string",
+}
+
+export const featuresSchema = Type.Object(
+  {
+    features: Type.Array(
+      Type.Object({
+        id: Type.String(),
+        kind: Type.Enum(FeatureKinds),
+        title: Type.String(),
+        description: Type.String({ minLength: 20 }),
+        promoted: Type.Boolean(),
+      }),
+      { uniqueItems: true }
+    ),
+  },
+  createSchemaDefinition("features", "Describes features of time tracking software solutions.")
+);
+
+export type FeaturesType = Static<typeof featuresSchema>;
+const featuresChecker = TypeCompiler.Compile(featuresSchema);
+
+export async function getFeatures() {
+  const features = await import("../../../assets/content/de-CH/features.json");
+
+  if (!featuresChecker.Check(features)) {
+    throw new Error(`Features aren't valid.`);
+  }
+
+  return features;
+}

@@ -1,1 +1,0 @@
-{"title":"features","description":"Describes features of time tracking software solutions.","$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://timelet.org/features.schema.json","type":"object","properties":{"features":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"}},"required":["id"]}}},"required":["features"]}

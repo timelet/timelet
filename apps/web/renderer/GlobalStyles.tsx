@@ -1,9 +1,9 @@
 import { css, Global, Theme } from "@emotion/react";
 
 const globalStyles = (theme: Theme) => css`
-  header,
-  section,
-  footer {
+  #page-view > div > header,
+  main > section,
+  #page-view > div > footer {
     --horizontal-padding: 20%;
 
     @media (max-width: ${theme.breakpoints.xl}) {

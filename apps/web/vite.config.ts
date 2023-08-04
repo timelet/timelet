@@ -1,13 +1,13 @@
 import react from "@vitejs/plugin-react";
 import ssr from "vite-plugin-ssr/plugin";
 import { UserConfig } from "vite";
-import watchAndRun from 'vite-plugin-watch-and-run'
-import path from 'path';
-import { featuresSchema } from './data/features';
-import { writeFile } from 'fs/promises';
+import watchAndRun from "vite-plugin-watch-and-run";
+import path from "path";
+import { featuresSchema } from "./data/features";
+import { writeFile } from "fs/promises";
 
 function generateSchemaFiles() {
-  writeFile("./public/features.schema.json", JSON.stringify(featuresSchema));
+  writeFile("../../assets/schema/web/features.schema.json", JSON.stringify(featuresSchema));
 }
 
 const config: UserConfig = {
@@ -17,10 +17,10 @@ const config: UserConfig = {
   plugins: [
     react({ jsxImportSource: "@emotion/react" }),
     ssr({ prerender: true }),
-    watchAndRun([{ watch: path.resolve('data/**/*.ts'), watchKind: ['add', 'change', 'unlink', 'ready'], run: generateSchemaFiles }])
+    watchAndRun([{ watch: path.resolve("data/**/*.ts"), watchKind: ["add", "change"], run: generateSchemaFiles }]),
   ],
 };
 
-generateSchemaFiles()
+generateSchemaFiles();
 
 export default config;
