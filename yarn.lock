@@ -4234,9 +4234,9 @@
     form-data "^3.0.0"
 
 "@types/node@*", "@types/node@>=12.12.47", "@types/node@>=13.7.0", "@types/node@^20.4.2":
-  version "20.4.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.7.tgz#74d323a93f1391a63477b27b9aec56669c98b2ab"
-  integrity sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==
+  version "20.4.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.8.tgz#b5dda19adaa473a9bf0ab5cbd8f30ec7d43f5c85"
+  integrity sha512-0mHckf6D2DiIAzh8fM8f3HQCvMKDpK94YQ0DSVkfWTG9BZleYIWudw9cJxX8oCk9bM+vAkDyujDV6dmKHbvQpg==
 
 "@types/node@^12.7.1":
   version "12.20.55"
@@ -10843,9 +10843,9 @@ vite-plugin-pwa@^0.16.4:
     workbox-window "^7.0.0"
 
 vite-plugin-ssr@^0.4.133:
-  version "0.4.134"
-  resolved "https://registry.yarnpkg.com/vite-plugin-ssr/-/vite-plugin-ssr-0.4.134.tgz#1b903c38ee7387ffa7651d08b7fe9cc48fa955b1"
-  integrity sha512-zUr78R7p4gvN0evYBddBiEGhtogg2rewWLPaqNLnTLT87gmBGXf2uR1ONmyWpzJcov87qlteOg2iJOIeWq1SlQ==
+  version "0.4.135"
+  resolved "https://registry.yarnpkg.com/vite-plugin-ssr/-/vite-plugin-ssr-0.4.135.tgz#36b9d13d9a3cbab324f42cd2f041e150ab80eeef"
+  integrity sha512-JQG0WX25EnAPDW/dtVjRntubP32FNV1V3Z18cNCW/PNKPlTffqYlFoQ/AMlbeU/zrgNCJehG0pO32bq3R1Xvmg==
   dependencies:
     "@brillout/import" "0.2.3"
     "@brillout/json-serializer" "^0.5.4"
