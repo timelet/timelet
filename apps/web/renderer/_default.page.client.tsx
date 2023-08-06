@@ -7,6 +7,7 @@ import { CacheProvider } from "@emotion/react";
 export { render };
 
 export const hydrationCanBeAborted = true;
+export const clientRouting = true;
 
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext;
@@ -22,5 +23,3 @@ async function render(pageContext: PageContextClient) {
     </CacheProvider>
   );
 }
-
-export const clientRouting = true;
