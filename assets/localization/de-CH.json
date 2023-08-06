@@ -4,5 +4,6 @@
   "layout.footer.website": "Webseite",
   "layout.footer.app": "App",
   "layout.footer.code": "Github",
-  "actions.recordTime": "Zeit erfassen"
+  "actions.recordTime": "Zeit erfassen",
+  "pages.docs": "Anleitung"
 }

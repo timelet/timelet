@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schema/web/features.schema.json",
+  "features": [
+    {
+      "id": "offline-first",
+      "title": "Offline first",
+      "description": "The application is designed to work without connection to a server or the internet. All data is stored locally and can be exchanged, when a connection is established.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "serverless",
+      "title": "Serverless",
+      "description": "With the serverless feature, the time tracking app utilizes existing cloud storage services, such as Google Drive, to store and manage data. This eliminates the need for maintaining dedicated servers or infrastructure, as the app directly interacts with the cloud storage provider for data storage and retrieval. Users can securely store their time tracking data in the cloud and access it from any device with appropriate permissions. Additionally, leveraging cloud storage services often provides scalability, reliability, and cost-efficiency as the app can dynamically scale its usage based on demand without the need to manage server resources.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "distributed",
+      "title": "Distributed",
+      "description": "The time tracking app comes with a 'Distributed' feature, enabling users to selectively share data from projects or categories, or even the entire dataset, with other data storages or applications. This feature allows users to maintain multiple synchronized copies of their time tracking data across different platforms or cloud services. Whether it's sharing specific project data with collaborators or integrating time tracking records into other productivity tools, the 'Distributed' capability enhances flexibility and data portability. Users can seamlessly work with their time data across various environments, making it easier to collaborate, analyze, and integrate their time tracking information with other workflows.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "one-click-usage",
+      "title": "One-Click Usage",
+      "description": "The time tracking app is a Progressive Web App (PWA), allowing users to access and use it with a single click without the need for installation or sign-up. Users can simply open the app directly from their web browser, and it behaves like a native app, providing a seamless and responsive user experience. This eliminates the barrier of traditional installations and sign-ups, making it convenient for users to quickly start tracking their time without any additional overhead.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "mobile-optimized",
+      "title": "Mobile Optimized",
+      "description": "The time tracking app is fully optimized for mobile devices and can be accessed from any PWA (Progressive Web App) capable device. Whether it's a smartphone or tablet, users can effortlessly use the app on their mobile browsers, enjoying a responsive and intuitive interface tailored for smaller screens. The mobile-optimized design ensures that users can easily track their time, manage tasks, and access all features with smooth navigation and touch-friendly interactions. With a seamless mobile experience, users can stay productive and keep track of their time on the go.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "free-and-opensource",
+      "title": "Free and Open Source",
+      "description": "The time tracking app is distributed under an open-source license, allowing users to access, use, and modify the source code freely. Being open-source means that the app's codebase is transparent and open to the community, fostering collaboration and improvement. Users can download the app without any cost and have the freedom to customize and extend it according to their specific needs. Moreover, the open-source nature ensures greater security and trust, as the community can review and contribute to the code, providing a reliable solution for time tracking needs.",
+      "promoted": true,
+      "kind": "boolean"
+    }
+  ]
+}

@@ -12,7 +12,8 @@
       "ESNext"
     ],
     "types": [
-      "vite/client"
+      "vite/client",
+      "mdx"
     ],
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -22,6 +23,8 @@
     "transpileOnly": true,
     "esm": true,
     "compilerOptions": {
+      "module": "ESNext",
+      "target": "ESNext",
       "moduleResolution": "Node16"
     }
   }

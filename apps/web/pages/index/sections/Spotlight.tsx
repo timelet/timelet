@@ -74,7 +74,7 @@ export function Spotlight() {
           <Button component={Link} href={CONFIGURATION.PATHS.APP}>
             <FormattedMessage id="actions.recordTime" />
           </Button>
-          <Button variant="subtle">
+          <Button variant="subtle" component={Link} href={CONFIGURATION.PATHS.DOCS}>
             Learn more <IconArrowRight />
           </Button>
         </Group>

@@ -2,18 +2,29 @@ import ReactDOMServer from "react-dom/server";
 import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr/server";
 import type { PageContextServer } from "./types";
+import createCache from "@emotion/cache";
+import createEmotionCache from "@emotion/server/create-instance";
+import { CacheProvider } from "@emotion/react";
 
-export { render };
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = ["pageProps", "locale"];
 
-async function render(pageContext: PageContextServer) {
+export async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext;
+  const key = "timelet";
+  const cache = createCache({ key });
+  const { extractCriticalToChunks, constructStyleTagsFromChunks } = createEmotionCache(cache);
+
   const pageHtml = ReactDOMServer.renderToString(
-    <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
-    </PageShell>
+    <CacheProvider value={cache}>
+      <PageShell pageContext={pageContext}>
+        <Page {...pageProps} />
+      </PageShell>
+    </CacheProvider>
   );
+
+  const chunks = extractCriticalToChunks(pageHtml);
+  const styles = constructStyleTagsFromChunks(chunks);
 
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext.exports;
@@ -33,6 +44,7 @@ async function render(pageContext: PageContextServer) {
         <meta name="theme-color" content="#e6e6e6" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
+        ${dangerouslySkipEscape(styles)}
       </head>
       <body${documentProps?.slug ? ` class=${documentProps.slug}` : ""}>
         <div id="page-view">${dangerouslySkipEscape(pageHtml)}</div>

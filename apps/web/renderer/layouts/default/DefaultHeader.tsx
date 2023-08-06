@@ -8,21 +8,29 @@ const DefaultHeaderStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffffdd;
-  backdrop-filter: blur(2px);
 
   nav {
     display: flex;
     gap: 1rem;
+  }
+
+  & > a {
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
   }
 `;
 
 export function DefaultHeader() {
   return (
     <Header css={DefaultHeaderStyles} py={6} height={64}>
-      <Brand />
+      <Link href="/">
+        <Brand />
+      </Link>
       <nav>
-        <Button variant="subtle">Docs</Button>
+        <Button variant="subtle" component={Link} href={CONFIGURATION.PATHS.DOCS}>
+          <FormattedMessage id="pages.docs" />
+        </Button>
         <Button variant="light" component={Link} href={CONFIGURATION.PATHS.APP}>
           <FormattedMessage id="actions.recordTime" />
         </Button>

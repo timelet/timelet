@@ -1,4 +1,4 @@
-import { PageContextProvider } from "./usePageContext";
+import { PageContextProvider } from "./contexts/usePageContext";
 import type { PageContext } from "./types";
 import { ReactNode, StrictMode } from "react";
 import { DefaultLayout } from "./layouts/DefaultLayout";
