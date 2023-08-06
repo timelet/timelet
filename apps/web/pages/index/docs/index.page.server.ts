@@ -24,7 +24,8 @@ export async function prerender() {
 }
 
 export async function onBeforeRender(pageContext: PageContext) {
-  const path = pageContext.urlPathname === "/guides/" ? "/guides/index" : pageContext.urlPathname;
+  console.log(pageContext);
+  const path = pageContext.urlPathname.match(/^\/docs\/?$/) ? "/docs/index" : pageContext.urlPathname;
   const match = pages[`../../../../../assets/content/de-CH${path}.mdx`];
   const page = await match();
   return {
