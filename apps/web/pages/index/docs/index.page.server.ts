@@ -22,7 +22,7 @@ export async function prerender() {
     const url = p.replace("../../../../../assets/content/de-CH", "").replace(".mdx", "").replace("index", "");
     return {
       url,
-      pageContext: createPageContext(page),
+      ...createPageContext(page),
     };
   });
 
@@ -30,11 +30,8 @@ export async function prerender() {
 }
 
 export async function onBeforeRender(pageContext: PageContext) {
-  console.log(pageContext);
   const path = pageContext.urlPathname.match(/^\/docs\/?$/) ? "/docs/index" : pageContext.urlPathname;
   const match = pages[`../../../../../assets/content/de-CH${path}.mdx`];
   const page = await match();
-  return {
-    pageContext: createPageContext(page),
-  };
+  return createPageContext(page);
 }
