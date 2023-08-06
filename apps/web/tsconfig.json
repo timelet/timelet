@@ -12,7 +12,8 @@
       "ESNext"
     ],
     "types": [
-      "vite/client"
+      "vite/client",
+      "mdx"
     ],
     "jsx": "react-jsx",
     "esModuleInterop": true,
