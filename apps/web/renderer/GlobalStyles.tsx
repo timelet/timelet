@@ -21,6 +21,12 @@ const globalStyles = (theme: Theme) => css`
     padding-right: var(--horizontal-padding);
     padding-left: var(--horizontal-padding);
   }
+
+  #page-view > div > header,
+  #page-view > div > footer {
+    background-color: #ffffffdd;
+    backdrop-filter: blur(2px) grayscale(1);
+  }
 `;
 
 export function GlobalStyles() {
