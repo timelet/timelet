@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.0.6
+
+### Patch Changes
+
+- bfe9d47: Fix docs pages generation
+
 ## 0.0.5
 
 ### Patch Changes
