@@ -1,5 +1,11 @@
 # @timelet/ui
 
+## 0.0.5
+
+### Patch Changes
+
+- e327477: Add first documentation page
+
 ## 0.0.4
 
 ### Patch Changes
