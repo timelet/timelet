@@ -1,5 +1,13 @@
 # @timelet/web
 
+## 0.0.5
+
+### Patch Changes
+
+- e327477: Add first documentation page
+- Updated dependencies [e327477]
+  - @timelet/ui@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
