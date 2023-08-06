@@ -17,7 +17,7 @@ export async function render(pageContext: PageContextServer) {
 
   const pageHtml = ReactDOMServer.renderToString(
     <CacheProvider value={cache}>
-      <PageShell pageContext={pageContext}>
+      <PageShell pageContext={pageContext} emotionCache={cache}>
         <Page {...pageProps} />
       </PageShell>
     </CacheProvider>

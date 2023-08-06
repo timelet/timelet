@@ -16,7 +16,7 @@ async function render(pageContext: PageContextClient) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById("page-view")!,
     <CacheProvider value={cache}>
-      <PageShell pageContext={pageContext}>
+      <PageShell pageContext={pageContext} emotionCache={cache}>
         <Page {...pageProps} />
       </PageShell>
     </CacheProvider>
