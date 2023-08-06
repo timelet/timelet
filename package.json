@@ -11,6 +11,7 @@
     "clean": "git clean -fdx",
     "dev": "turbo run dev --no-daemon",
     "lint": "turbo run lint --no-daemon",
+    "lint:fix": "turbo run lint -- --fix",
     "prepare:web": "turbo run prepare:web --no-daemon",
     "version": "changeset version",
     "release": "changeset publish"
