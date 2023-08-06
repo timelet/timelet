@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.0.7
+
+### Patch Changes
+
+- 3e2280c: Fix style flicker on render
+
 ## 0.0.6
 
 ### Patch Changes
