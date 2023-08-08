@@ -23,6 +23,7 @@ export default defineConfig({
           "@mantine/react": "mantineReact",
           "@mantine/core": "mantineCore",
           "@emotion/react": "emotionReact",
+          "@tabler/icons-react": "tablerIconsReact",
         },
       },
     },
