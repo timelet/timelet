@@ -68,6 +68,7 @@ export function Spotlight() {
       <div>
         <Title>
           <TypeAnimation
+            role="marquee"
             aria-label="Offline first, privacy respecting, distributed, free and open-source "
             sequence={["Offline first", 2500, "Privacy respecting", 2500, "Distributed and serverless", 2500, "Free and open-source", 2500]}
             wrapper="span"
