@@ -24,7 +24,7 @@ const spotlightStyles = (theme: Theme) => css`
   gap: 4rem;
   text-shadow: 0 2px 5px #0003;
 
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${theme.breakpoints.xl}) {
     grid-template-columns: minmax(0, 1fr);
 
     min-height: 35rem;
@@ -32,6 +32,10 @@ const spotlightStyles = (theme: Theme) => css`
     #spotlight-show {
       display: none;
     }
+  }
+
+  @media (max-width: ${theme.breakpoints.md}) {
+    min-height: 27.5rem;
   }
 
   & > div {
@@ -51,6 +55,10 @@ const spotlightStyles = (theme: Theme) => css`
 
   h1 + p {
     font-size: 1.4rem;
+  }
+
+  a[type="button"] svg {
+    margin-inline-start: 0.4rem;
   }
 `;
 
@@ -75,7 +83,7 @@ export function Spotlight() {
             <FormattedMessage id="actions.recordTime" />
           </Button>
           <Button variant="subtle" component={Link} href={CONFIGURATION.PATHS.DOCS}>
-            Learn more <IconArrowRight />
+            Getting started guide <IconArrowRight />
           </Button>
         </Group>
       </div>
