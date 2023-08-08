@@ -32,8 +32,10 @@ export function Logo({ className, displayTime }: LogoProps) {
   useEffect(() => {
     if (logoRef.current && !handsOrigin) {
       const originalHoursHand = logoRef.current.getElementById("hours-hand") as SVGPathElement;
-      const handsOrigin = originalHoursHand.getPointAtLength(0);
-      setHandsOrigin(handsOrigin);
+      if (originalHoursHand) {
+        const handsOrigin = originalHoursHand.getPointAtLength(0);
+        setHandsOrigin(handsOrigin);
+      }
     }
   }, [logoRef]);
 
