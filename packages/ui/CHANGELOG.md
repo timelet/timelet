@@ -1,5 +1,11 @@
 # @timelet/ui
 
+## 0.0.6
+
+### Patch Changes
+
+- ddd97be: Fix client side hydration
+
 ## 0.0.5
 
 ### Patch Changes
