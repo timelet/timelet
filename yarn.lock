@@ -11534,9 +11534,9 @@ vite-plugin-pwa@^0.16.4:
     workbox-window "^7.0.0"
 
 vite-plugin-ssr@^0.4.133:
-  version "0.4.139"
-  resolved "https://registry.yarnpkg.com/vite-plugin-ssr/-/vite-plugin-ssr-0.4.139.tgz#9c5f96760ebf3ac694fe5b50a2cf6f0a134035b6"
-  integrity sha512-qlPqtIY1mc6j4t44A5bwIGBimzxXBjszzTK8InVnaiIPFQ2WVO4DE5Rved+piL/ZLcgJkeu4kBSAoVrnOLoPkA==
+  version "0.4.140"
+  resolved "https://registry.yarnpkg.com/vite-plugin-ssr/-/vite-plugin-ssr-0.4.140.tgz#f664333e1327a88fe9fee902b2834d293dfcf67e"
+  integrity sha512-UcUOszxAdf2Kau4VbVeNRZwVvINtrQIuI8NzuwXXW41nq2f2ej9T/+8uRF6ICUi99Y0HwiK1kZX0+Ox7oY17gg==
   dependencies:
     "@brillout/import" "0.2.3"
     "@brillout/json-serializer" "^0.5.4"
