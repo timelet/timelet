@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.0.9
+
+### Patch Changes
+
+- c098215: Fix app linking on website
+
 ## 0.0.8
 
 ### Patch Changes
