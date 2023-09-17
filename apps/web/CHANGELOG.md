@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.0.10
+
+### Patch Changes
+
+- 08611c8: Fix deployment
+
 ## 0.0.9
 
 ### Patch Changes
