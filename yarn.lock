@@ -3034,9 +3034,9 @@
   integrity sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==
 
 "@sinclair/typebox@^0.31.0":
-  version "0.31.16"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.31.16.tgz#29e9b9644111d86bf4093c55c2337810a6ae7e21"
-  integrity sha512-US3ytBkDVP1JqooE1pBXgh97c8ljW05RkZj0MM6eVAsnZOtjalurleXy6LwssfazPDqQk/Vy64Ood77L4jG7Dw==
+  version "0.31.17"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.31.17.tgz#f9ceed480957b919b203bb0b3e27bc559d1e8e19"
+  integrity sha512-GVYVHHOGINx+DT2DwjXoCQO0mRpztYKyb3d48tucuqhjhHpQYGp7Xx7dhhQGzILx/beuBrzfITMC7/5X7fw+UA==
 
 "@socket.io/component-emitter@~3.1.0":
   version "3.1.0"
