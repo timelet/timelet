@@ -2108,9 +2108,9 @@
   integrity sha512-uvnFKtPgzLnpzzTRfhDlvXX0kLYi9lDRQbcDmT8iXl71Rx+uwSuaUIQl3DNC7w5OweAQ7XQMDObML+KaYDQfng==
 
 "@fontsource-variable/eczar@^5.0.5":
-  version "5.0.12"
-  resolved "https://registry.yarnpkg.com/@fontsource-variable/eczar/-/eczar-5.0.12.tgz#ebd2bdff88f878ab1b8d9fec9f7b8904035310d4"
-  integrity sha512-nhUsAczzOhHF6GMuZpgF5hjsB9vJgxjjoNE97Te239oiKk8Yv5uLg43IoB5FfXIX4MTDXkgXysIkh7WwFmTwGg==
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/eczar/-/eczar-5.0.13.tgz#01079afc9a82b89802a0efbd5b0e87af1ebcd2cd"
+  integrity sha512-foIN5aHgyMMuZcaHCYj89ysnknsZljd9QqWHGc+I1P5TxSoVLXX1TA5oS/0ennVjpk+SY79Yby7cNPBJxoivCA==
 
 "@fontsource-variable/raleway@^5.0.6":
   version "5.0.9"
