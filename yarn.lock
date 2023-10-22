@@ -2187,14 +2187,14 @@
   integrity sha512-uvnFKtPgzLnpzzTRfhDlvXX0kLYi9lDRQbcDmT8iXl71Rx+uwSuaUIQl3DNC7w5OweAQ7XQMDObML+KaYDQfng==
 
 "@fontsource-variable/eczar@^5.0.5":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@fontsource-variable/eczar/-/eczar-5.0.16.tgz#61b1f81c1127107ff4113f00ada851625e8dd519"
-  integrity sha512-yVBXLY15vLvGEWmvnovwV4fvqrGwEoLqdkr8Psjzb2JKMvUuYAjtR4cuIFixiW8SyepaYHejZKIDYagxUC1D3g==
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/eczar/-/eczar-5.0.17.tgz#dcfc396580a9742c68d3e73e01809c1a8504845e"
+  integrity sha512-YocnnP0hCHfkF3rJe1L/5tFFbrhKWfytCHTT1OQxYUf8gv2b/AyMZZDQ6J8jM8k4IYiG18YpnnD02aQyL4Iyug==
 
 "@fontsource-variable/raleway@^5.0.6":
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/@fontsource-variable/raleway/-/raleway-5.0.15.tgz#a552320edc968c57b5eec8c2a1e324f2e6f8d99e"
-  integrity sha512-9sv/yJ8irSxf935CgOSuOy3nu5HA07/50DdhOOo37xKFsKsMiJiYIE/JGVudD+AQqwk7NUfeC4hS5C1UULQiZg==
+  version "5.0.16"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/raleway/-/raleway-5.0.16.tgz#2d26abbb45f8acababf9d5070773879e0f31d366"
+  integrity sha512-so9XnyYFX22qNFn6f70ZherFZwhkJYp58R7bS7ZLuXUefWLyhualoowvujDANoMtMPqT85nMrzOwoK4yPG0Crw==
 
 "@formatjs/ecma402-abstract@1.17.2":
   version "1.17.2"
