@@ -32,5 +32,5 @@
     "node": ">=16.0.0"
   },
   "dependencies": {},
-  "packageManager": "yarn@1.22.20"
+  "packageManager": "yarn@1.22.21"
 }
