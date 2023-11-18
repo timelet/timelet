@@ -2542,12 +2542,10 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kitql/helpers@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@kitql/helpers/-/helpers-0.8.2.tgz#03c86809dee25a63f58392e1e560c86d641eed54"
-  integrity sha512-+fny1XOuOWOEp8K3GqQqCSOCki+Kr5gMnl7Majzjs1iFlyvIvwYRv8x3sqNyP77yrUTQbiY5q/BTNav1Yl4LKg==
-  dependencies:
-    esm-env "^1.0.0"
+"@kitql/helpers@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@kitql/helpers/-/helpers-0.8.3.tgz#463d44fcbb41e4a50eb37a0526925f339a126be9"
+  integrity sha512-oozUXcSEo7sTAyUF6HOkO1M4D8g9z0w//7MHI1fyXZ1QhA5SQEjq0Q5Js7VQPhVE5tPg0RuDlnqV5GHCOcdwsQ==
 
 "@mantine/core@^6.0.17":
   version "6.0.21"
@@ -4072,17 +4070,17 @@
   integrity sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==
 
 "@tabler/icons-react@^2.27.0":
-  version "2.40.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-2.40.0.tgz#14efb60f0d841689c1ddf5691646dbfc3fa01901"
-  integrity sha512-C+dDOZowFbwI3LGQP0fdua+hOPkGkW7XeMcRXTSdEKc5fD75W6zRO5nXnWivIMRKsi/Y26EDmnQo15N8JX378w==
+  version "2.41.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-2.41.0.tgz#07bb4a4d86eabd2e33b5736f3386a979d2bcc3ee"
+  integrity sha512-y99lqtgxsJs7VQubVtd9XN3h8sVSuAzWI8J1CJxBOAQeLHU6Ybyfbg8O0G+w0Ub8ZKS27mfn5yHli+YPfmXhiQ==
   dependencies:
-    "@tabler/icons" "2.40.0"
+    "@tabler/icons" "2.41.0"
     prop-types "^15.7.2"
 
-"@tabler/icons@2.40.0":
-  version "2.40.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.40.0.tgz#96cecc990a03412b88194ce3765280d2e63c1be6"
-  integrity sha512-VqKsBSX159cLFTnCzkCmGhZtSPJHNN0lM2sC4xe0HPOfPUnjiex7rDHDdut4oe4iKRecDDpwXwM9BcU6xCPlCg==
+"@tabler/icons@2.41.0":
+  version "2.41.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.41.0.tgz#cbd878dadfa3e6ceb188b4a10346e6b2ba7f0fd0"
+  integrity sha512-n7a4Qx/Narn4thV/FxnWb0GoOSGdFTA5ZRLuvgshXn3YxwP0Z7KLzgQ5tQs1gpwdNF5f+HI3dhVTfv/ZG6Zahw==
 
 "@testing-library/dom@^9.0.0":
   version "9.3.1"
@@ -4446,9 +4444,9 @@
     form-data "^4.0.0"
 
 "@types/node@*", "@types/node@>=12.12.47", "@types/node@>=13.7.0", "@types/node@^20.4.2":
-  version "20.9.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.9.1.tgz#9d578c610ce1e984adda087f685ace940954fe19"
-  integrity sha512-HhmzZh5LSJNS5O8jQKpJ/3ZcrrlG6L70hpGqMIAoM9YVD0YBRNWYsfwcXq8VnSjlNpCpgLzMXdiPo+dxcvSmiA==
+  version "20.9.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.9.2.tgz#002815c8e87fe0c9369121c78b52e800fadc0ac6"
+  integrity sha512-WHZXKFCEyIUJzAwh3NyyTHYSR35SevJ6mZ1nWwJafKtiQbqRTIKSRcw3Ma3acqgsent3RRDqeVwpHntMk+9irg==
   dependencies:
     undici-types "~5.26.4"
 
@@ -6464,11 +6462,6 @@ eslint@^8.45.0:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-esm-env@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/esm-env/-/esm-env-1.0.0.tgz#b124b40b180711690a4cb9b00d16573391950413"
-  integrity sha512-Cf6VksWPsTuW01vU9Mk/3vRue91Zevka5SjyNf3nEpokFRuqt/KjUQoGAwq9qMmhpLTHmXzSIrFRw8zxWzmFBA==
-
 espree@^9.6.0, espree@^9.6.1:
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/espree/-/espree-9.6.1.tgz#a2a17b8e434690a5432f2f8018ce71d331a48c6f"
@@ -6686,7 +6679,7 @@ fast-diff@^1.1.2:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.3.0.tgz#ece407fa550a64d638536cd727e129c61616e0f0"
   integrity sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==
 
-fast-glob@^3.2.12, fast-glob@^3.3.0, fast-glob@^3.3.1:
+fast-glob@^3.2.12, fast-glob@^3.3.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.3.1.tgz#784b4e897340f3dbbef17413b3f11acf03c874c4"
   integrity sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==
@@ -6697,7 +6690,7 @@ fast-glob@^3.2.12, fast-glob@^3.3.0, fast-glob@^3.3.1:
     merge2 "^1.3.0"
     micromatch "^4.0.4"
 
-fast-glob@^3.2.9:
+fast-glob@^3.2.9, fast-glob@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.3.2.tgz#a904501e57cfdd2ffcded45e99a54fef55e46129"
   integrity sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==
@@ -11768,13 +11761,13 @@ vfile@^5.0.0:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite-plugin-pwa@^0.16.4:
-  version "0.16.7"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.16.7.tgz#3dcacc342766ff3598472ac7d5e0782d14e2853e"
-  integrity sha512-4WMA5unuKlHs+koNoykeuCfTcqEGbiTRr8sVYUQMhc6tWxZpSRnv9Ojk4LKmqVhoPGHfBVCdGaMo8t9Qidkc1Q==
+vite-plugin-pwa@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.17.0.tgz#315648e0589e892b0e0e30e13175aa3c76990ee5"
+  integrity sha512-cOyEG8EEc7JHmyMapTnjK2j0g2BIC3ErlmOHyGzVu8hqjyF9Jt6yWMmVNFtpA6v/NNyzP28ARf3vwzIAzR1kaw==
   dependencies:
     debug "^4.3.4"
-    fast-glob "^3.3.1"
+    fast-glob "^3.3.2"
     pretty-bytes "^6.1.1"
     workbox-build "^7.0.0"
     workbox-window "^7.0.0"
@@ -11807,11 +11800,11 @@ vite-plugin-svgr@^3.2.0:
     "@svgr/plugin-jsx" "^8.1.0"
 
 vite-plugin-watch-and-run@^1.1.3:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-watch-and-run/-/vite-plugin-watch-and-run-1.4.1.tgz#7500c12531aaba3e4f98efad65e39f4b7883b91c"
-  integrity sha512-+BcETwjZdPFYx64+mmzHkedw/52+9h06nr0Wfo8BCNmbj+fnUnZr2HE7y7VrUDRhF4LcBS0tM0zZ5kOqIWE0cg==
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-watch-and-run/-/vite-plugin-watch-and-run-1.4.2.tgz#816cfacc27f64d6c7f6c7eeee7c6964525a5e066"
+  integrity sha512-MvdFhh++FuE5bUg40n05SLnlT8gwCbcIJx1v0ZRiJRH0qNmLkiOSO8j61mxRZ2dpxCNwWVpal27OHsHgIGJ7jQ==
   dependencies:
-    "@kitql/helpers" "0.8.2"
+    "@kitql/helpers" "0.8.3"
     micromatch "4.0.5"
 
 vite@^4.4.6:
