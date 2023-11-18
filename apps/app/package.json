@@ -30,6 +30,6 @@
     "@types/uuid": "^9.0.2",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "vite": "^4.4.6",
-    "vite-plugin-pwa": "^0.16.4"
+    "vite-plugin-pwa": "^0.17.0"
   }
 }
