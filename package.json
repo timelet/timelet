@@ -2,10 +2,6 @@
   "name": "timelet",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo --no-daemon",
     "clean": "git clean -fdx",
@@ -29,8 +25,8 @@
     "typescript": "^5.1.6"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {},
-  "packageManager": "yarn@1.22.21"
+  "packageManager": "pnpm@8.10.5"
 }
