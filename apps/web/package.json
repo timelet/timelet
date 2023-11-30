@@ -42,6 +42,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
     "@sinclair/typebox": "^0.31.0",
-    "tsx": "^3.12.7"
+    "tsx": "^4.0.0"
   }
 }
