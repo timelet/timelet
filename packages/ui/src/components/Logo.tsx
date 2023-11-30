@@ -1,6 +1,8 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import { useInterval } from "@mantine/hooks";
 import { useEffect, useRef, useState } from "react";
-import { ReactComponent as LogoSVG } from "../assets/logo.svg";
+import LogoSVG from "../assets/logo.svg?react";
 
 export type LogoProps = {
   className?: string;
