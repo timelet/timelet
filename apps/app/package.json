@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@mantine/form": "^6.0.17",
-    "@timelet/ui": "*",
+    "@timelet/ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",

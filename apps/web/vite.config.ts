@@ -1,5 +1,5 @@
 import react from "@vitejs/plugin-react";
-import ssr from "vite-plugin-ssr/plugin";
+import ssr from "vike/plugin";
 import mdx from "@mdx-js/rollup";
 import { UserConfig } from "vite";
 import watchAndRun from "vite-plugin-watch-and-run";

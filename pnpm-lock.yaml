@@ -42,7 +42,7 @@ importers:
         specifier: ^6.0.17
         version: 6.0.17(react@18.2.0)
       '@timelet/ui':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/ui
       react:
         specifier: ^18.2.0
@@ -106,7 +106,7 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(rollup@4.6.1)
       '@timelet/ui':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/ui
       '@types/compression':
         specifier: ^1.7.5
@@ -156,12 +156,12 @@ importers:
       ts-node:
         specifier: ^10.9.1
         version: 10.9.1(@types/node@20.10.1)(typescript@5.3.2)
+      vike:
+        specifier: ^0.4.147
+        version: 0.4.147(vite@5.0.4)
       vite:
         specifier: ^5.0.4
         version: 5.0.4(@types/node@20.10.1)
-      vite-plugin-ssr:
-        specifier: ^0.4.142
-        version: 0.4.142(vite@5.0.4)
       vite-plugin-watch-and-run:
         specifier: ^1.4.4
         version: 1.4.4
@@ -12329,26 +12329,8 @@ packages:
       vfile-message: 3.1.4
     dev: false
 
-  /vite-plugin-pwa@0.17.2(vite@5.0.4)(workbox-build@7.0.0)(workbox-window@7.0.0):
-    resolution: {integrity: sha512-aVH9sxcTDumiWYiNcLrFqu+FdL79I2cT5EhlVe5V6nGcC64yQNGT1jamMytwi+OdfXl4VYic0LtoJ6JHMkM3ZQ==}
-    engines: {node: '>=16.0.0'}
-    peerDependencies:
-      vite: ^3.1.0 || ^4.0.0 || ^5.0.0
-      workbox-build: ^7.0.0
-      workbox-window: ^7.0.0
-    dependencies:
-      debug: 4.3.4
-      fast-glob: 3.3.2
-      pretty-bytes: 6.1.1
-      vite: 5.0.4(@types/node@20.10.1)
-      workbox-build: 7.0.0
-      workbox-window: 7.0.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /vite-plugin-ssr@0.4.142(vite@5.0.4):
-    resolution: {integrity: sha512-ZDgpocnTEUmhYxGgMah8ZNK1Sfy5CFVcdXu+Ll3zRtGIPyWT5vYvASs2BLYEneqantHpde2b31Khzb0hxmP62w==}
+  /vike@0.4.147(vite@5.0.4):
+    resolution: {integrity: sha512-TNkIJY+jydz3cL4UGT58annjIAH7a5Rv0hu5clMMuBnC39S5ArsCF0mAZrHKsMa5mV6HwlW6j3mmVWw2kKVcBw==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
@@ -12372,6 +12354,24 @@ packages:
       source-map-support: 0.5.21
       vite: 5.0.4(@types/node@20.10.1)
     dev: false
+
+  /vite-plugin-pwa@0.17.2(vite@5.0.4)(workbox-build@7.0.0)(workbox-window@7.0.0):
+    resolution: {integrity: sha512-aVH9sxcTDumiWYiNcLrFqu+FdL79I2cT5EhlVe5V6nGcC64yQNGT1jamMytwi+OdfXl4VYic0LtoJ6JHMkM3ZQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      vite: ^3.1.0 || ^4.0.0 || ^5.0.0
+      workbox-build: ^7.0.0
+      workbox-window: ^7.0.0
+    dependencies:
+      debug: 4.3.4
+      fast-glob: 3.3.2
+      pretty-bytes: 6.1.1
+      vite: 5.0.4(@types/node@20.10.1)
+      workbox-build: 7.0.0
+      workbox-window: 7.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /vite-plugin-svgr@4.2.0(typescript@5.3.2)(vite@5.0.4):
     resolution: {integrity: sha512-SC7+FfVtNQk7So0XMjrrtLAbEC8qjFPifyD7+fs/E6aaNdVde6umlVVh0QuwDLdOMu7vp5RiGFsB70nj5yo0XA==}
