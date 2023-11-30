@@ -1,12 +1,12 @@
 import ReactDOMServer from "react-dom/server";
 import { PageShell } from "./PageShell";
-import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr/server";
+import { escapeInject, dangerouslySkipEscape } from "vike/server";
 import type { PageContextServer } from "./types";
 import createCache from "@emotion/cache";
 import createEmotionCache from "@emotion/server/create-instance";
 import { CacheProvider } from "@emotion/react";
 
-// See https://vite-plugin-ssr.com/data-fetching
+// See https://vike.com/data-fetching
 export const passToClient = ["pageProps", "locale"];
 
 export async function render(pageContext: PageContextServer) {
@@ -26,7 +26,7 @@ export async function render(pageContext: PageContextServer) {
   const chunks = extractCriticalToChunks(pageHtml);
   const styles = constructStyleTagsFromChunks(chunks);
 
-  // See https://vite-plugin-ssr.com/head
+  // See https://vike.com/head
   const { documentProps } = pageContext.exports;
   const title = (documentProps && documentProps.title) || "Timelet";
   const desc = (documentProps && documentProps.description) || "Distributed collaborative offline-first time tracking app.";
@@ -54,7 +54,7 @@ export async function render(pageContext: PageContextServer) {
   return {
     documentHtml,
     pageContext: {
-      // We can add some `pageContext` here, which is useful if we want to do page redirection https://vite-plugin-ssr.com/page-redirection
+      // We can add some `pageContext` here, which is useful if we want to do page redirection https://vike.com/page-redirection
     },
   };
 }

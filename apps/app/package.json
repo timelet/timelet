@@ -12,24 +12,24 @@
   },
   "dependencies": {
     "@mantine/form": "^6.0.17",
-    "@timelet/ui": "*",
+    "@timelet/ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",
     "react-router-dom": "^6.14.2",
     "rxdb": "^14.15.0",
     "rxjs": "^7.8.1",
-    "uuid": "^9.0.0",
+    "uuid": "^9.0.1",
     "workbox-build": "^7.0.0",
     "workbox-window": "^7.0.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.11.1",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@types/uuid": "^9.0.2",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "vite": "^4.4.6",
-    "vite-plugin-pwa": "^0.17.0"
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "@types/uuid": "^9.0.7",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "vite": "^5.0.4",
+    "vite-plugin-pwa": "^0.17.2"
   }
 }

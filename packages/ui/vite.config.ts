@@ -28,5 +28,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react({ jsxImportSource: "@emotion/react" }), svgr({ svgrOptions: { ref: true } })],
+  plugins: [react({ jsxImportSource: "@emotion/react" }), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
 });

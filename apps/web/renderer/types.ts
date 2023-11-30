@@ -3,8 +3,8 @@ export type { PageContextClient };
 export type { PageContext };
 export type { PageProps };
 
-import type { PageContextBuiltIn, PageContextBuiltInClientWithClientRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
-//import type { PageContextBuiltInClient } from "vite-plugin-ssr/client"; // When using Server Routing
+import type { PageContextBuiltIn, PageContextBuiltInClientWithClientRouting as PageContextBuiltInClient } from "vike/types";
+//import type { PageContextBuiltInClient } from "vike/client"; // When using Server Routing
 
 type Page = (pageProps: PageProps) => React.ReactElement;
 type PageProps = object;

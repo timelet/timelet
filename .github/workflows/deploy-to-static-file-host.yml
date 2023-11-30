@@ -28,31 +28,26 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
 
-      - name: Setup Cache
-        uses: actions/cache@v3
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "yarn"
+          cache: "pnpm"
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Prepare for publishing
-        run: yarn prepare:web
+        run: pnpm prepare:web
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
