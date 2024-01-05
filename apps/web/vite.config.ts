@@ -2,7 +2,7 @@ import react from "@vitejs/plugin-react";
 import ssr from "vike/plugin";
 import mdx from "@mdx-js/rollup";
 import { UserConfig } from "vite";
-import watchAndRun from "vite-plugin-watch-and-run";
+import { watchAndRun } from "vite-plugin-watch-and-run";
 import path from "path";
 import { featuresSchema } from "./data/features";
 import { writeFile } from "fs/promises";

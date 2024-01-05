@@ -10,7 +10,6 @@ export default defineConfig({
     lib: {
       entry: "src/index.ts",
       name: packageJson.name,
-      fileName: "timelet.cjs.js",
     },
     rollupOptions: {
       external: ["react", "react-dom"],
