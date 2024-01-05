@@ -30,6 +30,7 @@ jobs:
         uses: changesets/action@v1
         id: changesets
         with:
+          commit: "chore: publish new release"
           title: "chore: publish new release"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
