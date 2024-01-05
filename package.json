@@ -5,7 +5,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "clean": "git clean -fdx",
-    "dev": "pnpm -r dev",
+    "dev": "pnpm -r --stream dev",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint --fix",
     "prepare:web": "pnpm -r prepare:web",
