@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "pnpm exec nx run-many --nx-bail --target=build --parallel",
     "clean": "git clean -fdx",
-    "dev": "pnpm -r dev",
+    "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 1000 --output-style stream",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint --fix",
     "prepare:web": "pnpm -r prepare:web",
@@ -20,6 +20,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-react": "^7.33.2",
+    "nx": "17.2.8",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   },
