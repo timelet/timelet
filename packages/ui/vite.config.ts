@@ -17,15 +17,13 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          "@emotion/react/jsx-runtime": "reactJSXRuntime",
           "@mantine/hooks": "mantineHooks",
           "@mantine/react": "mantineReact",
           "@mantine/core": "mantineCore",
-          "@emotion/react": "emotionReact",
           "@tabler/icons-react": "tablerIconsReact",
         },
       },
     },
   },
-  plugins: [react({ jsxImportSource: "@emotion/react" }), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
+  plugins: [react(), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
 });

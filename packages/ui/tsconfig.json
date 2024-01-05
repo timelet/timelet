@@ -4,7 +4,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
     "lib": [
       "ES2015",
       "DOM"

@@ -43,8 +43,6 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.3",
     "@fontsource-variable/eczar": "^5.0.18",
     "@fontsource-variable/raleway": "^5.0.17",
     "@mantine/core": "^7.4.0",

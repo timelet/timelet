@@ -1,6 +1,6 @@
-import { css, Theme, useTheme } from "@emotion/react";
-import { MantineSize } from "@mantine/core";
+import { MantineSize, useMantineTheme } from "@mantine/core";
 import { ReactElement } from "react";
+import classes from "./LinkList.module.css";
 
 export type LinkListProps = {
   className?: string;
@@ -8,27 +8,20 @@ export type LinkListProps = {
     id: string;
     element: ReactElement;
   }[];
-  orientation?: "vertical" | "horizontal";
+  direction?: "row" | "column";
   gap?: MantineSize;
 };
 
-const linkListStyles = (props: LinkListProps, theme: Theme) => css`
-  ul {
-    display: flex;
-    flex-direction: ${props.orientation === "horizontal" ? "row" : "column"};
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: ${theme.spacing[props.gap ? props.gap : "xs"]};
-  }
-`;
-
-export function LinkList(props: LinkListProps) {
-  const theme = useTheme();
+export function LinkList({ className, links, ...rest }: LinkListProps) {
+  const theme = useMantineTheme();
+  const variables = {
+    "--direction": rest.direction ?? "row",
+    "--gap": rest.gap ? theme.spacing[rest.gap] : theme.spacing.xs,
+  };
   return (
-    <nav css={linkListStyles(props, theme)} className={props.className}>
+    <nav className={`${classes.linkList} ${className}`} style={variables}>
       <ul>
-        {props.links.map((link) => {
+        {links.map((link) => {
           return <li key={link.id}>{link.element}</li>;
         })}
       </ul>

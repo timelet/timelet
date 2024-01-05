@@ -1,0 +1,10 @@
+.linkList {
+  ul {
+    display: flex;
+    flex-direction: var(--direction);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--gap);
+  }
+}

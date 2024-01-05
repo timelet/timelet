@@ -1,17 +1,5 @@
-import { css } from "@emotion/react";
 import { Logo } from "./Logo";
-
-const brandStyles = css`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  font-weight: bold;
-
-  svg {
-    height: 100%;
-    width: auto;
-  }
-`;
+import classes from "./Brand.module.css";
 
 export type BrandProps = {
   className?: string;
@@ -19,7 +7,7 @@ export type BrandProps = {
 
 export function Brand({ className }: BrandProps) {
   return (
-    <div css={brandStyles} className={className}>
+    <div className={`${classes.brand} ${className}`}>
       <Logo />
       <span>Timelet</span>
     </div>

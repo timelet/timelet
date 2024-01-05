@@ -16,12 +16,8 @@ export {
   Container,
   Dialog,
   Divider,
-  Footer,
-  Global,
   Group,
-  Header,
   NavLink,
-  Navbar,
   Spoiler,
   Text,
   Title,
@@ -29,5 +25,3 @@ export {
 } from "@mantine/core";
 export { useDisclosure } from "@mantine/hooks";
 export * from "@tabler/icons-react";
-
-export type { TimeletTheme } from "./emotion";
