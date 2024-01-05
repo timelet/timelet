@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/form": "^6.0.17",
+    "@mantine/form": "^7.0.0",
     "@timelet/ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
