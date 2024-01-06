@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import dts from "vite-plugin-dts";
 import svgr from "vite-plugin-svgr";
 import packageJson from "./package.json";
 
@@ -26,5 +27,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
+  plugins: [dts({ rollupTypes: true }), react(), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
 });
