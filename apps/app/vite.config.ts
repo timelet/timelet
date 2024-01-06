@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3001,
   },
   plugins: [
-    react({ jsxImportSource: "@emotion/react" }),
+    react(),
     pwa({
       manifest: {
         name: "Timelet",
