@@ -16,7 +16,7 @@ const config: UserConfig = {
     port: 3002,
   },
   plugins: [
-    react({ jsxImportSource: "@emotion/react" }),
+    react(),
     ssr({ prerender: true }),
     mdx(),
     watchAndRun([{ watch: path.resolve("data/**/*.ts"), watchKind: ["add", "change"], run: generateSchemaFiles }]),

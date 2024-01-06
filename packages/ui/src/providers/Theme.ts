@@ -1,5 +1,4 @@
 import { MantineThemeOverride } from "@mantine/core";
-import "@mantine/core/styles.css";
 import "@fontsource-variable/eczar";
 import "@fontsource-variable/raleway";
 

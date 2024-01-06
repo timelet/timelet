@@ -38,9 +38,6 @@
     "vite-plugin-watch-and-run": "^1.6.0"
   },
   "devDependencies": {
-    "@emotion/cache": "^11.11.0",
-    "@emotion/react": "^11.11.3",
-    "@emotion/server": "^11.11.0",
     "@sinclair/typebox": "^0.32.5",
     "tsx": "^4.7.0"
   }

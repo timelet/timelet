@@ -6,11 +6,13 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./src/index.ts",
+  "style": "./dist/style.css",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "concurrently \"vite build --watch --sourcemap\" \"storybook dev -p 6006 --ci\"",

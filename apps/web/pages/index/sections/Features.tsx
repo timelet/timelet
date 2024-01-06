@@ -1,20 +1,6 @@
 import { Card, Group, Spoiler, Text, Title } from "@timelet/ui";
 import { FeaturesType } from "../../../data/features";
-import { Theme, css } from "@emotion/react";
-
-const featuresStyles = (theme: Theme) => css`
-  margin: 2rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-
-  @media (max-width: ${theme.breakpoints.xl}) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: ${theme.breakpoints.sm}) {
-    grid-template-columns: 1fr;
-  }
-`;
+import classes from "./Features.module.css";
 
 type FeaturesProps = {
   features: FeaturesType["features"];
@@ -22,7 +8,7 @@ type FeaturesProps = {
 
 export function Features({ features }: FeaturesProps) {
   return (
-    <section css={featuresStyles}>
+    <section className={classes.features}>
       {features.map((f) => (
         <Card component="article" key={f.id} withBorder>
           <Group py={20}>
