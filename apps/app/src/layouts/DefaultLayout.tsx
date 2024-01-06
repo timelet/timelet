@@ -7,9 +7,12 @@ import { ReloadPrompt } from "../components/ReloadPrompt";
 
 export function DefaultLayout() {
   return (
-    <AppShell header={<DefaultHeader />} footer={<DefaultFooter />} navbar={<DefaultNavigation />}>
+    <AppShell header={{ height: 64 }} footer={{ height: 48 }} navbar={{ width: 300, breakpoint: "sm" }}>
+      <DefaultHeader />
+      <DefaultNavigation />
       <Outlet />
       <ReloadPrompt />
+      <DefaultFooter />
     </AppShell>
   );
 }
