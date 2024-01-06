@@ -1,20 +1,14 @@
-import { css } from "@emotion/react";
-import { Anchor, Footer, LinkList, TimeletTheme } from "@timelet/ui";
+import { Anchor, AppShell, LinkList } from "@timelet/ui";
 import { FormattedMessage } from "react-intl";
 import { CONFIGURATION } from "../../configuration";
-
-const defaultFooterStyle = (theme: TimeletTheme) => css`
-  display: flex;
-  align-items: center;
-  gap: ${theme.spacing.xs};
-`;
+import classes from "./DefaultFooter.module.css";
 
 export function DefaultFooter() {
   return (
-    <Footer height={36} css={defaultFooterStyle}>
+    <AppShell.Footer className={classes.defaultFooter}>
       <FormattedMessage id="layout.footer.version" values={{ version: CONFIGURATION.VERSION }} />
       <LinkList
-        orientation="horizontal"
+        direction="row"
         links={[
           {
             id: "website",
@@ -34,6 +28,6 @@ export function DefaultFooter() {
           },
         ]}
       ></LinkList>
-    </Footer>
+    </AppShell.Footer>
   );
 }

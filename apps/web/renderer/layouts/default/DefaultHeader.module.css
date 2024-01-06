@@ -1,0 +1,16 @@
+.defaultHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.defaultHeader nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.defaultHeader > a {
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}

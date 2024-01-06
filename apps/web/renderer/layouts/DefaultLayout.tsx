@@ -7,8 +7,10 @@ type DefaultLayoutProps = PropsWithChildren;
 
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
-    <AppShell padding={0} header={<DefaultHeader />} footer={<DefaultFooter />}>
-      {children}
+    <AppShell padding={0} header={{ height: 64 }} footer={{ height: 36 }}>
+      <DefaultHeader />
+      <AppShell.Main>{children}</AppShell.Main>
+      <DefaultFooter />
     </AppShell>
   );
 }

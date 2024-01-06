@@ -1,29 +1,12 @@
-import { css } from "@emotion/react";
-import { Brand, Button, Header } from "@timelet/ui";
+import { AppShell, Brand, Button } from "@timelet/ui";
 import { FormattedMessage } from "react-intl";
 import { CONFIGURATION } from "../../configuration";
 import { Link } from "../../components/Link";
-
-const DefaultHeaderStyles = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  nav {
-    display: flex;
-    gap: 1rem;
-  }
-
-  & > a {
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-  }
-`;
+import classes from "./DefaultHeader.module.css";
 
 export function DefaultHeader() {
   return (
-    <Header css={DefaultHeaderStyles} py={6} height={64}>
+    <AppShell.Header className={classes.defaultHeader} py={6}>
       <Link href="/">
         <Brand />
       </Link>
@@ -35,6 +18,6 @@ export function DefaultHeader() {
           <FormattedMessage id="actions.recordTime" />
         </Button>
       </nav>
-    </Header>
+    </AppShell.Header>
   );
 }

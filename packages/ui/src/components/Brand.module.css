@@ -1,0 +1,11 @@
+.brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-weight: bold;
+}
+
+.brand svg {
+  height: 100%;
+  width: auto;
+}

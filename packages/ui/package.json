@@ -5,12 +5,14 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "concurrently \"vite build --watch --sourcemap\" \"storybook dev -p 6006 --ci\"",
@@ -40,15 +42,14 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.6.7",
     "vite": "^5.0.11",
+    "vite-plugin-dts": "^3.7.0",
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.3",
     "@fontsource-variable/eczar": "^5.0.18",
     "@fontsource-variable/raleway": "^5.0.17",
-    "@mantine/core": "^6.0.17",
-    "@mantine/hooks": "^6.0.17",
+    "@mantine/core": "^7.4.0",
+    "@mantine/hooks": "^7.4.0",
     "@storybook/react-vite": "^7.6.7",
     "@tabler/icons-react": "^2.45.0"
   }

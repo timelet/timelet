@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/form": "^6.0.17",
+    "@mantine/form": "^7.4.0",
     "@timelet/ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,7 +23,6 @@
     "workbox-window": "^7.0.0"
   },
   "devDependencies": {
-    "@emotion/react": "^11.11.3",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^9.0.7",

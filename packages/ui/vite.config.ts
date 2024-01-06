@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import dts from "vite-plugin-dts";
 import svgr from "vite-plugin-svgr";
 import packageJson from "./package.json";
 
@@ -17,15 +18,14 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          "@emotion/react/jsx-runtime": "reactJSXRuntime",
+          "react/jsx-runtime": "jsxRuntime",
           "@mantine/hooks": "mantineHooks",
           "@mantine/react": "mantineReact",
           "@mantine/core": "mantineCore",
-          "@emotion/react": "emotionReact",
           "@tabler/icons-react": "tablerIconsReact",
         },
       },
     },
   },
-  plugins: [react({ jsxImportSource: "@emotion/react" }), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
+  plugins: [dts({ rollupTypes: true }), react(), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
 });
