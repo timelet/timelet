@@ -3,10 +3,7 @@ import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
 import type { PageContextServer } from "./types";
 
-// See https://vike.com/data-fetching
-export const passToClient = ["pageProps", "locale"];
-
-export async function render(pageContext: PageContextServer) {
+export async function onRenderHtml(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext;
 
   const pageHtml = ReactDOMServer.renderToString(
