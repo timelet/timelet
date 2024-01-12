@@ -11,12 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/form": "^7.4.0",
+    "@mantine/form": "^7.4.1",
     "@timelet/ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.5.5",
-    "react-router-dom": "^6.21.1",
+    "react-router-dom": "^6.21.2",
     "rxjs": "^7.8.1",
     "uuid": "^9.0.1",
     "workbox-build": "^7.0.0",
