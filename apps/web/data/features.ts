@@ -27,7 +27,7 @@ export type FeaturesType = Static<typeof featuresSchema>;
 const featuresChecker = TypeCompiler.Compile(featuresSchema);
 
 export async function getFeatures() {
-  const features = await import("../../../assets/content/de-CH/features.json");
+  const features = await import("../../../assets/content/en-US/features.json");
 
   if (!featuresChecker.Check(features)) {
     throw new Error(`Features aren't valid.`);
