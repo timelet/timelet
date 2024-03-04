@@ -174,10 +174,10 @@ importers:
     dependencies:
       '@fontsource-variable/eczar':
         specifier: ^5.0.18
-        version: 5.0.18
+        version: 5.0.19
       '@fontsource-variable/raleway':
         specifier: ^5.0.17
-        version: 5.0.17
+        version: 5.0.18
       '@mantine/core':
         specifier: ^7.4.1
         version: 7.6.1(@mantine/hooks@7.6.1)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
@@ -3196,12 +3196,12 @@ packages:
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
 
-  /@fontsource-variable/eczar@5.0.18:
-    resolution: {integrity: sha512-4vfbz8LYZMJSsxUdOq9FtOhf1pv4t1HBsutSDD4gP1TMwpj+vO9Q2H3GT43scKk2tpu3YicXDURkUIQRZeMtiA==}
+  /@fontsource-variable/eczar@5.0.19:
+    resolution: {integrity: sha512-VSy97F/EJj0m98+3lgyQ/+V5Vvrvm3JRbq68kwE5t2jjbQZKPTfKE4byJKBc0vrm5smHZUM5sulknlNCfdtYAg==}
     dev: false
 
-  /@fontsource-variable/raleway@5.0.17:
-    resolution: {integrity: sha512-wPkYD9UACWS1fM4GUYwKhJDGE5tD1IuVIkGcbccsuip+PmbIRApqDF7tlpkD333xXlmP4tsRZsXkAj8IBTkRrg==}
+  /@fontsource-variable/raleway@5.0.18:
+    resolution: {integrity: sha512-gd1W+taHZoWe6FoqdbMogSYfp8FK4WUsFse43zvM4NC3s5IoQBdGlMB7XGTdiNux+Ult1wkrlYpiSedSWLjSMw==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.18.2:
