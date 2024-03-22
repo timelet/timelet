@@ -23,12 +23,12 @@ As a **user** you can install the app via our [website](https://timelet.org).
 
 For **developers** the easiest way to get started is:
 
-- Make sure you have [Docker](https://docs.docker.com/get-docker/) up and running
-- Get [Visual Studio Code](https://code.visualstudio.com/) with [Remote Containers](https://code.visualstudio.com/docs/remote/containers) ready
-- Open the project in the Remote Container and run `pnpm start`
-- A build can be created with `pnpm build`. For testing purposes a local server can be started in the `build` directory with `python3 -m http.server`, if Python 3 is installed.
-- Lint the code with `pnpm check:types`, `pnpm check:format` and `pnpm check:lint`.
-- Run tests with `pnpm test`
+1. Make sure you have [Docker](https://docs.docker.com/get-docker/) up and running
+1. Get [Visual Studio Code](https://code.visualstudio.com/) with [Remote Containers](https://code.visualstudio.com/docs/remote/containers) ready
+1. Open the project in the Remote Container and run `pnpm start`
+1. A build can be created with `pnpm build`. For testing purposes a local server can be started in the `build` directory with `python3 -m http.server`, if Python 3 is installed.
+1. Lint the code with `pnpm check:types`, `pnpm check:format` and `pnpm check:lint`.
+1. Run tests with `pnpm test`
 
 ## Structure
 
