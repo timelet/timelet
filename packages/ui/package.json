@@ -51,6 +51,6 @@
     "@mantine/core": "^7.4.1",
     "@mantine/hooks": "^7.4.1",
     "@storybook/react-vite": "^7.6.8",
-    "@tabler/icons-react": "^2.45.0"
+    "@tabler/icons-react": "^3.0.0"
   }
 }
