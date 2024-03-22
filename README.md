@@ -1,6 +1,6 @@
-<img src='assets/brand/timelet-128.png' align='right' alt='Timelet logo'>
-
 # timelet
+
+<img src='assets/brand/timelet-128.png' align='right' alt='Timelet logo'>
 
 Distributed collaborative offline-first time tracking tool
 
