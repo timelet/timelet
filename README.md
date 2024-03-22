@@ -4,10 +4,11 @@
 
 Distributed collaborative offline-first time tracking tool
 
-- Offline first progressive web application (PWA)
+- Offline first
+- Bring your own storage
 - Complete control of your data
-- Optional collabration with others
 - Privacy concerned
+- Plugable collaboration features
 - Open source, free and easy to use
 
 ## Contribute
