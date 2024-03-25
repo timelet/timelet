@@ -27,5 +27,11 @@ export default defineConfig({
       },
     },
   },
-  plugins: [dts({ rollupTypes: true }), react(), svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" })],
+  plugins: [
+    dts({
+      entryRoot: "src",
+    }),
+    react(),
+    svgr({ svgrOptions: { ref: true }, include: "**/*.svg?react" }),
+  ],
 });
