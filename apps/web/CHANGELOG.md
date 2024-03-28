@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.1.1
+
+### Patch Changes
+
+- 97ebb81: Fix publish workflow
+
 ## 0.1.0
 
 ### Minor Changes
