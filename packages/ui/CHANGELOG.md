@@ -1,5 +1,11 @@
 # @timelet/ui
 
+## 0.1.0
+
+### Minor Changes
+
+- 2c995a1: Upgrade dependencies
+
 ## 0.0.6
 
 ### Patch Changes
