@@ -1,5 +1,16 @@
 # @timelet/web
 
+## 0.1.0
+
+### Minor Changes
+
+- 2c995a1: Upgrade dependencies
+
+### Patch Changes
+
+- Updated dependencies [2c995a1]
+  - @timelet/ui@0.1.0
+
 ## 0.0.10
 
 ### Patch Changes
