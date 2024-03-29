@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "pnpm exec nx run-many --nx-bail --target=build --parallel",
+    "build": "pnpm exec nx run-many --nx-bail --target=build --parallel --output-style stream",
     "clean": "git clean -fdx",
     "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 1000 --output-style stream",
     "lint": "pnpm -r lint",
