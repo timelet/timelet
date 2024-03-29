@@ -22,7 +22,7 @@
     "@types/mdx": "^2.0.12",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
+    "@types/react-dom": "^18.2.23",
     "@vitejs/plugin-react": "^4.2.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
@@ -34,7 +34,7 @@
     "sirv": "^2.0.4",
     "ts-node": "^10.9.2",
     "vike": "^0.4.167",
-    "vite": "^5.2.6",
+    "vite": "^5.2.7",
     "vite-plugin-watch-and-run": "^1.7.0"
   },
   "devDependencies": {

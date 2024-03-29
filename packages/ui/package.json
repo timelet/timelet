@@ -35,21 +35,21 @@
     "@storybook/react": "^8.0.5",
     "@storybook/testing-library": "^0.2.2",
     "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
+    "@types/react-dom": "^18.2.23",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "concurrently": "^8.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^8.0.5",
-    "vite": "^5.2.6",
+    "vite": "^5.2.7",
     "vite-plugin-dts": "^3.8.1",
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
     "@fontsource-variable/eczar": "^5.0.19",
     "@fontsource-variable/raleway": "^5.0.18",
-    "@mantine/core": "^7.7.0",
-    "@mantine/hooks": "^7.7.0",
+    "@mantine/core": "^7.7.1",
+    "@mantine/hooks": "^7.7.1",
     "@storybook/react-vite": "^8.0.5",
     "@tabler/icons-react": "^3.1.0"
   }
