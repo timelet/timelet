@@ -155,7 +155,7 @@ importers:
         version: 10.9.2(@types/node@20.12.2)(typescript@5.4.3)
       vike:
         specifier: ^0.4.167
-        version: 0.4.167(vite@5.2.7)
+        version: 0.4.168(vite@5.2.7)
       vite:
         specifier: ^5.2.7
         version: 5.2.7(@types/node@20.12.2)
@@ -1467,8 +1467,8 @@ packages:
     resolution: {integrity: sha512-3I4LRHnVZXoSAsEoni5mosq9l6eiJED58d9V954W4CIZ88AUfYBanWGBGbJG3NztaRTpFHEA6wB3Hn93BmmJdg==}
     dev: false
 
-  /@brillout/vite-plugin-server-entry@0.4.4:
-    resolution: {integrity: sha512-jS2CX4qcYdim09/kR83I+6HDA2JGrhP1HtX1hqPnDXna44aqsgRIxOzjoah6widA8XAykAWBwljynwK5nwQuGA==}
+  /@brillout/vite-plugin-server-entry@0.4.5:
+    resolution: {integrity: sha512-TzGIuJI3wbKegs+LYDfeyH+7xZ/7sSJRSHXGGiCEge+0GmwKNL1aJVuFjV4M1K6PeyGvhB54mrOnGk2A2Adm7Q==}
     dependencies:
       '@brillout/import': 0.2.3
     dev: false
@@ -5834,8 +5834,8 @@ packages:
     resolution: {integrity: sha512-1HQ2M2sPtxwnvOvT1ZClHyQDiggdNjURWpY2we6aMKCQiUVxTmVs2UYPLIrD84sS+kMdUwfBSylbJPwNnBrnHQ==}
     dev: false
 
-  /es-module-lexer@1.4.2:
-    resolution: {integrity: sha512-7nOqkomXZEaxUDJw21XZNtRk739QvrPSoZoRtbsEfcii00vdzZUh6zh1CQwHhrib8MdEtJfv5rJiGeb4KuV/vw==}
+  /es-module-lexer@1.5.0:
+    resolution: {integrity: sha512-pqrTKmwEIgafsYZAGw9kszYzmagcE/n4dbgwGWLEXg7J4QFJVQRBld8j3Q3GNez79jzxZshq0bcT962QHOghjw==}
     dev: false
 
   /es-object-atoms@1.0.0:
@@ -10566,8 +10566,8 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vike@0.4.167(vite@5.2.7):
-    resolution: {integrity: sha512-YsEjcK0pa3GRAfO5LlOKeuUpvpQIXBVuGya8Mia22U529CgIPSZqMsYt85/OymHnEoOZxFEDO4PshbX7xC9K2A==}
+  /vike@0.4.168(vite@5.2.7):
+    resolution: {integrity: sha512-60MJDT/o791TXyvF3bdJJJLLqWVJpbhqhtWDoZytktF/2YhA8gtny7DRcxey6iy69jKwzg3qiAQ9TVPtZRMJow==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
@@ -10581,10 +10581,10 @@ packages:
       '@brillout/json-serializer': 0.5.8
       '@brillout/picocolors': 1.0.10
       '@brillout/require-shim': 0.1.2
-      '@brillout/vite-plugin-server-entry': 0.4.4
+      '@brillout/vite-plugin-server-entry': 0.4.5
       acorn: 8.11.3
       cac: 6.7.14
-      es-module-lexer: 1.4.2
+      es-module-lexer: 1.5.0
       esbuild: 0.19.12
       fast-glob: 3.3.2
       sirv: 2.0.4
