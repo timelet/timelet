@@ -1,16 +1,15 @@
-import { FeaturesType } from "../../data/features";
+import { usePageContext } from "../../renderer/contexts/usePageContext";
+import { Data } from "./+data";
 import { Features } from "./sections/Features";
 import { Spotlight } from "./sections/Spotlight";
 
-type PageProps = {
-  features: FeaturesType;
-};
-
-export function Page(pageProps: PageProps) {
+export function Page() {
+  const context = usePageContext();
+  const data = context.data as Data;
   return (
     <>
       <Spotlight />
-      <Features features={pageProps.features.features} />
+      <Features features={data.features.features} />
     </>
   );
 }

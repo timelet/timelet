@@ -7,7 +7,6 @@
     "dev": "vite",
     "prod": "npm run build && npm run server:prod",
     "build": "vite build",
-    "build:schemas": "tsx generateSchemaFiles.ts",
     "server": "node --loader ts-node/esm ./server/index.ts",
     "prepare:web": "mkdir -p ../../dist && cp -r ./dist/client/* ../../dist",
     "lint": "eslint . --max-warnings=0"
@@ -20,25 +19,26 @@
     "@types/compression": "^1.7.5",
     "@types/express": "^4.17.21",
     "@types/mdx": "^2.0.12",
-    "@types/node": "^20.11.30",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.23",
+    "@types/node": "^20.12.4",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.24",
     "@vitejs/plugin-react": "^4.2.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
+    "glob": "^10.3.12",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-intl": "^6.6.4",
     "react-type-animation": "^3.2.0",
+    "remark-frontmatter": "^5.0.0",
     "sirv": "^2.0.4",
     "ts-node": "^10.9.2",
-    "vike": "^0.4.167",
-    "vite": "^5.2.7",
+    "vike": "^0.4.168",
+    "vite": "^5.2.8",
     "vite-plugin-watch-and-run": "^1.7.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.32.20",
-    "tsx": "^4.7.1"
+    "@sinclair/typebox": "^0.32.20"
   }
 }
