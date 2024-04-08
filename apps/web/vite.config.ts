@@ -6,7 +6,7 @@ import { watchAndRun } from "vite-plugin-watch-and-run";
 import path from "path";
 import { featuresSchema } from "./data/features";
 import { writeFile } from "fs/promises";
-import remarkFrontmatter from "remark-frontmatter";
+import { mdxOptions } from "./mdx.config";
 
 function generateSchemaFiles() {
   writeFile("../../assets/schema/web/features.schema.json", JSON.stringify(featuresSchema));
@@ -19,7 +19,7 @@ const config: UserConfig = {
   plugins: [
     react(),
     ssr({ prerender: true }),
-    mdx({ remarkPlugins: [remarkFrontmatter] }),
+    mdx(mdxOptions),
     watchAndRun([{ watch: path.resolve("data/**/*.ts"), watchKind: ["add", "change"], run: generateSchemaFiles }]),
   ],
 };

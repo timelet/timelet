@@ -6,8 +6,10 @@ import { TimeletUIProvider } from "@timelet/ui";
 import { IntlProvider } from "react-intl";
 import deCHMessages from "../../../assets/localization/de-CH.json";
 import enUSMessages from "../../../assets/localization/en-US.json";
+import { MDXProvider } from "@mdx-js/react";
 import "./global.css";
 import "@timelet/ui/style.css";
+import { mdxComponents } from "../mdx.config";
 
 export function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
   const messages = pageContext.locale === "de-CH" ? deCHMessages : enUSMessages;
@@ -16,7 +18,9 @@ export function PageShell({ children, pageContext }: { children: ReactNode; page
       <PageContextProvider pageContext={pageContext}>
         <IntlProvider messages={messages} locale="en-US" defaultLocale="en-US">
           <TimeletUIProvider>
-            <DefaultLayout>{children}</DefaultLayout>
+            <MDXProvider components={mdxComponents}>
+              <DefaultLayout>{children}</DefaultLayout>
+            </MDXProvider>
           </TimeletUIProvider>
         </IntlProvider>
       </PageContextProvider>
