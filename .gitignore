@@ -240,3 +240,4 @@ $RECYCLE.BIN/
 
 .pnpm-store
 .nx/cache
+**/*ts.timestamp*
