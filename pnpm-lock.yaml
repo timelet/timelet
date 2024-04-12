@@ -247,7 +247,7 @@ importers:
         version: 5.2.8(@types/node@20.12.7)
       vite-plugin-dts:
         specifier: ^3.8.1
-        version: 3.8.1(typescript@5.4.5)(vite@5.2.8)
+        version: 3.8.2(typescript@5.4.5)(vite@5.2.8)
       vite-plugin-svgr:
         specifier: ^4.2.0
         version: 4.2.0(typescript@5.4.5)(vite@5.2.8)
@@ -8789,19 +8789,11 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: false
 
-  /magic-string@0.30.8:
-    resolution: {integrity: sha512-ISQTe55T2ao7XtlAStud6qwYPZjE4GK1S/BeVPus4jrq6JuOnQ00YKQC581RWhR122W7msZV263KzVeLoqidyQ==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
-
   /magic-string@0.30.9:
     resolution: {integrity: sha512-S1+hd+dIrC8EZqKyT9DstTH/0Z+f76kmmvZnkfQVmOpDEF9iVgdYif3Q/pIWHmCoo59bQVGW0kVL3e2nl+9+Sw==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: false
 
   /make-dir@2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
@@ -11850,8 +11842,8 @@ packages:
       vite: 5.2.8(@types/node@20.12.7)
     dev: false
 
-  /vite-plugin-dts@3.8.1(typescript@5.4.5)(vite@5.2.8):
-    resolution: {integrity: sha512-zEYyQxH7lKto1VTKZHF3ZZeOPkkJgnMrePY4VxDHfDSvDjmYMMfWjZxYmNwW8QxbaItWJQhhXY+geAbyNphI7g==}
+  /vite-plugin-dts@3.8.2(typescript@5.4.5)(vite@5.2.8):
+    resolution: {integrity: sha512-GPkLNBUU+ztskHj37nelNsgRLurFuqXxqICSd/IxjRmgee1T6IIYlRCanugc9QtgWjYVPC/HJzSfpXJSy9OLUA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
@@ -11865,7 +11857,7 @@ packages:
       '@vue/language-core': 1.8.27(typescript@5.4.5)
       debug: 4.3.4
       kolorist: 1.8.0
-      magic-string: 0.30.8
+      magic-string: 0.30.9
       typescript: 5.4.5
       vite: 5.2.8(@types/node@20.12.7)
       vue-tsc: 1.8.27(typescript@5.4.5)
