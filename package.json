@@ -22,7 +22,9 @@
     "eslint-plugin-react": "^7.34.1",
     "nx": "18.2.4",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.4"
+    "to-vfile": "^8.0.0",
+    "typescript": "^5.4.4",
+    "vfile-matter": "^5.0.0"
   },
   "engines": {
     "node": ">=18.0.0"

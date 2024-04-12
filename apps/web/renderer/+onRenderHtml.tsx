@@ -1,10 +1,10 @@
 import ReactDOMServer from "react-dom/server";
 import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
-import type { PageContextServer } from "./types";
+import { PageContextServer } from "vike/types";
 
 export async function onRenderHtml(pageContext: PageContextServer) {
-  const { Page, pageProps } = pageContext;
+  const { Page, pageProps, headProps } = pageContext;
 
   const pageHtml = ReactDOMServer.renderToString(
     <PageShell pageContext={pageContext}>
@@ -12,10 +12,8 @@ export async function onRenderHtml(pageContext: PageContextServer) {
     </PageShell>
   );
 
-  // See https://vike.com/head
-  const { documentProps } = pageContext.exports;
-  const title = (documentProps && documentProps.title) || "Timelet";
-  const desc = (documentProps && documentProps.description) || "Distributed collaborative offline-first time tracking app.";
+  const title = headProps?.title ? `${headProps.title} - Timelet` : "Timelet";
+  const description = headProps?.description || "Distributed collaborative offline-first time tracking app.";
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
@@ -28,10 +26,10 @@ export async function onRenderHtml(pageContext: PageContextServer) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff5722" />
         <meta name="msapplication-TileColor" content="#cc441b" />
         <meta name="theme-color" content="#e6e6e6" />
-        <meta name="description" content="${desc}" />
+        <meta name="description" content="${description}" />
         <title>${title}</title>
       </head>
-      <body${documentProps?.slug ? ` class=${documentProps.slug}` : ""}>
+      <body${pageContext.slug ? ` class=${pageContext.slug}` : ""}>
         <div id="page-view">${dangerouslySkipEscape(pageHtml)}</div>
       </body>
     </html>`;
@@ -39,7 +37,7 @@ export async function onRenderHtml(pageContext: PageContextServer) {
   return {
     documentHtml,
     pageContext: {
-      // We can add some `pageContext` here, which is useful if we want to do page redirection https://vike.com/page-redirection
+      // We can add some `pageContext` here, which is useful if we want to do page redirection https://vike.dev/page-redirection
     },
   };
 }

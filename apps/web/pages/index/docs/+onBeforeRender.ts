@@ -1,16 +1,29 @@
 import { compile } from "@mdx-js/mdx";
-import { PageContext } from "../../../renderer/types";
 import { mdxOptions } from "../../../mdx.config";
-
-const pages = import.meta.glob<{ default: string }>("../../../../../assets/content/en-US/**/*.mdx", { query: "?raw" });
+import { glob } from "glob";
+import { read } from "to-vfile";
+import { matter } from "vfile-matter";
+import { PageContext } from "vike/types";
 
 export async function onBeforeRender(pageContext: PageContext) {
+  const files = await glob("../../assets/content/en-US/**/*.mdx");
   const path = pageContext.urlPathname.match(/^\/docs\/?$/) ? "/docs/index" : pageContext.urlPathname;
-  const match = pages[`../../../../../assets/content/en-US${path}.mdx`];
-  const page = await match();
-  const markdown = await compile(page.default, { ...mdxOptions, outputFormat: "function-body" });
+  const file = files.find((f) => f === `../../assets/content/en-US${path}.mdx`);
+
+  if (!file) {
+    return;
+  }
+
+  const vfile = await read(file);
+  matter(vfile, { strip: true });
+  const frontmatter = vfile.data.matter as { title: string };
+  const markdown = await compile(vfile, { ...mdxOptions, outputFormat: "function-body" });
+
   return {
     pageContext: {
+      headProps: {
+        title: frontmatter.title,
+      },
       pageProps: {
         markdown: markdown.toString(),
       },

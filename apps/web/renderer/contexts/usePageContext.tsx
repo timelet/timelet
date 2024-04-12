@@ -1,8 +1,8 @@
 // `usePageContext` allows us to access `pageContext` in any React component.
-// See https://vike.com/pageContext-anywhere
+// See https://vike.dev/pageContext-anywhere
 
 import { createContext, useContext } from "react";
-import type { PageContext } from "../types";
+import { PageContext } from "vike/types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Context = createContext<PageContext>(undefined as any);

@@ -8,7 +8,6 @@ type PageProps = {
 
 export function Page({ markdown }: PageProps) {
   const page = runSync(markdown, { ...(jsxRuntime as RunOptions) });
-  console.log(page.frontmatter);
   const Content = page.default;
   const components = useMDXComponents();
 

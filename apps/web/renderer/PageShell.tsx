@@ -1,5 +1,4 @@
 import { PageContextProvider } from "./contexts/usePageContext";
-import type { PageContext } from "./types";
 import { ReactNode, StrictMode } from "react";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { TimeletUIProvider } from "@timelet/ui";
@@ -10,6 +9,7 @@ import { MDXProvider } from "@mdx-js/react";
 import "./global.css";
 import "@timelet/ui/style.css";
 import { mdxComponents } from "../mdx.config";
+import { PageContext } from "vike/types";
 
 export function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
   const messages = pageContext.locale === "de-CH" ? deCHMessages : enUSMessages;
