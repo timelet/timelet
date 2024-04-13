@@ -79,7 +79,7 @@ importers:
         version: 7.0.0
     devDependencies:
       '@types/react':
-        specifier: ^18.2.74
+        specifier: ^18.2.78
         version: 18.2.78
       '@types/react-dom':
         specifier: ^18.2.24
@@ -124,7 +124,7 @@ importers:
         specifier: ^20.12.5
         version: 20.12.7
       '@types/react':
-        specifier: ^18.2.74
+        specifier: ^18.2.78
         version: 18.2.78
       '@types/react-dom':
         specifier: ^18.2.24
@@ -222,7 +222,7 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2
       '@types/react':
-        specifier: ^18.2.74
+        specifier: ^18.2.78
         version: 18.2.78
       '@types/react-dom':
         specifier: ^18.2.24
@@ -243,7 +243,7 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8(@types/node@20.12.7)
       vite-plugin-dts:
-        specifier: ^3.8.1
+        specifier: ^3.8.2
         version: 3.8.2(typescript@5.4.5)(vite@5.2.8)
       vite-plugin-svgr:
         specifier: ^4.2.0

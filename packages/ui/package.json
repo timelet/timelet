@@ -34,14 +34,14 @@
     "@storybook/blocks": "^8.0.6",
     "@storybook/react": "^8.0.6",
     "@storybook/testing-library": "^0.2.2",
-    "@types/react": "^18.2.74",
+    "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.24",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^8.0.6",
     "vite": "^5.2.8",
-    "vite-plugin-dts": "^3.8.1",
+    "vite-plugin-dts": "^3.8.2",
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
