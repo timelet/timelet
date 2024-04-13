@@ -15,9 +15,9 @@
     "./style.css": "./dist/style.css"
   },
   "scripts": {
-    "dev": "concurrently \"vite build --watch --sourcemap\" \"storybook dev -p 6006 --ci\"",
+    "dev": "nx run-many -t build:dev storybook:dev --output-style stream-without-prefixes",
     "build": "vite build --minify",
-    "build:dev": "vite build --sourcemap",
+    "build:dev": "vite build --watch --sourcemap",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings=0",
     "storybook": "storybook build",
@@ -37,7 +37,6 @@
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
     "@vitejs/plugin-react-swc": "^3.6.0",
-    "concurrently": "^8.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^8.0.6",
