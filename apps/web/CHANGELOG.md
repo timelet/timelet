@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.1.2
+
+### Patch Changes
+
+- a329389: Fix docs rendering
+
 ## 0.1.1
 
 ### Patch Changes
