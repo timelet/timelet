@@ -15,7 +15,7 @@ declare global {
       headProps?: HeadProps;
       urlPathname: string;
       locale?: string;
-      slug?: string;
+      kind?: string;
     }
   }
 }

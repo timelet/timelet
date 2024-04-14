@@ -16,6 +16,11 @@ export async function onRenderClient(pageContext: PageContextClient) {
     root = hydrateRoot(container, page);
   } else {
     document.title = headProps?.title ? `${headProps.title} - Timelet` : "Timelet";
+    if (pageContext.kind) {
+      document.body.classList.add(pageContext.kind);
+    } else {
+      document.body.removeAttribute("class");
+    }
     if (!root) {
       root = createRoot(container);
     }

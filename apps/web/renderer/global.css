@@ -1,6 +1,6 @@
-#page-view > div > header,
+#page-view header,
 main > section,
-#page-view > div > footer {
+#page-view footer {
   --horizontal-padding: 20%;
 
   @media (max-width: 90rem) {
@@ -15,8 +15,11 @@ main > section,
     --horizontal-padding: 1rem;
   }
 
-  padding-right: var(--horizontal-padding);
-  padding-left: var(--horizontal-padding);
+  padding-inline: var(--horizontal-padding);
+}
+
+body[class] section {
+  padding-block: 1rem;
 }
 
 #page-view > div > header,

@@ -29,7 +29,7 @@ export async function onRenderHtml(pageContext: PageContextServer) {
         <meta name="description" content="${description}" />
         <title>${title}</title>
       </head>
-      <body${pageContext.slug ? ` class=${pageContext.slug}` : ""}>
+      <body${pageContext.kind ? ` class=${pageContext.kind}` : ""}>
         <div id="page-view">${dangerouslySkipEscape(pageHtml)}</div>
       </body>
     </html>`;

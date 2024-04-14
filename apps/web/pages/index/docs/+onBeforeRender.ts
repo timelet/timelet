@@ -21,6 +21,7 @@ export async function onBeforeRender(pageContext: PageContext) {
 
   return {
     pageContext: {
+      kind: "docs",
       headProps: {
         title: frontmatter.title,
       },
