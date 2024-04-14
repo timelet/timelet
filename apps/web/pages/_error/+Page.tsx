@@ -1,6 +1,7 @@
 import { Title } from "@timelet/ui";
+import { PageContext } from "vike/types";
 
-export function Page({ is404 }: { is404: boolean }) {
+export function Page({ is404 }: PageContext) {
   if (is404) {
     return (
       <section>
