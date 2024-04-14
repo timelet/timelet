@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.1.3
+
+### Patch Changes
+
+- d261d65: Fix docs prerendering
+
 ## 0.1.2
 
 ### Patch Changes
