@@ -1,5 +1,13 @@
 import { ReactElement } from "react";
 
+// Utility types
+
+export type Flatten<T> = T extends object ? T[keyof T] : T;
+export type FlattenValues<T> = Flatten<{
+  [K in keyof T]: T[K] extends object ? FlattenValues<T[K]> : T[K];
+}>;
+
+// Overrides
 type Page = (pageProps: PageProps) => ReactElement;
 type PageProps = object;
 type HeadProps = {
