@@ -203,6 +203,9 @@ importers:
         specifier: ^3.1.0
         version: 3.2.0(react@18.2.0)
     devDependencies:
+      '@laynezh/vite-plugin-lib-assets':
+        specifier: ^0.5.22
+        version: 0.5.22
       '@storybook/addon-essentials':
         specifier: ^8.0.6
         version: 8.0.8(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0)
@@ -3314,6 +3317,15 @@ packages:
     dependencies:
       esm-env: 1.0.0
     dev: false
+
+  /@laynezh/vite-plugin-lib-assets@0.5.22:
+    resolution: {integrity: sha512-2gUL16h1D+AyJV4kG1up6wMAq8UJRttpBdFKgFCR30KYlWbue5n4jsyvCfIdre53qgG2Dd/xzMXdvz1d8tbizg==}
+    dependencies:
+      escape-string-regexp: 4.0.0
+      loader-utils: 3.2.1
+      mrmime: 1.0.1
+      semver: 7.6.0
+    dev: true
 
   /@mantine/core@7.8.0(@mantine/hooks@7.8.0)(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-19RKuNdJ/s8pZjy2w2rvTsl4ybi/XM6vf+Kc0WY7kpLFCvdG+/UxNi1MuJF8t2Zs0QSFeb/H5yZQNe0XPbegHw==}
@@ -8656,6 +8668,11 @@ packages:
       strip-bom: 3.0.0
     dev: true
 
+  /loader-utils@3.2.1:
+    resolution: {integrity: sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==}
+    engines: {node: '>= 12.13.0'}
+    dev: true
+
   /locate-path@3.0.0:
     resolution: {integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==}
     engines: {node: '>=6'}
@@ -9381,6 +9398,11 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: true
+
+  /mrmime@1.0.1:
+    resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
+    engines: {node: '>=10'}
     dev: true
 
   /mrmime@2.0.0:
