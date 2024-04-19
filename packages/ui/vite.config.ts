@@ -19,12 +19,15 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "jsxRuntime",
+          "@mantine/hooks": "mantineHooks",
+          "@mantine/core": "mantineCore",
+          "@tabler/icons-react": "tablerIconsReact",
         },
       },
     },
   },
   plugins: [
-    libAssetsPlugin({ limit: 1024 * 8 }),
+    libAssetsPlugin({ limit: 1024 * 8, name: "[name].[contenthash:8].[ext]" }),
     dts({
       entryRoot: "src",
     }),
