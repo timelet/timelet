@@ -180,7 +180,7 @@ importers:
     devDependencies:
       '@sinclair/typebox':
         specifier: ^0.32.20
-        version: 0.32.20
+        version: 0.32.21
 
   packages/ui:
     dependencies:
@@ -3874,8 +3874,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@sinclair/typebox@0.32.20:
-    resolution: {integrity: sha512-ziK497ILSIYMxD/thl496idIb03IZPlha04itLQu1xAFQbumWZ+Dj4PMMCkDRpAYhvVSdmRlTjGu2B2MA5RplQ==}
+  /@sinclair/typebox@0.32.21:
+    resolution: {integrity: sha512-mIJHip7dc98j2KAUvwqmkSn02R8dNk7698g5Vb7J58fLLMSEBNi1ps10WzNM5HcKH90SvyFb3Vny6BvBmt5GnQ==}
     dev: true
 
   /@storybook/addon-actions@8.0.8:
