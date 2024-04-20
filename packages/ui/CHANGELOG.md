@@ -1,5 +1,11 @@
 # @timelet/ui
 
+## 0.1.1
+
+### Patch Changes
+
+- bad3459: Extract assets
+
 ## 0.1.0
 
 ### Minor Changes
