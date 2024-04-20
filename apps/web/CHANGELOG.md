@@ -1,5 +1,12 @@
 # @timelet/web
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [bad3459]
+  - @timelet/ui@0.1.1
+
 ## 0.1.3
 
 ### Patch Changes
