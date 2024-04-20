@@ -8,6 +8,7 @@ import libAssetsPlugin from "@laynezh/vite-plugin-lib-assets";
 export default defineConfig({
   build: {
     ssr: true,
+    ssrEmitAssets: true,
     lib: {
       entry: "src/index.ts",
       name: packageJson.name,
@@ -27,7 +28,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    libAssetsPlugin({ limit: 1024 * 8, name: "[name].[contenthash:8].[ext]" }),
+    libAssetsPlugin({ limit: 1024 * 8 }),
     dts({
       entryRoot: "src",
     }),
