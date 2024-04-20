@@ -180,16 +180,16 @@ importers:
     devDependencies:
       '@sinclair/typebox':
         specifier: ^0.32.20
-        version: 0.32.21
+        version: 0.32.22
 
   packages/ui:
     dependencies:
       '@fontsource-variable/eczar':
         specifier: ^5.0.19
-        version: 5.0.19
+        version: 5.0.20
       '@fontsource-variable/raleway':
         specifier: ^5.0.18
-        version: 5.0.18
+        version: 5.0.19
       '@mantine/core':
         specifier: ^7.7.1
         version: 7.8.0(@mantine/hooks@7.8.0)(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0)
@@ -3142,12 +3142,12 @@ packages:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
     dev: false
 
-  /@fontsource-variable/eczar@5.0.19:
-    resolution: {integrity: sha512-VSy97F/EJj0m98+3lgyQ/+V5Vvrvm3JRbq68kwE5t2jjbQZKPTfKE4byJKBc0vrm5smHZUM5sulknlNCfdtYAg==}
+  /@fontsource-variable/eczar@5.0.20:
+    resolution: {integrity: sha512-GkfKhZHjICLY4qEmIM/i62rEXn0c6lA/D7+nlXt3s8zZv/0AzRQtlETf0w/E2ptFRZWgcjSvGIneD7geglFQXg==}
     dev: false
 
-  /@fontsource-variable/raleway@5.0.18:
-    resolution: {integrity: sha512-gd1W+taHZoWe6FoqdbMogSYfp8FK4WUsFse43zvM4NC3s5IoQBdGlMB7XGTdiNux+Ult1wkrlYpiSedSWLjSMw==}
+  /@fontsource-variable/raleway@5.0.19:
+    resolution: {integrity: sha512-HR6JDmRqrjjkZnk0HhVR0vHCkDUuQdEwTaRz1nToWvej0gpC0riEdi7zmaQjaH12O7PBsO+bewqQFSUrA7tDhA==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.18.2:
@@ -3886,8 +3886,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@sinclair/typebox@0.32.21:
-    resolution: {integrity: sha512-mIJHip7dc98j2KAUvwqmkSn02R8dNk7698g5Vb7J58fLLMSEBNi1ps10WzNM5HcKH90SvyFb3Vny6BvBmt5GnQ==}
+  /@sinclair/typebox@0.32.22:
+    resolution: {integrity: sha512-4uH8BLhNbptL2UkfS/a63tQ6uZGGZ4DT6zFq7ZkE+KQi7/56ZYkkWniAqz4bUr4cZGfoR83zRvSh39ZpH8DKDw==}
     dev: true
 
   /@storybook/addon-actions@8.0.8:
