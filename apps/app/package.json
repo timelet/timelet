@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build --base=/app/",
     "prepare:web": "mkdir -p ../../dist/app && cp -r ./dist/* ../../dist/app",
     "lint": "eslint . --max-warnings=0",
