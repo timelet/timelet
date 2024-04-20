@@ -170,7 +170,7 @@ importers:
         version: 10.9.2(@types/node@20.12.7)(typescript@5.4.5)
       vike:
         specifier: ^0.4.169
-        version: 0.4.170(vite@5.2.10)
+        version: 0.4.171(vite@5.2.10)
       vite:
         specifier: ^5.2.8
         version: 5.2.10(@types/node@20.12.7)
@@ -11679,8 +11679,8 @@ packages:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  /vike@0.4.170(vite@5.2.10):
-    resolution: {integrity: sha512-o1l8v1cyLh85MqIx07K1bVeVVT51Dr+7YdMuxaCojhp+zCFzPeP7cbqMwlBqcXfYQBnWdCY8yXMTD7Fj2N1yCg==}
+  /vike@0.4.171(vite@5.2.10):
+    resolution: {integrity: sha512-B14tkH5AFFSxL/hdkPOREER8gJYvyInubKPNqwFkOCU7vZZxA02N82pSig7ultP9WIFKUmIhU8rV6UKGXFA1LA==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
