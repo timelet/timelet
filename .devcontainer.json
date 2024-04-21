@@ -12,5 +12,6 @@
 				"styled-components.vscode-styled-components"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "npm install -g pnpm@9.0.4"
 }
