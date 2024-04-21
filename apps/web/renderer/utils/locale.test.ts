@@ -1,4 +1,4 @@
-import { findClosestLocale, parseFilenameSuffix } from "./locale";
+import { findClosestLocale, parseLocaleFromFilenameSuffix, parseLocaleFromURL } from "./locale";
 import { describe, it, expect } from "vitest";
 
 describe("findClosestLocale", () => {
@@ -15,27 +15,54 @@ describe("findClosestLocale", () => {
 
 describe("parseFilenameSuffix", () => {
   it("should estimate the language in a filename", () => {
-    const { estimatedLocale } = parseFilenameSuffix("index.de.md", "en");
+    const { estimatedLocale } = parseLocaleFromFilenameSuffix("index.de.md", "en");
     expect(estimatedLocale).toBe("de");
   });
 
   it("should estimate the exact locale in a filename", () => {
-    const { estimatedLocale } = parseFilenameSuffix("index.de-CH.md", "en");
+    const { estimatedLocale } = parseLocaleFromFilenameSuffix("index.de-CH.md", "en");
     expect(estimatedLocale).toBe("de-CH");
   });
 
   it("should return the default locale if no locale was found in filename", () => {
-    const { estimatedLocale } = parseFilenameSuffix("index.md", "en");
+    const { estimatedLocale } = parseLocaleFromFilenameSuffix("index.md", "en");
     expect(estimatedLocale).toBe("en");
   });
 
   it("should return the filename without extensions, even when there is no locale", () => {
-    const { filename } = parseFilenameSuffix("index.md", "en");
+    const { filename } = parseLocaleFromFilenameSuffix("index.md", "en");
     expect(filename).toBe("index");
   });
 
   it("should return the filename without extensions", () => {
-    const { filename } = parseFilenameSuffix("index.en-US.md", "en");
+    const { filename } = parseLocaleFromFilenameSuffix("index.en-US.md", "en");
     expect(filename).toBe("index");
+  });
+});
+
+describe("parseLocaleFromURL", () => {
+  it("should parse the locale from a URL", () => {
+    const locale = parseLocaleFromURL("/en-US/docs/getting-started", "en");
+    expect(locale).toBe("en-US");
+  });
+
+  it("should parse the locale from a URL with trailing slash", () => {
+    const locale = parseLocaleFromURL("/en-US/", "en");
+    expect(locale).toBe("en-US");
+  });
+
+  it("should parse the locale from a URL without trailing slashes", () => {
+    const locale = parseLocaleFromURL("/en-US", "en");
+    expect(locale).toBe("en-US");
+  });
+
+  it("should parse the short form locale from a URL", () => {
+    const locale = parseLocaleFromURL("/en", "de");
+    expect(locale).toBe("en");
+  });
+
+  it("should return the default locale if no locale was found in URL", () => {
+    const locale = parseLocaleFromURL("/", "en");
+    expect(locale).toBe("en");
   });
 });
