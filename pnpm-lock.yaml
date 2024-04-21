@@ -35,15 +35,9 @@ importers:
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
-      to-vfile:
-        specifier: ^8.0.0
-        version: 8.0.0
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-      vfile-matter:
-        specifier: ^5.0.0
-        version: 5.0.0
 
   apps/app:
     dependencies:
@@ -181,6 +175,12 @@ importers:
       '@sinclair/typebox':
         specifier: ^0.32.22
         version: 0.32.22
+      to-vfile:
+        specifier: ^8.0.0
+        version: 8.0.0
+      vfile-matter:
+        specifier: ^5.0.0
+        version: 5.0.0
 
   packages/ui:
     dependencies:

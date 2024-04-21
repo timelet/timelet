@@ -40,6 +40,8 @@
     "vite-plugin-watch-and-run": "^1.7.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.32.22"
+    "@sinclair/typebox": "^0.32.22",
+    "to-vfile": "^8.0.0",
+    "vfile-matter": "^5.0.0"
   }
 }
