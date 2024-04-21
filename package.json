@@ -10,7 +10,8 @@
     "lint:fix": "pnpm -r lint --fix",
     "prepare:web": "pnpm -r prepare:web",
     "version": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "test": "vitest"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -22,7 +23,8 @@
     "eslint-plugin-react": "^7.34.1",
     "nx": "18.3.3",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
   },
   "engines": {
     "node": ">=18.0.0"
