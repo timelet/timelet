@@ -5,6 +5,7 @@
   "scripts": {
     "build": "pnpm exec nx run-many --nx-bail --target=build --parallel --output-style stream",
     "clean": "git clean -fdx",
+    "coverage": "vitest --coverage",
     "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 1000 --output-style stream",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint --fix",
@@ -17,6 +18,7 @@
     "@changesets/cli": "^2.27.1",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
+    "@vitest/coverage-v8": "^1.5.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
