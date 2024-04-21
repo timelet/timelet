@@ -35,11 +35,11 @@
     "remark-mdx-frontmatter": "^4.0.0",
     "sirv": "^2.0.4",
     "ts-node": "^10.9.2",
-    "vike": "^0.4.169",
-    "vite": "^5.2.8",
+    "vike": "^0.4.171",
+    "vite": "^5.2.10",
     "vite-plugin-watch-and-run": "^1.7.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.32.20"
+    "@sinclair/typebox": "^0.32.22"
   }
 }

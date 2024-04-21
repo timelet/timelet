@@ -41,13 +41,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^8.0.6",
-    "vite": "^5.2.8",
+    "vite": "^5.2.10",
     "vite-plugin-dts": "^3.8.2",
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@fontsource-variable/eczar": "^5.0.19",
-    "@fontsource-variable/raleway": "^5.0.18",
+    "@fontsource-variable/eczar": "^5.0.20",
+    "@fontsource-variable/raleway": "^5.0.19",
     "@mantine/core": "^7.7.1",
     "@mantine/hooks": "^7.7.1",
     "@storybook/react-vite": "^8.0.6",
