@@ -26,9 +26,7 @@
     "nx": "18.3.4",
     "prettier": "^3.2.5",
     "vitest": "^1.5.0",
-    "to-vfile": "^8.0.0",
-    "typescript": "^5.4.5",
-    "vfile-matter": "^5.0.0"
+    "typescript": "^5.4.5"
   },
   "engines": {
     "node": ">=18.0.0"
