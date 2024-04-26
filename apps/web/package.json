@@ -20,15 +20,15 @@
     "@types/express": "^4.17.21",
     "@types/mdx": "^2.0.12",
     "@types/node": "^20.12.5",
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.24",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
     "glob": "^10.3.12",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-intl": "^6.6.5",
     "react-type-animation": "^3.2.0",
     "remark-frontmatter": "^5.0.0",
@@ -40,7 +40,7 @@
     "vite-plugin-watch-and-run": "^1.7.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.32.22",
+    "@sinclair/typebox": "^0.32.25",
     "to-vfile": "^8.0.0",
     "vfile-matter": "^5.0.0"
   }
