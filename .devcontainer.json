@@ -13,5 +13,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "npm install -g pnpm@9.0.4"
+	"postCreateCommand": "npm install -g pnpm@9.0.6"
 }
