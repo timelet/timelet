@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": [],
+			"label": "run: dev",
+			"detail": "pnpm exec nx run-many --nx-bail --target=dev --parallel 1000 --output-style stream"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "pnpm exec nx run-many --nx-bail --target=build --parallel --output-style stream"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "vitest"
+		},
+		{
+			"type": "npm",
+			"script": "changeset",
+			"problemMatcher": [],
+			"label": "npm: changeset",
+			"detail": "changeset"
+		}
+	]
+}

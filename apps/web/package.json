@@ -20,7 +20,7 @@
     "@types/express": "^4.17.21",
     "@types/mdx": "^2.0.12",
     "@types/node": "^20.12.5",
-    "@types/react": "^18.3.0",
+    "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "compression": "^1.7.4",
@@ -40,6 +40,8 @@
     "vite-plugin-watch-and-run": "^1.7.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.32.25"
+    "@sinclair/typebox": "^0.32.26",
+    "to-vfile": "^8.0.0",
+    "vfile-matter": "^5.0.0"
   }
 }

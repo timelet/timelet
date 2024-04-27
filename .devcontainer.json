@@ -9,7 +9,9 @@
 				"esbenp.prettier-vscode",
 				"unifiedjs.vscode-mdx",
 				"eamodio.gitlens",
-				"styled-components.vscode-styled-components"
+				"styled-components.vscode-styled-components",
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github"
 			]
 		}
 	},
