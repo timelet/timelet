@@ -10,7 +10,8 @@
 				"unifiedjs.vscode-mdx",
 				"eamodio.gitlens",
 				"styled-components.vscode-styled-components",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github"
 			]
 		}
 	},
