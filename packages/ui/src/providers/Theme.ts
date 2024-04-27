@@ -1,6 +1,5 @@
 import { MantineThemeOverride } from "@mantine/core";
-import "@fontsource-variable/eczar";
-import "@fontsource-variable/raleway";
+import "./Theme.css";
 
 export const theme: MantineThemeOverride = {
   colors: {
