@@ -8,7 +8,7 @@
         "run",
         "dev"
       ],
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "pnpm",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -21,14 +21,14 @@
         "run",
         "build"
       ],
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "pnpm",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "type": "node"
     },
     {
-      "command": "npm run dev",
+      "command": "pnpm dev",
       "name": "Debug development via node-terminal",
       "request": "launch",
       "type": "node-terminal"
