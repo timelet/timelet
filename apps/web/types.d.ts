@@ -1,7 +1,12 @@
 import { ReactElement } from "react";
 
-// Utility types
+// Global types
+export type Locale = {
+  slug: string;
+  name: string;
+};
 
+// Utility types
 export type Flatten<T> = T extends object ? T[keyof T] : T;
 export type FlattenValues<T> = Flatten<{
   [K in keyof T]: T[K] extends object ? FlattenValues<T[K]> : T[K];
@@ -22,7 +27,7 @@ declare global {
       pageProps?: PageProps;
       headProps?: HeadProps;
       urlPathname: string;
-      locale?: string;
+      locale?: Locale;
       kind?: string;
     }
   }
