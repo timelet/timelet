@@ -10,6 +10,7 @@
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint --fix",
     "prepare:web": "pnpm -r prepare:web",
+    "changeset": "changeset",
     "version": "changeset version",
     "release": "changeset publish",
     "test": "vitest"
