@@ -7,7 +7,7 @@ import classes from "./DefaultHeader.module.css";
 export function DefaultHeader() {
   return (
     <AppShell.Header className={classes.defaultHeader} py={6}>
-      <Link href="/">
+      <Link href="/" data-underline="never">
         <Brand />
       </Link>
       <nav>

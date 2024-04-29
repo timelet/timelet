@@ -1,9 +1,9 @@
 import ReactDOMServer from "react-dom/server";
 import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
-import { PageContextServer } from "vike/types";
+import { OnRenderHtmlAsync } from "vike/types";
 
-export async function onRenderHtml(pageContext: PageContextServer) {
+export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   const { Page, pageProps, headProps } = pageContext;
 
   const pageHtml = ReactDOMServer.renderToString(
@@ -40,4 +40,4 @@ export async function onRenderHtml(pageContext: PageContextServer) {
       // We can add some `pageContext` here, which is useful if we want to do page redirection https://vike.dev/page-redirection
     },
   };
-}
+};

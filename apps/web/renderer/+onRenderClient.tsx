@@ -1,9 +1,10 @@
 import { Root, createRoot, hydrateRoot } from "react-dom/client";
 import { PageShell } from "./PageShell";
-import { PageContextClient } from "vike/types";
+import { OnRenderClientAsync } from "vike/types";
 
 let root: Root;
-export async function onRenderClient(pageContext: PageContextClient) {
+
+export const onRenderClient: OnRenderClientAsync = async (pageContext) => {
   const { Page, pageProps, headProps } = pageContext;
   const page = (
     <PageShell pageContext={pageContext}>
@@ -26,4 +27,4 @@ export async function onRenderClient(pageContext: PageContextClient) {
     }
     root.render(page);
   }
-}
+};
