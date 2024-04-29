@@ -27,7 +27,7 @@ export function DefaultFooter() {
             ),
           },
         ]}
-      ></LinkList>
+      />
     </AppShell.Footer>
   );
 }
