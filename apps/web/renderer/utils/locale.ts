@@ -28,3 +28,7 @@ export function splitLocaleFromURL(url: string, defaultLocale: string) {
   const path = url.replace(locale, "").replace(url.startsWith("/") ? SINGLE_LEADING_SLASH_PATTERN : REMOVE_LEADING_SLASH_PATTERN, "");
   return { locale, path };
 }
+
+export function generateLocalePath(slug: string, path: string) {
+  return `/${slug}${path}`;
+}

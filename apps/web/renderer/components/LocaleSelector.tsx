@@ -13,7 +13,7 @@ export function LocaleSelector(props: LocaleSelectorProps) {
   }
 
   return (
-    <Menu>
+    <Menu withinPortal={false}>
       <Menu.Target>
         <Button variant="transparent">
           <IconLanguage size="1.2rem" />
@@ -21,8 +21,8 @@ export function LocaleSelector(props: LocaleSelectorProps) {
       </Menu.Target>
       <Menu.Dropdown>
         {props.availableLocales.map((l) => (
-          <Menu.Item component={Link} href={l.path} key={l.path}>
-            {l.locale.name}
+          <Menu.Item key={l.path}>
+            <Link href={l.path}>{l.locale.name}</Link>
           </Menu.Item>
         ))}
       </Menu.Dropdown>

@@ -32,7 +32,7 @@ export function DefaultFooter() {
           },
           {
             id: "localeSelector",
-            element: <LocaleSelector availableLocales={[]} />,
+            element: <LocaleSelector availableLocales={context.availableLocales || []} />,
           },
         ]}
       />
