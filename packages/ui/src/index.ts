@@ -16,11 +16,14 @@ export {
   Container,
   Dialog,
   Divider,
+  Flex,
   Group,
+  Menu,
   NavLink,
   Spoiler,
   Text,
   Title,
+  UnstyledButton,
   useMantineTheme,
 } from "@mantine/core";
 export { useDisclosure } from "@mantine/hooks";

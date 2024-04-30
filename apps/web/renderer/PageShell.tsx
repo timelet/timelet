@@ -12,7 +12,7 @@ import { mdxComponents } from "../mdx.config";
 import { PageContext } from "vike/types";
 
 export function PageShell({ children, pageContext }: { children: ReactNode; pageContext: PageContext }) {
-  const messages = pageContext.locale === "de-CH" ? deCHMessages : enUSMessages;
+  const messages = pageContext.locale?.slug === "de" ? deCHMessages : enUSMessages;
   return (
     <StrictMode>
       <PageContextProvider pageContext={pageContext}>

@@ -1,6 +1,7 @@
 .linkList ul {
   display: flex;
   flex-direction: var(--direction);
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;

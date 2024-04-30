@@ -9,7 +9,7 @@ export function Page() {
   return (
     <>
       <Spotlight />
-      <Features features={data.features.features} />
+      <Features features={data.features} />
     </>
   );
 }

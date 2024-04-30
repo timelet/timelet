@@ -1,5 +1,6 @@
 .defaultFooter {
   --text-fz: 0.8rem;
+  --button-fz: var(--text-fz);
 
   display: flex;
   align-items: center;

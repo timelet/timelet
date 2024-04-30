@@ -1,19 +1,21 @@
 import packageJson from "../package.json";
 import { FlattenValues, Locale } from "../types";
 
+const LOCALES = {
+  "en-US": {
+    name: "English",
+    slug: "en",
+  },
+  "de-CH": {
+    name: "Deutsch",
+    slug: "de",
+  },
+} satisfies Record<string, Locale>;
+
 export const CONFIGURATION = {
   VERSION: packageJson.version,
-  DEFAULT_LOCALE: "en-US",
-  LOCALES: {
-    "en-US": {
-      name: "English",
-      slug: "en",
-    },
-    "de-CH": {
-      name: "Deutsch",
-      slug: "de",
-    },
-  } satisfies Record<string, Locale>,
+  DEFAULT_LOCALE: "en-US" satisfies keyof typeof LOCALES,
+  LOCALES,
   PATHS: {
     APP: import.meta.env.DEV ? "http://localhost:3001" : "/app",
     CODE: "https://github.com/timelet/timelet",

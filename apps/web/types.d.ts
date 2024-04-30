@@ -5,6 +5,10 @@ export type Locale = {
   slug: string;
   name: string;
 };
+export type AvailableLocales = {
+  locale: Locale;
+  path: string;
+}[];
 
 // Utility types
 export type Flatten<T> = T extends object ? T[keyof T] : T;
@@ -28,6 +32,7 @@ declare global {
       headProps?: HeadProps;
       urlPathname: string;
       locale?: Locale;
+      availableLocales?: AvailableLocales;
       kind?: string;
     }
   }
