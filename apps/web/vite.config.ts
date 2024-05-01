@@ -1,5 +1,5 @@
 import react from "@vitejs/plugin-react";
-import ssr from "vike/plugin";
+import vike from "vike/plugin";
 import mdx from "@mdx-js/rollup";
 import { UserConfig } from "vite";
 import { watchAndRun } from "vite-plugin-watch-and-run";
@@ -18,7 +18,7 @@ const config: UserConfig = {
   },
   plugins: [
     react(),
-    ssr({ prerender: true }),
+    vike({ prerender: true, disableUrlNormalization: true }),
     mdx(mdxOptions),
     watchAndRun([{ watch: path.resolve("data/**/*.ts"), watchKind: ["add", "change"], run: generateSchemaFiles }]),
   ],
