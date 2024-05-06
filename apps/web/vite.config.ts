@@ -18,7 +18,7 @@ const config: UserConfig = {
   },
   plugins: [
     react(),
-    vike({ prerender: true, disableUrlNormalization: true }),
+    vike({ prerender: true, trailingSlash: true }),
     mdx(mdxOptions),
     watchAndRun([{ watch: path.resolve("data/**/*.ts"), watchKind: ["add", "change"], run: generateSchemaFiles }]),
   ],
