@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 
 // Global types
 export type Locale = {
+  key: string;
   slug: string;
   name: string;
 };

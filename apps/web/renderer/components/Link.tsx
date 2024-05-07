@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import { usePageContext } from "../contexts/usePageContext";
 import { Anchor } from "@timelet/ui";
+import { createLocalePath } from "../utils/path";
 
 type LinkProps = {
   href?: string;
@@ -10,5 +11,6 @@ type LinkProps = {
 export function Link(props: PropsWithChildren<LinkProps>) {
   const pageContext = usePageContext();
   const className = [props.className, pageContext.urlPathname === props.href && "is-active"].filter(Boolean).join(" ");
-  return <Anchor {...props} className={className} {...(className.includes("Button") && { "data-underline": "never" })} />;
+  const href = createLocalePath(props.href || "", pageContext.locale);
+  return <Anchor {...props} href={href} className={className} {...(className.includes("Button") && { "data-underline": "never" })} />;
 }
