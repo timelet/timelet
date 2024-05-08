@@ -3,7 +3,7 @@ import { findClosestLocale, splitLocaleFromURL } from "./utils/locale";
 import { CONFIGURATION } from "./configuration";
 import { createLocalePath, urlToString } from "./utils/path";
 
-export const onBeforeRoute: OnBeforeRouteSync = (pageContext) => {
+export const onBeforeRoute: OnBeforeRouteSync = (pageContext): ReturnType<OnBeforeRouteSync> => {
   const { localeSlug, path } = splitLocaleFromURL(pageContext.urlParsed.pathname, CONFIGURATION.DEFAULT_LOCALE);
   const closestLocale =
     findClosestLocale(

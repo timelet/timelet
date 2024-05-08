@@ -5,6 +5,7 @@ export type Locale = {
   key: string;
   slug: string;
   name: string;
+  routes?: Record<string, string>;
 };
 export type AvailableLocales = {
   locale: Locale;
@@ -27,7 +28,7 @@ type HeadProps = {
 
 declare global {
   namespace Vike {
-    interface PageContext {
+    interface PageContext extends PageContext {
       Page: Page;
       pageProps?: PageProps;
       headProps?: HeadProps;
@@ -35,6 +36,7 @@ declare global {
       locale?: Locale;
       availableLocales?: AvailableLocales;
       kind?: string;
+      urlLogical: string;
     }
   }
 }

@@ -4,7 +4,7 @@ import { OnRenderClientAsync } from "vike/types";
 
 let root: Root;
 
-export const onRenderClient: OnRenderClientAsync = async (pageContext) => {
+export const onRenderClient: OnRenderClientAsync = async (pageContext): ReturnType<OnRenderClientAsync> => {
   const { Page, pageProps, headProps } = pageContext;
   const page = (
     <PageShell pageContext={pageContext}>

@@ -14,6 +14,9 @@ export const CONFIGURATION = {
       key: "de-CH",
       name: "Deutsch",
       slug: "de",
+      routes: {
+        "/docs/": "/doku/",
+      },
     },
   ] satisfies Locale[],
   PATHS: {

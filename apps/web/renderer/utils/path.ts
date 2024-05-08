@@ -22,3 +22,12 @@ export function createLocalePath(path: string, locale?: Locale) {
 export function urlToString({ origin, pathname, searchOriginal }: Url) {
   return `${origin || ""}${pathname}${searchOriginal || ""}`;
 }
+
+export const replaceSegments = (path: string, segments: Record<string, string>) => {
+  const keys = Object.keys(segments);
+  if (keys.length > 0) {
+    const exp = new RegExp(keys.join("|"), "g");
+    return path.replace(exp, (match) => segments[match]);
+  }
+  return path;
+};

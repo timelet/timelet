@@ -3,7 +3,7 @@ import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
 import { OnRenderHtmlAsync } from "vike/types";
 
-export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
+export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<OnRenderHtmlAsync> => {
   const { Page, pageProps, headProps } = pageContext;
 
   const pageHtml = ReactDOMServer.renderToString(

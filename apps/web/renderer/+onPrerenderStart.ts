@@ -1,7 +1,7 @@
 import { OnPrerenderStartSync, PageContextServer } from "vike/types";
 import { CONFIGURATION } from "./configuration";
 
-export const onPrerenderStart: OnPrerenderStartSync = (prerenderContext) => {
+export const onPrerenderStart: OnPrerenderStartSync = (prerenderContext): ReturnType<OnPrerenderStartSync> => {
   const pageContexts: PageContextServer[] = [];
 
   prerenderContext.pageContexts.forEach((pageContext) => {
