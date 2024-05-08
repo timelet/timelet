@@ -1,5 +1,5 @@
 import { compile } from "@mdx-js/mdx";
-import { mdxOptions } from "../../../mdx.config";
+import { mdxOptions } from "../../mdx.config";
 import { glob } from "glob";
 import { read } from "to-vfile";
 import { matter } from "vfile-matter";
