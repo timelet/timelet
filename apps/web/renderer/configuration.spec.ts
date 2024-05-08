@@ -1,5 +1,4 @@
-import { it } from "node:test";
-import { describe, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import { CONFIGURATION } from "./configuration";
 
 describe("configuration", () => {
