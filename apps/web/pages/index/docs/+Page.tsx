@@ -8,12 +8,8 @@ type PageProps = {
 
 export function Page({ markdown }: PageProps) {
   const page = runSync(markdown, { ...(jsxRuntime as RunOptions) });
-  const Content = page.default;
+  const Content = page?.default;
   const components = useMDXComponents();
 
-  return (
-    <section>
-      <Content components={components} />
-    </section>
-  );
+  return <section>{Content && <Content components={components} />}</section>;
 }
