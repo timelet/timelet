@@ -3,9 +3,9 @@ import { mdxOptions } from "../../mdx.config";
 import { glob } from "glob";
 import { read } from "to-vfile";
 import { matter } from "vfile-matter";
-import { PageContext } from "vike/types";
+import { OnBeforeRenderAsync } from "vike/types";
 
-export async function onBeforeRender(pageContext: PageContext) {
+export const onBeforeRender: OnBeforeRenderAsync = async (pageContext): ReturnType<OnBeforeRenderAsync> => {
   const files = await glob("../../assets/content/en-US/**/*.mdx");
   const path = pageContext.urlPathname.match(/^\/docs\/?$/) ? "/docs/index" : pageContext.urlPathname;
   const file = files.find((f) => f === `../../assets/content/en-US${path}.mdx`);
@@ -30,4 +30,4 @@ export async function onBeforeRender(pageContext: PageContext) {
       },
     },
   };
-}
+};

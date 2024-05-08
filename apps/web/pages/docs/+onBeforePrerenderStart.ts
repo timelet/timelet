@@ -1,6 +1,8 @@
 import { glob } from "glob";
+import { stripContentPath } from "../../renderer/utils/path";
+import { OnBeforePrerenderStartAsync } from "vike/types";
 
-export async function onBeforePrerenderStart() {
+export const onBeforePrerenderStart: OnBeforePrerenderStartAsync = async (): ReturnType<OnBeforePrerenderStartAsync> => {
   const paths = await glob("../../assets/content/en-US/**/*.mdx");
-  return paths.map((p) => p.replace("../../assets/content/en-US", "").replace(".mdx", "").replace("index", ""));
-}
+  return paths.map((p) => stripContentPath(p));
+};
