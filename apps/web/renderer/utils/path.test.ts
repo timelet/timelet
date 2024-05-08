@@ -3,8 +3,12 @@ import { replaceSegments, stripContentPath } from "./path";
 
 describe("stripContentPath", () => {
   it("should strip the content path from a path", () => {
-    const path = stripContentPath("/content/en-US/docs/getting-started/index.mdx", { key: "en-US", slug: "en", name: "English" });
-    expect(path).toBe("/content/en-US/docs/getting-started/");
+    const path = stripContentPath("../../assets/content/en-US/docs/getting-started/index.mdx");
+    expect(path).toBe("/en-US/docs/getting-started/");
+  });
+  it("should strip the content path from a path with locale", () => {
+    const path = stripContentPath("../../assets/content/en-US/docs/getting-started/index.mdx", { key: "en-US", slug: "en", name: "English" });
+    expect(path).toBe("/docs/getting-started/");
   });
 });
 

@@ -3,7 +3,7 @@ import { CONFIGURATION } from "../configuration";
 import { Locale } from "../../types";
 
 export function stripContentPath(path: string, locale?: Locale) {
-  const contentPath = locale ? `${CONFIGURATION.PATHS.CONTENT}/${locale.key}/` : `${CONFIGURATION.PATHS.CONTENT}/`;
+  const contentPath = locale ? `${CONFIGURATION.PATHS.CONTENT}/${locale.key}` : `${CONFIGURATION.PATHS.CONTENT}`;
   return path.replace(contentPath, "").replace(".mdx", "").replace("index", "");
 }
 
