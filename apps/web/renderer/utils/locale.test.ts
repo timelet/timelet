@@ -79,14 +79,14 @@ describe("parseLocaleFromURL", () => {
 
 describe("splitLocaleFromURL", () => {
   it("should split the locale from a URL", () => {
-    const { localeSlug, path } = splitLocaleFromURL("/en-US/docs/getting-started", "de");
-    expect(localeSlug).toBe("en-US");
+    const { locale, path } = splitLocaleFromURL("/en-US/docs/getting-started", "de");
+    expect(locale).toBe("en-US");
     expect(path).toBe("/docs/getting-started");
   });
 
   it("should split the locale from a URL without leading slash", () => {
-    const { localeSlug, path } = splitLocaleFromURL("en-US/docs/getting-started", "de");
-    expect(localeSlug).toBe("en-US");
+    const { locale, path } = splitLocaleFromURL("en-US/docs/getting-started", "de");
+    expect(locale).toBe("en-US");
     expect(path).toBe("docs/getting-started");
   });
 });

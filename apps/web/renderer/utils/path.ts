@@ -1,6 +1,7 @@
 import { Url } from "vike/types";
 import { CONFIGURATION } from "../configuration";
 import { Locale } from "../../types";
+import { findClosestLocale, splitLocaleFromURL } from "./locale";
 
 export function stripContentPath(path: string, locale?: Locale) {
   const contentPath = locale ? `${CONFIGURATION.PATHS.CONTENT}/${locale.key}` : `${CONFIGURATION.PATHS.CONTENT}`;
@@ -40,4 +41,18 @@ export function generateAvailablePaths(path: string, locales: Locale[]) {
       path: availablePath,
     };
   });
+}
+
+export function translatePath(originalPath: string) {
+  const { locale: pathLocale, path } = splitLocaleFromURL(originalPath, CONFIGURATION.DEFAULT_LOCALE);
+  const closestLocale =
+    findClosestLocale(
+      pathLocale,
+      CONFIGURATION.LOCALES.map((locale) => locale.key)
+    ) || CONFIGURATION.DEFAULT_LOCALE;
+  const locale = CONFIGURATION.LOCALES.find((l) => l.key === closestLocale);
+
+  let translatedPath = createLocalePath(path, locale);
+  translatedPath = replaceSegments(translatedPath, locale?.routes);
+  return { translatedPath, locale, path };
 }

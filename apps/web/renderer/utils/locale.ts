@@ -24,11 +24,7 @@ export function parseLocaleFromURL(url: string, defaultLocale: string) {
 }
 
 export function splitLocaleFromURL(url: string, defaultLocale: string) {
-  const localeSlug = parseLocaleFromURL(url, defaultLocale);
-  const path = url.replace(localeSlug, "").replace(url.startsWith("/") ? SINGLE_LEADING_SLASH_PATTERN : REMOVE_LEADING_SLASH_PATTERN, "");
-  return { localeSlug, path };
-}
-
-export function generateLocalePath(slug: string, path: string) {
-  return `/${slug}${path}`;
+  const locale = parseLocaleFromURL(url, defaultLocale);
+  const path = url.replace(locale, "").replace(url.startsWith("/") ? SINGLE_LEADING_SLASH_PATTERN : REMOVE_LEADING_SLASH_PATTERN, "");
+  return { locale, path };
 }

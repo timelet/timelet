@@ -8,7 +8,12 @@ describe("onBeforePrerenderStart", () => {
       return {
         ...glob,
         glob: async (_pattern: string) => {
-          return ["../../assets/content/en-US/docs/getting-started/index.mdx", "../../assets/content/en-US/docs/index.mdx"];
+          return [
+            "../../assets/content/en-US/docs/getting-started.mdx",
+            "../../assets/content/en-US/docs/index.mdx",
+            "../../assets/content/de-CH/docs/getting-started.mdx",
+            "../../assets/content/de-CH/docs/index.mdx",
+          ];
         },
       };
     });
@@ -16,6 +21,6 @@ describe("onBeforePrerenderStart", () => {
 
   it("should return an array of paths", async () => {
     const paths = await onBeforePrerenderStart();
-    expect(paths).toEqual(["/en-US/docs/getting-started/", "/en-US/docs/"]);
+    expect(paths).toEqual(["/docs/getting-started", "/docs/", "/de/doku/getting-started", "/de/doku/"]);
   });
 });
