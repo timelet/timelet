@@ -6,4 +6,14 @@ describe("configuration", () => {
     const localeKeys = CONFIGURATION.LOCALES.map((locale) => locale.key);
     expect(localeKeys).toContain(CONFIGURATION.DEFAULT_LOCALE);
   });
+  it("should have unique locale keys", () => {
+    const localeKeys = CONFIGURATION.LOCALES.map((locale) => locale.key);
+    const uniqueKeys = new Set(localeKeys);
+    expect(localeKeys.length).toBe(uniqueKeys.size);
+  });
+  it("should have unique locale slugs", () => {
+    const localeSlugs = CONFIGURATION.LOCALES.map((locale) => locale.slug);
+    const uniqueSlugs = new Set(localeSlugs);
+    expect(localeSlugs.length).toBe(uniqueSlugs.size);
+  });
 });

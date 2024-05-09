@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schema/web/features.schema.json",
+  "features": [
+    {
+      "id": "offline-first",
+      "title": "Offline-First",
+      "description": "Die Anwendung ist so konzipiert, dass sie ohne Verbindung zu einem Server oder zum Internet funktioniert. Alle Daten werden lokal gespeichert und können ausgetauscht werden, sobald eine Verbindung hergestellt ist.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "serverless",
+      "title": "Serverlos",
+      "description": "Mit der serverlosen Funktion nutzt die Zeiterfassungs-App vorhandene Cloud-Speicherdienste wie Google Drive, um Daten zu speichern und zu verwalten. Dadurch entfällt die Notwendigkeit, dedizierte Server oder Infrastruktur zu warten, da die App direkt mit dem Cloud-Speicheranbieter für die Datenablage und -abfrage interagiert. Benutzer können ihre Zeiterfassungsdaten sicher in der Cloud speichern und von jedem Gerät mit entsprechenden Berechtigungen darauf zugreifen. Darüber hinaus bietet die Nutzung von Cloud-Speicherdiensten oft Skalierbarkeit, Zuverlässigkeit und Kosteneffizienz, da die App ihre Nutzung dynamisch an die Nachfrage anpassen kann, ohne Serverressourcen verwalten zu müssen.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "distributed",
+      "title": "Verteilt",
+      "description": "Die Zeiterfassungs-App verfügt über eine 'Verteilte' Funktion, mit der Benutzer selektiv Daten aus Projekten oder Kategorien oder sogar dem gesamten Datensatz mit anderen Datenspeichern oder Anwendungen teilen können. Diese Funktion ermöglicht es Benutzern, mehrere synchronisierte Kopien ihrer Zeiterfassungsdaten auf verschiedenen Plattformen oder Cloud-Diensten zu pflegen. Ob es darum geht, spezifische Projektinformationen mit Mitarbeitern zu teilen oder Zeiterfassungsdatensätze in andere Produktivitätstools zu integrieren, die 'Verteilte' Funktion verbessert die Flexibilität und Datenportabilität. Benutzer können nahtlos mit ihren Zeitdaten in verschiedenen Umgebungen arbeiten, was die Zusammenarbeit, Analyse und Integration ihrer Zeiterfassungsinformationen mit anderen Workflows erleichtert.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "one-click-usage",
+      "title": "Ein-Klick-Nutzung",
+      "description": "Die Zeiterfassungs-App ist eine Progressive Web App (PWA), mit der Benutzer mit einem einzigen Klick darauf zugreifen und sie nutzen können, ohne dass eine Installation oder Anmeldung erforderlich ist. Benutzer können die App einfach direkt über ihren Webbrowser öffnen, und sie verhält sich wie eine native App, die ein nahtloses und reaktionsschnelles Benutzererlebnis bietet. Dadurch entfällt die Hürde traditioneller Installationen und Anmeldungen, sodass Benutzer schnell mit der Zeiterfassung beginnen können, ohne zusätzlichen Aufwand betreiben zu müssen.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "mobile-optimized",
+      "title": "Optimiert für Mobilgeräte",
+      "description": "Die Zeiterfassungs-App ist vollständig für mobile Geräte optimiert und kann von jedem PWA (Progressive Web App)-fähigen Gerät aus abgerufen werden. Egal ob Smartphone oder Tablet, Benutzer können die App mühelos in ihren mobilen Browsern verwenden und dabei eine reaktionsschnelle und intuitive Benutzeroberfläche nutzen, die für kleinere Bildschirme optimiert ist. Das mobile Design stellt sicher, dass Benutzer ihre Zeit einfach erfassen, Aufgaben verwalten und auf alle Funktionen mit flüssiger Navigation und berührungsfreundlichen Interaktionen zugreifen können. Mit einem nahtlosen mobilen Erlebnis können Benutzer produktiv bleiben und ihre Zeit auch unterwegs im Blick behalten.",
+      "promoted": true,
+      "kind": "boolean"
+    },
+    {
+      "id": "free-and-opensource",
+      "title": "Kostenlos und Open Source",
+      "description": "Die Zeiterfassungs-App wird unter einer Open-Source-Lizenz verteilt, sodass Benutzer kostenlos auf den Quellcode zugreifen, ihn verwenden und anpassen können. Durch die Open-Source-Natur ist der Code der App transparent und der Community zugänglich, was Zusammenarbeit und Verbesserung fördert. Benutzer können die App ohne Kosten herunterladen und haben die Freiheit, sie entsprechend ihren spezifischen Anforderungen anzupassen und zu erweitern. Darüber hinaus gewährleistet die Open-Source-Natur eine höhere Sicherheit und Vertrauenswürdigkeit, da die Community den Code überprüfen und dazu beitragen kann, eine zuverlässige Lösung für die Zeiterfassung bereitzustellen.",
+      "promoted": true,
+      "kind": "boolean"
+    }
+  ]
+}

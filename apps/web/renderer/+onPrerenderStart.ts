@@ -1,16 +1,18 @@
 import { OnPrerenderStartSync, PageContextServer } from "vike/types";
 import { CONFIGURATION } from "./configuration";
+import { createLocalePath, replaceSegments } from "./utils/path";
 
 export const onPrerenderStart: OnPrerenderStartSync = (prerenderContext): ReturnType<OnPrerenderStartSync> => {
   const pageContexts: PageContextServer[] = [];
 
   prerenderContext.pageContexts.forEach((pageContext) => {
-    Object.entries(CONFIGURATION.LOCALES).forEach(([locale, localeDetails]) => {
+    CONFIGURATION.LOCALES.forEach((locale) => {
       let urlOriginal = pageContext.urlOriginal;
-      if (locale !== CONFIGURATION.DEFAULT_LOCALE) {
-        urlOriginal = `/${localeDetails.slug}/${urlOriginal}`;
-      }
-      pageContexts.push({ ...pageContext, urlOriginal, locale: localeDetails });
+
+      urlOriginal = createLocalePath(urlOriginal, locale);
+      urlOriginal = replaceSegments(urlOriginal, locale.routes);
+
+      pageContexts.push({ ...pageContext, urlOriginal, locale });
     });
   });
 

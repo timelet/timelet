@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { replaceSegments, stripContentPath } from "./path";
+import { generateAvailablePaths, replaceSegments, stripContentPath } from "./path";
 
 describe("stripContentPath", () => {
   it("should strip the content path from a path", () => {
@@ -32,5 +32,18 @@ describe("replaceSegments", () => {
   it("should replace combined segments with hash", () => {
     const path = replaceSegments("/en/docs/getting-started#second", { "docs/getting-started#second": "doku/erste-schritte#zweitens" });
     expect(path).toBe("/en/doku/erste-schritte#zweitens");
+  });
+});
+
+describe("generateAvailablePaths", () => {
+  it("should generate available paths", () => {
+    const paths = generateAvailablePaths("/docs/getting-started/", [
+      { key: "en-US", slug: "en", name: "English" },
+      { key: "de-CH", slug: "de", name: "Deutsch", routes: { docs: "doku" } },
+    ]);
+    expect(paths).toEqual([
+      { locale: { key: "en-US", slug: "en", name: "English" }, path: "/docs/getting-started/" },
+      { locale: { key: "de-CH", slug: "de", name: "Deutsch", routes: { docs: "doku" } }, path: "/de/doku/getting-started/" },
+    ]);
   });
 });

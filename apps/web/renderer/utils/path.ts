@@ -8,13 +8,8 @@ export function stripContentPath(path: string, locale?: Locale) {
 }
 
 export function createLocalePath(path: string, locale?: Locale) {
-  if (path.startsWith("http")) {
-    return path;
-  }
-
-  if (!locale || locale.key === CONFIGURATION.DEFAULT_LOCALE) {
-    return path;
-  }
+  if (path.startsWith("http")) return path;
+  if (!locale || locale.key === CONFIGURATION.DEFAULT_LOCALE) return path;
 
   return `/${locale.slug}${path}`;
 }
@@ -23,11 +18,26 @@ export function urlToString({ origin, pathname, searchOriginal }: Url) {
   return `${origin || ""}${pathname}${searchOriginal || ""}`;
 }
 
-export const replaceSegments = (path: string, segments: Record<string, string>) => {
+export const replaceSegments = (path: string, segments?: Record<string, string>) => {
+  if (!segments) return path;
+
   const keys = Object.keys(segments);
   if (keys.length > 0) {
     const exp = new RegExp(keys.join("|"), "g");
     return path.replace(exp, (match) => segments[match]);
   }
+
   return path;
 };
+
+export function generateAvailablePaths(path: string, locales: Locale[]) {
+  return locales.map((l) => {
+    let availablePath = createLocalePath(path, l);
+    availablePath = replaceSegments(availablePath, l.routes);
+
+    return {
+      locale: l,
+      path: availablePath,
+    };
+  });
+}
