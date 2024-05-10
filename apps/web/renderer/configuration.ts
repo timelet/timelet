@@ -36,7 +36,7 @@ export const CONFIGURATION = {
 } as const;
 
 export const INTERPOLATE = {
-  CONTENT_PATH: (locale: Locale, content: FlattenValues<typeof CONFIGURATION.CONTENT>) => {
-    return `${CONFIGURATION.PATHS.CONTENT}/${locale.key}/${content}`;
+  CONTENT_PATH: (localeKey: string, content: FlattenValues<typeof CONFIGURATION.CONTENT>) => {
+    return `${CONFIGURATION.PATHS.CONTENT}/${localeKey}/${content}`;
   },
 } as const;
