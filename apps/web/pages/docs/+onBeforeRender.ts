@@ -6,9 +6,9 @@ import { matter } from "vfile-matter";
 import { OnBeforeRenderAsync } from "vike/types";
 
 export const onBeforeRender: OnBeforeRenderAsync = async (pageContext): ReturnType<OnBeforeRenderAsync> => {
-  const files = await glob("../../assets/content/en-US/**/*.mdx");
+  const files = await glob(`../../assets/content/${pageContext.locale?.key}/docs/**/*.mdx`);
   const path = pageContext.urlPathname.match(/^\/docs\/?$/) ? "/docs/index" : pageContext.urlPathname;
-  const file = files.find((f) => f === `../../assets/content/en-US${path}.mdx`);
+  const file = files.find((f) => f === `../../assets/content/${pageContext.locale?.key}${path}.mdx`);
 
   if (!file) {
     return;
