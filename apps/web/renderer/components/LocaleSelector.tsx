@@ -22,7 +22,9 @@ export function LocaleSelector(props: LocaleSelectorProps) {
       <Menu.Dropdown>
         {props.availableLocales.map((l) => (
           <Menu.Item key={l.path}>
-            <Link href={l.path}>{l.locale.name}</Link>
+            <Link href={l.path} localize={false}>
+              {l.locale.name}
+            </Link>
           </Menu.Item>
         ))}
       </Menu.Dropdown>
