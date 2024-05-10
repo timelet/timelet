@@ -18,7 +18,7 @@ export const CONFIGURATION = {
         "/docs/": "/doku/",
       },
     },
-  ] satisfies Locale[],
+  ] as Locale[],
   PATHS: {
     APP: import.meta.env.DEV ? "http://localhost:3001" : "/app",
     CODE: "https://github.com/timelet/timelet",

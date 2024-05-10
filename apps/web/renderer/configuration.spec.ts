@@ -16,4 +16,9 @@ describe("configuration", () => {
     const uniqueSlugs = new Set(localeSlugs);
     expect(localeSlugs.length).toBe(uniqueSlugs.size);
   });
+  it("should not have conflicting routes", () => {
+    const routes: string[] = CONFIGURATION.LOCALES.flatMap((locale) => Object.values(locale.routes || {}));
+    const uniqueRoutes = new Set(routes);
+    expect(routes.length).toBe(uniqueRoutes.size);
+  });
 });

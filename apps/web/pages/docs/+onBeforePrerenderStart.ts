@@ -5,5 +5,5 @@ import { CONFIGURATION } from "../../renderer/configuration";
 
 export const onBeforePrerenderStart: OnBeforePrerenderStartAsync = async (): ReturnType<OnBeforePrerenderStartAsync> => {
   const paths = await glob(`${CONFIGURATION.PATHS.CONTENT}/*/docs/**/*.mdx`);
-  return paths.map((p) => translatePath(stripContentPath(p)).translatedPath);
+  return paths.map((p) => translatePath(stripContentPath(p), CONFIGURATION.LOCALES, CONFIGURATION.DEFAULT_LOCALE).translatedPath);
 };

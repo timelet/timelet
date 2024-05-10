@@ -43,14 +43,14 @@ export function generateAvailablePaths(path: string, locales: Locale[]) {
   });
 }
 
-export function translatePath(originalPath: string) {
-  const { locale: pathLocale, path } = splitLocaleFromURL(originalPath, CONFIGURATION.DEFAULT_LOCALE);
+export function translatePath(originalPath: string, locales: Locale[], defaultLocale: string) {
+  const { locale: pathLocale, path } = splitLocaleFromURL(originalPath, defaultLocale);
   const closestLocale =
     findClosestLocale(
       pathLocale,
-      CONFIGURATION.LOCALES.map((locale) => locale.key)
-    ) || CONFIGURATION.DEFAULT_LOCALE;
-  const locale = CONFIGURATION.LOCALES.find((l) => l.key === closestLocale);
+      locales.map((locale) => locale.key)
+    ) || defaultLocale;
+  const locale = locales.find((l) => l.key === closestLocale);
 
   let translatedPath = createLocalePath(path, locale);
   translatedPath = replaceSegments(translatedPath, locale?.routes);
