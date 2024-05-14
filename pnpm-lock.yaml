@@ -184,6 +184,9 @@ importers:
       '@sinclair/typebox':
         specifier: ^0.32.29
         version: 0.32.30
+      chokidar:
+        specifier: ^3.6.0
+        version: 3.6.0
       to-vfile:
         specifier: ^8.0.0
         version: 8.0.0

@@ -2,28 +2,14 @@ import react from "@vitejs/plugin-react";
 import vike from "vike/plugin";
 import mdx from "@mdx-js/rollup";
 import { UserConfig } from "vite";
-import { watchAndRun } from "vite-plugin-watch-and-run";
-import path from "path";
-import { featuresSchema } from "./data/features";
-import { writeFile } from "fs/promises";
 import { mdxOptions } from "./mdx.config";
-
-function generateSchemaFiles() {
-  writeFile("../../assets/schema/web/features.schema.json", JSON.stringify(featuresSchema));
-}
+import { watchContent } from "./plugins/watchContent";
 
 const config: UserConfig = {
   server: {
     port: 3002,
   },
-  plugins: [
-    react(),
-    vike({ prerender: true, trailingSlash: true }),
-    mdx(mdxOptions),
-    watchAndRun([{ watch: path.resolve("data/**/*.ts"), watchKind: ["add", "change"], run: generateSchemaFiles }]),
-  ],
+  plugins: [react(), vike({ prerender: true, trailingSlash: true }), mdx(mdxOptions), watchContent()],
 };
-
-generateSchemaFiles();
 
 export default config;
