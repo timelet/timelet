@@ -40,6 +40,10 @@ async function readFiles(base: string, path: string) {
     url = url.replace("index", "").replace(".mdx", "");
     url = replaceSegments(url, locale.routes);
 
+    if (!url.startsWith("/")) {
+      url = `/${url}`;
+    }
+
     return {
       path,
       pathWithoutLocale,
@@ -61,8 +65,4 @@ async function readFiles(base: string, path: string) {
 
 export async function getDocsIndex(base: string, path: string) {
   return await readFiles(base, path);
-}
-
-export async function getSomething() {
-  return await glob("*");
 }

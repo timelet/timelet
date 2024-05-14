@@ -6,14 +6,18 @@ export const onPrerenderStart: OnPrerenderStartSync = (prerenderContext): Return
   const pageContexts: PageContextServer[] = [];
 
   prerenderContext.pageContexts.forEach((pageContext) => {
-    CONFIGURATION.LOCALES.forEach((locale) => {
-      let urlOriginal = pageContext.urlOriginal;
+    if (pageContext.locale) {
+      pageContexts.push({ ...pageContext, urlOriginal: pageContext.urlOriginal });
+    } else {
+      CONFIGURATION.LOCALES.forEach((locale) => {
+        let urlOriginal = pageContext.urlOriginal;
 
-      urlOriginal = createLocalePath(urlOriginal, locale);
-      urlOriginal = replaceSegments(urlOriginal, locale.routes);
+        urlOriginal = createLocalePath(urlOriginal, locale);
+        urlOriginal = replaceSegments(urlOriginal, locale.routes);
 
-      pageContexts.push({ ...pageContext, urlOriginal, locale });
-    });
+        pageContexts.push({ ...pageContext, urlOriginal, locale });
+      });
+    }
   });
 
   return { prerenderContext: { pageContexts } };

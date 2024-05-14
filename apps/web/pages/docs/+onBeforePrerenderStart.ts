@@ -1,9 +1,6 @@
-import { glob } from "glob";
-import { stripContentPath, translatePath } from "../../renderer/utils/path";
-import { OnBeforePrerenderStartAsync } from "vike/types";
-import { CONFIGURATION } from "../../renderer/configuration";
+import { OnBeforePrerenderStartSync } from "vike/types";
+import docs from "../../../../assets/content/docs.json";
 
-export const onBeforePrerenderStart: OnBeforePrerenderStartAsync = async (): ReturnType<OnBeforePrerenderStartAsync> => {
-  const paths = await glob(`${CONFIGURATION.PATHS.CONTENT}/*/docs/**/*.mdx`);
-  return paths.map((p) => translatePath(stripContentPath(p), CONFIGURATION.LOCALES, CONFIGURATION.DEFAULT_LOCALE).translatedPath);
+export const onBeforePrerenderStart: OnBeforePrerenderStartSync = (): ReturnType<OnBeforePrerenderStartSync> => {
+  return docs.map((doc) => ({ url: doc.url, pageContext: { locale: doc.locale } }));
 };
