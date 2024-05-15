@@ -25,7 +25,6 @@ export function watchContent(): Plugin {
     name: "watch-content-plugin",
     configureServer() {
       const generateIndexesCallback = (path: string) => {
-        console.log(path);
         path.includes("assets/content") && generateIndexes();
       };
       const watcher = chokidar.watch(path.resolve("../../assets/content/**/*.mdx"), { ignoreInitial: true });

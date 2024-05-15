@@ -1,6 +1,6 @@
 import { IconLanguage, Menu } from "@timelet/ui";
-import { AvailableLocales } from "../../types";
 import { Button } from "@timelet/ui";
+import { AvailableLocales } from "../../types";
 import { Link } from "./Link";
 
 type LocaleSelectorProps = {

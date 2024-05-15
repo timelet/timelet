@@ -4,9 +4,8 @@ import { glob } from "glob";
 import { read } from "to-vfile";
 import { matter } from "vfile-matter";
 import slugify from "limax";
-import { findClosestLocale, splitLocaleFromURL } from "../renderer/utils/locale";
 import { CONFIGURATION } from "../renderer/configuration";
-import { replaceSegments } from "../renderer/utils/path";
+import { stripContentPath, translatePath } from "../renderer/utils/path";
 
 export const docsFrontmatterSchema = Type.Object({
   title: Type.String({ minLength: 3 }),
@@ -28,27 +27,14 @@ async function readFiles(base: string, path: string) {
 
     const frontmatter = vfile.data.matter as DocsFrontmatterSchema;
     const slug = slugify(frontmatter.slug || frontmatter.title, { tone: false });
-    const path = file.replace(base, "");
-    const { locale: localeKey, path: pathWithoutLocale } = splitLocaleFromURL(path, CONFIGURATION.DEFAULT_LOCALE);
-    const closestLocale =
-      findClosestLocale(
-        localeKey,
-        CONFIGURATION.LOCALES.map((l) => l.key)
-      ) || CONFIGURATION.DEFAULT_LOCALE;
-    const locale = CONFIGURATION.LOCALES.find((l) => l.key === closestLocale)!;
-    let url = `${locale.slug}/${pathWithoutLocale}`;
-    url = url.replace("index", "").replace(".mdx", "");
-    url = replaceSegments(url, locale.routes);
-
-    if (!url.startsWith("/")) {
-      url = `/${url}`;
-    }
+    const path = stripContentPath(file.replace(base, "/"));
+    const { translatedPath, locale, path: pathWithoutLocale } = translatePath(path, CONFIGURATION.LOCALES, CONFIGURATION.DEFAULT_LOCALE);
 
     return {
       path,
       pathWithoutLocale,
       file,
-      url,
+      url: translatedPath,
       locale,
       meta: { ...frontmatter, slug },
     };
@@ -56,8 +42,8 @@ async function readFiles(base: string, path: string) {
 
   const resolvedIndex = await Promise.all(index);
   const translatedIndex = resolvedIndex.map((item) => {
-    const translations = resolvedIndex.filter((i) => item.pathWithoutLocale === i.pathWithoutLocale && item.locale.key !== i.locale.key);
-    return { ...item, translations };
+    const translations = resolvedIndex.filter((i) => item.pathWithoutLocale === i.pathWithoutLocale);
+    return { ...item, translations: translations.map((t) => ({ locale: t.locale, path: t.url })) };
   });
 
   return translatedIndex;

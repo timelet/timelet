@@ -1,26 +1,25 @@
 import { compile } from "@mdx-js/mdx";
 import { mdxOptions } from "../../mdx.config";
-import { glob } from "glob";
 import { read } from "to-vfile";
 import { matter } from "vfile-matter";
 import { OnBeforeRenderAsync } from "vike/types";
+import docs from "../../../../assets/content/docs.json";
 
 export const onBeforeRender: OnBeforeRenderAsync = async (pageContext): ReturnType<OnBeforeRenderAsync> => {
-  const files = await glob(`../../assets/content/${pageContext.locale?.key}/docs/**/*.mdx`);
-  const path = pageContext.urlPathname.match(/^\/docs\/?$/) ? "/docs/index" : pageContext.urlPathname;
-  const file = files.find((f) => f === `../../assets/content/${pageContext.locale?.key}${path}.mdx`);
+  const doc = docs.find((doc) => pageContext.locale?.key === doc.locale.key && pageContext.urlOriginal.includes(doc.url));
 
-  if (!file) {
+  if (!doc) {
     return;
   }
 
-  const vfile = await read(file);
+  const vfile = await read(doc.file);
   matter(vfile, { strip: true });
   const frontmatter = vfile.data.matter as { title: string };
   const markdown = await compile(vfile, { ...mdxOptions, outputFormat: "function-body" });
 
   return {
     pageContext: {
+      availableLocales: doc.translations,
       kind: "docs",
       headProps: {
         title: frontmatter.title,
