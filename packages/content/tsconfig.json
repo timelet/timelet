@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "@timelet/ui",
+  "display": "@timelet/content",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",

@@ -18,6 +18,9 @@
     "paths": {
       "@timelet/ui": [
         "./packages/ui/src/index.ts"
+      ],
+      "@timelet/content": [
+        "./packages/content/src/index.ts"
       ]
     }
   },
