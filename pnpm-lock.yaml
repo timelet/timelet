@@ -108,6 +108,9 @@ importers:
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.17.2)
+      '@timelet/content':
+        specifier: workspace:*
+        version: link:../../packages/content
       '@timelet/ui':
         specifier: workspace:*
         version: link:../../packages/ui
