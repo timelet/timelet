@@ -1,5 +1,5 @@
 import nodePath from "node:path";
-import { FILE_TYPES, FileType, PathSegments, UNKNOWN_FILE_TYPE } from "./types";
+import { FILE_TYPES, FileType, PathSegments, UNKNOWN_FILE_TYPE } from "../types";
 
 const FILE_INDEX_PATTERN = /index/i;
 const IETF_BCP_47_LOCALE_PATTERN = /^\/?(\w{2}(?!\w)(-\w{1,})*)\/?/;
