@@ -19,16 +19,9 @@
     "preview": "vite preview",
     "lint": "eslint . --max-warnings=0"
   },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
+  "peerDependencies": {},
   "devDependencies": {
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-svgr": "^4.2.0"

@@ -1,4 +1,4 @@
-import { findClosestLocale, parseLocaleFromFilenameSuffix, parseLocaleFromURL, splitLocaleFromURL } from "./locale";
+import { findClosestLocale, parseLocaleFromURL, splitLocaleFromURL } from "./locale";
 import { describe, it, expect } from "vitest";
 
 describe("findClosestLocale", () => {
@@ -10,33 +10,6 @@ describe("findClosestLocale", () => {
   it("should match languages to locale", () => {
     const locale = findClosestLocale("zh", ["de-CH", "en-US", "zh-CN"]);
     expect(locale).toBe("zh-CN");
-  });
-});
-
-describe("parseFilenameSuffix", () => {
-  it("should estimate the language in a filename", () => {
-    const { estimatedLocale } = parseLocaleFromFilenameSuffix("index.de.md", "en");
-    expect(estimatedLocale).toBe("de");
-  });
-
-  it("should estimate the exact locale in a filename", () => {
-    const { estimatedLocale } = parseLocaleFromFilenameSuffix("index.de-CH.md", "en");
-    expect(estimatedLocale).toBe("de-CH");
-  });
-
-  it("should return the default locale if no locale was found in filename", () => {
-    const { estimatedLocale } = parseLocaleFromFilenameSuffix("index.md", "en");
-    expect(estimatedLocale).toBe("en");
-  });
-
-  it("should return the filename without extensions, even when there is no locale", () => {
-    const { filename } = parseLocaleFromFilenameSuffix("index.md", "en");
-    expect(filename).toBe("index");
-  });
-
-  it("should return the filename without extensions", () => {
-    const { filename } = parseLocaleFromFilenameSuffix("index.en-US.md", "en");
-    expect(filename).toBe("index");
   });
 });
 
