@@ -19,12 +19,15 @@
     "preview": "vite preview",
     "lint": "eslint . --max-warnings=0"
   },
-  "peerDependencies": {},
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.6.0",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-svgr": "^4.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@sinclair/typebox": "^0.32.29",
+    "chokidar": "^3.6.0",
+    "fast-glob": "^3.3.2",
+    "to-vfile": "^8.0.0"
+  }
 }
