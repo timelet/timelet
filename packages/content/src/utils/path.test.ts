@@ -10,6 +10,15 @@ describe("stripPath", () => {
     const path = stripPath("../../assets/content/en-US/index/getting-started/index.mdx");
     expect(path).toBe("../../assets/content/en-US/index/getting-started/");
   });
+  it("should strip off index and basepath", () => {
+    const path = stripPath("../../assets/content/en-US/index/getting-started/index.mdx", "../../assets/content/");
+    expect(path).toBe("/en-US/index/getting-started/");
+  });
+  it("should check basepath pointing to a directory", () => {
+    expect(() => stripPath("../../assets/content/en-US/index/getting-started/index.mdx", "../../assets/content")).toThrowError(
+      "Base path must end with a slash and point to a directory"
+    );
+  });
 });
 
 describe("determineType", () => {

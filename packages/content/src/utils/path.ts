@@ -6,9 +6,13 @@ const IETF_BCP_47_LOCALE_PATTERN = /^\/?(\w{2}(?!\w)(-\w{1,})*)\/?/;
 const SINGLE_LEADING_SLASH_PATTERN = /^\/(?=\/)/;
 const REMOVE_LEADING_SLASH_PATTERN = /^\/+/;
 
-export function stripPath(path: string) {
+export function stripPath(path: string, basePath?: string) {
+  if (basePath && !basePath.endsWith("/")) throw new Error("Base path must end with a slash and point to a directory");
+
   const p = nodePath.parse(path);
-  return nodePath.join(p.dir, FILE_INDEX_PATTERN.test(p.name) ? nodePath.sep : p.name);
+  const d = basePath ? nodePath.join(p.dir.replace(basePath, "/")) : p.dir;
+
+  return nodePath.join(d, FILE_INDEX_PATTERN.test(p.name) ? nodePath.sep : p.name);
 }
 
 export function isFileType(maybeType: unknown): maybeType is FileType {
@@ -18,6 +22,7 @@ export function isFileType(maybeType: unknown): maybeType is FileType {
 export function determineFileType(path: string): FileType {
   const p = nodePath.parse(path);
   const t = p.ext.replace(".", "");
+
   if (isFileType(t)) {
     return t;
   }
@@ -45,6 +50,7 @@ export function parseLocaleTagFromPath(path: string) {
 export function splitLocaleFromPath(path: string) {
   const locale = parseLocaleTagFromPath(path);
   if (!locale) return undefined;
+
   const p = path.replace(locale, "").replace(path.startsWith("/") ? SINGLE_LEADING_SLASH_PATTERN : REMOVE_LEADING_SLASH_PATTERN, "");
   return { locale, path: p };
 }

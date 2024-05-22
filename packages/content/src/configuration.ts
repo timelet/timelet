@@ -6,15 +6,13 @@ const defaultConfiguration: Configuration = {
 let configuration: Configuration = defaultConfiguration;
 
 export function validateConfiguration(configuration: Configuration) {
-  if (configuration.defaultLocale && !configuration.locales) throw new Error("Locales not defined");
-  if (!configuration.defaultLocale && configuration.locales) throw new Error("Default locale not defined");
-  if (configuration.locales && !configuration.locales.find((l) => l.key === configuration.defaultLocale))
+  if (configuration.i18n && configuration.i18n.locales && !configuration.i18n.locales.find((l) => l.key === configuration.i18n?.defaultLocale))
     throw new Error("Default locale not found in locales");
 }
 
 export function setConfiguration(newConfiguration: Configuration) {
   validateConfiguration(newConfiguration);
-  configuration = { ...defaultConfiguration, ...newConfiguration };
+  configuration = newConfiguration;
 }
 
 export function getConfiguration() {

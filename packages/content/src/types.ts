@@ -7,13 +7,18 @@ export const FILE_TYPES = ["mdx", "md", "json", "yaml", "yml", UNKNOWN_FILE_TYPE
 
 // Pipeline
 
-export type Stage<T> = (content: T) => T;
+export type Stage<T> = (content: T, collection: Collection, configuration?: Configuration) => T;
 
 // Configuration
 
-export type Configuration = {
-  locales?: LocaleDetails[];
-  defaultLocale?: Locale;
+export type I18nConfiguration = {
+  i18n?: {
+    locales: LocaleDetails[];
+    defaultLocale: Locale;
+  };
+};
+
+export type Configuration = I18nConfiguration & {
   renderPath?: string;
 };
 
@@ -39,15 +44,13 @@ export type File = {
 
 export type CollectionRegistration = {
   name?: string;
-  path: string;
+  globPath: string;
+  basePath: string;
   type?: TObject;
 };
 export type Collection = {
   name: string;
-  files: Array<File>;
-};
-export type Contents = {
-  name: string;
+  basePath: string;
   contents: Array<Content>;
 };
 
