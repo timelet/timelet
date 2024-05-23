@@ -15,7 +15,7 @@ describe("registerCollection", () => {
     });
     const name = await registerCollection({ basePath: "assets/content/", globPath: "/**/docs/**/*.mdx" });
     expect(name).toBeDefined();
-    console.log(getCollection(name));
+    console.dir(getCollection(name), { depth: null });
     expect(true).toBe(true);
   });
 });

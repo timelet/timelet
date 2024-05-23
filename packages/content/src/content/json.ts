@@ -1,6 +1,6 @@
-import { Content, ContentStage } from "../types";
+import { ContentStage } from "../types";
 
-export const jsonContentStage: ContentStage<Content> = (content) => {
+export const jsonContentStage: ContentStage = (content) => {
   if (content.type === "json") {
     console.log("JSON stage not implemented");
   }

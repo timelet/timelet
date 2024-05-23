@@ -5,9 +5,10 @@ import { TObject } from "@sinclair/typebox";
 export const UNKNOWN_FILE_TYPE = "unknown";
 export const FILE_TYPES = ["mdx", "md", "json", "yaml", "yml", UNKNOWN_FILE_TYPE] as const;
 
-// Pipeline
+// Pipelines
 
-export type ContentStage<T> = (content: T, collection: Collection, configuration?: Configuration) => T;
+export type ContentStage = (content: Content, collection: Collection, configuration?: Configuration) => Content;
+export type CollectionStage = (collection: Collection, configuration?: Configuration) => Collection;
 
 // Configuration
 

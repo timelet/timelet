@@ -1,5 +1,5 @@
-import { Content, ContentStage } from "../types";
+import { ContentStage } from "../types";
 
-export const mdxContentStage: ContentStage<Content> = (content) => {
+export const mdxContentStage: ContentStage = (content) => {
   return content;
 };

@@ -1,7 +1,7 @@
-import { Content, ContentStage } from "../types";
+import { ContentStage } from "../types";
 import { translatePath } from "../utils/i18n";
 
-export const i18nContentStage: ContentStage<Content> = (content, _, configuration) => {
+export const i18nContentStage: ContentStage = (content, _, configuration) => {
   if (!configuration?.i18n) return content;
 
   const { path, locale, pathWithoutLocale } = translatePath(content.url, configuration.i18n.locales, configuration.i18n.defaultLocale);
