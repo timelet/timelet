@@ -54,21 +54,39 @@ export type Collection = {
   contents: Array<Content>;
 };
 
+// I18n
+
+export type Locale = string;
+export type LocaleDetails<L = Locale> = {
+  key: L;
+  slug: string;
+  segments?: PathSegments;
+};
+export type LocalizedContent = {
+  l10n?: {
+    locale: Locale;
+    pathWithoutLocale: string;
+    translations?: Array<{ locale: Locale; url: string }>;
+  };
+};
+
 // Content types
 
 /**
  * A content object
  */
-export type Content<M = Record<string, string>> = File & {
-  /**
-   * The URL to the file
-   */
-  url: string;
-  /**
-   * The metadata of the file
-   */
-  meta?: M;
-};
+export type Content<M = Record<string, string>> = File &
+  LocalizedContent & {
+    /**
+     * The URL to the file
+     */
+    url: string;
+    /**
+     * The metadata of the file
+     */
+    meta?: M;
+  };
+
 export type MarkdownMeta = {
   title: string;
   slug: string;
@@ -80,19 +98,4 @@ export type MDContent<M = MarkdownMeta> = Content<M> & {
 
 export type MDXContent<M = MarkdownMeta> = Content<M> & {
   type: "mdx";
-};
-
-// I18n
-
-export type Locale = string;
-export type LocaleDetails<L = Locale> = {
-  key: L;
-  slug: string;
-  segments?: PathSegments;
-};
-export type LocalizedContent = Content & {
-  localized: true;
-  locale: Locale;
-  fileWithoutLocale: string;
-  translations: Array<{ locale: Locale; url: string }>;
 };
