@@ -28,6 +28,8 @@
     "@sinclair/typebox": "^0.32.29",
     "chokidar": "^3.6.0",
     "fast-glob": "^3.3.2",
-    "to-vfile": "^8.0.0"
+    "limax": "^4.1.0",
+    "to-vfile": "^8.0.0",
+    "vfile-matter": "^5.0.0"
   }
 }

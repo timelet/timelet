@@ -208,9 +208,15 @@ importers:
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
+      limax:
+        specifier: ^4.1.0
+        version: 4.1.0
       to-vfile:
         specifier: ^8.0.0
         version: 8.0.0
+      vfile-matter:
+        specifier: ^5.0.0
+        version: 5.0.0
     devDependencies:
       vite:
         specifier: ^5.2.11

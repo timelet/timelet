@@ -22,9 +22,9 @@ export async function registerCollection(registration: CollectionRegistration) {
   if (files.length === 0) throw new Error("No files found");
 
   const name = registration.name || randomUUID();
+  const collection: Collection = { name, basePath: registration.basePath, contents: files.map((file) => ({ file, type, url: file })) };
 
-  collections = [...collections, { name, basePath: registration.basePath, contents: files.map((file) => ({ file, type, url: file })) }];
-  processCollections();
+  collections = [...collections, processCollection(collection)];
 
   return name;
 }
@@ -41,20 +41,15 @@ export function getCollection(name: string) {
   return collections.find((c) => c.name === name);
 }
 
-async function processCollections() {
+function processCollection(collection: Collection) {
   const config = getConfiguration();
   const contentStages = [urlContentStage, jsonContentStage, mdxContentStage, i18nContentStage];
   const applyContentPipeline = createContentPipeline(contentStages);
-
-  collections = collections.map((c) => {
-    return {
-      name: c.name,
-      basePath: c.basePath,
-      contents: c.contents.map((f) => applyContentPipeline(f, c, config)),
-    };
-  });
-
   const collectionStages = [translationCollectionStage];
   const applyCollectionPipeline = createCollectionPipeline(collectionStages);
-  collections = collections.map((c) => applyCollectionPipeline(c, config));
+
+  let c: Collection = { ...collection, contents: collection.contents.map((f) => applyContentPipeline(f, collection, config)) };
+  c = applyCollectionPipeline(c, config);
+
+  return c;
 }
