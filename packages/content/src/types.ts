@@ -7,7 +7,7 @@ export const FILE_TYPES = ["mdx", "md", "json", "yaml", "yml", UNKNOWN_FILE_TYPE
 
 // Pipeline
 
-export type Stage<T> = (content: T, collection: Collection, configuration?: Configuration) => T;
+export type ContentStage<T> = (content: T, collection: Collection, configuration?: Configuration) => T;
 
 // Configuration
 

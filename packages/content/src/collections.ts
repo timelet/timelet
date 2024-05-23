@@ -2,13 +2,13 @@ import { CollectionRegistration, Collection, Content } from "./types";
 import glob from "fast-glob";
 import { determineFileType } from "./utils/path";
 import { randomUUID } from "node:crypto";
-import { mdxStage } from "./stages/mdx";
-import { jsonStage } from "./stages/json";
-import { createPipeline } from "./pipeline";
+import { mdxContentStage } from "./content/mdx";
+import { jsonContentStage } from "./content/json";
+import { createContentPipeline } from "./pipeline";
 import { getConfiguration } from "./configuration";
-import { urlStage } from "./stages/url";
+import { urlContentStage } from "./content/url";
 import { join } from "node:path";
-import { i18nStage } from "./stages/i18n";
+import { i18nContentStage } from "./content/i18n";
 
 let collections: Collection[] = [];
 
@@ -42,14 +42,14 @@ export function getCollection(name: string) {
 
 async function processCollections() {
   const config = getConfiguration();
-  const stages = [urlStage, jsonStage, mdxStage, i18nStage];
-  const pipeline = createPipeline<Content>(stages);
+  const contentStages = [urlContentStage, jsonContentStage, mdxContentStage, i18nContentStage];
+  const applyContentPipeline = createContentPipeline<Content>(contentStages);
 
   collections = collections.map((c) => {
     return {
       name: c.name,
       basePath: c.basePath,
-      contents: c.contents.map((f) => pipeline(f, c, config)),
+      contents: c.contents.map((f) => applyContentPipeline(f, c, config)),
     };
   });
 }
