@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/form": "^7.9.0",
+    "@mantine/form": "^7.10.0",
     "@timelet/ui": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -23,7 +23,7 @@
     "workbox-window": "^7.1.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/uuid": "^9.0.8",
     "@vitejs/plugin-react-swc": "^3.7.0",
