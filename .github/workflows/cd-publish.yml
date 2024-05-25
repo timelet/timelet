@@ -39,7 +39,8 @@ jobs:
           version: pnpm version
           publish: pnpm release
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       ref: ${{ github.ref }}
       published: ${{ steps.changesets.outputs.published }}

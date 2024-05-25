@@ -1,6 +1,5 @@
 {
   "name": "@timelet/content",
-  "private": true,
   "version": "0.1.1",
   "type": "module",
   "main": "./dist/index.cjs",
