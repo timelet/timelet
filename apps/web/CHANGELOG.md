@@ -1,5 +1,13 @@
 # @timelet/web
 
+## 0.1.5
+
+### Patch Changes
+
+- c3a84b0: Enhance i18n
+- Updated dependencies [c17c3c7]
+  - @timelet/content@0.1.2
+
 ## 0.1.4
 
 ### Patch Changes
