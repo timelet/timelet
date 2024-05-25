@@ -16,5 +16,5 @@ For providing the base functionality the following dependencies are used:
 
 ## Alternatives
 
-- https://contentlayer.dev/
+- https://contentlayer.dev
 - https://velite.js.org
