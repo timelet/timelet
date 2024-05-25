@@ -1,5 +1,12 @@
 # @timelet/web
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [f93e4c9]
+  - @timelet/content@0.1.3
+
 ## 0.1.5
 
 ### Patch Changes
