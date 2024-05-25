@@ -13,6 +13,7 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "changeset publish",
+    "tag": "changeset tag",
     "test": "vitest"
   },
   "devDependencies": {

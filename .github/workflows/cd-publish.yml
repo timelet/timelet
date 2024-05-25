@@ -37,13 +37,22 @@ jobs:
         id: changesets
         with:
           version: pnpm version
-          publish: pnpm release
+          publish: pnpm tag
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       ref: ${{ github.ref }}
       published: ${{ steps.changesets.outputs.published }}
+
+  deploy-to-packages:
+    name: Deploy to package registries
+    uses: ./.github/workflows/cd-registries.yml
+    needs: publish
+    with:
+      ref: ${{ needs.publish.outputs.ref }}
+    secrets: inherit
+    if: ${{ needs.publish.outputs.published }}
 
   deploy-to-static-file-host:
     name: Deploy to Static File Host
