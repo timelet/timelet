@@ -2,14 +2,9 @@ import { CollectionRegistration, Collection } from "./types";
 import glob from "fast-glob";
 import { determineFileType } from "./utils/path";
 import { randomUUID } from "node:crypto";
-import { mdxContentStage } from "./content/mdx";
-import { jsonContentStage } from "./content/json";
-import { createCollectionPipeline, createContentPipeline } from "./pipeline";
+import { getCollectionPipeline, getContentPipeline } from "./pipeline";
 import { getConfiguration } from "./configuration";
-import { urlContentStage } from "./content/url";
 import { join } from "node:path";
-import { i18nContentStage } from "./content/i18n";
-import { translationCollectionStage } from "./collection/translation";
 
 let collections: Collection[] = [];
 
@@ -43,12 +38,10 @@ export function getCollection(name: string) {
 
 function processCollection(collection: Collection) {
   const config = getConfiguration();
-  const contentStages = [urlContentStage, jsonContentStage, mdxContentStage, i18nContentStage];
-  const applyContentPipeline = createContentPipeline(contentStages);
-  const collectionStages = [translationCollectionStage];
-  const applyCollectionPipeline = createCollectionPipeline(collectionStages);
+  const applyContentPipeline = getContentPipeline();
+  const applyCollectionPipeline = getCollectionPipeline();
 
-  let c: Collection = { ...collection, contents: collection.contents.map((f) => applyContentPipeline(f, collection, config)) };
+  let c: Collection = { ...collection, contents: collection.contents.map((content) => applyContentPipeline(content, collection, config)) };
   c = applyCollectionPipeline(c, config);
 
   return c;
