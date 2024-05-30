@@ -1,7 +1,7 @@
 import { Configuration } from "./types";
 
 const defaultConfiguration: Configuration = {
-  renderPath: "./.timelet/content/",
+  outputPath: "./.timelet/content/",
 };
 let configuration: Configuration = defaultConfiguration;
 

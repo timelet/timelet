@@ -20,7 +20,7 @@ export type I18nConfiguration = {
 };
 
 export type Configuration = I18nConfiguration & {
-  renderPath?: string;
+  outputPath?: string;
 };
 
 // Files and paths
@@ -44,7 +44,6 @@ export type File = {
 // Collection
 
 export type CollectionRegistration = {
-  name?: string;
   globPath: string;
   basePath: string;
   type?: TObject;

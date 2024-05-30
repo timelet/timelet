@@ -16,7 +16,7 @@ export async function registerCollection(registration: CollectionRegistration) {
   const files = await glob(path);
   if (files.length === 0) throw new Error("No files found");
 
-  const name = registration.name || randomUUID();
+  const name = randomUUID();
   const collection: Collection = { name, basePath: registration.basePath, contents: files.map((file) => ({ file, type, url: file })) };
 
   collections = [...collections, processCollection(collection)];
