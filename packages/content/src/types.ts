@@ -43,14 +43,26 @@ export type File = {
 
 // Collection
 
+export const defaultCollectionOptions: CollectionRegistration["options"] = {
+  watch: false,
+  render: false,
+};
+
 export type CollectionRegistration = {
+  name: string;
   globPath: string;
   basePath: string;
-  type?: TObject;
+  options?: {
+    type?: TObject;
+    watch?: boolean;
+    render?: boolean;
+  };
 };
 export type Collection = {
   name: string;
   basePath: string;
+  searchPath: string;
+  outputPath?: string;
   contents: Array<Content>;
 };
 

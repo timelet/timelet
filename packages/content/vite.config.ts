@@ -14,7 +14,9 @@ export default defineConfig({
       external: ["fast-glob", "node:path", "node:crypto", "to-vfile", "vfile-matter", "limax"],
       output: {
         globals: {
+          chokidar: "chokidar",
           "fast-glob": "glob",
+          "node:fs/promises": "fs",
           "node:path": "nodePath",
           "node:crypto": "nodeCrypto",
           "to-vfile": "toVfile",
