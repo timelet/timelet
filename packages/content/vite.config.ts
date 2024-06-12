@@ -7,7 +7,10 @@ export default defineConfig({
     ssr: true,
     ssrEmitAssets: true,
     lib: {
-      entry: "src/index.ts",
+      entry: {
+        index: "src/index.ts",
+        server: "src/server.ts",
+      },
       name: packageJson.name,
     },
     rollupOptions: {
