@@ -23,7 +23,7 @@
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
@@ -37,7 +37,7 @@
     "remark-mdx-frontmatter": "^4.0.0",
     "sirv": "^2.0.4",
     "ts-node": "^10.9.2",
-    "vike": "^0.4.174",
+    "vike": "^0.4.176",
     "vite": "^5.2.13",
     "vite-plugin-watch-and-run": "^1.7.0"
   },
