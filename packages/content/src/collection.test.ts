@@ -38,7 +38,11 @@ describe("registerCollection", () => {
         defaultLocale: "en-US",
       },
     });
-    const name = await registerCollection({ name: "test", basePath: "assets/content/", globPath: "/**/docs/**/*.mdx" });
+    const name = await registerCollection({
+      name: "test",
+      basePath: "assets/content/",
+      globPath: "/**/docs/**/*.mdx",
+    });
     expect(mocks.glob).toHaveBeenCalledWith("assets/content/**/docs/**/*.mdx");
     expect(name).toBeDefined();
     const collection = getCollection(name);

@@ -23,6 +23,10 @@ export type Configuration = I18nConfiguration & {
   outputPath?: string;
 };
 
+export type ConfigurationFile = Configuration & {
+  collections: CollectionRegistration[];
+};
+
 // Files and paths
 
 export type PathSegments = Record<string, string>;

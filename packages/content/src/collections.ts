@@ -35,7 +35,7 @@ export async function registerCollection(registration: CollectionRegistration) {
   };
 
   if (options.render && config.outputPath) {
-    collection["outputPath"] = join(config.outputPath, registration.name, ".json");
+    collection["outputPath"] = config.outputPath;
   }
 
   const processedCollection = processCollection(collection);
@@ -105,6 +105,7 @@ function processCollection(collection: Collection) {
 async function outputCollection(collection: Collection) {
   if (collection.outputPath) {
     await fs.mkdir(collection.outputPath, { recursive: true });
-    await fs.writeFile(collection.outputPath, JSON.stringify(collection.contents));
+    const filePath = join(collection.outputPath, `${collection.name}.json`);
+    await fs.writeFile(filePath, JSON.stringify(collection.contents));
   }
 }

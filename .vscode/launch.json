@@ -28,6 +28,19 @@
       "type": "node"
     },
     {
+      "name": "Debug test via node",
+      "request": "launch",
+      "runtimeArgs": [
+        "run",
+        "test"
+      ],
+      "runtimeExecutable": "pnpm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
       "command": "pnpm dev",
       "name": "Debug development via node-terminal",
       "request": "launch",

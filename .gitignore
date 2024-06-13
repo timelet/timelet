@@ -240,3 +240,4 @@ $RECYCLE.BIN/
 .nx/cache
 .nx/workspace-data
 **/*ts.timestamp*
+.timelet
