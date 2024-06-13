@@ -2,21 +2,21 @@
   "name": "@timelet/content",
   "version": "0.1.4",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/api.cjs",
+  "module": "./dist/api.js",
+  "types": "./dist/api.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/api.js",
+      "require": "./dist/api.cjs"
     },
-    "./server": {
-      "import": "./dist/server.js",
-      "require": "./dist/server.cjs"
+    "./cli": {
+      "import": "./dist/cli.js",
+      "require": "./dist/cli.cjs"
     }
   },
   "bin": {
-    "timelet-content": "./dist/server.js"
+    "timelet-content": "./dist/cli.js"
   },
   "files": [
     "dist"

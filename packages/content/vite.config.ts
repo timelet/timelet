@@ -8,8 +8,8 @@ export default defineConfig({
     ssrEmitAssets: true,
     lib: {
       entry: {
-        index: "src/index.ts",
-        server: "src/server.ts",
+        api: "src/api.ts",
+        cli: "src/cli.ts",
       },
       name: packageJson.name,
     },

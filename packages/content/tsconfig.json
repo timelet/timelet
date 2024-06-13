@@ -3,7 +3,6 @@
   "display": "@timelet/content",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
     "lib": [
       "ES2015",
       "DOM"
@@ -12,7 +11,6 @@
     "target": "ES6",
     "resolveJsonModule": true,
     "noEmit": true,
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
   "exclude": [

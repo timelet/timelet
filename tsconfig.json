@@ -20,7 +20,7 @@
         "./packages/ui/src/index.ts"
       ],
       "@timelet/content": [
-        "./packages/content/src/index.ts"
+        "./packages/content/src/api.ts"
       ]
     }
   },
