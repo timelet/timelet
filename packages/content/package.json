@@ -37,7 +37,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.32.31",
+    "@sinclair/typebox": "^0.32.32",
     "chokidar": "^3.6.0",
     "fast-glob": "^3.3.2",
     "limax": "^4.1.0",
