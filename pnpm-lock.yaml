@@ -49,7 +49,7 @@ importers:
     dependencies:
       '@mantine/form':
         specifier: ^7.10.0
-        version: 7.10.1(react@18.3.1)
+        version: 7.10.2(react@18.3.1)
       '@timelet/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -238,10 +238,10 @@ importers:
         version: 5.0.20
       '@mantine/core':
         specifier: ^7.10.0
-        version: 7.10.1(@mantine/hooks@7.10.1(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 7.10.2(@mantine/hooks@7.10.2(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mantine/hooks':
         specifier: ^7.10.0
-        version: 7.10.1(react@18.3.1)
+        version: 7.10.2(react@18.3.1)
       '@storybook/react-vite':
         specifier: ^8.1.8
         version: 8.1.8(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(terser@5.31.1))
@@ -1853,8 +1853,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/react@0.26.16':
-    resolution: {integrity: sha512-HEf43zxZNAI/E781QIVpYSF3K2VH4TTYZpqecjdsFkjsaU1EbaWcM++kw0HXFffj7gDUcBFevX8s0rQGQpxkow==}
+  '@floating-ui/react@0.26.17':
+    resolution: {integrity: sha512-ESD+jYWwqwVzaIgIhExrArdsCL1rOAzryG/Sjlu8yaD3Mtqi3uVyhbE2V7jD58Mo52qbzKz2eUY/Xgh5I86FCQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -1962,20 +1962,20 @@ packages:
   '@laynezh/vite-plugin-lib-assets@0.5.22':
     resolution: {integrity: sha512-2gUL16h1D+AyJV4kG1up6wMAq8UJRttpBdFKgFCR30KYlWbue5n4jsyvCfIdre53qgG2Dd/xzMXdvz1d8tbizg==}
 
-  '@mantine/core@7.10.1':
-    resolution: {integrity: sha512-l9ypojKN3PjwO1CSLIsqxi7mA25+7w+xc71Q+JuCCREI0tuGwkZsKbIOpuTATIJOjPh8ycLiW7QxX1LYsRTq6w==}
+  '@mantine/core@7.10.2':
+    resolution: {integrity: sha512-sPqJY2A+zHAhi7/mJKL2EH92jKc6JDACJY17gXS+FcbIQgiaY1rxA/tdcybpq8FbswSgUYZO6CRL6XWEhatw5w==}
     peerDependencies:
-      '@mantine/hooks': 7.10.1
+      '@mantine/hooks': 7.10.2
       react: ^18.2.0
       react-dom: ^18.2.0
 
-  '@mantine/form@7.10.1':
-    resolution: {integrity: sha512-mZwzg4GEWKEDKEIZu9FmSpGFzYYhFD2YArVOXUM0MMciUqX7yxSCon1PaPJxrV8ldc6FE+JLVI2+G2KVxJ3ZXA==}
+  '@mantine/form@7.10.2':
+    resolution: {integrity: sha512-OlXQ04orkwQO+AEeA4OihYtfxpaoK/LC1r2/nnUQmChG/GO1X9MoEW8oTQYKyYDIpQc8+lHhos4gl9dEF5YAWw==}
     peerDependencies:
       react: ^18.2.0
 
-  '@mantine/hooks@7.10.1':
-    resolution: {integrity: sha512-0EH9WBWUdtQLGU3Ak+csQ77EtUxI6pPNfwZdRJQWcaA3f8SFOLo9h9CGxiikFExerhvuCeUlaTf3s+TB9Op/rw==}
+  '@mantine/hooks@7.10.2':
+    resolution: {integrity: sha512-3m4flbR2yv3Bl21pHl5BKOOnqrInp/gVD72rozLeu/jzIZqQy8yFRTY2bUWCebPwNem//OD1rCORsBXNXvq31g==}
     peerDependencies:
       react: ^18.2.0
 
@@ -5834,8 +5834,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-number-format@5.3.4:
-    resolution: {integrity: sha512-2hHN5mbLuCDUx19bv0Q8wet67QqYK6xmtLQeY5xx+h7UXiMmRtaCwqko4mMPoKXLc6xAzwRrutg8XbTRlsfjRg==}
+  react-number-format@5.4.0:
+    resolution: {integrity: sha512-NWdICrqLhI7rAS8yUeLVd6Wr4cN7UjJ9IBTS0f/a9i7UB4x4Ti70kGnksBtZ7o4Z7YRbvCMMR/jQmkoOBa/4fg==}
     peerDependencies:
       react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -6580,8 +6580,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.18.3:
-    resolution: {integrity: sha512-Q08/0IrpvM+NMY9PA2rti9Jb+JejTddwmwmVQGskAlhtcrw1wsRzoR6ode6mR+OAabNa75w/dxedSUY2mlphaQ==}
+  type-fest@4.20.0:
+    resolution: {integrity: sha512-MBh+PHUHHisjXf4tlx0CFWoMdjx8zCMLJHOjnV1prABYZFHqtFOyauCIK2/7w4oIfwkF8iNhLtnJEfVY2vn3iw==}
     engines: {node: '>=16'}
 
   type-is@1.6.18:
@@ -9060,7 +9060,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@floating-ui/react@0.26.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@floating-ui/react@0.26.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@floating-ui/react-dom': 2.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@floating-ui/utils': 0.2.2
@@ -9197,27 +9197,27 @@ snapshots:
       mrmime: 1.0.1
       semver: 7.6.0
 
-  '@mantine/core@7.10.1(@mantine/hooks@7.10.1(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mantine/core@7.10.2(@mantine/hooks@7.10.2(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@floating-ui/react': 0.26.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mantine/hooks': 7.10.1(react@18.3.1)
+      '@floating-ui/react': 0.26.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mantine/hooks': 7.10.2(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-number-format: 5.3.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-number-format: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-remove-scroll: 2.5.10(@types/react@18.3.3)(react@18.3.1)
       react-textarea-autosize: 8.5.3(@types/react@18.3.3)(react@18.3.1)
-      type-fest: 4.18.3
+      type-fest: 4.20.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@mantine/form@7.10.1(react@18.3.1)':
+  '@mantine/form@7.10.2(react@18.3.1)':
     dependencies:
       fast-deep-equal: 3.1.3
       klona: 2.0.6
       react: 18.3.1
 
-  '@mantine/hooks@7.10.1(react@18.3.1)':
+  '@mantine/hooks@7.10.2(react@18.3.1)':
     dependencies:
       react: 18.3.1
 
@@ -14054,7 +14054,7 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-number-format@5.3.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-number-format@5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       prop-types: 15.8.1
       react: 18.3.1
@@ -14075,7 +14075,7 @@ snapshots:
       react: 18.3.1
       react-remove-scroll-bar: 2.3.6(@types/react@18.3.3)(react@18.3.1)
       react-style-singleton: 2.2.1(@types/react@18.3.3)(react@18.3.1)
-      tslib: 2.6.2
+      tslib: 2.6.3
       use-callback-ref: 1.3.2(@types/react@18.3.3)(react@18.3.1)
       use-sidecar: 1.1.2(@types/react@18.3.3)(react@18.3.1)
     optionalDependencies:
@@ -14115,7 +14115,7 @@ snapshots:
 
   react-textarea-autosize@8.5.3(@types/react@18.3.3)(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.24.6
+      '@babel/runtime': 7.24.7
       react: 18.3.1
       use-composed-ref: 1.3.0(react@18.3.1)
       use-latest: 1.2.1(@types/react@18.3.3)(react@18.3.1)
@@ -14907,7 +14907,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.18.3: {}
+  type-fest@4.20.0: {}
 
   type-is@1.6.18:
     dependencies:
