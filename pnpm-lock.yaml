@@ -251,7 +251,7 @@ importers:
     devDependencies:
       '@laynezh/vite-plugin-lib-assets':
         specifier: ^0.5.22
-        version: 0.5.22
+        version: 0.5.23(vite@5.3.1(@types/node@20.14.8)(terser@5.31.1))
       '@storybook/addon-essentials':
         specifier: ^8.1.8
         version: 8.1.10(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2097,8 +2097,10 @@ packages:
     resolution: {integrity: sha512-uDBFBvCYUT4UaZZKv7gJejQvbrOp4YyI1S0Z92DPiMbyLq0DPDXz3Lt2ZqUZKlQrinBX+W1TO6w0RudEX6Q6WA==}
     engines: {node: ^16.14 || >=18}
 
-  '@laynezh/vite-plugin-lib-assets@0.5.22':
-    resolution: {integrity: sha512-2gUL16h1D+AyJV4kG1up6wMAq8UJRttpBdFKgFCR30KYlWbue5n4jsyvCfIdre53qgG2Dd/xzMXdvz1d8tbizg==}
+  '@laynezh/vite-plugin-lib-assets@0.5.23':
+    resolution: {integrity: sha512-17df7hIpAM/wO+2z6cI7OIBuoJCHz1pRtY5A6g+R72KVKhjp8KrqCObDapuWEGY+RliSTBjvwi6rfQfFj/1JKg==}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
 
   '@mantine/core@7.10.2':
     resolution: {integrity: sha512-sPqJY2A+zHAhi7/mJKL2EH92jKc6JDACJY17gXS+FcbIQgiaY1rxA/tdcybpq8FbswSgUYZO6CRL6XWEhatw5w==}
@@ -5134,8 +5136,8 @@ packages:
     resolution: {integrity: sha512-OfCBkGEw4nN6JLtgRidPX6QxjBQGQf72q3si2uvqyFEMbycSFFHwAZeXx6cJgFM9wmLrf9zBwCP3Ivqa+LLZPw==}
     engines: {node: '>=6'}
 
-  loader-utils@3.2.1:
-    resolution: {integrity: sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==}
+  loader-utils@3.3.1:
+    resolution: {integrity: sha512-FMJTLMXfCLMLfJxcX9PFqX5qD88Z5MRGaZCVzfuqeZSPsyiBzs+pahDQjbIWz2QIzPZz0NX9Zy4FX3lmK6YHIg==}
     engines: {node: '>= 12.13.0'}
 
   local-pkg@0.5.0:
@@ -6241,11 +6243,6 @@ packages:
 
   semver@7.5.4:
     resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
-  semver@7.6.0:
-    resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -9411,12 +9408,13 @@ snapshots:
     dependencies:
       esm-env: 1.0.0
 
-  '@laynezh/vite-plugin-lib-assets@0.5.22':
+  '@laynezh/vite-plugin-lib-assets@0.5.23(vite@5.3.1(@types/node@20.14.8)(terser@5.31.1))':
     dependencies:
       escape-string-regexp: 4.0.0
-      loader-utils: 3.2.1
+      loader-utils: 3.3.1
       mrmime: 1.0.1
-      semver: 7.6.0
+      semver: 7.6.2
+      vite: 5.3.1(@types/node@20.14.8)(terser@5.31.1)
 
   '@mantine/core@7.10.2(@mantine/hooks@7.10.2(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -13227,7 +13225,7 @@ snapshots:
       pify: 4.0.1
       strip-bom: 3.0.0
 
-  loader-utils@3.2.1: {}
+  loader-utils@3.3.1: {}
 
   local-pkg@0.5.0:
     dependencies:
@@ -14642,10 +14640,6 @@ snapshots:
   semver@6.3.1: {}
 
   semver@7.5.4:
-    dependencies:
-      lru-cache: 6.0.0
-
-  semver@7.6.0:
     dependencies:
       lru-cache: 6.0.0
 
