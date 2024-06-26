@@ -1,0 +1,32 @@
+{
+  "name": "@timelet/i18n",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite build --watch --sourcemap",
+    "build": "vite build --minify",
+    "build:dev": "vite build --watch --sourcemap",
+    "preview": "vite preview",
+    "lint": "eslint . --max-warnings=0"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1",
+    "vite-plugin-dts": "^3.9.1"
+  },
+  "dependencies": {}
+}

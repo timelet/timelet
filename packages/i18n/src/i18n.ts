@@ -1,6 +1,6 @@
 import { findClosestLocale } from "./locale";
 import { prependSlugToPath, replaceSegments, splitLocaleFromPath } from "./path";
-import { LocaleDetails } from "../types";
+import { LocaleDetails } from "./types";
 
 export function translatePath(path: string, locales: LocaleDetails[], defaultLocale: string) {
   const splitPath = splitLocaleFromPath(path);

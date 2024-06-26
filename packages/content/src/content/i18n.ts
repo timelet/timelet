@@ -1,5 +1,5 @@
+import { translatePath } from "@timelet/i18n";
 import { ContentStage } from "../types";
-import { translatePath } from "../utils/i18n";
 
 export const i18nContentStage: ContentStage = (content, _, configuration) => {
   if (!configuration?.i18n) return content;
