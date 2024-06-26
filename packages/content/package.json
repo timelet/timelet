@@ -32,12 +32,12 @@
     "lint": "eslint . --max-warnings=0"
   },
   "devDependencies": {
-    "vite": "^5.2.13",
+    "vite": "^5.3.1",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.32.32",
+    "@sinclair/typebox": "^0.32.34",
     "chokidar": "^3.6.0",
     "fast-glob": "^3.3.2",
     "limax": "^4.1.0",
