@@ -1,5 +1,11 @@
 # @timelet/web
 
+## 0.1.8
+
+### Patch Changes
+
+- @timelet/content@0.1.5
+
 ## 0.1.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @timelet/content
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies [66b459e]
+  - @timelet/i18n@0.0.2
+
 ## 0.1.4
 
 ### Patch Changes
