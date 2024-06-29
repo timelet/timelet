@@ -33,8 +33,7 @@
   },
   "devDependencies": {
     "vite": "^5.3.2",
-    "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
     "@sinclair/typebox": "^0.32.34",
