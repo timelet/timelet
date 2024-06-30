@@ -28,7 +28,7 @@ vi.mock("./pipeline", () => ({
 }));
 
 describe("registerCollection", () => {
-  it("should register collection", async () => {
+  it("should register collection with i18n", async () => {
     setConfiguration({
       i18n: {
         locales: [
@@ -72,6 +72,56 @@ describe("registerCollection", () => {
           },
         ],
         "name": "test",
+        "searchPath": "assets/content/**/docs/**/*.mdx",
+      }
+    `);
+  });
+  it("should render collection", async () => {
+    setConfiguration({
+      i18n: {
+        locales: [
+          { key: "en-US", slug: "en" },
+          { key: "de-CH", slug: "de" },
+        ],
+        defaultLocale: "en-US",
+      },
+    });
+    const name = await registerCollection({
+      name: "test",
+      basePath: "assets/content/",
+      globPath: "/**/docs/**/*.mdx",
+      options: { render: true },
+    });
+    expect(mocks.glob).toHaveBeenCalledWith("assets/content/**/docs/**/*.mdx");
+    expect(name).toBeDefined();
+    const collection = getCollection(name);
+    expect(collection).toMatchInlineSnapshot(`
+      {
+        "basePath": "assets/content/",
+        "contents": [
+          {
+            "file": "assets/content/de-CH/docs/getting-started.mdx",
+            "type": "mdx",
+            "url": "assets/content/de-CH/docs/getting-started.mdx",
+          },
+          {
+            "file": "assets/content/de-CH/docs/index.mdx",
+            "type": "mdx",
+            "url": "assets/content/de-CH/docs/index.mdx",
+          },
+          {
+            "file": "assets/content/en-US/docs/getting-started.mdx",
+            "type": "mdx",
+            "url": "assets/content/en-US/docs/getting-started.mdx",
+          },
+          {
+            "file": "assets/content/en-US/docs/index.mdx",
+            "type": "mdx",
+            "url": "assets/content/en-US/docs/index.mdx",
+          },
+        ],
+        "name": "test",
+        "outputPath": "./.timelet/content/",
         "searchPath": "assets/content/**/docs/**/*.mdx",
       }
     `);

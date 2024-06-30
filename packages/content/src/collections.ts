@@ -35,7 +35,7 @@ export async function registerCollection(registration: CollectionRegistration) {
   };
 
   if (options.render && config.outputPath) {
-    collection["outputPath"] = config.outputPath;
+    collection.outputPath = config.outputPath;
   }
 
   const processedCollection = processCollection(collection);

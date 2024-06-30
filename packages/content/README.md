@@ -10,9 +10,14 @@ For providing the base functionality the following dependencies are used:
 - `chokidar`: Listning to file changes
 - `fast-glob`: Selecting files
 
-## Useage
+## Usage
 
 1. Add `@timelet/content` dependency
+
+## Roadmap
+
+- [ ] Render files
+- [ ] Implement CLI client
 
 ## Alternatives
 

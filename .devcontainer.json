@@ -11,7 +11,8 @@
 				"eamodio.gitlens",
 				"styled-components.vscode-styled-components",
 				"GitHub.copilot",
-				"GitHub.vscode-pull-request-github"
+				"GitHub.vscode-pull-request-github",
+				"vitest.explorer"
 			]
 		}
 	},
