@@ -27,7 +27,7 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
-    "glob": "^10.4.2",
+    "glob": "^11.0.0",
     "limax": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
