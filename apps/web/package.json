@@ -18,7 +18,7 @@
     "@timelet/content": "workspace:*",
     "@timelet/ui": "workspace:*",
     "@types/compression": "^1.7.5",
-    "@types/express": "^4.17.21",
+    "@types/express": "^5.0.0",
     "@types/mdx": "^2.0.12",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
