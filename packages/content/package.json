@@ -36,7 +36,7 @@
     "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.33.0",
+    "@sinclair/typebox": "^0.34.0",
     "@timelet/i18n": "workspace:*",
     "chokidar": "^3.6.0",
     "fast-glob": "^3.3.2",
