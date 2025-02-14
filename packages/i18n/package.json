@@ -25,7 +25,7 @@
     "lint": "eslint . --max-warnings=0"
   },
   "devDependencies": {
-    "vite": "^5.3.2",
+    "vite": "^6.0.0",
     "vite-plugin-dts": "^3.9.1"
   }
 }
