@@ -38,7 +38,7 @@
   "dependencies": {
     "@sinclair/typebox": "^0.34.0",
     "@timelet/i18n": "workspace:*",
-    "chokidar": "^3.6.0",
+    "chokidar": "^4.0.0",
     "fast-glob": "^3.3.2",
     "limax": "^4.1.0",
     "to-vfile": "^8.0.0",
