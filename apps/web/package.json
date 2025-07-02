@@ -35,7 +35,7 @@
     "react-type-animation": "^3.2.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.0.0",
-    "sirv": "^2.0.4",
+    "sirv": "^3.0.0",
     "ts-node": "^10.9.2",
     "vike": "^0.4.177",
     "vite": "^5.3.2",
