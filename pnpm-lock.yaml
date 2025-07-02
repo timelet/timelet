@@ -259,8 +259,8 @@ importers:
         version: 3.34.0(react@18.3.1)
     devDependencies:
       '@laynezh/vite-plugin-lib-assets':
-        specifier: ^0.6.0
-        version: 0.6.1(vite@5.4.19(@types/node@22.10.1)(terser@5.36.0))
+        specifier: ^1.0.0
+        version: 1.1.0(vite@5.4.19(@types/node@22.10.1)(terser@5.36.0))
       '@storybook/addon-essentials':
         specifier: ^8.1.11
         version: 8.6.14(@types/react@18.3.23)(storybook@8.6.14(prettier@3.6.2))
@@ -1453,8 +1453,8 @@ packages:
     resolution: {integrity: sha512-8Om4jxF3XLTrpCkrZ8q6kHco4o6u/zKisA7XjLdiUDeSX7VSprlq6fnG2xayrbrc1He+pHQkgj2cHqqUvEHTGg==}
     engines: {node: ^16.14 || >=18}
 
-  '@laynezh/vite-plugin-lib-assets@0.6.1':
-    resolution: {integrity: sha512-pdIRW/PiJkuM7/OObjGBGfQmsWetmVObeez6uwT3nhP5cu2zT0L5QELq69caWD/v3QlPY3CPXVN0kZrzQzdvsQ==}
+  '@laynezh/vite-plugin-lib-assets@1.1.0':
+    resolution: {integrity: sha512-Rynyr1A/DxJEmjNZu4NrpDQUfxUmJhanqojwOO20HQWtN5Oc0jJ3ZtwnlpntruK6VYV8aC25Mjzs67dmTIBHyA==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
 
@@ -7337,12 +7337,12 @@ snapshots:
     dependencies:
       esm-env: 1.2.2
 
-  '@laynezh/vite-plugin-lib-assets@0.6.1(vite@5.4.19(@types/node@22.10.1)(terser@5.36.0))':
+  '@laynezh/vite-plugin-lib-assets@1.1.0(vite@5.4.19(@types/node@22.10.1)(terser@5.36.0))':
     dependencies:
       escape-string-regexp: 4.0.0
       loader-utils: 3.3.1
       mrmime: 1.0.1
-      semver: 7.6.3
+      semver: 7.7.2
       vite: 5.4.19(@types/node@22.10.1)(terser@5.36.0)
 
   '@mantine/core@7.17.8(@mantine/hooks@7.17.8(react@18.3.1))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
