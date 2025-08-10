@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@sinclair/typebox": "^0.34.0",
-    "chokidar": "^3.6.0",
+    "chokidar": "^4.0.0",
     "to-vfile": "^8.0.0",
     "vfile-matter": "^5.0.0"
   }
